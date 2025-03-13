@@ -1,36 +1,102 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# JyvStream Desktop Landing Page
+
+A modern, responsive landing page for JyvStream Desktop - a professional-grade audio processing application for content creators, streamers, and professionals.
+
+## Features
+
+- **Modern Design**: Built with Next.js 15, TypeScript, and Tailwind CSS
+- **Responsive Layout**: Optimized for all device sizes from mobile to desktop
+- **Interactive Elements**: 3D audio visualizer, interactive demos, and animated UI components
+- **Performance Optimized**: Fast loading times with code splitting and lazy loading
+- **SEO Friendly**: Proper metadata and semantic HTML structure
+
+## Technical Stack
+
+- **Framework**: Next.js 15
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion
+- **3D Rendering**: React Three Fiber / Three.js
+- **Icons**: React Icons
+
+## Sections
+
+1. **Hero Section**: Features a 3D audio visualizer that responds to microphone input
+2. **Features Grid**: Highlights key features of JyvStream Desktop
+3. **Interactive Demo**: Allows users to test the noise removal capabilities
+4. **Technical Requirements**: Detailed specifications and system requirements
+5. **Testimonials**: User feedback and success stories
+6. **Pricing Tiers**: Subscription options with feature comparison
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+ 
+- npm or yarn
+
+### Installation
 
 ```bash
+# Clone the repository
+git clone https://github.com/your-username/jyvstream-desktop-landing.git
+
+# Navigate to the project directory
+cd jyvstream-desktop-landing
+
+# Install dependencies
+npm install
+# or
+yarn install
+
+# Start the development server
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The application will be available at `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Building for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+# Build the application
+npm run build
+# or
+yarn build
 
-## Learn More
+# Start the production server
+npm start
+# or
+yarn start
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Project Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+jyvstream-desktop-landing/
+├── public/              # Static assets
+├── src/
+│   ├── app/             # Next.js app directory
+│   ├── components/      # React components
+│   │   ├── sections/    # Page sections
+│   │   └── ui/          # Reusable UI components
+│   ├── hooks/           # Custom React hooks
+│   ├── lib/             # Utility functions
+│   └── types/           # TypeScript type definitions
+├── .eslintrc.json       # ESLint configuration
+├── next.config.js       # Next.js configuration
+├── package.json         # Project dependencies
+├── tailwind.config.js   # Tailwind CSS configuration
+└── tsconfig.json        # TypeScript configuration
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## License
 
-## Deploy on Vercel
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Acknowledgements
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Design inspiration from modern SaaS landing pages
+- Audio processing technology by JyvStream
+- 3D visualization techniques from Three.js community

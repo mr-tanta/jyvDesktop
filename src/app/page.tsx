@@ -1,103 +1,78 @@
-import Image from "next/image";
+import dynamic from 'next/dynamic';
+import { Suspense } from 'react';
+
+// Dynamically load heavy components with proper loading states
+const HeroSection = dynamic(() => import('@/components/sections/Hero'), {
+  loading: () => (
+    <div className="h-screen bg-gradient-to-b from-black to-black/90 flex items-center justify-center">
+      <div className="w-16 h-16 relative">
+        <div className="absolute inset-0 rounded-full border-4 border-green-500/20 animate-ping"></div>
+        <div className="absolute inset-0 rounded-full border-t-4 border-green-500 animate-spin"></div>
+      </div>
+    </div>
+  )
+});
+
+const FeaturesGrid = dynamic(() => import('@/components/sections/FeaturesGrid'), {
+  loading: () => <div className="h-96 bg-black animate-pulse" />
+});
+
+const PricingTiers = dynamic(() => import('@/components/sections/PricingTiers'), {
+  loading: () => <div className="h-96 bg-black animate-pulse" />
+});
+
+const TestimonialCarousel = dynamic(() => import('@/components/sections/Testimonials'), {
+  loading: () => <div className="h-96 bg-black animate-pulse" />
+});
+
+const InteractiveDemo = dynamic(() => import('@/components/ui/InteractiveDemo'), {
+  loading: () => <div className="h-96 bg-black animate-pulse" />
+});
+
+const TechnicalRequirements = dynamic(() => import('@/components/sections/TechnicalRequirements'), {
+  loading: () => <div className="h-96 bg-black animate-pulse" />
+});
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <main className="relative overflow-hidden bg-black">
+      {/* Hero Section with integrated AudioVisualizer */}
+      <HeroSection />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      {/* Content Sections */}
+      <Suspense fallback={<div className="h-96 bg-black animate-pulse" />}>
+        <FeaturesGrid />
+        <InteractiveDemo />
+        <TestimonialCarousel />
+        <TechnicalRequirements />
+        <PricingTiers />
+
+        {/* Final CTA Section */}
+        <section className="py-20 bg-gradient-to-b from-black to-black relative overflow-hidden">
+          {/* Background elements */}
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute top-0 right-0 w-80 h-80 bg-green-500/10 rounded-full blur-[100px]"></div>
+            <div className="absolute bottom-0 left-0 w-60 h-60 bg-emerald-500/10 rounded-full blur-[80px]"></div>
+            
+            {/* Grid overlay */}
+            <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-[0.03]"></div>
+          </div>
+          
+          <div className="container mx-auto px-4 text-center relative z-10">
+            <h2 className="text-4xl font-bold text-white mb-6">
+              Ready to <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-500">Transform</span> Your Audio Experience?
+            </h2>
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <button className="bg-gradient-to-r from-green-500 to-emerald-600 text-white px-8 py-4 rounded-lg font-bold hover:shadow-lg hover:shadow-green-500/20 transition transform hover:scale-105">
+                Start Free Trial
+              </button>
+              <button className="border border-green-500/30 bg-green-500/10 text-green-400 px-8 py-4 rounded-lg font-bold hover:bg-green-500/20 transition transform hover:scale-105">
+                Talk to Sales
+              </button>
+            </div>
+          </div>
+        </section>
+      </Suspense>
+    </main>
   );
 }

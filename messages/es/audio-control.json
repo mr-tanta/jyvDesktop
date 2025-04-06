@@ -1,0 +1,59 @@
+{
+  "hero": {
+    "badge": "Gestión Avanzada de Audio",
+    "title": "Control de Audio Preciso al Alcance de tu Mano",
+    "description": "Toma el control de todo tu entorno de audio con el potente centro de control de JyvDesktop. Gestiona volúmenes de aplicaciones, enrutamiento y perfiles con una precisión sin precedentes.",
+    "demoButton": "Probar Demo Interactiva",
+    "downloadButton": "Descargar JyvDesktop"
+  },
+  "features": {
+    "title": "Sistema Completo de Control de Audio",
+    "description": "JyvDesktop te brinda un control sin precedentes sobre todos los aspectos del audio de tu sistema, desde volúmenes de aplicaciones individuales hasta escenarios de enrutamiento complejos y perfiles personalizados."
+  },
+  "featureDetail": {
+    "badge": "Función de Control de Audio",
+    "keyCapabilities": "Capacidades Clave",
+    "tryDemo": "Probar en Demo",
+    "readDocs": "Leer Documentación"
+  },
+  "interactiveDemo": {
+    "badge": "Experiencia Interactiva",
+    "title": "Prueba el Control de Audio de JyvDesktop",
+    "description": "Experimenta cómo JyvDesktop te brinda un control preciso sobre tu entorno de audio. Ajusta volúmenes de aplicaciones, dispositivos y perfiles en esta demo interactiva.",
+    "demoHeader": {
+      "title": "Centro de Control de Audio",
+      "subtitle": "Demo Interactiva",
+      "masterVolume": "Volumen Principal",
+      "activeProfile": "Perfil Activo",
+      "resetDemo": "Reiniciar Demo",
+      "focusMode": "Modo Concentración",
+      "notificationReduction": "Reducción de Notificaciones",
+      "audioEnhancement": "Mejora de Audio"
+    },
+    "appMixer": {
+      "title": "Mezclador de Aplicaciones",
+      "description": "Ajusta el volumen y enrutamiento para aplicaciones individuales",
+      "output": "Salida:",
+      "addApp": "Añadir Aplicación"
+    },
+    "footer": {
+      "disclaimer": "Demo interactiva - la funcionalidad es limitada en comparación con la aplicación completa",
+      "audioEngine": "Motor de Audio:",
+      "active": "Activo",
+      "readyText": "¿Listo para experimentar todo el poder del control de audio de JyvDesktop?",
+      "downloadNow": "Descargar Ahora"
+    }
+  },
+  "useCases": {
+    "title": "Audio Perfecto para Cada Escenario",
+    "description": "El control avanzado de audio de JyvDesktop se adapta a tus necesidades específicas, ya sea que estés en una reunión, jugando con amigos o inmerso en un flujo de trabajo creativo.",
+    "compatibleWith": "Compatible con:",
+    "learnMore": "Más información"
+  },
+  "faq": {
+    "title": "Preguntas Frecuentes",
+    "description": "Encuentra respuestas a preguntas comunes sobre las funciones de control de audio de JyvDesktop",
+    "stillHaveQuestions": "¿Aún tienes preguntas?",
+    "contactSupport": "Contactar Soporte"
+  }
+} 

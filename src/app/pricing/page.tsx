@@ -169,9 +169,9 @@ const featuresByCategory = [
 plans.forEach(plan => {
     featuresByCategory.forEach(category => {
         category.features.forEach(feature => {
-            plan.features.push({
+            (plan.features as any[]).push({
                 ...feature,
-                value: feature[plan.id]
+                value: feature[plan.id as keyof typeof feature]
             });
         });
     });

@@ -291,7 +291,7 @@ const faqs = [
 export default function SpatialAudioPage() {
     // State for interactive demo
     const [activeFeature, setActiveFeature] = useState('3d-positioning');
-    const [expandedFaq, setExpandedFaq] = useState(null);
+    const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
     const [isPlaying, setIsPlaying] = useState(false);
     const [activeEnvironment, setActiveEnvironment] = useState('default');
     const [spatializationLevel, setSpatialization] = useState(75);
@@ -302,8 +302,8 @@ export default function SpatialAudioPage() {
     const [listenerRotation, setListenerRotation] = useState(0);
 
     // Refs for scroll animations
-    const heroRef = useRef(null);
-    const demoRef = useRef(null);
+    const heroRef = useRef<HTMLElement>(null);
+    const demoRef = useRef<HTMLElement>(null);
     const isHeroInView = useInView(heroRef, {once: false});
     const isDemoInView = useInView(demoRef, {once: false, margin: "-100px 0px"});
 
@@ -343,7 +343,7 @@ export default function SpatialAudioPage() {
     };
 
     // Find active feature
-    const currentFeature = spatialAudioFeatures.find(feature => feature.id === activeFeature);
+    const currentFeature = spatialAudioFeatures.find(feature => feature.id === activeFeature) || spatialAudioFeatures[0];
 
     // Toggle play state
     const togglePlay = () => {
@@ -351,7 +351,7 @@ export default function SpatialAudioPage() {
     };
 
     // Apply environment preset
-    const applyEnvironment = (presetId) => {
+    const applyEnvironment = (presetId: string) => {
         setActiveEnvironment(presetId);
 
         // Simulate different environment settings
@@ -375,7 +375,7 @@ export default function SpatialAudioPage() {
     };
 
     // Handle sound source drag in demo
-    const handleSoundPositionChange = (id, newX, newY) => {
+    const handleSoundPositionChange = (id: string, newX: number, newY: number) => {
         setSoundPositionState(prev =>
             prev.map(source =>
                 source.id === id ? {...source, x: newX, y: newY} : source
@@ -386,7 +386,7 @@ export default function SpatialAudioPage() {
     // Update listener rotation based on mouse position in demo
     useEffect(() => {
         if (headTracking && isDemoInView) {
-            const handleMouseMove = (e) => {
+            const handleMouseMove = (e: MouseEvent) => {
                 // Get the center of the viewport
                 const centerX = window.innerWidth / 2;
 
@@ -411,7 +411,7 @@ export default function SpatialAudioPage() {
     }, [headTracking, isDemoInView]);
 
     // Toggle FAQ expansion
-    const toggleFaq = (index) => {
+    const toggleFaq = (index: number) => {
         setExpandedFaq(expandedFaq === index ? null : index);
     };
 

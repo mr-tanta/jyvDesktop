@@ -1125,7 +1125,7 @@ export default function AudioEnhancementPage() {
                                             ))}
                                         </div>
 
-                                        {currentSettings.noiseTypes && (
+                                        {currentSettings && 'noiseTypes' in currentSettings && currentSettings.noiseTypes && (
                                             <div>
                                                 <div className="mb-3">
                                                     <span
@@ -1143,7 +1143,7 @@ export default function AudioEnhancementPage() {
                                             </div>
                                         )}
 
-                                        {currentSettings.activePreset && (
+                                        {currentSettings && 'activePreset' in currentSettings && currentSettings.activePreset && (
                                             <div>
                                                 <div className="mb-3">
                                                     <span className="text-sm text-gray-300">Active Preset:</span>

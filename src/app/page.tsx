@@ -1,5 +1,11 @@
 import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
+import SpatialAudioDemo from "@/components/sections/SpatialAudioDemo";
+import FeatureShowcase from "@/components/sections/Features";
+import MultiplatformSupport from "@/components/sections/MultiPlatformSupport";
+import SpatialAudioVisualization from "@/components/sections/SpatialAudioVisualization";
+import SecurityPrivacy from "@/components/sections/SecurityPrivacy";
+import IntegrationEcosystem from "@/components/sections/IntegrationEcosystem";
 
 // Dynamically load heavy components with proper loading states
 const HeroSection = dynamic(() => import('@/components/sections/Hero'), {
@@ -33,6 +39,10 @@ const TechnicalRequirements = dynamic(() => import('@/components/sections/Techni
   loading: () => <div className="h-96 bg-black animate-pulse" />
 });
 
+const FeaturedBlogPosts = dynamic(() => import('@/components/sections/FeaturedBlogPosts'), {
+  loading: () => <div className="h-96 bg-black animate-pulse" />
+});
+
 export default function Home() {
   return (
     <main className="relative overflow-hidden bg-black">
@@ -41,11 +51,18 @@ export default function Home() {
 
       {/* Content Sections */}
       <Suspense fallback={<div className="h-96 bg-black animate-pulse" />}>
-        <FeaturesGrid />
-        <InteractiveDemo />
-        <TestimonialCarousel />
-        <TechnicalRequirements />
-        <PricingTiers />
+        <FeatureShowcase/>
+        <MultiplatformSupport />
+        <SpatialAudioVisualization />
+        <IntegrationEcosystem />
+        <SecurityPrivacy />
+
+
+        {/*<InteractiveDemo />*/}
+        {/*<SpatialAudioDemo />*/}
+        {/*<TestimonialCarousel />*/}
+        {/*<TechnicalRequirements />*/}
+        <FeaturedBlogPosts />
 
         {/* Final CTA Section */}
         <section className="py-20 bg-gradient-to-b from-black to-black relative overflow-hidden">

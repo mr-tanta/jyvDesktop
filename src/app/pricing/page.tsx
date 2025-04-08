@@ -614,7 +614,7 @@ export default function PricingPage() {
                                                     </div>
                                                 </td>
                                                 {plans.map((plan) => {
-                                                    const value = feature[plan.id];
+                                                    const value = feature[plan.id as keyof typeof feature];
                                                     return (
                                                         <td key={`${plan.id}-${feature.name}`} className="py-4 px-4 text-center text-sm">
                                                             {typeof value === 'boolean' ? (
@@ -652,7 +652,7 @@ export default function PricingPage() {
                                             </div>
                                         </td>
                                         {plans.map((plan) => {
-                                            const value = feature[plan.id];
+                                            const value = feature[plan.id as keyof typeof feature];
                                             return (
                                                 <td key={`${plan.id}-${feature.name}`} className="py-4 px-4 text-center text-sm">
                                                     {typeof value === 'boolean' ? (

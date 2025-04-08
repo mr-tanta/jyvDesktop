@@ -1,12 +1,12 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { CreditCard, Bitcoin, Check, Loader2 } from 'lucide-react';
 import Link from 'next/link';
 
-const PaymentProcessPage = () => {
+const PaymentProcessContent = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
   const planId = searchParams.get('plan');
@@ -452,6 +452,18 @@ const PaymentProcessPage = () => {
         </div>
       </div>
     </main>
+  );
+};
+
+const PaymentProcessPage = () => {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-black flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-green-500"></div>
+      </div>
+    }>
+      <PaymentProcessContent />
+    </Suspense>
   );
 };
 

@@ -538,13 +538,13 @@ export default function UseCasesPage() {
     const [isPlaying, setIsPlaying] = useState({ before: false, after: false });
 
     // Refs for audio elements
-    const audioRefBefore = useRef(null);
-    const audioRefAfter = useRef(null);
+    const audioRefBefore = useRef<HTMLAudioElement | null>(null);
+    const audioRefAfter = useRef<HTMLAudioElement | null>(null);
 
     // Get the current use cases based on active category
-    const currentUseCases = useCasesData[activeCategory] || [];
+    const currentUseCases = useCasesData[activeCategory as keyof typeof useCasesData] || [];
     // Get the current use case
-    const currentUseCase = currentUseCases[activeUseCase] || {};
+    const currentUseCase = currentUseCases[activeUseCase] as any || {};
 
     // Animation variants
     const sectionVariants = {
@@ -560,30 +560,30 @@ export default function UseCasesPage() {
     };
 
     // Toggle audio playback
-    const toggleAudioPlayback = (type: any) => {
+    const toggleAudioPlayback = (type: 'before' | 'after') => {
         const audioRef = type === 'before' ? audioRefBefore : audioRefAfter;
 
         if (isPlaying[type]) {
-            audioRef.current.pause();
+            audioRef.current?.pause();
             setIsPlaying(prev => ({ ...prev, [type]: false }));
         } else {
             // Pause the other audio if it's playing
             if (type === 'before' && isPlaying.after) {
-                audioRefAfter.current.pause();
+                audioRefAfter.current?.pause();
                 setIsPlaying(prev => ({ ...prev, after: false }));
             } else if (type === 'after' && isPlaying.before) {
-                audioRefBefore.current.pause();
+                audioRefBefore.current?.pause();
                 setIsPlaying(prev => ({ ...prev, before: false }));
             }
 
-            audioRef.current.play();
+            audioRef.current?.play();
             setIsPlaying(prev => ({ ...prev, [type]: true }));
         }
     };
 
     // Handle audio end event
     useEffect(() => {
-        const handleAudioEnd = (type: any) => {
+        const handleAudioEnd = (type: 'before' | 'after') => {
             setIsPlaying(prev => ({ ...prev, [type]: false }));
         };
 
@@ -655,9 +655,12 @@ export default function UseCasesPage() {
 
                             <button
                                 onClick={() => {
-                                    document.querySelector('#use-cases').scrollIntoView({
-                                        behavior: 'smooth'
-                                    });
+                                    const element = document.querySelector('#use-cases');
+                                    if (element) {
+                                        element.scrollIntoView({
+                                            behavior: 'smooth'
+                                        });
+                                    }
                                 }}
                                 className="bg-gray-800 hover:bg-gray-700 text-white px-8 py-3 rounded-lg font-medium transition-colors flex items-center gap-2"
                             >
@@ -852,7 +855,7 @@ export default function UseCasesPage() {
                                         </button>
                                     )}
 
-                                    {currentUseCase.beforeAfterAudio && (
+                                    {currentUseCase?.beforeAfterAudio && (
                                         <button
                                             onClick={() => setActiveFeatureTab('audio')}
                                             className={`px-6 py-4 font-medium whitespace-nowrap ${
@@ -1104,7 +1107,7 @@ export default function UseCasesPage() {
                                     )}
 
                                     {/* Before & After Tab */}
-                                    {activeFeatureTab === 'audio' && currentUseCase.beforeAfterAudio && (
+                                    {activeFeatureTab === 'audio' && currentUseCase?.beforeAfterAudio && (
                                         <div className="bg-gray-900/50 border border-gray-800 rounded-2xl overflow-hidden p-8">
                                             <h3 className="text-2xlfont-bold mb-6">Hear the JyvDesktop Difference</h3>
                                             <p className="text-gray-300 mb-8">

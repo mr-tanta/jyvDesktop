@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { CreditCard, DollarSign, Bitcoin, Wand2, ChevronRight } from 'lucide-react';
@@ -24,7 +24,7 @@ interface PaymentMethod {
   iconBg: string;
 }
 
-const PaymentPage = () => {
+const PaymentContent = () => {
   const searchParams = useSearchParams();
   const planId = searchParams.get('plan');
   const billingPeriod = searchParams.get('billing') || 'monthly';
@@ -335,6 +335,18 @@ const PaymentPage = () => {
         </div>
       </div>
     </main>
+  );
+};
+
+const PaymentPage = () => {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-black flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-green-500"></div>
+      </div>
+    }>
+      <PaymentContent />
+    </Suspense>
   );
 };
 

@@ -296,7 +296,7 @@ export default function SpatialAudioPage() {
     const [activeEnvironment, setActiveEnvironment] = useState('default');
     const [spatializationLevel, setSpatialization] = useState(75);
     const [roomSize, setRoomSize] = useState(60);
-    const [activeSoundSource, setActiveSoundSource] = useState(null);
+    const [activeSoundSource, setActiveSoundSource] = useState<string | null>(null);
     const [soundPositionState, setSoundPositionState] = useState(soundPositions);
     const [headTracking, setHeadTracking] = useState(false);
     const [listenerRotation, setListenerRotation] = useState(0);
@@ -413,6 +413,17 @@ export default function SpatialAudioPage() {
     // Toggle FAQ expansion
     const toggleFaq = (index: number) => {
         setExpandedFaq(expandedFaq === index ? null : index);
+    };
+
+    const handleSourceClick = (e: React.MouseEvent<HTMLDivElement>) => {
+        e.stopPropagation();
+        const target = e.target as HTMLElement;
+        if (target.parentElement) {
+            const sourceId = target.parentElement.getAttribute('data-id');
+            if (sourceId) {
+                setActiveSoundSource(sourceId);
+            }
+        }
     };
 
     return (
@@ -848,10 +859,12 @@ export default function SpatialAudioPage() {
                                         drag
                                         dragConstraints={{left: 5, right: 95, top: 5, bottom: 95}}
                                         dragMomentum={false}
-                                        onClick={() => setActiveSoundSource(source.id)}
+                                        onClick={handleSourceClick}
                                         onDrag={(e, info) => {
                                             // Calculate new position as percentage of container
-                                            const container = e.target.parentElement;
+                                            if (!e.target) return;
+                                            const container = (e.target as HTMLElement).parentElement;
+                                            if (!container) return;
                                             const rect = container.getBoundingClientRect();
                                             const x = Math.max(5, Math.min(95, (info.point.x - rect.left) / rect.width * 100));
                                             const y = Math.max(5, Math.min(95, (info.point.y - rect.top) / rect.height * 100));

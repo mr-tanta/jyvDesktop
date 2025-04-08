@@ -1042,7 +1042,7 @@ const SpatialAudioVisualization = () => {
 
                             {/* Decorative code snippet */}
                             <div className="absolute -bottom-8 -right-8 max-w-xs bg-gray-900 rounded-lg border border-gray-800 shadow-lg p-4 text-sm font-mono text-gray-300 transform rotate-3">
-                                <div className="text-gray-500 mb-2">// HRTF processing snippet</div>
+                                <div className="text-gray-500 mb-2">{/* HRTF processing snippet */}</div>
                                 <div><span className="text-purple-400">function</span> <span className="text-blue-400">processHRTF</span>(source, listener) {'{'}</div>
                                 <div className="pl-4"><span className="text-purple-400">const</span> azimuth = <span className="text-blue-400">calculateAzimuth</span>(source, listener);</div>
                                 <div className="pl-4"><span className="text-purple-400">const</span> elevation = <span className="text-blue-400">calculateElevation</span>(source, listener);</div>

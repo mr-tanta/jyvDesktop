@@ -341,19 +341,19 @@ const enhancementPresets = [
 export default function AudioEnhancementPage() {
     // State for interactive demo
     const [activeFeature, setActiveFeature] = useState('noise-suppression');
-    const [expandedFaq, setExpandedFaq] = useState(null);
+    const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
     const [isPlaying, setIsPlaying] = useState({before: false, after: false});
     const [enhancementLevel, setEnhancementLevel] = useState(75);
     const [activePreset, setActivePreset] = useState('default');
     const [aiProcessingEnabled, setAiProcessingEnabled] = useState(true);
 
     // Refs for audio elements
-    const audioRefBefore = useRef(null);
-    const audioRefAfter = useRef(null);
+    const audioRefBefore = useRef<HTMLAudioElement>(null);
+    const audioRefAfter = useRef<HTMLAudioElement>(null);
 
     // Refs for scroll animations
-    const heroRef = useRef(null);
-    const demoRef = useRef(null);
+    const heroRef = useRef<HTMLElement>(null);
+    const demoRef = useRef<HTMLElement>(null);
     const isHeroInView = useInView(heroRef, {once: false});
     const isDemoInView = useInView(demoRef, {once: false, margin: "-100px 0px"});
 
@@ -394,33 +394,33 @@ export default function AudioEnhancementPage() {
 
     // Find active feature
     const currentFeature = audioEnhancementFeatures.find(feature => feature.id === activeFeature);
-    const currentSettings = demoSettings[activeFeature];
+    const currentSettings = demoSettings[activeFeature as keyof typeof demoSettings];
 
     // Toggle audio playback
-    const toggleAudioPlayback = (type) => {
+    const toggleAudioPlayback = (type: 'before' | 'after') => {
         const audioRef = type === 'before' ? audioRefBefore : audioRefAfter;
 
         if (isPlaying[type]) {
-            audioRef.current.pause();
+            audioRef.current?.pause();
             setIsPlaying(prev => ({...prev, [type]: false}));
         } else {
             // Pause the other audio if it's playing
             if (type === 'before' && isPlaying.after) {
-                audioRefAfter.current.pause();
+                audioRefAfter.current?.pause();
                 setIsPlaying(prev => ({...prev, after: false}));
             } else if (type === 'after' && isPlaying.before) {
-                audioRefBefore.current.pause();
+                audioRefBefore.current?.pause();
                 setIsPlaying(prev => ({...prev, before: false}));
             }
 
-            audioRef.current.play();
+            audioRef.current?.play();
             setIsPlaying(prev => ({...prev, [type]: true}));
         }
     };
 
     // Handle audio end event
     useEffect(() => {
-        const handleAudioEnd = (type) => {
+        const handleAudioEnd = (type: 'before' | 'after') => {
             setIsPlaying(prev => ({...prev, [type]: false}));
         };
 
@@ -444,7 +444,7 @@ export default function AudioEnhancementPage() {
     }, [audioRefBefore, audioRefAfter]);
 
     // Apply enhancement preset
-    const applyPreset = (presetId) => {
+    const applyPreset = (presetId: string) => {
         setActivePreset(presetId);
 
         // Simulate different preset behaviors
@@ -463,7 +463,7 @@ export default function AudioEnhancementPage() {
     };
 
     // Toggle FAQ expansion
-    const toggleFaq = (index) => {
+    const toggleFaq = (index: number) => {
         setExpandedFaq(expandedFaq === index ? null : index);
     };
 

@@ -393,7 +393,7 @@ export default function AudioEnhancementPage() {
     };
 
     // Find active feature
-    const currentFeature = audioEnhancementFeatures.find(feature => feature.id === activeFeature);
+    const currentFeature = audioEnhancementFeatures.find(feature => feature.id === activeFeature) || audioEnhancementFeatures[0];
     const currentSettings = demoSettings[activeFeature as keyof typeof demoSettings];
 
     // Toggle audio playback

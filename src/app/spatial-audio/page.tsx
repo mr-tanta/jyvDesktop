@@ -14,7 +14,7 @@ import TestimonialsSection from '@/components/spatial-audio/TestimonialsSection'
 import CTASection from '@/components/spatial-audio/CTASection';
 
 // Data
-import { spatialAudioFeatures, useCases, faqs } from '@/data/spatialAudioData';
+import { spatialAudioFeatures, useCases, faqs } from '../../data/spatialAudioData';
 
 export default function SpatialAudioPage() {
     // State for interactive demo

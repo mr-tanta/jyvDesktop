@@ -14,13 +14,12 @@ import TestimonialsSection from '@/components/spatial-audio/TestimonialsSection'
 import CTASection from '@/components/spatial-audio/CTASection';
 
 // Data
-import { spatialAudioFeatures, useCases, soundPositions, environmentPresets, faqs } from '@/data/spatialAudioData';
+import { spatialAudioFeatures, useCases, faqs } from '@/data/spatialAudioData';
 
 export default function SpatialAudioPage() {
     // State for interactive demo
     const [activeFeature, setActiveFeature] = useState('3d-positioning');
     const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
-    const [audioEnabled, setAudioEnabled] = useState(false);
     
     // Find active feature
     const currentFeature = spatialAudioFeatures.find(feature => feature.id === activeFeature) || spatialAudioFeatures[0];
@@ -34,12 +33,7 @@ export default function SpatialAudioPage() {
         <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-950 to-black text-white overflow-x-hidden">
             <HeroSection />
             
-            <DemoSection 
-                soundPositions={soundPositions}
-                environmentPresets={environmentPresets}
-                audioEnabled={audioEnabled}
-                setAudioEnabled={setAudioEnabled}
-            />
+            <DemoSection />
             
             <FeaturesOverview 
                 features={spatialAudioFeatures} 

@@ -155,17 +155,17 @@ const SpatialAudioDemo = () => {
           await context.resume();
         }
         
-        setIsAudioReady(context.state === 'running');
+        setIsAudioReady(true);
         setErrorMessage(null);
         return true;
       } else if (audioContextRef.current.state === 'suspended') {
         // Resume suspended context
         await audioContextRef.current.resume();
-        setIsAudioReady(audioContextRef.current.state === 'running');
+        setIsAudioReady(true);
         return true;
       }
       
-      return audioContextRef.current.state === 'running';
+      return true;
     } catch (error) {
       console.error("Failed to initialize audio context:", error);
       setErrorMessage(`Audio initialization failed: ${error instanceof Error ? error.message : 'Unknown error'}`);

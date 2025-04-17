@@ -250,13 +250,14 @@ export default function Navbar() {
             <div className="relative" ref={languageMenuRef}>
               <button
                 onClick={() => setShowLanguageMenu(!showLanguageMenu)}
-                className="flex items-center text-gray-300 hover:text-white px-3 py-2"
+                className="flex items-center space-x-2 text-gray-300 hover:text-white"
               >
-                <span className="mr-2">{currentLanguage.flag}</span>
-                <span className="mr-1">{currentLanguage.code.toUpperCase()}</span>
+                <span>{currentLanguage.flag}</span>
+                <span>{currentLanguage.name}</span>
                 <FiChevronDown className={`transition-transform ${showLanguageMenu ? 'rotate-180' : ''}`} />
               </button>
               
+              {/* Language dropdown */}
               <AnimatePresence>
                 {showLanguageMenu && (
                   <motion.div
@@ -264,20 +265,18 @@ export default function Navbar() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute right-0 mt-2 w-48 bg-gray-900/95 backdrop-blur-xl border border-white/10 rounded-lg overflow-hidden shadow-2xl"
+                    className="absolute right-0 mt-2 w-40 bg-gray-900/95 backdrop-blur-xl border border-white/10 rounded-xl overflow-hidden shadow-2xl"
                   >
-                    <div className="py-2">
+                    <div className="py-1">
                       {languages.map((language) => (
                         <button
                           key={language.code}
-                          onClick={() => changeLanguage(language)}
-                          className={`flex items-center w-full px-4 py-2 text-left ${
-                            currentLanguage.code === language.code
-                              ? 'bg-green-500/20 text-green-400'
-                              : 'hover:bg-white/5 text-gray-300 hover:text-white'
+                          className={`flex items-center w-full px-4 py-2 text-sm hover:bg-white/5 transition-colors ${
+                            currentLanguage.code === language.code ? 'text-green-400' : 'text-gray-300'
                           }`}
+                          onClick={() => changeLanguage(language)}
                         >
-                          <span className="mr-3">{language.flag}</span>
+                          <span className="mr-2">{language.flag}</span>
                           <span>{language.name}</span>
                         </button>
                       ))}
@@ -287,21 +286,13 @@ export default function Navbar() {
               </AnimatePresence>
             </div>
             
-            {/* Contact Sales Button */}
-            <Link 
-              href="#contact"
-              className="text-white hover:text-green-400 transition-colors py-2"
-            >
-              Contact Sales
-            </Link>
-            
-            {/* Download Button */}
-            <Link 
+            {/* Get Started button */}
+            <Link
               href="/download"
-              className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-4 py-2 rounded-lg font-medium transition-all flex items-center space-x-2 shadow-lg shadow-green-500/20"
+              className="bg-gradient-to-r from-green-500 to-emerald-600 text-white px-4 py-2 rounded-lg font-medium hover:shadow-lg hover:shadow-green-500/20 transition transform hover:scale-105 flex items-center gap-2"
             >
-              <DownloadCloudIcon size={18} />
-              <span>Download</span>
+              <DownloadCloudIcon size={16} />
+              Download JyvStream Desktop
             </Link>
           </div>
 

@@ -69,7 +69,7 @@ hr = pDevice->Activate(__uuidof(IAudioSessionManager),
                 { label: "RAM Usage", value: "<300MB" }
             ],
             testimonial: {
-                text: "JyvDesktop transformed my Windows gaming setup. The spatial audio gives me a competitive edge in FPS games.",
+                text: "JyvStream Desktop transformed my Windows gaming setup. The spatial audio gives me a competitive edge in FPS games.",
                 author: "Alex Morgan",
                 title: "Professional Gamer"
             }
@@ -100,7 +100,7 @@ OSStatus status = AudioObjectGetPropertyDataSize(
                 { label: "RAM Usage", value: "<350MB" }
             ],
             testimonial: {
-                text: "As a music producer, JyvDesktop's AU plugin support on macOS is indispensable for my workflow.",
+                text: "As a music producer, JyvStream Desktop's AU plugin support on macOS is indispensable for my workflow.",
                 author: "Sophia Chen",
                 title: "Music Producer"
             }
@@ -130,7 +130,7 @@ analyser.getByteTimeDomainData(dataArray);`,
                 { label: "RAM Usage", value: "<200MB" }
             ],
             testimonial: {
-                text: "JyvDesktop finally makes my Chromebook viable for video conferencing. The noise cancellation is exceptional.",
+                text: "JyvStream Desktop finally makes my Chromebook viable for video conferencing. The noise cancellation is exceptional.",
                 author: "David Wu",
                 title: "Remote Educator"
             }
@@ -175,13 +175,13 @@ analyser.getByteTimeDomainData(dataArray);`,
                         CROSS-PLATFORM EXCELLENCE
                     </div>
                     <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">
-                        One powerful experience, <br/>
+                        One powerful solution, <br/>
                         <span className="bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent">
-              any device you choose
-            </span>
+                        any device you choose
+                        </span>
                     </h2>
                     <p className="text-gray-300 max-w-3xl mx-auto text-lg">
-                        JyvDesktop delivers consistent, high-performance audio enhancement across all major platforms,
+                        JyvStream Desktop delivers consistent, high-performance audio enhancement across all major platforms,
                         with native optimization for each operating system's unique audio architecture.
                     </p>
                 </motion.div>
@@ -251,7 +251,7 @@ analyser.getByteTimeDomainData(dataArray);`,
                                 <div className="relative rounded-xl overflow-hidden border border-green-500/10 shadow-xl shadow-green-900/20 bg-gradient-to-br from-gray-900 to-black">
                                     <Image
                                         src={activePlatform.device}
-                                        alt={`JyvDesktop on ${activePlatform.name}`}
+                                        alt={`JyvStream Desktop on ${activePlatform.name}`}
                                         width={600}
                                         height={400}
                                         className="w-full h-auto"
@@ -284,7 +284,7 @@ analyser.getByteTimeDomainData(dataArray);`,
                                     <div className="w-3 h-3 rounded-full bg-red-500"></div>
                                     <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
                                     <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                                    <span className="text-gray-400 text-xs ml-2">jyvdesktop_{activePlatform.id}.cpp</span>
+                                    <span className="text-gray-400 text-xs ml-2">jyvstream_{activePlatform.id}.cpp</span>
                                 </div>
                                 <div className="px-4 py-3 max-h-32 overflow-y-auto text-sm font-mono">
                   <pre className="text-gray-300 whitespace-pre-wrap">
@@ -328,7 +328,7 @@ analyser.getByteTimeDomainData(dataArray);`,
                                 Native {activePlatform.name} Integration
                             </h3>
                             <p className="text-gray-300 mb-8">
-                                Experience JyvDesktop optimized specifically for {activePlatform.name}, leveraging the unique
+                                Experience JyvStream Desktop optimized specifically for {activePlatform.name}, leveraging the unique
                                 audio architecture to deliver uncompromising performance and reliability.
                             </p>
                         </motion.div>
@@ -458,7 +458,7 @@ analyser.getByteTimeDomainData(dataArray);`,
                                                             <div className="h-24 rounded-lg overflow-hidden relative">
                                                                 <Image
                                                                     src={`/images/${platform.id}-preview.webp`}
-                                                                    alt={`JyvDesktop on ${platform.name}`}
+                                                                    alt={`JyvStream Desktop on ${platform.name}`}
                                                                     width={250}
                                                                     height={96}
                                                                     className="w-full h-full object-cover"
@@ -499,7 +499,7 @@ analyser.getByteTimeDomainData(dataArray);`,
                                                     </div>
                                                 </div>
                                                 <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 whitespace-nowrap rounded-full bg-black/80 border border-green-500/20 px-3 py-1 text-xs text-green-500 font-medium">
-                                                    JyvDesktop Cloud
+                                                    JyvStream Desktop Cloud
                                                 </div>
                                             </div>
                                         </div>
@@ -517,7 +517,7 @@ analyser.getByteTimeDomainData(dataArray);`,
                         animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                         transition={{ duration: 0.5, delay: 0.7 }}
                     >
-                        <h3 className="text-2xl font-bold text-white mb-4">Experience JyvDesktop on any device</h3>
+                        <h3 className="text-2xl font-bold text-white mb-4">Experience JyvStream Desktop on any device</h3>
                         <p className="text-gray-300 mb-8">
                             One license gives you access across all supported platforms. Download now to transform your audio experience everywhere.
                         </p>
@@ -564,7 +564,7 @@ analyser.getByteTimeDomainData(dataArray);`,
                     <div className="bg-gray-900 border border-gray-800 rounded-xl overflow-hidden">
                         <div className="p-6 border-b border-gray-800">
                             <h3 className="text-xl font-bold text-white">Platform Comparison</h3>
-                            <p className="text-gray-400">See how JyvDesktop performs across different operating systems</p>
+                            <p className="text-gray-400">See how JyvStream Desktop performs across different operating systems</p>
                         </div>
 
                         <div className="overflow-x-auto">
@@ -648,7 +648,7 @@ analyser.getByteTimeDomainData(dataArray);`,
                     <div className="text-center mb-12">
                         <h3 className="text-2xl font-bold text-white mb-3">Works with your favorite apps</h3>
                         <p className="text-gray-300 max-w-2xl mx-auto">
-                            JyvDesktop seamlessly integrates with popular applications across all platforms
+                            JyvStream Desktop seamlessly integrates with popular applications across all platforms
                         </p>
                     </div>
 

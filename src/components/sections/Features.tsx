@@ -199,10 +199,10 @@ export default function FeatureShowcase() {
                 {/* Section header */}
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
-                        Powerful Features for Complete Audio Control
+                        Powerful Tools for Complete Audio Control
                     </h2>
                     <p className="text-gray-400 max-w-3xl mx-auto text-lg">
-                        Explore JyvDesktop's powerful capabilities that give you unprecedented control over your audio environment
+                        JyvStream Desktop gives you professional audio tools that are easy to use. Transform your sound experience with these powerful features.
                     </p>
                 </div>
 

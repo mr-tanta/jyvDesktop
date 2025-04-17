@@ -341,21 +341,552 @@ const enhancementPresets = [
 export default function AudioEnhancementPage() {
     // State for interactive demo
     const [activeFeature, setActiveFeature] = useState('noise-suppression');
-    const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
-    const [isPlaying, setIsPlaying] = useState({before: false, after: false});
     const [enhancementLevel, setEnhancementLevel] = useState(75);
     const [activePreset, setActivePreset] = useState('default');
     const [aiProcessingEnabled, setAiProcessingEnabled] = useState(true);
+    const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
+    const [audioInitialized, setAudioInitialized] = useState(false);
+    const [isPlaying, setIsPlaying] = useState({
+        before: false,
+        after: false
+    });
 
-    // Refs for audio elements
-    const audioRefBefore = useRef<HTMLAudioElement>(null);
-    const audioRefAfter = useRef<HTMLAudioElement>(null);
+    // Audio refs
+    const audioRefBefore = useRef<HTMLAudioElement | null>(null);
+    const audioRefAfter = useRef<HTMLAudioElement | null>(null);
+
+    // Demo settings
+    const demoSettings = {
+        'noise-suppression': {
+            before: 'High background noise, distracting elements',
+            after: 'Crystal clear audio with minimal noise'
+        },
+        'voice-enhancement': {
+            before: 'Muffled speech with poor articulation',
+            after: 'Clear, professional voice quality'
+        },
+        'dynamic-processor': {
+            before: 'Inconsistent volume levels with peaks and dips',
+            after: 'Balanced, consistent audio levels'
+        },
+        'equalizer': {
+            before: 'Unbalanced frequency response',
+            after: 'Rich, full-spectrum sound'
+        }
+    };
 
     // Refs for scroll animations
-    const heroRef = useRef<HTMLElement>(null);
-    const demoRef = useRef<HTMLElement>(null);
-    const isHeroInView = useInView(heroRef, {once: false});
-    const isDemoInView = useInView(demoRef, {once: false, margin: "-100px 0px"});
+    const heroRef = useRef(null);
+    const demoRef = useRef(null);
+    const featuresRef = useRef(null);
+    const techRef = useRef(null);
+
+    // Check if sections are in view
+    const isHeroInView = useInView(heroRef, {once: false, margin: "-100px 0px"});
+    const isInView = useInView(demoRef, {once: false, margin: "-100px 0px"});
+    
+    // Use local state for cross-compatibility with Next.js async APIs
+    const [isDemoInView, setIsDemoInView] = useState(false);
+
+    // Update isDemoInView when isInView changes
+    useEffect(() => {
+        setIsDemoInView(isInView);
+    }, [isInView]);
+
+    // Audio Context and processing nodes
+    const audioContextRef = useRef<AudioContext | null>(null);
+    const sourceNodeBeforeRef = useRef<MediaElementAudioSourceNode | null>(null);
+    const sourceNodeAfterRef = useRef<MediaElementAudioSourceNode | null>(null);
+    const gainNodeRef = useRef<GainNode | null>(null);
+    const filterNodeRef = useRef<BiquadFilterNode | null>(null);
+    const compressorNodeRef = useRef<DynamicsCompressorNode | null>(null);
+    
+    // Initialize audio on component mount
+    useEffect(() => {
+        // Create audio elements
+        if (!audioRefBefore.current) {
+            audioRefBefore.current = new Audio();
+            audioRefBefore.current.preload = 'metadata';
+        }
+        
+        if (!audioRefAfter.current) {
+            audioRefAfter.current = new Audio();
+            audioRefAfter.current.preload = 'metadata';
+        }
+        
+        // Set initial sources based on active feature
+        updateAudioSources(activeFeature);
+        
+        // Initialize Audio Context and processing nodes
+        if (typeof window !== 'undefined' && !audioContextRef.current) {
+            try {
+                audioContextRef.current = new (window.AudioContext || (window as any).webkitAudioContext)();
+                
+                // Create analyzer nodes for visualizations
+                if (audioContextRef.current) {
+                    analyzerBeforeRef.current = audioContextRef.current.createAnalyser();
+                    analyzerBeforeRef.current.fftSize = 256;
+                    
+                    analyzerAfterRef.current = audioContextRef.current.createAnalyser();
+                    analyzerAfterRef.current.fftSize = 256;
+                }
+            } catch (error) {
+                console.error("Failed to create Audio Context:", error);
+            }
+        }
+        
+        // Set up animation frame for visualization
+        let animationFrameId: number;
+        
+        if (audioInitialized && analyzerBeforeRef.current && analyzerAfterRef.current) {
+            const beforeCanvas = beforeCanvasRef.current;
+            const afterCanvas = afterCanvasRef.current;
+            
+            if (beforeCanvas && afterCanvas) {
+                const beforeCtx = beforeCanvas.getContext('2d');
+                const afterCtx = afterCanvas.getContext('2d');
+                
+                if (beforeCtx && afterCtx) {
+                    const drawVisualizer = () => {
+                        // Draw visualization only if canvas is visible
+                        if (isDemoInView) {
+                            // Before audio visualization
+                            const beforeBufferLength = analyzerBeforeRef.current!.frequencyBinCount;
+                            const beforeDataArray = new Uint8Array(beforeBufferLength);
+                            analyzerBeforeRef.current!.getByteFrequencyData(beforeDataArray);
+                            
+                            beforeCtx.clearRect(0, 0, beforeCanvas.width, beforeCanvas.height);
+                            beforeCtx.fillStyle = 'rgba(30, 30, 30, 0.2)';
+                            beforeCtx.fillRect(0, 0, beforeCanvas.width, beforeCanvas.height);
+                            
+                            const beforeBarWidth = (beforeCanvas.width / beforeBufferLength) * 2.5;
+                            let beforeX = 0;
+                            
+                            for (let i = 0; i < beforeBufferLength; i++) {
+                                const beforeBarHeight = beforeDataArray[i] / 2;
+                                
+                                beforeCtx.fillStyle = `rgba(75, 85, 99, ${isPlaying.before ? 0.8 : 0.4})`;
+                                beforeCtx.fillRect(beforeX, beforeCanvas.height - beforeBarHeight, beforeBarWidth, beforeBarHeight);
+                                
+                                beforeX += beforeBarWidth + 1;
+                            }
+                            
+                            // After audio visualization with enhancement-based colors
+                            const afterBufferLength = analyzerAfterRef.current!.frequencyBinCount;
+                            const afterDataArray = new Uint8Array(afterBufferLength);
+                            analyzerAfterRef.current!.getByteFrequencyData(afterDataArray);
+                            
+                            afterCtx.clearRect(0, 0, afterCanvas.width, afterCanvas.height);
+                            afterCtx.fillStyle = 'rgba(30, 30, 30, 0.2)';
+                            afterCtx.fillRect(0, 0, afterCanvas.width, afterCanvas.height);
+                            
+                            const afterBarWidth = (afterCanvas.width / afterBufferLength) * 2.5;
+                            let afterX = 0;
+                            
+                            // Enhancement level affects color intensity
+                            const greenIntensity = Math.min(100, 20 + enhancementLevel);
+                            const alpha = isPlaying.after ? 0.8 : 0.4;
+                            
+                            for (let i = 0; i < afterBufferLength; i++) {
+                                // Enhancement level affects bar height boost
+                                const heightBoost = 1 + (enhancementLevel / 100);
+                                const afterBarHeight = (afterDataArray[i] / 2) * heightBoost;
+                                
+                                afterCtx.fillStyle = `rgba(34, ${greenIntensity}, 94, ${alpha})`;
+                                afterCtx.fillRect(afterX, afterCanvas.height - afterBarHeight, afterBarWidth, afterBarHeight);
+                                
+                                afterX += afterBarWidth + 1;
+                            }
+                        }
+                        
+                        animationFrameId = requestAnimationFrame(drawVisualizer);
+                    };
+                    
+                    drawVisualizer();
+                }
+            }
+        }
+        
+        // Clean up on unmount
+        return () => {
+            if (animationFrameId) {
+                cancelAnimationFrame(animationFrameId);
+            }
+            
+            if (audioRefBefore.current) {
+                audioRefBefore.current.pause();
+                audioRefBefore.current.src = '';
+            }
+            if (audioRefAfter.current) {
+                audioRefAfter.current.pause();
+                audioRefAfter.current.src = '';
+            }
+            
+            // Disconnect and close audio nodes
+            if (sourceNodeBeforeRef.current) {
+                sourceNodeBeforeRef.current.disconnect();
+            }
+            if (sourceNodeAfterRef.current) {
+                sourceNodeAfterRef.current.disconnect();
+            }
+            if (gainNodeRef.current) {
+                gainNodeRef.current.disconnect();
+            }
+            if (filterNodeRef.current) {
+                filterNodeRef.current.disconnect();
+            }
+            if (compressorNodeRef.current) {
+                compressorNodeRef.current.disconnect();
+            }
+            if (analyzerBeforeRef.current) {
+                analyzerBeforeRef.current.disconnect();
+            }
+            if (analyzerAfterRef.current) {
+                analyzerAfterRef.current.disconnect();
+            }
+            if (audioContextRef.current) {
+                audioContextRef.current.close();
+            }
+        };
+    }, [isDemoInView]);
+    
+    // Set up audio processing nodes after user interaction
+    const setupAudioProcessing = () => {
+        if (!audioContextRef.current || 
+            !audioRefBefore.current || 
+            !audioRefAfter.current ||
+            !analyzerBeforeRef.current ||
+            !analyzerAfterRef.current) return;
+        
+        try {
+            // Create audio source nodes if they don't exist
+            if (!sourceNodeBeforeRef.current) {
+                sourceNodeBeforeRef.current = audioContextRef.current.createMediaElementSource(audioRefBefore.current);
+                // Connect "Before" audio to analyzer and then to destination
+                sourceNodeBeforeRef.current.connect(analyzerBeforeRef.current);
+                analyzerBeforeRef.current.connect(audioContextRef.current.destination);
+            }
+            
+            if (!sourceNodeAfterRef.current) {
+                sourceNodeAfterRef.current = audioContextRef.current.createMediaElementSource(audioRefAfter.current);
+                
+                // Create processing nodes for "after" audio
+                // 1. Gain node for volume control
+                gainNodeRef.current = audioContextRef.current.createGain();
+                
+                // 2. Filter node for clarity/EQ
+                filterNodeRef.current = audioContextRef.current.createBiquadFilter();
+                filterNodeRef.current.type = 'highshelf';
+                filterNodeRef.current.frequency.value = 1000;
+                
+                // 3. Compressor for dynamics processing
+                compressorNodeRef.current = audioContextRef.current.createDynamicsCompressor();
+                
+                // Connect "after" audio through processing chain
+                sourceNodeAfterRef.current.connect(filterNodeRef.current);
+                filterNodeRef.current.connect(compressorNodeRef.current);
+                compressorNodeRef.current.connect(gainNodeRef.current);
+                gainNodeRef.current.connect(analyzerAfterRef.current);
+                analyzerAfterRef.current.connect(audioContextRef.current.destination);
+                
+                // Apply initial enhancement level
+                applyEnhancementLevel(enhancementLevel);
+            }
+        } catch (error) {
+            console.error("Failed to set up audio processing:", error);
+        }
+    };
+    
+    // Apply enhancement level to audio processing nodes
+    const applyEnhancementLevel = (level: number) => {
+        if (!filterNodeRef.current || !compressorNodeRef.current || !gainNodeRef.current) return;
+        
+        // Update the "after" audio source based on enhancement level
+        if (audioRefAfter.current && activeFeature === 'noise-suppression') {
+            // Select appropriate audio file based on enhancement level
+            let audioFile = '/assets/audio/audio-enhancements/with-full-enhancement.mp3';
+            
+            if (level < 25) {
+                audioFile = '/assets/audio/audio-enhancements/minus-12db-backgound-noise.mp3';
+            } else if (level < 50) {
+                audioFile = '/assets/audio/audio-enhancements/minus-15db-backgound-noise.mp3';
+            } else if (level < 75) {
+                audioFile = '/assets/audio/audio-enhancements/minus-26db-backgound-noise.mp3';
+            } else if (level < 90) {
+                audioFile = '/assets/audio/audio-enhancements/minus-34db-backgound-noise.mp3';
+            } else {
+                audioFile = '/assets/audio/audio-enhancements/with-full-enhancement.mp3';
+            }
+            
+            // Only update the source if it's different
+            if (audioRefAfter.current.src !== new URL(audioFile, window.location.href).href) {
+                // Store current time and playing state
+                const currentTime = audioRefAfter.current.currentTime;
+                const wasPlaying = !audioRefAfter.current.paused;
+                
+                // Update source
+                audioRefAfter.current.src = audioFile;
+                
+                // If it was playing, reload and continue from same position
+                if (wasPlaying) {
+                    audioRefAfter.current.load();
+                    audioRefAfter.current.currentTime = currentTime;
+                    audioRefAfter.current.play().catch(e => console.error("Error restarting audio:", e));
+                }
+            }
+        }
+        
+        // Map enhancement level (0-100) to audio parameters for Web Audio API nodes
+        // Higher enhancement means:
+        // 1. More gain for clarity
+        const normalizedGain = 1 + (level * 0.01); // 1.0 to 2.0
+        gainNodeRef.current.gain.value = normalizedGain;
+        
+        // 2. Higher clarity (filter boost)
+        const filterGain = level * 0.1; // 0 to 10 dB
+        filterNodeRef.current.gain.value = filterGain;
+        
+        // 3. More compression for consistent sound
+        const compressionRatio = 1 + (level * 0.09); // 1 to 10
+        const threshold = -40 + (level * 0.2); // -40 to -20 dB
+        compressorNodeRef.current.ratio.value = compressionRatio;
+        compressorNodeRef.current.threshold.value = threshold;
+        
+        // Different processing based on active feature/preset
+        if (activeFeature === 'noise-suppression') {
+            // More aggressive noise filtering
+            const filterFreq = 200 + (level * 5); // 200 to 700 Hz
+            filterNodeRef.current.type = 'highpass';
+            filterNodeRef.current.frequency.value = filterFreq;
+        } 
+        else if (activeFeature === 'voice-enhancement') {
+            // Voice enhancement (mid boost)
+            filterNodeRef.current.type = 'peaking';
+            filterNodeRef.current.frequency.value = 1000 + (level * 10); // Voice frequencies
+            filterNodeRef.current.Q.value = 1.0;
+        }
+        else if (activeFeature === 'dynamic-processor') {
+            // Stronger compression for dynamics
+            compressorNodeRef.current.ratio.value = 2 + (level * 0.18); // 2 to 20
+            compressorNodeRef.current.knee.value = 30 - (level * 0.25); // 30 to 5
+        }
+        else if (activeFeature === 'equalizer') {
+            // EQ enhancement
+            filterNodeRef.current.type = 'highshelf';
+            filterNodeRef.current.frequency.value = 2000;
+            filterNodeRef.current.gain.value = level * 0.15; // 0 to 15 dB
+        }
+    };
+    
+    // Update enhancement level and apply changes to audio processing
+    const handleEnhancementLevelChange = (newLevel: number) => {
+        console.log("Changing enhancement level to:", newLevel);
+        setEnhancementLevel(newLevel);
+        
+        // If we're on noise suppression feature, update the audio file based on level
+        if (activeFeature === 'noise-suppression' && audioRefAfter.current) {
+            const currentlyPlaying = isPlaying.after;
+            const currentTime = audioRefAfter.current.currentTime;
+            
+            let audioFile = '/assets/audio/audio-enhancements/with-full-enhancement.mp3';
+            
+            if (newLevel < 25) {
+                audioFile = '/assets/audio/audio-enhancements/minus-12db-backgound-noise.mp3';
+            } else if (newLevel < 50) {
+                audioFile = '/assets/audio/audio-enhancements/minus-15db-backgound-noise.mp3';
+            } else if (newLevel < 75) {
+                audioFile = '/assets/audio/audio-enhancements/minus-26db-backgound-noise.mp3';
+            } else if (newLevel < 90) {
+                audioFile = '/assets/audio/audio-enhancements/minus-34db-backgound-noise.mp3';
+            }
+            
+            // Only update if source is different
+            if (audioRefAfter.current.src !== new URL(audioFile, window.location.href).href) {
+                console.log("Updating after audio source to:", audioFile);
+                audioRefAfter.current.src = audioFile;
+                
+                // If it was playing, try to maintain state
+                if (currentlyPlaying) {
+                    audioRefAfter.current.currentTime = currentTime;
+                    audioRefAfter.current.play().catch(e => {
+                        console.error("Error restarting audio after source change:", e);
+                    });
+                }
+            }
+        }
+        
+        // Update audio characteristics based on enhancement level
+        setAudioCharacteristics({
+            noiseReduction: activeFeature === 'noise-suppression' ? newLevel : newLevel * 0.7,
+            clarity: activeFeature === 'voice-enhancement' ? newLevel : newLevel * 0.6,
+            dynamics: activeFeature === 'dynamic-processor' ? newLevel : newLevel * 0.5,
+            balance: activeFeature === 'equalizer' ? newLevel : newLevel * 0.4
+        });
+    };
+    
+    // Handle user interaction to initialize audio
+    const handleUserInteraction = async () => {
+        console.log("User interaction triggered");
+        // This function will be called on user click to enable audio
+        if (!audioInitialized) {
+            try {
+                // Create audio elements if they don't exist
+                if (!audioRefBefore.current) {
+                    audioRefBefore.current = new Audio();
+                    audioRefBefore.current.preload = 'metadata';
+                }
+                
+                if (!audioRefAfter.current) {
+                    audioRefAfter.current = new Audio();
+                    audioRefAfter.current.preload = 'metadata';
+                }
+                
+                // Set sources
+                updateAudioSources(activeFeature);
+                
+                // Initialize Audio Context if needed
+                if (typeof window !== 'undefined' && !audioContextRef.current) {
+                    audioContextRef.current = new (window.AudioContext || (window as any).webkitAudioContext)();
+                }
+                
+                // Resume audio context if needed
+                if (audioContextRef.current && audioContextRef.current.state === 'suspended') {
+                    await audioContextRef.current.resume();
+                }
+                
+                // Try to play and immediately pause to initialize audio
+                if (audioRefBefore.current) {
+                    console.log("Initializing before audio with source:", audioRefBefore.current.src);
+                    const playPromise = audioRefBefore.current.play();
+                    if (playPromise !== undefined) {
+                        await playPromise;
+                        audioRefBefore.current.pause();
+                        audioRefBefore.current.currentTime = 0;
+                    }
+                }
+                
+                if (audioRefAfter.current) {
+                    console.log("Initializing after audio with source:", audioRefAfter.current.src);
+                    const playPromise = audioRefAfter.current.play();
+                    if (playPromise !== undefined) {
+                        await playPromise;
+                        audioRefAfter.current.pause();
+                        audioRefAfter.current.currentTime = 0;
+                    }
+                }
+                
+                setAudioInitialized(true);
+                console.log("Audio initialized successfully");
+            } catch (error) {
+                console.error("Failed to initialize audio:", error);
+            }
+        }
+    };
+
+    // Toggle audio playback with proper error handling
+    const toggleAudioPlayback = async (type: 'before' | 'after') => {
+        console.log(`Toggling ${type} audio`);
+        
+        // Ensure audio is initialized
+        if (!audioInitialized) {
+            await handleUserInteraction();
+        }
+        
+        const audioRef = type === 'before' ? audioRefBefore : audioRefAfter;
+        
+        if (!audioRef.current) {
+            console.error(`${type} audio reference is null`);
+            return;
+        }
+
+        try {
+            if (isPlaying[type]) {
+                console.log(`Pausing ${type} audio`);
+                audioRef.current.pause();
+                setIsPlaying(prev => ({...prev, [type]: false}));
+            } else {
+                // Pause the other audio if it's playing
+                if (type === 'before' && isPlaying.after && audioRefAfter.current) {
+                    console.log("Pausing after audio");
+                    audioRefAfter.current.pause();
+                    setIsPlaying(prev => ({...prev, after: false}));
+                } else if (type === 'after' && isPlaying.before && audioRefBefore.current) {
+                    console.log("Pausing before audio");
+                    audioRefBefore.current.pause();
+                    setIsPlaying(prev => ({...prev, before: false}));
+                }
+
+                // Try to play the audio
+                console.log(`Playing ${type} audio with source:`, audioRef.current.src);
+                const playPromise = audioRef.current.play();
+                if (playPromise !== undefined) {
+                    playPromise
+                        .then(() => {
+                            console.log(`${type} audio playback started`);
+                            setIsPlaying(prev => ({...prev, [type]: true}));
+                        })
+                        .catch(error => {
+                            console.error(`${type} audio playback prevented:`, error);
+                        });
+                }
+            }
+        } catch (error) {
+            console.error(`Error toggling ${type} audio playback:`, error);
+        }
+    };
+
+    // Handle audio end event
+    useEffect(() => {
+        const handleBeforeAudioEnd = () => {
+            setIsPlaying(prev => ({...prev, before: false}));
+        };
+        
+        const handleAfterAudioEnd = () => {
+            setIsPlaying(prev => ({...prev, after: false}));
+        };
+
+        if (audioRefBefore.current) {
+            audioRefBefore.current.addEventListener('ended', handleBeforeAudioEnd);
+        }
+
+        if (audioRefAfter.current) {
+            audioRefAfter.current.addEventListener('ended', handleAfterAudioEnd);
+        }
+
+        return () => {
+            if (audioRefBefore.current) {
+                audioRefBefore.current.removeEventListener('ended', handleBeforeAudioEnd);
+            }
+
+            if (audioRefAfter.current) {
+                audioRefAfter.current.removeEventListener('ended', handleAfterAudioEnd);
+            }
+        };
+    }, []);
+
+    // Apply enhancement preset
+    const applyPreset = (presetId: string) => {
+        setActivePreset(presetId);
+
+        // Simulate different preset behaviors
+        if (presetId === 'voice-clarity') {
+            setEnhancementLevel(85);
+        } else if (presetId === 'music') {
+            setEnhancementLevel(70);
+        } else if (presetId === 'gaming') {
+            setEnhancementLevel(80);
+        } else if (presetId === 'noise-elimination') {
+            setEnhancementLevel(100);
+        } else {
+            // Default preset
+            setEnhancementLevel(75);
+        }
+    };
+
+    // Toggle FAQ expansion
+    const toggleFaq = (index: number) => {
+        setExpandedFaq(expandedFaq === index ? null : index);
+    };
 
     // Animation variants
     const fadeInUpVariant = {
@@ -394,78 +925,82 @@ export default function AudioEnhancementPage() {
 
     // Find active feature
     const currentFeature = audioEnhancementFeatures.find(feature => feature.id === activeFeature) || audioEnhancementFeatures[0];
-    const currentSettings = demoSettings[activeFeature as keyof typeof demoSettings];
 
-    // Toggle audio playback
-    const toggleAudioPlayback = (type: 'before' | 'after') => {
-        const audioRef = type === 'before' ? audioRefBefore : audioRefAfter;
-
-        if (isPlaying[type]) {
-            audioRef.current?.pause();
-            setIsPlaying(prev => ({...prev, [type]: false}));
-        } else {
-            // Pause the other audio if it's playing
-            if (type === 'before' && isPlaying.after) {
-                audioRefAfter.current?.pause();
-                setIsPlaying(prev => ({...prev, after: false}));
-            } else if (type === 'after' && isPlaying.before) {
-                audioRefBefore.current?.pause();
-                setIsPlaying(prev => ({...prev, before: false}));
-            }
-
-            audioRef.current?.play();
-            setIsPlaying(prev => ({...prev, [type]: true}));
-        }
-    };
-
-    // Handle audio end event
-    useEffect(() => {
-        const handleAudioEnd = (type: 'before' | 'after') => {
-            setIsPlaying(prev => ({...prev, [type]: false}));
-        };
-
-        if (audioRefBefore.current) {
-            audioRefBefore.current.addEventListener('ended', () => handleAudioEnd('before'));
-        }
-
-        if (audioRefAfter.current) {
-            audioRefAfter.current.addEventListener('ended', () => handleAudioEnd('after'));
-        }
-
-        return () => {
+    // Helper function to update audio sources
+    const updateAudioSources = (featureId: string) => {
+        const currentFeature = audioEnhancementFeatures.find(feature => feature.id === featureId) || audioEnhancementFeatures[0];
+        
+        // Always use audio-enhancements folder files for noise suppression
+        if (featureId === 'noise-suppression') {
+            // For noise suppression, always use the files from audio-enhancements folder
             if (audioRefBefore.current) {
-                audioRefBefore.current.removeEventListener('ended', () => handleAudioEnd('before'));
+                audioRefBefore.current.src = '/assets/audio/audio-enhancements/without-enhancement.mp3';
             }
-
+            
+            // Select the appropriate "after" file based on enhancement level
             if (audioRefAfter.current) {
-                audioRefAfter.current.removeEventListener('ended', () => handleAudioEnd('after'));
+                let audioFile = '/assets/audio/audio-enhancements/with-full-enhancement.mp3';
+                
+                if (enhancementLevel < 25) {
+                    audioFile = '/assets/audio/audio-enhancements/minus-12db-backgound-noise.mp3';
+                } else if (enhancementLevel < 50) {
+                    audioFile = '/assets/audio/audio-enhancements/minus-15db-backgound-noise.mp3';
+                } else if (enhancementLevel < 75) {
+                    audioFile = '/assets/audio/audio-enhancements/minus-26db-backgound-noise.mp3';
+                } else if (enhancementLevel < 90) {
+                    audioFile = '/assets/audio/audio-enhancements/minus-34db-backgound-noise.mp3';
+                }
+                
+                audioRefAfter.current.src = audioFile;
             }
-        };
-    }, [audioRefBefore, audioRefAfter]);
-
-    // Apply enhancement preset
-    const applyPreset = (presetId: string) => {
-        setActivePreset(presetId);
-
-        // Simulate different preset behaviors
-        if (presetId === 'voice-clarity') {
-            setEnhancementLevel(85);
-        } else if (presetId === 'music') {
-            setEnhancementLevel(70);
-        } else if (presetId === 'gaming') {
-            setEnhancementLevel(80);
-        } else if (presetId === 'noise-elimination') {
-            setEnhancementLevel(100);
+        } else if (currentFeature.beforeAfterAudio) {
+            // For other features, use the predefined audio files
+            if (audioRefBefore.current) {
+                audioRefBefore.current.src = currentFeature.beforeAfterAudio.before;
+            }
+            if (audioRefAfter.current) {
+                audioRefAfter.current.src = currentFeature.beforeAfterAudio.after;
+            }
         } else {
-            // Default preset
-            setEnhancementLevel(75);
+            // Fallback to files from audio-enhancements folder
+            if (audioRefBefore.current) {
+                audioRefBefore.current.src = '/assets/audio/audio-enhancements/without-enhancement.mp3';
+            }
+            if (audioRefAfter.current) {
+                audioRefAfter.current.src = '/assets/audio/audio-enhancements/with-full-enhancement.mp3';
+            }
         }
+        
+        // Reset playing state when changing sources
+        setIsPlaying({
+            before: false,
+            after: false
+        });
     };
+    
+    // Update audio sources when active feature changes
+    useEffect(() => {
+        updateAudioSources(activeFeature);
+        
+        // If audio is already initialized, update the processing parameters
+        if (audioInitialized && filterNodeRef.current && compressorNodeRef.current) {
+            applyEnhancementLevel(enhancementLevel);
+        }
+    }, [activeFeature]);
 
-    // Toggle FAQ expansion
-    const toggleFaq = (index: number) => {
-        setExpandedFaq(expandedFaq === index ? null : index);
-    };
+    // Before the declaration of audioContextRef, add these new refs:
+    const analyzerBeforeRef = useRef<AnalyserNode | null>(null);
+    const analyzerAfterRef = useRef<AnalyserNode | null>(null);
+    const beforeCanvasRef = useRef<HTMLCanvasElement | null>(null);
+    const afterCanvasRef = useRef<HTMLCanvasElement | null>(null);
+
+    // Add a new state for audio characteristics:
+    const [audioCharacteristics, setAudioCharacteristics] = useState({
+        noiseReduction: 0,
+        clarity: 0,
+        dynamics: 0,
+        balance: 0
+    });
 
     return (
         <main className="bg-black text-white min-h-screen">
@@ -665,11 +1200,6 @@ export default function AudioEnhancementPage() {
                                             >
                                                 {isPlaying.before ? <Pause size={18}/> : <Play size={18}/>}
                                                 <span className="text-sm">Before Enhancement</span>
-                                                <audio
-                                                    ref={audioRefBefore}
-                                                    src={currentFeature.beforeAfterAudio.before}
-                                                    className="hidden"
-                                                />
                                             </button>
 
                                             {/* After Audio Control */}
@@ -679,13 +1209,15 @@ export default function AudioEnhancementPage() {
                                             >
                                                 {isPlaying.after ? <Pause size={18}/> : <Play size={18}/>}
                                                 <span className="text-sm">After Enhancement</span>
-                                                <audio
-                                                    ref={audioRefAfter}
-                                                    src={currentFeature.beforeAfterAudio.after}
-                                                    className="hidden"
-                                                />
                                             </button>
                                         </div>
+                                        
+                                        {!audioInitialized && (
+                                            <div className="mt-2 text-xs text-yellow-400 flex items-center gap-1">
+                                                <Info size={12} />
+                                                <span>Click to enable audio playback</span>
+                                            </div>
+                                        )}
                                     </div>
                                 )}
                             </div>
@@ -786,8 +1318,7 @@ export default function AudioEnhancementPage() {
 
                                 <div className="flex flex-wrap gap-4 items-center">
                                     {/* Enhancement Level Slider */}
-                                    <div
-                                        className="bg-black/30 backdrop-blur-sm rounded-lg p-3 flex items-center gap-3">
+                                    <div className="bg-black/30 backdrop-blur-sm rounded-lg p-3 flex items-center gap-3">
                                         <Wand2 size={20} className="text-green-500"/>
                                         <div>
                                             <div className="text-xs text-gray-400 mb-1">Enhancement Level</div>
@@ -797,11 +1328,10 @@ export default function AudioEnhancementPage() {
                                                     min="0"
                                                     max="100"
                                                     value={enhancementLevel}
-                                                    onChange={(e) => setEnhancementLevel(parseInt(e.target.value))}
+                                                    onChange={(e) => handleEnhancementLevelChange(parseInt(e.target.value))}
                                                     className="w-32 accent-green-500"
                                                 />
-                                                <span
-                                                    className="text-sm font-medium w-8 text-white">{enhancementLevel}%</span>
+                                                <span className="text-sm font-medium w-8 text-white">{enhancementLevel}%</span>
                                             </div>
                                         </div>
                                     </div>
@@ -886,41 +1416,33 @@ export default function AudioEnhancementPage() {
                                     <div className="p-5">
                                         {/* Waveform Visualization - Original */}
                                         <div
-                                            className="h-48 bg-gray-950 rounded-lg border border-gray-800 overflow-hidden mb-4 relative">
+                                            className="h-48 bg-black/50 rounded-lg border border-gray-700 overflow-hidden mb-4 relative">
                                             <div className="absolute inset-0 flex items-center justify-center">
-                                                <svg width="100%" height="100%" viewBox="0 0 600 180"
-                                                     preserveAspectRatio="none">
-                                                    <path
-                                                        d="M0,90 Q30,60 60,90 T120,90 T180,90 T240,50 T300,120 T360,90 T420,70 T480,90 T540,110 T600,90"
-                                                        fill="none"
-                                                        stroke="#475569"
-                                                        strokeWidth="2"
-                                                    />
-                                                    <path
-                                                        d="M0,90 Q30,75 60,90 T120,90 T180,90 T240,70 T300,105 T360,90 T420,80 T480,90 T540,100 T600,90"
-                                                        fill="none"
-                                                        stroke="#64748b"
-                                                        strokeWidth="3"
-                                                    />
-                                                </svg>
+                                                <div className="text-gray-500 mb-8">Original Audio</div>
                                             </div>
-
+                                            
                                             {/* Play Button Overlay */}
                                             <div className="absolute inset-0 flex items-center justify-center">
                                                 <button
-                                                    onClick={() => toggleAudioPlayback('before')}
+                                                    onClick={() => {
+                                                        console.log("Before audio button clicked");
+                                                        handleUserInteraction();
+                                                        toggleAudioPlayback('before');
+                                                    }}
                                                     className="w-16 h-16 bg-gray-800/80 hover:bg-gray-700/80 transition-colors backdrop-blur-sm rounded-full flex items-center justify-center"
                                                 >
                                                     {isPlaying.before ? <Pause size={32}/> :
                                                         <Play size={32} className="ml-1"/>}
                                                 </button>
-
-                                                <audio
-                                                    ref={audioRefBefore}
-                                                    src={currentFeature.beforeAfterAudio?.before || '/assets/audio/demo-before.mp3'}
-                                                    className="hidden"
-                                                />
                                             </div>
+                                            
+                                            {!audioInitialized && (
+                                                <div className="absolute bottom-2 left-0 right-0 flex justify-center">
+                                                    <div className="bg-yellow-600/50 text-yellow-200 text-xs px-2 py-1 rounded">
+                                                        Click to enable audio
+                                                    </div>
+                                                </div>
+                                            )}
                                         </div>
 
                                         {/* Audio Characteristics */}
@@ -987,73 +1509,50 @@ export default function AudioEnhancementPage() {
 
                                     <div className="p-5">
                                         {/* Waveform Visualization - Enhanced */}
-                                        <div
-                                            className="h-48 bg-black/50 rounded-lg border border-green-800/30 overflow-hidden mb-4 relative">
+                                        <div className="h-48 bg-black/50 rounded-lg border border-green-800/30 overflow-hidden mb-4 relative">
                                             <div className="absolute inset-0 flex items-center justify-center">
-                                                <svg width="100%" height="100%" viewBox="0 0 600 180"
-                                                     preserveAspectRatio="none">
-                                                    <path
-                                                        d="M0,90 Q30,70 60,90 T120,90 T180,90 T240,65 T300,105 T360,90 T420,75 T480,90 T540,105 T600,90"
-                                                        fill="none"
-                                                        stroke="#0d9488"
-                                                        strokeWidth="2"
-                                                        className="opacity-40"
-                                                    />
-                                                    <path
-                                                        d="M0,90 Q30,80 60,90 T120,90 T180,90 T240,75 T300,100 T360,90 T420,80 T480,90 T540,100 T600,90"
-                                                        fill="none"
-                                                        stroke="#10b981"
-                                                        strokeWidth="3"
-                                                    />
-                                                    <motion.path
-                                                        d="M0,90 Q30,85 60,90 T120,90 T180,90 T240,80 T300,95 T360,90 T420,85 T480,90 T540,95 T600,90"
-                                                        fill="none"
-                                                        stroke="#22c55e"
-                                                        strokeWidth="1.5"
-                                                        initial={{pathLength: 0, opacity: 0}}
-                                                        animate={{pathLength: 1, opacity: 1}}
-                                                        transition={{
-                                                            duration: 1.5,
-                                                            repeat: Infinity,
-                                                            repeatType: "loop"
-                                                        }}
-                                                    />
-                                                </svg>
+                                                <div className="text-green-500 mb-8">Enhanced Audio</div>
                                             </div>
-
+                                            
                                             {/* Play Button Overlay */}
                                             <div className="absolute inset-0 flex items-center justify-center">
                                                 <button
-                                                    onClick={() => toggleAudioPlayback('after')}
+                                                    onClick={() => {
+                                                        console.log("After audio button clicked");
+                                                        handleUserInteraction();
+                                                        toggleAudioPlayback('after');
+                                                    }}
                                                     className="w-16 h-16 bg-gradient-to-r from-green-500/30 to-emerald-600/30 hover:from-green-500/40 hover:to-emerald-600/40 transition-colors backdrop-blur-sm rounded-full flex items-center justify-center"
                                                 >
                                                     {isPlaying.after ? <Pause size={32}/> :
                                                         <Play size={32} className="ml-1"/>}
                                                 </button>
-
-                                                <audio
-                                                    ref={audioRefAfter}
-                                                    src={currentFeature.beforeAfterAudio?.after || '/assets/audio/demo-after.mp3'}
-                                                    className="hidden"
-                                                />
                                             </div>
+                                            
+                                            {!audioInitialized && (
+                                                <div className="absolute bottom-2 left-0 right-0 flex justify-center">
+                                                    <div className="bg-yellow-600/50 text-yellow-200 text-xs px-2 py-1 rounded">
+                                                        Click to enable audio
+                                                    </div>
+                                                </div>
+                                            )}
                                         </div>
 
                                         {/* Audio Characteristics */}
                                         <div className="grid grid-cols-2 gap-4">
                                             <div className="flex items-start gap-2">
-                                                <div className="bg-green-500/20 p-1.5 rounded-lg">
+                                                <div className="bg-green-800/50 p-1.5 rounded-lg">
                                                     <VolumeX size={16} className="text-green-400"/>
                                                 </div>
                                                 <div>
                                                     <div className="text-sm font-medium text-white">Background Noise
                                                     </div>
-                                                    <div className="text-xs text-green-400">Eliminated</div>
+                                                    <div className="text-xs text-green-400">Removed</div>
                                                 </div>
                                             </div>
 
                                             <div className="flex items-start gap-2">
-                                                <div className="bg-green-500/20 p-1.5 rounded-lg">
+                                                <div className="bg-green-800/50 p-1.5 rounded-lg">
                                                     <Activity size={16} className="text-green-400"/>
                                                 </div>
                                                 <div>
@@ -1063,7 +1562,7 @@ export default function AudioEnhancementPage() {
                                             </div>
 
                                             <div className="flex items-start gap-2">
-                                                <div className="bg-green-500/20 p-1.5 rounded-lg">
+                                                <div className="bg-green-800/50 p-1.5 rounded-lg">
                                                     <Sliders size={16} className="text-green-400"/>
                                                 </div>
                                                 <div>
@@ -1074,7 +1573,7 @@ export default function AudioEnhancementPage() {
                                             </div>
 
                                             <div className="flex items-start gap-2">
-                                                <div className="bg-green-500/20 p-1.5 rounded-lg">
+                                                <div className="bg-green-800/50 p-1.5 rounded-lg">
                                                     <Mic size={16} className="text-green-400"/>
                                                 </div>
                                                 <div>
@@ -1087,77 +1586,127 @@ export default function AudioEnhancementPage() {
                                 </div>
                             </div>
 
-                            {/* Current Enhancement Settings */}
-                            {currentSettings && (
-                                <div className="mt-8 bg-gray-900/50 border border-gray-800 rounded-xl p-6">
-                                    <h4 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-                                        <SlidersHorizontal size={18} className="text-green-500"/>
-                                        <span>{currentSettings.name} Settings</span>
-                                    </h4>
-
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                        <div className="space-y-4">
-                                            {currentSettings.settings.map((setting, index) => (
-                                                <div key={index}>
-                                                    <div className="flex justify-between mb-1">
-                                                        <span className="text-sm text-gray-300">{setting.name}</span>
-                                                        <span className="text-sm text-green-400">
-                              {typeof setting.value === 'boolean'
-                                  ? (setting.value ? 'Enabled' : 'Disabled')
-                                  : (typeof setting.value === 'number'
-                                          ? (setting.value > 0 && setting.name.toLowerCase().includes('target') ? setting.value + ' dB' : setting.value + '%')
-                                          : setting.value
-                                  )
-                              }
-                            </span>
-                                                    </div>
-                                                    {typeof setting.value === 'number' && !setting.name.toLowerCase().includes('target') && (
-                                                        <div className="h-2 bg-gray-800 rounded-full overflow-hidden">
-                                                            <motion.div
-                                                                className="h-full bg-gradient-to-r from-green-500 to-emerald-600"
-                                                                initial={{width: 0}}
-                                                                animate={{width: `${setting.value}%`}}
-                                                                transition={{duration: 0.8, ease: "easeOut"}}
-                                                            />
-                                                        </div>
-                                                    )}
-                                                </div>
-                                            ))}
+                            {/* Add an interactive comparison tool below the waveform visualization in the After Panel */}
+                            <div className="mt-6 mb-8">
+                                <div className="text-sm font-medium text-white mb-2">Enhancement Characteristics</div>
+                                
+                                <div className="space-y-3">
+                                    <div className="flex items-center gap-4">
+                                        <div className="text-xs text-gray-400 w-32">Noise Reduction</div>
+                                        <div className="flex-1 bg-gray-800 h-2 rounded-full overflow-hidden">
+                                            <div 
+                                                className="bg-gradient-to-r from-green-500 to-emerald-600 h-full rounded-full"
+                                                style={{ width: `${audioCharacteristics.noiseReduction}%` }}
+                                            ></div>
                                         </div>
-
-                                        {currentSettings && 'noiseTypes' in currentSettings && currentSettings.noiseTypes && (
-                                            <div>
-                                                <div className="mb-3">
-                                                    <span
-                                                        className="text-sm text-gray-300">Noise Types Suppressed:</span>
-                                                </div>
-                                                <div className="flex flex-wrap gap-2">
-                                                    {currentSettings.noiseTypes.map((noiseType, index) => (
-                                                        <div key={index}
-                                                             className="bg-green-500/10 border border-green-500/20 px-3 py-1 rounded-full text-xs text-green-400 flex items-center gap-1">
-                                                            <CheckCircle2 size={12}/>
-                                                            <span>{noiseType}</span>
-                                                        </div>
-                                                    ))}
-                                                </div>
-                                            </div>
-                                        )}
-
-                                        {currentSettings && 'activePreset' in currentSettings && currentSettings.activePreset && (
-                                            <div>
-                                                <div className="mb-3">
-                                                    <span className="text-sm text-gray-300">Active Preset:</span>
-                                                </div>
-                                                <div
-                                                    className="bg-green-500/10 border border-green-500/20 px-4 py-2 rounded-lg text-sm text-green-400 inline-flex items-center gap-2">
-                                                    <Settings size={16}/>
-                                                    <span>{currentSettings.activePreset}</span>
-                                                </div>
-                                            </div>
-                                        )}
+                                        <div className="text-xs text-white w-8 text-right">{Math.round(audioCharacteristics.noiseReduction)}%</div>
+                                    </div>
+                                    
+                                    <div className="flex items-center gap-4">
+                                        <div className="text-xs text-gray-400 w-32">Voice Clarity</div>
+                                        <div className="flex-1 bg-gray-800 h-2 rounded-full overflow-hidden">
+                                            <div 
+                                                className="bg-gradient-to-r from-blue-400 to-blue-600 h-full rounded-full"
+                                                style={{ width: `${audioCharacteristics.clarity}%` }}
+                                            ></div>
+                                        </div>
+                                        <div className="text-xs text-white w-8 text-right">{Math.round(audioCharacteristics.clarity)}%</div>
+                                    </div>
+                                    
+                                    <div className="flex items-center gap-4">
+                                        <div className="text-xs text-gray-400 w-32">Dynamic Range</div>
+                                        <div className="flex-1 bg-gray-800 h-2 rounded-full overflow-hidden">
+                                            <div 
+                                                className="bg-gradient-to-r from-amber-400 to-amber-600 h-full rounded-full"
+                                                style={{ width: `${audioCharacteristics.dynamics}%` }}
+                                            ></div>
+                                        </div>
+                                        <div className="text-xs text-white w-8 text-right">{Math.round(audioCharacteristics.dynamics)}%</div>
+                                    </div>
+                                    
+                                    <div className="flex items-center gap-4">
+                                        <div className="text-xs text-gray-400 w-32">Frequency Balance</div>
+                                        <div className="flex-1 bg-gray-800 h-2 rounded-full overflow-hidden">
+                                            <div 
+                                                className="bg-gradient-to-r from-purple-400 to-purple-600 h-full rounded-full"
+                                                style={{ width: `${audioCharacteristics.balance}%` }}
+                                            ></div>
+                                        </div>
+                                        <div className="text-xs text-white w-8 text-right">{Math.round(audioCharacteristics.balance)}%</div>
                                     </div>
                                 </div>
-                            )}
+                            </div>
+
+                            {/* Add an A/B Comparison button to the controls section */}
+                            <div className="mt-4 flex justify-center">
+                                <button
+                                    onClick={() => {
+                                        console.log("A/B comparison button clicked");
+                                        handleUserInteraction();
+                                        
+                                        // Pause any currently playing audio
+                                        if (audioRefBefore.current && isPlaying.before) {
+                                            audioRefBefore.current.pause();
+                                        }
+                                        if (audioRefAfter.current && isPlaying.after) {
+                                            audioRefAfter.current.pause();
+                                        }
+                                        
+                                        // Reset state
+                                        setIsPlaying({ before: false, after: false });
+                                        
+                                        // Play before audio for 3 seconds, then after audio
+                                        setTimeout(() => {
+                                            if (audioRefBefore.current) {
+                                                audioRefBefore.current.currentTime = 0;
+                                                audioRefBefore.current.play()
+                                                    .then(() => {
+                                                        setIsPlaying(prev => ({ ...prev, before: true }));
+                                                        
+                                                        // After 3 seconds, switch to after audio
+                                                        setTimeout(() => {
+                                                            if (audioRefBefore.current) {
+                                                                audioRefBefore.current.pause();
+                                                                setIsPlaying(prev => ({ ...prev, before: false }));
+                                                                
+                                                                // Play after audio
+                                                                if (audioRefAfter.current) {
+                                                                    audioRefAfter.current.currentTime = 0;
+                                                                    audioRefAfter.current.play()
+                                                                        .then(() => {
+                                                                            setIsPlaying(prev => ({ ...prev, after: true }));
+                                                                        })
+                                                                        .catch(e => console.error("Error playing after audio:", e));
+                                                                }
+                                                            }
+                                                        }, 3000);
+                                                    })
+                                                    .catch(e => console.error("Error playing before audio:", e));
+                                            }
+                                        }, 300);
+                                    }}
+                                    className="flex items-center gap-2 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-4 py-2 rounded-lg transition-colors"
+                                >
+                                    <RefreshCw size={16} />
+                                    <span className="text-sm font-medium">A/B Compare</span>
+                                </button>
+                            </div>
+
+                            {/* Audio Demo Status */}
+                            <div className="mt-6 bg-black/30 border border-gray-800 rounded-lg p-3">
+                                <div className="flex justify-between items-center">
+                                    <div className="flex items-center gap-2">
+                                        <div className={`h-2 w-2 rounded-full ${audioInitialized ? 'bg-green-500' : 'bg-gray-500'}`}></div>
+                                        <span className="text-sm text-gray-400">Audio Engine Status:</span>
+                                        <span className={`text-sm font-medium ${audioInitialized ? 'text-green-400' : 'text-yellow-400'}`}>
+                                            {audioInitialized ? 'Ready' : 'Click to Initialize Audio'}
+                                        </span>
+                                    </div>
+                                    <div className="text-sm text-gray-400">
+                                        {enhancementLevel}% Enhancement • {activePreset} Profile
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         {/* Demo Footer */}

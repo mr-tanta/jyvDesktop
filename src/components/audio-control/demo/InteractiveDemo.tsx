@@ -1,4 +1,6 @@
-import React, { useRef, useState } from 'react';
+'use client';
+
+import React, { useRef, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import Link from 'next/link';
@@ -14,13 +16,146 @@ export const InteractiveDemo: React.FC = () => {
   const [activeProfile, setActiveProfile] = useState('default');
   const [notificationVolumeReduction, setNotificationVolumeReduction] = useState(50);
   const [focusModeEnabled, setFocusModeEnabled] = useState(false);
+  const [audioInitialized, setAudioInitialized] = useState(false);
 
-  // Ref for scroll animation
+  // Refs for scroll animation
   const demoRef = useRef(null);
-  const isDemoInView = useInView(demoRef, { once: false, margin: "-100px 0px" });
+  const isInView = useInView(demoRef, { once: false, margin: "-100px 0px" });
+  // Use a local state for isInView to avoid React.use (which is not needed here)
+  const [isDemoInView, setIsDemoInView] = useState(false);
+  
+  // Update isDemoInView when isInView changes
+  useEffect(() => {
+    setIsDemoInView(isInView);
+  }, [isInView]);
+
+  // Audio Context and Audio Elements refs
+  const audioContextRef = useRef<AudioContext | null>(null);
+  const gainNodesRef = useRef<Record<string, GainNode>>({});
+  const audioElementsRef = useRef<Record<string, HTMLAudioElement>>({});
+  const masterGainRef = useRef<GainNode | null>(null);
+  const audioSourcesRef = useRef<Record<string, MediaElementAudioSourceNode>>({});
+
+  // Initialize Web Audio API
+  useEffect(() => {
+    const initAudio = async () => {
+      try {
+        // Create Audio Context
+        if (!audioContextRef.current) {
+          audioContextRef.current = new (window.AudioContext || (window as any).webkitAudioContext)();
+        }
+
+        // Initialize master gain node
+        if (!masterGainRef.current && audioContextRef.current) {
+          masterGainRef.current = audioContextRef.current.createGain();
+          masterGainRef.current.gain.value = masterVolume / 100;
+          masterGainRef.current.connect(audioContextRef.current.destination);
+        }
+
+        // Create audio elements and gain nodes for each app
+        demoApps.forEach(app => {
+          if (!audioElementsRef.current[app.id]) {
+            // Create audio element
+            const audioEl = new Audio();
+            
+            // Set source based on app type
+            switch (app.id) {
+              case 'videocall':
+                audioEl.src = '/assets/audio/videocall-sample.mp3';
+                break;
+              case 'music':
+                audioEl.src = '/assets/audio/music-sample.mp3';
+                break;
+              case 'browser':
+                audioEl.src = '/assets/audio/browser-sample.mp3';
+                break;
+              case 'chat':
+                audioEl.src = '/assets/audio/notification-sample.mp3';
+                break;
+              case 'game':
+                audioEl.src = '/assets/audio/game-sample.mp3';
+                break;
+              default:
+                audioEl.src = '/assets/audio/default-sample.mp3';
+            }
+            
+            audioEl.loop = true;
+            audioElementsRef.current[app.id] = audioEl;
+
+            // Create source and gain node
+            if (audioContextRef.current) {
+              const source = audioContextRef.current.createMediaElementSource(audioEl);
+              audioSourcesRef.current[app.id] = source;
+              
+              const gainNode = audioContextRef.current.createGain();
+              gainNode.gain.value = app.muted ? 0 : app.volume / 100;
+              
+              // Connect source -> gain -> master gain -> destination
+              source.connect(gainNode);
+              gainNode.connect(masterGainRef.current!);
+              
+              gainNodesRef.current[app.id] = gainNode;
+            }
+          }
+        });
+
+        // Start playback of audio elements
+        Object.values(audioElementsRef.current).forEach(audio => {
+          // Using play() and catch to handle autoplay restrictions gracefully
+          const playPromise = audio.play();
+          if (playPromise !== undefined) {
+            playPromise.catch(error => {
+              // Auto-play was prevented, we'll need user interaction
+              console.log("Autoplay prevented, waiting for user interaction");
+            });
+          }
+        });
+
+        setAudioInitialized(true);
+      } catch (error) {
+        console.error("Error initializing audio:", error);
+      }
+    };
+
+    // Initialize on component mount
+    if (typeof window !== 'undefined') {
+      initAudio();
+    }
+
+    // Cleanup function
+    return () => {
+      // Stop all audio and disconnect nodes
+      Object.values(audioElementsRef.current).forEach(audio => {
+        audio.pause();
+        audio.src = '';
+      });
+      
+      // Close audio context
+      if (audioContextRef.current && audioContextRef.current.state !== 'closed') {
+        audioContextRef.current.close();
+      }
+    };
+  }, []);
+
+  // Update master volume when changed
+  useEffect(() => {
+    if (masterGainRef.current) {
+      masterGainRef.current.gain.value = masterVolume / 100;
+    }
+  }, [masterVolume]);
+
+  // Update individual app volumes when they change
+  useEffect(() => {
+    demoApps.forEach(app => {
+      const gainNode = gainNodesRef.current[app.id];
+      if (gainNode) {
+        gainNode.gain.value = app.muted ? 0 : app.volume / 100;
+      }
+    });
+  }, [demoApps]);
 
   // Handle volume change in interactive demo
-  const handleVolumeChange = (appId, newVolume) => {
+  const handleVolumeChange = (appId: string, newVolume: number) => {
     setDemoApps(prev =>
       prev.map(app =>
         app.id === appId ? { ...app, volume: newVolume } : app
@@ -29,7 +164,7 @@ export const InteractiveDemo: React.FC = () => {
   };
 
   // Handle mute toggle in interactive demo
-  const handleMuteToggle = (appId) => {
+  const handleMuteToggle = (appId: string) => {
     setDemoApps(prev =>
       prev.map(app =>
         app.id === appId ? { ...app, muted: !app.muted } : app
@@ -38,7 +173,9 @@ export const InteractiveDemo: React.FC = () => {
   };
 
   // Handle device change in interactive demo
-  const handleDeviceChange = (appId, deviceId) => {
+  const handleDeviceChange = (appId: string, deviceId: string) => {
+    // In a real application, this would change the audio output device
+    // For this demo, we'll just update the UI state
     setDemoApps(prev =>
       prev.map(app =>
         app.id === appId ? { 
@@ -55,6 +192,23 @@ export const InteractiveDemo: React.FC = () => {
     );
   };
 
+  // Initialize or resume audio after user interaction
+  const handleUserInteraction = async () => {
+    if (audioContextRef.current && audioContextRef.current.state === 'suspended') {
+      await audioContextRef.current.resume();
+      
+      // Start all audio elements
+      Object.values(audioElementsRef.current).forEach(audio => {
+        const playPromise = audio.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(error => {
+            console.log("Play prevented:", error);
+          });
+        }
+      });
+    }
+  };
+
   // Reset demo to defaults
   const resetDemo = () => {
     setDemoApps(demoApplications);
@@ -65,7 +219,7 @@ export const InteractiveDemo: React.FC = () => {
   };
 
   // Apply preset profile in demo
-  const applyProfile = (profileId) => {
+  const applyProfile = (profileId: string) => {
     setActiveProfile(profileId);
 
     // Simulate different preset behaviors
@@ -144,7 +298,12 @@ export const InteractiveDemo: React.FC = () => {
   };
 
   return (
-    <section id="interactive-demo" className="py-24 relative" ref={demoRef}>
+    <section 
+      id="interactive-demo" 
+      className="py-24 relative" 
+      ref={demoRef} 
+      onClick={handleUserInteraction}
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <motion.div
           initial="hidden"
@@ -162,6 +321,14 @@ export const InteractiveDemo: React.FC = () => {
             Experience how JyvDesktop gives you precise control over your audio environment.
             Adjust application volumes, devices, and profiles in this interactive demo.
           </p>
+          {!audioInitialized && (
+            <button 
+              onClick={handleUserInteraction}
+              className="mt-4 bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-md"
+            >
+              Click to Enable Audio
+            </button>
+          )}
         </motion.div>
 
         <motion.div
@@ -192,12 +359,12 @@ export const InteractiveDemo: React.FC = () => {
           {/* Demo Footer */}
           <div className="border-t border-gray-800 p-4 bg-black/30">
             <div className="flex justify-between items-center">
-              <div className="text-xs text-gray-500">Interactive demo - functionality is limited compared to the full application</div>
+              <div className="text-xs text-gray-500">Interactive demo - adjust volumes to hear the difference</div>
               <div className="flex items-center gap-2">
                 <span className="text-xs text-gray-400">Audio Engine:</span>
                 <span className="text-xs text-green-500 flex items-center gap-1">
                   <div className="h-1.5 w-1.5 bg-green-500 rounded-full animate-pulse"></div>
-                  Active
+                  {audioInitialized ? "Active" : "Initializing"}
                 </span>
               </div>
             </div>

@@ -14,8 +14,21 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "JyvStream - Professional Audio Control for Creators",
-  description: "Transform your sound with AI-powered audio control. Perfect for creators, gamers, and remote teams.",
+  title: "JyvStream Desktop - Professional Audio Control Suite",
+  description: "Take control of your audio environment with JyvStream Desktop. AI-powered noise suppression, spatial audio enhancement, and app-level volume control for creators, gamers, and professionals.",
+  keywords: "audio control, noise suppression, spatial audio, voice enhancement, app volume control, desktop audio, creator tools",
+  openGraph: {
+    title: "JyvStream Desktop - Professional Audio Control Suite",
+    description: "Take control of your audio environment with AI-powered audio enhancement tools",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "JyvStream Desktop",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({

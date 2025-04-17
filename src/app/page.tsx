@@ -43,25 +43,39 @@ const FeaturedBlogPosts = dynamic(() => import('@/components/sections/FeaturedBl
   loading: () => <div className="h-96 bg-black animate-pulse" />
 });
 
-export default function Home() {
+export default async function Home() {
   return (
     <main className="relative overflow-hidden bg-black">
       {/* Hero Section with integrated AudioVisualizer */}
       <HeroSection />
 
-      {/* Content Sections */}
+      {/* Content Sections - organized for proper narrative flow */}
       <Suspense fallback={<div className="h-96 bg-black animate-pulse" />}>
+        {/* Core Features - highlighting what our product does */}
         <FeatureShowcase/>
+        
+        {/* Show how it works on different platforms */}
         <MultiplatformSupport />
+        
+        {/* Technical highlights with visualization */}
         <SpatialAudioVisualization />
+        
+        {/* Integration with other tools users may have */}
         <IntegrationEcosystem />
+        
+        {/* Build trust by highlighting security/privacy */}
         <SecurityPrivacy />
-
-
-        {/*<InteractiveDemo />*/}
-        {/*<SpatialAudioDemo />*/}
-        {/*<TestimonialCarousel />*/}
-        {/*<TechnicalRequirements />*/}
+        
+        {/* Testimonials to build social proof */}
+        <TestimonialCarousel />
+        
+        {/* Interactive demo to let users experience the product */}
+        <InteractiveDemo />
+        
+        {/* Technical specs for those who want to know more */}
+        <TechnicalRequirements />
+        
+        {/* Content marketing with related blog posts */}
         <FeaturedBlogPosts />
 
         {/* Final CTA Section */}
@@ -79,13 +93,18 @@ export default function Home() {
             <h2 className="text-4xl font-bold text-white mb-6">
               Ready to <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-500">Transform</span> Your Audio Experience?
             </h2>
+            <p className="text-gray-300 max-w-2xl mx-auto mb-8">
+              Take control of your audio environment with JyvStream Desktop. Perfect for creators, gamers, and professionals looking for superior sound quality.
+            </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <button className="bg-gradient-to-r from-green-500 to-emerald-600 text-white px-8 py-4 rounded-lg font-bold hover:shadow-lg hover:shadow-green-500/20 transition transform hover:scale-105">
-                Start Free Trial
-              </button>
-              <button className="border border-green-500/30 bg-green-500/10 text-green-400 px-8 py-4 rounded-lg font-bold hover:bg-green-500/20 transition transform hover:scale-105">
-                Talk to Sales
-              </button>
+              <a href="/download" className="bg-gradient-to-r from-green-500 to-emerald-600 text-white px-8 py-4 rounded-lg font-bold hover:shadow-lg hover:shadow-green-500/20 transition transform hover:scale-105 flex items-center justify-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-download-cloud"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"></path><path d="M12 12v9"></path><path d="m8 17 4 4 4-4"></path></svg>
+                Download JyvStream Desktop
+              </a>
+              <a href="/pricing" className="border border-green-500/30 bg-green-500/10 text-green-400 px-8 py-4 rounded-lg font-bold hover:bg-green-500/20 transition transform hover:scale-105 flex items-center justify-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-tag"><path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"></path><path d="M7 7h.01"></path></svg>
+                See Pricing Options
+              </a>
             </div>
           </div>
         </section>

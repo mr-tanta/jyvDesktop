@@ -8,6 +8,10 @@ import { FiMenu, FiX, FiChevronDown, FiGlobe } from 'react-icons/fi';
 import { FaHeadphones, FaLaptop, FaGamepad, FaMusic, FaVideo } from 'react-icons/fa';
 import { DownloadCloudIcon } from 'lucide-react';
 
+// Import feature data
+import { spatialAudioFeatures } from '../../data/spatialAudioData';
+import { audioControlFeatures } from '../../data/audioControlData';
+
 // Language options
 const languages = [
   { code: 'en', name: 'English', flag: '🇺🇸' },
@@ -32,42 +36,90 @@ const navigation = [
   { name: 'Blog', href: '/blog' },
 ];
 
-// Feature categories for mega menu
+// Feature categories for mega menu based on actual data
 const featureCategories = [
   {
     name: 'Audio Control',
-    icon: <FaHeadphones className="text-emerald-500 text-xl mr-2" />,
+    icon: audioControlFeatures[0].icon, // Using the icon from the first feature
     features: [
-      { name: 'Volume Normalization', description: 'Consistent audio levels across applications', href: '/audio-control#volume' },
-      { name: 'Device Management', description: 'Manage multiple input and output devices', href: '/audio-control#devices' },
-      { name: 'Audio Routing', description: 'Route different apps to different devices', href: '/audio-control#routing' },
+      { 
+        name: audioControlFeatures[0].title, 
+        description: audioControlFeatures[0].description.substring(0, 90) + '...', 
+        href: '/audio-control#per-app-volume' 
+      },
+      { 
+        name: audioControlFeatures[1].title, 
+        description: audioControlFeatures[1].description.substring(0, 90) + '...', 
+        href: '/audio-control#audio-routing' 
+      },
+      { 
+        name: audioControlFeatures[2].title, 
+        description: audioControlFeatures[2].description.substring(0, 90) + '...', 
+        href: '/audio-control#application-profiles' 
+      },
     ]
   },
   {
     name: 'Audio Enhancement',
-    icon: <FaMusic className="text-emerald-500 text-xl mr-2" />,
+    icon: audioControlFeatures[3].icon,
     features: [
-      { name: 'Voice Clarity', description: 'Crystal clear voice for meetings and streams', href: '/audio-enhancement#voice' },
-      { name: 'Noise Suppression', description: 'Remove background noise and distractions', href: '/audio-enhancement#noise' },
-      { name: 'Equalizer', description: 'Fine-tune your audio experience', href: '/audio-enhancement#eq' },
+      { 
+        name: 'Voice Clarity', 
+        description: 'Crystal clear voice for meetings and streams with AI-powered enhancement', 
+        href: '/audio-enhancement#voice' 
+      },
+      { 
+        name: 'Noise Suppression', 
+        description: 'Remove background noise and distractions with advanced algorithms', 
+        href: '/audio-enhancement#noise' 
+      },
+      { 
+        name: 'Equalizer & Effects', 
+        description: 'Fine-tune your audio experience with customizable audio effects', 
+        href: '/audio-enhancement#eq' 
+      },
     ]
   },
   {
     name: 'Spatial Audio',
-    icon: <FaGamepad className="text-emerald-500 text-xl mr-2" />,
+    icon: spatialAudioFeatures[0].icon,
     features: [
-      { name: '3D Positional Audio', description: 'Hear sounds from exact locations', href: '/spatial-audio#positional' },
-      { name: 'Immersive Music', description: 'Experience music in 360° soundscapes', href: '/spatial-audio#music' },
-      { name: 'Custom HRTF', description: 'Personalized sound profiles for your ears', href: '/spatial-audio#hrtf' },
+      { 
+        name: spatialAudioFeatures[0].title, 
+        description: spatialAudioFeatures[0].description.substring(0, 90) + '...', 
+        href: '/spatial-audio#3d-positioning' 
+      },
+      { 
+        name: spatialAudioFeatures[1].title, 
+        description: spatialAudioFeatures[1].description.substring(0, 90) + '...', 
+        href: '/spatial-audio#hrtf-processing' 
+      },
+      { 
+        name: spatialAudioFeatures[3].title, 
+        description: spatialAudioFeatures[3].description.substring(0, 90) + '...', 
+        href: '/spatial-audio#virtual-environments' 
+      },
     ]
   },
   {
     name: 'Advanced Features',
-    icon: <FaLaptop className="text-emerald-500 text-xl mr-2" />,
+    icon: spatialAudioFeatures[6].icon,
     features: [
-      { name: 'Voice Changer', description: 'Real-time voice effects and transformations', href: '#voice-changer' },
-      { name: 'Auto Ducking', description: 'Automatically lower music when speaking', href: '#ducking' },
-      { name: 'Audio Recording', description: 'High-quality multi-track recording', href: '#recording' },
+      { 
+        name: spatialAudioFeatures[6].title, 
+        description: spatialAudioFeatures[6].description.substring(0, 90) + '...', 
+        href: '/spatial-audio#headtracking' 
+      },
+      { 
+        name: audioControlFeatures[5].title, 
+        description: audioControlFeatures[5].description.substring(0, 90) + '...', 
+        href: '/audio-control#hotkeys-gestures' 
+      },
+      { 
+        name: audioControlFeatures[7].title, 
+        description: audioControlFeatures[7].description.substring(0, 90) + '...', 
+        href: '/audio-control#analytics-visualization' 
+      },
     ]
   },
 ];
@@ -198,7 +250,7 @@ export default function Navbar() {
                             <div key={category.name} className="p-6 hover:bg-white/5 transition-colors">
                               <div className="flex items-center mb-4 font-medium text-green-400">
                                 {category.icon}
-                                {category.name}
+                                <span className="ml-2">{category.name}</span>
                               </div>
                               <ul className="space-y-4">
                                 {category.features.map((feature) => (
@@ -370,7 +422,7 @@ export default function Navbar() {
                             <div key={category.name} className="space-y-2">
                               <div className="flex items-center text-green-400 font-medium">
                                 {category.icon}
-                                {category.name}
+                                <span className="ml-2">{category.name}</span>
                               </div>
                               <ul className="space-y-4 pl-6">
                                 {category.features.map((feature) => (

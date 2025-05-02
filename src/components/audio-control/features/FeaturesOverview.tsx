@@ -5,9 +5,13 @@ import FeatureCard from './FeatureCard';
 
 interface FeaturesOverviewProps {
   setActiveFeature: (id: string) => void;
+  translations: {
+    title: string;
+    description: string;
+  };
 }
 
-export const FeaturesOverview: React.FC<FeaturesOverviewProps> = ({ setActiveFeature }) => {
+export const FeaturesOverview: React.FC<FeaturesOverviewProps> = ({ setActiveFeature, translations }) => {
   const fadeInUpVariant = {
     hidden: { opacity: 0, y: 20 },
     visible: {
@@ -42,10 +46,9 @@ export const FeaturesOverview: React.FC<FeaturesOverviewProps> = ({ setActiveFea
           variants={fadeInUpVariant}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Complete Audio Control System</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">{translations.title}</h2>
           <p className="text-gray-300 max-w-3xl mx-auto">
-            JyvDesktop gives you unprecedented control over every aspect of your system's audio,
-            from individual application volumes to complex routing scenarios and custom profiles.
+            {translations.description}
           </p>
         </motion.div>
 

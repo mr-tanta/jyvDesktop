@@ -1,0 +1,828 @@
+{
+  "app": {
+    "title": "JyvStream Desktop - 专业音频控制套件",
+    "description": "使用JyvStream Desktop控制您的音频环境。AI驱动的噪音抑制，空间音频增强，以及应用级音量控制，适用于创作者，游戏玩家和专业人士。"
+  },
+  "nav": {
+    "home": "首页",
+    "features": "功能",
+    "pricing": "价格",
+    "useCases": "使用场景",
+    "blog": "博客",
+    "download": "下载",
+    "contactSales": "联系销售"
+  },
+  "audioControl": {
+    "hero": {
+      "badge": "高级音频管理",
+      "title": "精确音频控制触手可及",
+      "description": "使用JyvDesktop强大的控制中心掌控您的整个音频环境。以前所未有的精确度管理应用程序音量、路由和配置文件。",
+      "demoButton": "尝试交互式演示",
+      "downloadButton": "下载JyvDesktop"
+    },
+    "features": {
+      "title": "完整的音频控制系统",
+      "description": "JyvDesktop让您对系统音频的各个方面拥有前所未有的控制，从单个应用程序音量到复杂的路由方案和自定义配置文件。"
+    }
+  },
+  "featureCategories": {
+    "audioControl": "音频控制",
+    "audioEnhancement": "音频增强",
+    "spatialAudio": "空间音频",
+    "advancedFeatures": "高级功能"
+  },
+  "cta": {
+    "downloadNow": "立即下载",
+    "viewAllOptions": "查看所有选项",
+    "tryFree": "免费试用",
+    "getStarted": "开始使用",
+    "learnMore": "了解更多",
+    "watchDemo": "观看演示",
+    "readyToTransform": "准备好改变您的音频体验了吗？",
+    "downloadDescription": "立即下载并体验桌面专业级音频增强。选择适合您需求的计划。"
+  },
+  "hero": {
+    "title": "专业音频控制套件",
+    "subtitle": "改变您的音频体验",
+    "description": "使用JyvStream Desktop控制您的音频环境。完美适合寻求卓越音质的创作者，游戏玩家和专业人士。",
+    "trustedBy": "全球顶级公司的专业人士信赖",
+    "compatibleWith": "与您喜爱的应用程序兼容",
+    "alternateTitle": "体验声音",
+    "alternateSubtitle": "如其本该有的方式。"
+  },
+  "features": {
+    "title": "强大功能",
+    "subtitle": "专业级音频控制",
+    "description": "JyvDesktop以直观，用户友好的包装提供企业级音频处理技术。了解我们的功能如何改变您的音频体验。",
+    "keyBenefits": "主要优势",
+    "learnMoreAbout": "了解更多关于",
+    "aiNoiseSuppression": "AI噪音抑制",
+    "lowLatency": "低延迟",
+    "audio-control": {
+      "title": "应用级音频控制",
+      "description": "精确地独立控制每个应用程序的音量级别。为不同场景创建自定义配置文件，再也不用担心突然的音量变化。",
+      "benefits": {
+        "0": "每个应用程序的独立音量控制",
+        "1": "应用程序之间的自动音量平衡",
+        "2": "适用于不同场景的自定义配置文件",
+        "3": "设备之间的无缝音频路由"
+      },
+      "stats": {
+        "apps": "32+",
+        "profiles": "无限",
+        "devices": "所有主要品牌"
+      },
+      "statsLabels": {
+        "apps": "应用程序",
+        "profiles": "配置文件",
+        "devices": "设备"
+      }
+    },
+    "noise-suppression": {
+      "title": "AI噪音抑制",
+      "description": "我们先进的AI驱动技术可以95%的准确率消除背景噪音。享受清晰的音频通话、录音和游戏会话，没有干扰。",
+      "benefits": {
+        "0": "实时降噪95%",
+        "1": "适应您环境的AI",
+        "2": "保留自然的声音特性",
+        "3": "消除键盘声、风扇噪音和背景谈话"
+      },
+      "stats": {
+        "reduction": "95%",
+        "latency": "<10毫秒",
+        "modes": "5种专业模型"
+      },
+      "statsLabels": {
+        "reduction": "噪音减少",
+        "latency": "延迟",
+        "modes": "AI模型"
+      }
+    },
+    "spatial-audio": {
+      "title": "空间音频",
+      "description": "通过沉浸式3D声音改变您的音频体验。在虚拟空间中任意位置放置音频源，创造真正身临其境的聆听体验。",
+      "benefits": {
+        "0": "在3D空间中定位声源",
+        "1": "自定义HRTF（头部相关传递函数）配置文件",
+        "2": "沉浸式游戏和电影体验",
+        "3": "兼容所有立体声耳机"
+      },
+      "stats": {
+        "positioning": "360°精确度",
+        "profiles": "自定义HRTF",
+        "compatibility": "通用"
+      },
+      "statsLabels": {
+        "positioning": "定位",
+        "profiles": "配置文件",
+        "compatibility": "兼容性"
+      }
+    },
+    "audio-enhancement": {
+      "title": "音频增强",
+      "description": "使用专业级效果和处理增强您的音频。应用参数均衡器、压缩和其他效果，为任何情况获得完美的声音。",
+      "benefits": {
+        "0": "10波段参数均衡器",
+        "1": "动态压缩和规范化",
+        "2": "针对不同内容类型优化的预设",
+        "3": "无感知延迟的实时处理"
+      },
+      "stats": {
+        "presets": "20+预设",
+        "effects": "专业级",
+        "customization": "无限"
+      },
+      "statsLabels": {
+        "presets": "预设",
+        "effects": "效果质量",
+        "customization": "自定义"
+      }
+    },
+    "analytics": {
+      "title": "音频分析",
+      "description": "通过全面分析获取有关您的音频环境的见解。监控性能、跟踪使用模式并优化您的音频设置以获得最佳体验。",
+      "benefits": {
+        "0": "实时音频频谱可视化",
+        "1": "使用和性能跟踪",
+        "2": "关于收听习惯的自定义报告",
+        "3": "基于AI的优化建议"
+      },
+      "stats": {
+        "metrics": "25+数据点",
+        "reports": "自定义洞察",
+        "history": "30天跟踪"
+      },
+      "statsLabels": {
+        "metrics": "指标",
+        "reports": "报告",
+        "history": "历史"
+      }
+    }
+  },
+  "download": {
+    "title": "在每个设备上体验专业音频",
+    "description": "下载JyvDesktop，通过AI驱动的增强功能，空间音频和精确控制改变您的音频体验。",
+    "availableForAllPlatforms": "适用于所有平台",
+    "directDownload": "直接下载",
+    "getFrom": "从获取",
+    "systemRequirements": "系统要求",
+    "installationGuide": "安装指南",
+    "commonIssues": "常见问题与解决方案",
+    "byDownloading": "下载即表示您同意我们的",
+    "termsOfService": "服务条款",
+    "privacyPolicy": "隐私政策",
+    "readyToGetStarted": "准备好开始了吗？",
+    "downloadFor": "下载适用于以下平台的JyvDesktop"
+  },
+  "pricing": {
+    "title": "简单，透明的价格",
+    "description": "选择适合您需求的计划。所有计划都包含核心功能，高级功能在更高级别的计划中提供。",
+    "monthly": "月付",
+    "yearly": "年付",
+    "saveWithYearly": "年付可节省20%",
+    "free": "免费",
+    "pro": "专业版",
+    "studio": "工作室版",
+    "forever": "永久",
+    "perMonth": "每月",
+    "perYear": "每年",
+    "currentPlan": "当前计划",
+    "upgrade": "升级",
+    "startTrial": "开始免费试用",
+    "contactSales": "联系销售",
+    "faq": "常见问题"
+  },
+  "footer": {
+    "company": "公司",
+    "about": "关于我们",
+    "careers": "职业机会",
+    "contact": "联系我们",
+    "legal": "法律",
+    "terms": "条款",
+    "privacy": "隐私",
+    "cookies": "Cookie",
+    "resources": "资源",
+    "documentation": "文档",
+    "blog": "博客",
+    "community": "社区",
+    "support": "支持",
+    "allRightsReserved": "版权所有",
+    "followUs": "关注我们"
+  },
+  "integrations": {
+    "subtitle": "强大的生态系统",
+    "title": "与您喜爱的应用程序无缝协作",
+    "description": "JyvDesktop与各种应用程序、插件和工具无缝集成，增强您的音频体验的各个方面。",
+    "tierLabel": "版本",
+    "learnMore": "了解更多关于此集成",
+    "moreIntegrations": "更多{category}集成",
+    "integrationProcess": {
+      "title": "简单的集成过程",
+      "description": "开始使用JyvDesktop集成非常轻松",
+      "step1": {
+        "title": "1. 安装JyvDesktop",
+        "description": "在您的计算机上下载并安装JyvDesktop。基本集成不需要额外插件。"
+      },
+      "step2": {
+        "title": "2. 授予权限",
+        "description": "允许JyvDesktop访问您的音频设备和应用程序以进行集成。一次性设置。"
+      },
+      "step3": {
+        "title": "3. 选择应用程序",
+        "description": "选择您想要增强的应用程序。JyvDesktop将自动检测兼容的软件。"
+      },
+      "step4": {
+        "title": "4. 享受增强的音频",
+        "description": "就是这样！JyvDesktop现在将自动增强来自您选定应用程序的所有音频。"
+      }
+    },
+    "details": {
+      "keyBenefits": "主要优势",
+      "benefit1": "应用程序之间的无缝音频路由",
+      "benefit2": "一键加载预设",
+      "benefit3": "基于检测到的内容自动配置",
+      "setupRequirements": "设置要求",
+      "requirement1": "一次性授权",
+      "requirement2": "无需插件",
+      "requirement3": "自动检测",
+      "quickSetupGuide": "快速设置指南",
+      "application": "应用程序",
+      "jyvDesktop": "JyvDesktop",
+      "output": "输出"
+    },
+    "applications": {
+      "zoom": "为您的所有会议提供清晰的音频",
+      "discord": "为游戏和社区提供增强的语音聊天",
+      "teams": "专业的商务通信通话质量",
+      "slack": "团队协作的清晰音频",
+      "spotify": "增强的音乐聆听体验",
+      "chrome": "更好的网页浏览和媒体音频",
+      "safari": "增强的macOS浏览体验音频",
+      "vlc": "视频播放器音频增强"
+    },
+    "plugins": {
+      "vst3": "支持行业标准VST3插件",
+      "au": "原生支持macOS的Audio Units",
+      "fabfilter": "专业的均衡器和动态处理",
+      "izotope": "高级音频修复和效果",
+      "waves": "行业领先的音频效果",
+      "soundtoys": "创意音频效果和处理"
+    },
+    "daw": {
+      "ableton": "音乐制作的完美集成",
+      "logic": "与Apple的DAW无缝兼容",
+      "protools": "行业标准录音室兼容性",
+      "flstudio": "为音乐制作人提供增强的工作流程",
+      "cubase": "为Steinberg的DAW提供专业音频增强",
+      "reaper": "高效工作流程的轻量级集成"
+    },
+    "streaming": {
+      "obs": "为内容创作者提供完美的流媒体音频",
+      "streamlabs": "为流媒体主播提供增强的广播功能",
+      "twitch": "为您的观众提供清晰的音频",
+      "youtube": "为内容创作者提供专业的音质",
+      "xsplit": "为直播优化的音频",
+      "streamdeck": "为直播提供一键式音频控制"
+    },
+    "proTier": {
+      "title": "专业版独享",
+      "heading": "专业音频集成套件",
+      "description": "我们的专业版为内容创作者、音乐制作人和音频专业人士提供专业的集成功能。通过高级插件支持和DAW集成，将您的音频提升到新的水平。",
+      "output": "输出",
+      "enhancedOutput": "增强输出",
+      "professionalQuality": "专业质量",
+      "vstAuPlugins": "VST/AU 插件",
+      "upgradeButton": "升级到专业版",
+      "features": {
+        "pluginsTitle": "VST3和AU插件支持",
+        "dawTitle": "DAW集成",
+        "daw": "音乐制作的无缝DAW集成",
+        "processingTitle": "高级路由矩阵",
+        "processing": "高级音频处理功能"
+      },
+      "benefits": {
+        "plugAndPlay": {
+          "title": "即插即用设置",
+          "description": "JyvDesktop 自动检测您的应用程序并配置最佳设置，使集成毫不费力，无需配置。"
+        },
+        "customization": {
+          "title": "广泛自定义",
+          "description": "为每个应用程序创建和保存自定义处理链，具有详细设置，为特定用例和场景优化。"
+        },
+        "performance": {
+          "title": "专业性能",
+          "description": "为所有应用程序提供工作室级别的处理，具有超低延迟的集成，满足专业内容创作者的需求。"
+        }
+      }
+    },
+    "categories": {
+      "applications": {
+        "name": "应用程序",
+        "description": "与JyvDesktop无缝协作的流行软件"
+      },
+      "plugins": {
+        "name": "插件",
+        "description": "VST/AU插件支持，增强音频处理能力"
+      },
+      "daw": {
+        "name": "DAW集成",
+        "description": "专业数字音频工作站兼容性"
+      },
+      "streaming": {
+        "name": "流媒体工具",
+        "description": "完美的音频增强优化您的流媒体体验"
+      }
+    },
+    "trustedBrands": {
+      "title": "受到领先品牌的信赖",
+      "description": "各行业的专业人士都在使用JyvDesktop集成"
+    },
+    "cta": {
+      "title": "准备好与您的工作流程集成了吗？",
+      "description": "立即下载JyvDesktop，体验与所有您喜爱的应用程序的无缝集成。",
+      "downloadButton": "下载JyvDesktop",
+      "guideButton": "查看集成指南"
+    }
+  },
+  
+  "securityPrivacy": {
+    "badge": "您的隐私至关重要",
+    "title": "安全与隐私设计",
+    "description": "JyvDesktop在您的设备上本地处理您的音频。您的数据保留在您的设备上，给您完全的隐私和控制权。",
+    "certifications": {
+      "soc2": {
+        "title": "SOC 2认证",
+        "description": "定期审计确认符合安全标准",
+        "details": "我们的SOC 2认证验证我们的系统在设计时考虑了安全性、隐私性和可靠性"
+      },
+      "gdpr": {
+        "title": "符合GDPR",
+        "description": "完全符合欧洲数据保护法规",
+        "details": "我们维持严格的数据保护标准，达到或超过GDPR要求"
+      },
+      "hipaa": {
+        "title": "符合HIPAA",
+        "description": "受保护的医疗信息得到保障",
+        "details": "我们的架构符合医疗行业保护敏感信息的标准"
+      },
+      "encryption": {
+        "title": "端到端加密",
+        "description": "您的数据在每一步都已加密",
+        "details": "我们对所有数据处理实施 AES-256 位加密"
+      }
+    },
+    "features": {
+      "zeroCollection": {
+        "title": "零数据收集",
+        "description": "JyvDesktop在您的设备上本地处理所有音频 - 您的数据从不离开您的计算机"
+      },
+      "transparentCode": {
+        "title": "透明代码",
+        "description": "我们开放的安全实践和定期的第三方审计确保闯责性"
+      },
+      "dataMinimization": {
+        "title": "数据最小化",
+        "description": "我们只收集必要的数据，以为您提供最佳的音频服务"
+      }
+    },
+    "tabs": {
+      "privacy": {
+        "title": "隐私优先",
+        "description": "您的对话保持私密",
+        "heading": "您的数据从不离开您的设备",
+        "content": "与将您的数据发送到云端的其他音频增强解决方案不同，JyvDesktop在本地处理所有内容。您的对话、音乐和音频内容完全保持私密。",
+        "controlPanel": {
+          "title": "隐私控制面板",
+          "dataCollection": "数据收集",
+          "off": "关闭",
+          "on": "开启",
+          "browserAccess": "浏览器访问",
+          "chatApps": "聊天应用",
+          "exportData": "导出我的数据",
+          "deleteData": "删除我的所有数据"
+        }
+      },
+      "local": {
+        "title": "本地处理",
+        "description": "所有音频处理在您的设备上进行",
+        "heading": "本地处理，无与伦比的隐私",
+        "content": "JyvDesktop直接在您的设备上处理所有音频，利用您的计算机的CPU和GPU实现最佳性能，而不会将您的数据发送到外部服务器。",
+        "features": {
+          "zeroDependency": {
+            "title": "零网络依赖",
+            "description": "完全离线工作 - 音频处理不需要互联网"
+          },
+          "optimizedPerformance": {
+            "title": "优化性能",
+            "description": "智能适应您的硬件能力，实现质量和效率的最佳平衡"
+          },
+          "lowResource": {
+            "title": "低资源使用",
+            "description": "精心设计，在保持高质量音频处理的同时最小化CPU和内存占用"
+          }
+        },
+        "localMemory": "本地内存",
+        "noCloud": "无云处理",
+        "cpu": "CPU",
+        "gpu": "GPU"
+      },
+      "control": {
+        "title": "用户控制",
+        "description": "您控制您的数据和设置",
+        "heading": "完全用户控制",
+        "content": "JyvDesktop让您完全控制您的音频设置和数据。我们相信您的隐私选择应始终掌控在您的手中。",
+        "features": {
+          "optIn": {
+            "title": "选择加入分析",
+            "description": "所有使用数据收集都是严格选择加入的，默认情况下已禁用，并有明确的解释"
+          },
+          "dataExport": {
+            "title": "数据导出和删除",
+            "description": "轻松导出或删除存储在JyvDesktop偏好设置中的任何数据"
+          },
+          "permissions": {
+            "title": "细粒度权限",
+            "description": "精确控制JyvDesktop可以访问和增强的应用程序"
+          }
+        }
+      },
+      "compliance": {
+        "title": "合规",
+        "description": "我们符合全球隐私标准",
+        "heading": "行业领先的安全标准",
+        "content": "我们将安全性作为JyvDesktop的核心进行构建，遵循最严格的行业标准和法规，确保您的数据受到保护。",
+        "viewCertification": "查看认证",
+        "learnMore": "了解更多"
+      }
+    },
+    "cta": {
+      "title": "体验以隐私优先的音频增强",
+      "description": "加入成千上万信任 JyvDesktop 在不损害隐私的情况下增强其音频的用户。",
+      "downloadButton": "下载 JyvDesktop",
+      "privacyButton": "阅读隐私政策"
+    },
+    "quote": {
+      "title": "您的数据，始终安全，始终属于您",
+      "description": "在JyvDesktop，我们致力于创造尊重您的隐私并同时增强您的音频的技术。这就是为什么我们基于本地处理和透明度的原则构建我们的整个平台。"
+    },
+    "comparison": {
+      "title": "我们如何比较",
+      "description": "看看JyvDesktop的隐私方法与其他选择有何不同",
+      "jyvdesktop": "JyvDesktop",
+      "cloudSolutions": "云解决方案",
+      "privacyFeature": "隐私功能",
+      "features": {
+        "localProcessing": {
+          "title": "本地处理",
+          "description": "所有音频处理都在您的设备上进行"
+        },
+        "worksOffline": {
+          "title": "离线工作",
+          "description": "不需要互联网连接即可完全运行"
+        },
+        "noDataCollection": {
+          "title": "无数据收集",
+          "description": "我们不收集或存储您的音频内容"
+        },
+        "optInAnalytics": {
+          "title": "选择加入分析",
+          "description": "所有使用数据都是选择性的，默认情况下已禁用"
+        },
+        "dataExport": {
+          "title": "数据导出和删除",
+          "description": "您可以完全控制您的数据"
+        },
+        "gdprCompliant": {
+          "title": "GDPR合规",
+          "description": "符合欧洲隐私标准"
+        }
+      }
+    },
+    "faq": {
+      "title": "安全和隐私常见问题",
+      "description": "关于我们如何保护您的数据的常见问题",
+      "questions": {
+        "recording": {
+          "question": "JyvDesktop是否会录制或存储我的音频？",
+          "answer": "绝对不会。JyvDesktop在您的设备上本地处理音频，不会录制、存储或发送您的音频内容到任何服务器。您的对话和音频始终保持在您的设备上。"
+        },
+        "dataCollection": {
+          "question": "JyvDesktop收集我的哪些数据？",
+          "answer": "默认情况下，JyvDesktop不会收集任何个人数据。我们提供了一个选择加入的分析程序，可以帮助我们改进产品，但这是完全可选的，默认情况下已禁用。如果启用，我们只会收集匿名的使用统计数据，从不包含您的音频内容。"
+        },
+        "localProcessing": {
+          "question": "本地处理如何保护我的隐私？",
+          "answer": "本地处理意味着您的音频数据从不离开您的设备。与将您的音频发送到云服务器进行处理的解决方案不同，JyvDesktop直接在您的设备上运行所有处理。这消除了数据泄露、未经授权的访问或第三方监控的风险。"
+        },
+        "internetConnection": {
+          "question": "我需要互联网连接才能使用JyvDesktop吗？",
+          "answer": "不，JyvDesktop的核心功能在没有互联网连接的情况下完全正常工作。只有在需要更新软件或使用某些选择性功能（如许可证激活）时才需要互联网连接。这进一步保护了您的隐私，因为即使在离线状态下，您的音频也能得到增强。"
+        }
+      }
+    }
+  },
+
+  "spatialAudioVisualization": {
+    "subtitle": "沉浸式音频",
+    "title": "感受环绕您的声音",
+    "description": "JyvDesktop的高级空间音频处理创造了一个沉浸式3D声场，精确地将每个声源定位在您想要的位置。",
+    "environments": {
+      "title": "音频环境",
+      "description": "选择一个环境，听听JyvDesktop如何改变您的音频",
+      "settings": "环境设置",
+      "reverbLevel": "混响级别",
+      "roomSize": "房间大小",
+      "types": {
+        "concert-hall": {
+          "name": "音乐厅",
+          "description": "具有丰富声学效果的大型混响空间"
+        },
+        "gaming": {
+          "name": "游戏",
+          "description": "为竞技优势提供精确的定位音频"
+        },
+        "studio": {
+          "name": "录音室",
+          "description": "经过声学处理的空间，提供清晰度"
+        },
+        "theater": {
+          "name": "剧院",
+          "description": "具有适中混响的平衡声学效果"
+        }
+      }
+    },
+    "sources": {
+      "title": "音源控制",
+      "description": "在您的空间环境中调整各个音频源",
+      "volume": "音量",
+      "distance": "距离",
+      "dragInstructions": "点击音源播放音频样本。拖动它们在3D空间中重新定位。"
+    },
+    "benefits": {
+      "title": "空间音频优势",
+      "improvedFocus": "通过位置分离提高专注度",
+      "reducedFatigue": "在长时间会话中减少听觉疲劳",
+      "enhancedGaming": "通过精确定位增强游戏意识"
+    },
+    "comparison": {
+      "title": "标准音频 vs. JyvDesktop空间音频",
+      "description": "体验JyvDesktop空间音频技术的变革性差异",
+      "standard": {
+        "title": "标准音频",
+        "description": "平面、重叠的声音",
+        "button": "聆听标准音频"
+      },
+      "spatial": {
+        "title": "JyvDesktop空间音频",
+        "description": "3D定位声音",
+        "button": "体验空间音频"
+      }
+    },
+    "technology": {
+      "subtitle": "技术原理",
+      "title": "JyvDesktop空间音频的工作原理",
+      "description1": "我们先进的HRTF（头部相关传递函数）技术模拟声音与您的头部和耳朵的交互方式，创造精确的三维音频体验。",
+      "description2": "与标准立体声不同，JyvDesktop独立处理每个声源，应用复杂的双耳算法，复制自然声学特性。",
+      "features": {
+        "hrtf": {
+          "title": "个性化HRTF处理",
+          "description": "基于耳朵和头部解剖结构的定制音频过滤"
+        },
+        "positioning": {
+          "title": "实时动态定位",
+          "description": "当您重新定位时，声源立即适应"
+        },
+        "acoustics": {
+          "title": "环境声学",
+          "description": "准确模拟不同的声学空间"
+        }
+      },
+      "processingEngine": "HRTF处理引擎",
+      "position": "位置",
+      "distance": "距离",
+      "environment": "环境",
+      "headphones": "耳机",
+      "speakers": "扬声器"
+    },
+    "cta": {
+      "title": "立即体验真正的空间音频",
+      "description": "使用JyvDesktop的先进空间音频技术改变您聆听数字音频的方式。免费试用14天，完全访问所有功能。",
+      "downloadButton": "下载JyvDesktop",
+      "learnMoreButton": "了解更多关于空间音频"
+    },
+    "faq": {
+      "title": "常见问题",
+      "description": "关于JyvDesktop空间音频技术您需要了解的一切",
+      "questions": {
+        "headphones": {
+          "question": "我需要特殊耳机来体验空间音频吗？",
+          "answer": "不需要，JyvDesktop的空间音频可与任何耳机或耳塞配合使用。但是，更高质量的耳机将提供更沉浸式的体验。为获得最佳效果，我们建议使用具有宽频响应的头戴式耳机。"
+        },
+        "surroundSound": {
+          "question": "这与环绕声有何不同？",
+          "answer": "传统环绕声依赖于多个物理扬声器围绕您定位。JyvDesktop的空间音频仅使用两个通道（立体声）创建完全三维的声场，精确计算声波与您的头部和耳朵的交互方式，创造自然、沉浸式的体验。"
+        },
+        "gaming": {
+          "question": "我可以将空间音频用于游戏吗？",
+          "answer": "当然可以！事实上，游戏是空间音频的最佳应用之一。JyvDesktop可以通过提供精确的音频定位来增强您的游戏体验，帮助您定位敌人，识别环境线索，并更深入地沉浸在游戏世界中。"
+        },
+        "compatibility": {
+          "question": "空间音频是否适用于所有应用程序？",
+          "answer": "是的，JyvDesktop在系统级别处理音频，这意味着它几乎可以与任何产生声音的应用程序一起工作。这包括流媒体服务、视频会议工具、游戏、媒体播放器等。"
+        }
+      }
+    }
+  },
+  
+  "testimonials": {
+    "subtitle": "用户评价",
+    "title": "用户如何评价我们",
+    "description": "成千上万的内容创作者、专业人士和企业每天都依赖JyvDesktop提供卓越的音频质量。",
+    "prevButton": "上一个评价",
+    "nextButton": "下一个评价",
+    "goToTestimonial": "跳转到评价 {number}",
+    "stats": {
+      "activeUsers": {
+        "value": "100K+",
+        "label": "活跃用户"
+      },
+      "averageRating": {
+        "value": "4.8",
+        "label": "平均评分"
+      },
+      "hoursProcessed": {
+        "value": "50M+",
+        "label": "处理小时数"
+      },
+      "satisfactionRate": {
+        "value": "98%",
+        "label": "满意度"
+      }
+    },
+    "people": {
+      "sarah": {
+        "name": "萨拉·约翰逊",
+        "role": "内容创作者",
+        "company": "Tech Insights频道",
+        "quote": "JyvDesktop彻底改变了我的内容制作。噪音抑制效果非常出色，我的听众立即注意到了音频质量的差异。"
+      },
+      "michael": {
+        "name": "迈克尔·陈",
+        "role": "游戏开发者",
+        "company": "Quantum Studios",
+        "quote": "作为游戏开发者，JyvDesktop的空间音频帮助我创造了更深入的沉浸式体验。这是任何处理游戏音频的人的必备工具。"
+      },
+      "emily": {
+        "name": "艾米莉·罗德里格斯",
+        "role": "播客主持人",
+        "company": "Tech Talk Weekly",
+        "quote": "切换到JyvDesktop后，我的播客质量显著提高。直觉的界面和精确的控制允许我为每一集完美调整音频。"
+      },
+      "david": {
+        "name": "大卫·金",
+        "role": "音乐制作人",
+        "company": "Harmonic Productions",
+        "quote": "JyvDesktop是我音乐制作工作流程的必要部分。其音频增强功能和与我喜欢的插件的集成使其不可或缺。"
+      },
+      "aisha": {
+        "name": "艾莎·帕特尔",
+        "role": "产品经理",
+        "company": "InnovateTech",
+        "quote": "我们的远程团队依赖JyvDesktop在虚拟会议期间进行清晰的沟通。噪音抑制和按应用程序控制显著提高了我们的协作效率。"
+      }
+    }
+  },
+
+  "competitiveAdvantage": {
+    "subtitle": "竞争格局",
+    "title": "为什么选择 JyvDesktop",
+    "description": "在音频增强市场中的独特定位，拥有全面功能，表现优于专业竞争对手。",
+    "competitorComparison": "竞争对手比较",
+    "competitor": "竞争对手",
+    "coreFocus": "核心聚焦",
+    "limitation": "限制",
+    "jyvAdvantage": "JyvDesktop 优势",
+    "featureComparison": "功能比较",
+    "keyDifferentiators": "关键差异点",
+    "ctaText": "立即下载",
+    "categories": {
+      "coreTechnology": "核心技术",
+      "platformSupport": "平台支持",
+      "hardware": "硬件",
+      "userExperience": "用户体验",
+      "enterprise": "企业级"
+    },
+    "features": {
+      "aiNoiseCancellation": "AI 降噪",
+      "appLevelAudioControl": "应用级音频控制",
+      "spatialAudio": "空间音频",
+      "windows": "Windows",
+      "macOS": "macOS",
+      "linux": "Linux",
+      "worksOnAnyDevice": "适用于任何设备",
+      "noSpecialHardware": "无需特殊硬件",
+      "intuitiveInterface": "直觉界面",
+      "customizableProfiles": "可定制配置",
+      "centralizedManagement": "集中管理",
+      "policyControls": "策略控制"
+    },
+    "differentiators": [
+      {
+        "id": 1,
+        "title": "一站式解决方案",
+        "description": "全面的音频功能，无需多个专业应用"
+      },
+      {
+        "id": 2,
+        "title": "通用设备兼容性",
+        "description": "无特殊硬件要求，与标准音频组件兼容"
+      },
+      {
+        "id": 3,
+        "title": "企业级管理",
+        "description": "集中部署、管理和策略控制，为 IT 部门提供便利"
+      }
+    ],
+    "competitors": {
+      "krisp": "Krisp",
+      "rtxVoice": "RTX Voice",
+      "voiceMeeter": "VoiceMeeter",
+      "soundSource": "SoundSource"
+    }
+  },
+
+  "platforms": {
+    "title": "在所有设备上可用",
+    "description": "JyvStream Desktop在所有主要操作系统上无缝运行，无论您使用什么设备，都能提供一致的音频增强体验。",
+    "productFor": "适用于以下平台的JyvStream Desktop",
+    "optimizedFor": "为以下平台优化",
+    "withNativeIntegration": "具有原生集成和平台特定增强功能。",
+    "keyFeatures": "主要功能",
+    "performanceMetrics": "性能指标",
+    "userTestimonial": "用户评价",
+    "worksWithFavoriteApps": "与您喜爱的应用程序兼容",
+    "integrationDescription": "JyvStream Desktop与所有平台上的流行应用程序无缝集成",
+    "statsLabels": {
+      "latency": "延迟",
+      "cpuUsage": "CPU使用率",
+      "ramUsage": "内存使用率"
+    },
+    "windows": {
+      "name": "Windows",
+      "features": {
+        "0": "WASAPI集成，实现超低延迟音频处理",
+        "1": "DirectML加速，支持AI驱动的噪音抑制",
+        "2": "支持专业音频接口的ASIO驱动程序",
+        "3": "针对Windows 10和11优化的性能"
+      },
+      "stats": {
+        "latency": "<5毫秒",
+        "cpuUsage": "~3%",
+        "ramUsage": "<300MB"
+      },
+      "testimonial": {
+        "text": "JyvStream Desktop改变了我的Windows游戏设置。空间音频在FPS游戏中给了我竞争优势。",
+        "author": "Alex Morgan",
+        "title": "专业游戏玩家"
+      }
+    },
+    "macos": {
+      "name": "macOS",
+      "features": {
+        "0": "原生CoreAudio集成，提供卓越音质",
+        "1": "Metal Performance Shaders加速AI处理",
+        "2": "支持Audio Units (AU)插件的自定义音频链",
+        "3": "适用于Apple Silicon和Intel Mac的通用应用"
+      },
+      "stats": {
+        "latency": "<7毫秒",
+        "cpuUsage": "~4%",
+        "ramUsage": "<350MB"
+      },
+      "testimonial": {
+        "text": "作为音乐制作人，JyvStream Desktop在macOS上的AU插件支持对我的工作流程至关重要。",
+        "author": "Sophia Chen",
+        "title": "音乐制作人"
+      }
+    },
+    "chromebook": {
+      "name": "Chrome OS",
+      "features": {
+        "0": "WebAudio API优化，实现低延迟处理",
+        "1": "TensorFlow.js加速AI功能",
+        "2": "Chrome扩展集成，增强浏览器音频",
+        "3": "兼容Android应用程序，支持移动工作流程"
+      },
+      "stats": {
+        "latency": "<12毫秒",
+        "cpuUsage": "~5%",
+        "ramUsage": "<250MB"
+      },
+      "testimonial": {
+        "text": "JyvStream Desktop让我的Chromebook听起来像专业录音室设置。非常适合我的在线教学。",
+        "author": "David Kim",
+        "title": "在线教育工作者"
+      }
+    }
+  }
+}

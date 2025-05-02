@@ -4,60 +4,62 @@ import { useState, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { FiChevronLeft, FiChevronRight, FiStar } from 'react-icons/fi';
 import Image from 'next/image';
-
-// Testimonial data
-const testimonials = [
-  {
-    id: 1,
-    name: "Sarah Johnson",
-    role: "Content Creator",
-    company: "TechTalk Podcast",
-    image: "/testimonials/sarah.jpg",
-    quote: "JyvDesktop has completely transformed my podcast production workflow. The noise cancellation is incredible - my listeners have noticed the difference immediately. Worth every penny!",
-    rating: 5
-  },
-  {
-    id: 2,
-    name: "Michael Chen",
-    role: "Professional Streamer",
-    company: "Twitch Partner",
-    image: "/testimonials/michael.jpg",
-    quote: "As a full-time streamer, audio quality is everything. JyvDesktop's real-time processing lets me focus on my content instead of worrying about background noise. Game changer!",
-    rating: 5
-  },
-  {
-    id: 3,
-    name: "Emily Rodriguez",
-    role: "Voice Actor",
-    company: "VoiceWorks Studio",
-    image: "/testimonials/emily.jpg",
-    quote: "The spatial audio features in JyvDesktop give my voice recordings a professional studio quality that used to require expensive hardware. My clients are amazed at the clarity.",
-    rating: 5
-  },
-  {
-    id: 4,
-    name: "David Thompson",
-    role: "Remote Team Lead",
-    company: "Global Solutions Inc.",
-    image: "/testimonials/david.jpg",
-    quote: "Our team's video meetings have improved dramatically since implementing JyvDesktop across the company. No more echo, no more interruptions from background noise.",
-    rating: 4
-  },
-  {
-    id: 5,
-    name: "Aisha Patel",
-    role: "Music Producer",
-    company: "Harmony Records",
-    image: "/testimonials/aisha.jpg",
-    quote: "The DSP effects in JyvDesktop are professional grade. I use it for quick demos and idea validation before moving to my full production setup. Incredibly versatile tool.",
-    rating: 5
-  }
-];
+import { useTranslations } from 'next-intl';
 
 export default function TestimonialCarousel() {
+  const t = useTranslations('testimonials');
   const [activeIndex, setActiveIndex] = useState(0);
   const [direction, setDirection] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  
+  // Testimonial data with translations
+  const testimonials = [
+    {
+      id: 1,
+      name: t('people.sarah.name'),
+      role: t('people.sarah.role'),
+      company: t('people.sarah.company'),
+      image: "/testimonials/sarah.jpg",
+      quote: t('people.sarah.quote'),
+      rating: 5
+    },
+    {
+      id: 2,
+      name: t('people.michael.name'),
+      role: t('people.michael.role'),
+      company: t('people.michael.company'),
+      image: "/testimonials/michael.jpg",
+      quote: t('people.michael.quote'),
+      rating: 5
+    },
+    {
+      id: 3,
+      name: t('people.emily.name'),
+      role: t('people.emily.role'),
+      company: t('people.emily.company'),
+      image: "/testimonials/emily.jpg",
+      quote: t('people.emily.quote'),
+      rating: 5
+    },
+    {
+      id: 4,
+      name: t('people.david.name'),
+      role: t('people.david.role'),
+      company: t('people.david.company'),
+      image: "/testimonials/david.jpg",
+      quote: t('people.david.quote'),
+      rating: 4
+    },
+    {
+      id: 5,
+      name: t('people.aisha.name'),
+      role: t('people.aisha.role'),
+      company: t('people.aisha.company'),
+      image: "/testimonials/aisha.jpg",
+      quote: t('people.aisha.quote'),
+      rating: 5
+    }
+  ];
   
   const nextSlide = useCallback(() => {
     setDirection(1);
@@ -107,7 +109,7 @@ export default function TestimonialCarousel() {
             viewport={{ once: true }}
             className="inline-flex items-center bg-green-500/10 px-4 py-2 rounded-full mb-4 border border-green-500/30"
           >
-            <span className="text-green-400 text-sm font-medium">User Testimonials</span>
+            <span className="text-green-400 text-sm font-medium">{t('subtitle')}</span>
           </motion.div>
           
           <motion.h2
@@ -117,7 +119,7 @@ export default function TestimonialCarousel() {
             viewport={{ once: true }}
             className="text-4xl md:text-5xl font-bold text-white mb-6"
           >
-            What Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-500">Users</span> Are Saying
+            {t('title')}
           </motion.h2>
           
           <motion.p
@@ -127,8 +129,7 @@ export default function TestimonialCarousel() {
             viewport={{ once: true }}
             className="text-gray-300 max-w-2xl mx-auto"
           >
-            Thousands of content creators, professionals, and businesses trust JyvDesktop 
-            to deliver exceptional audio quality every day.
+            {t('description')}
           </motion.p>
         </div>
         
@@ -139,7 +140,7 @@ export default function TestimonialCarousel() {
             <button 
               onClick={prevSlide}
               className="w-12 h-12 rounded-full bg-black/50 backdrop-blur-sm border border-white/10 flex items-center justify-center text-white hover:bg-green-500/20 hover:border-green-500/30 transition-colors"
-              aria-label="Previous testimonial"
+              aria-label={t('prevButton')}
             >
               <FiChevronLeft className="text-xl" />
             </button>
@@ -149,7 +150,7 @@ export default function TestimonialCarousel() {
             <button 
               onClick={nextSlide}
               className="w-12 h-12 rounded-full bg-black/50 backdrop-blur-sm border border-white/10 flex items-center justify-center text-white hover:bg-green-500/20 hover:border-green-500/30 transition-colors"
-              aria-label="Next testimonial"
+              aria-label={t('nextButton')}
             >
               <FiChevronRight className="text-xl" />
             </button>
@@ -216,7 +217,7 @@ export default function TestimonialCarousel() {
                     ? 'bg-green-500 w-8' 
                     : 'bg-white/20 hover:bg-white/40'
                 }`}
-                aria-label={`Go to testimonial ${index + 1}`}
+                aria-label={t('goToTestimonial', { number: index + 1 })}
               />
             ))}
           </div>
@@ -231,20 +232,20 @@ export default function TestimonialCarousel() {
           className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-24 text-center"
         >
           <div>
-            <div className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-500 mb-2">100K+</div>
-            <p className="text-gray-400">Active Users</p>
+            <div className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-500 mb-2">{t('stats.activeUsers.value')}</div>
+            <p className="text-gray-400">{t('stats.activeUsers.label')}</p>
           </div>
           <div>
-            <div className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-500 mb-2">4.8</div>
-            <p className="text-gray-400">Average Rating</p>
+            <div className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-500 mb-2">{t('stats.averageRating.value')}</div>
+            <p className="text-gray-400">{t('stats.averageRating.label')}</p>
           </div>
           <div>
-            <div className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-500 mb-2">50M+</div>
-            <p className="text-gray-400">Hours Processed</p>
+            <div className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-500 mb-2">{t('stats.hoursProcessed.value')}</div>
+            <p className="text-gray-400">{t('stats.hoursProcessed.label')}</p>
           </div>
           <div>
-            <div className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-500 mb-2">98%</div>
-            <p className="text-gray-400">Satisfaction Rate</p>
+            <div className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-500 mb-2">{t('stats.satisfactionRate.value')}</div>
+            <p className="text-gray-400">{t('stats.satisfactionRate.label')}</p>
           </div>
         </motion.div>
       </div>

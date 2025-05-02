@@ -3,8 +3,72 @@
 import React, {useState, useEffect, useRef} from 'react';
 import {motion, useAnimation, AnimatePresence} from 'framer-motion';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
+
+// Client-side only binary data streams component
+const BinaryDataStreams = () => {
+    const [isClient, setIsClient] = useState(false);
+    const [leftBinaryData, setLeftBinaryData] = useState<string[]>([]);
+    const [rightBinaryData, setRightBinaryData] = useState<string[]>([]);
+
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            // Generate binary data on client side only
+            const leftData = Array(10).fill(0).map(() => 
+                Array.from({length: 20}, () => Math.round(Math.random())).join('')
+            );
+            
+            const rightData = Array(10).fill(0).map(() => 
+                Array.from({length: 20}, () => Math.round(Math.random())).join('')
+            );
+            
+            setLeftBinaryData(leftData);
+            setRightBinaryData(rightData);
+            setIsClient(true);
+        }
+    }, []);
+
+    if (!isClient) {
+        return null; // Return nothing during server-side rendering
+    }
+
+    return (
+        <>
+            <div className="absolute inset-y-0 left-12 flex flex-col opacity-20 overflow-hidden">
+                {leftBinaryData.map((binaryString, i) => (
+                    <div
+                        key={i}
+                        className="text-xs font-mono text-green-500"
+                        style={{
+                            animation: `dataStream ${10 + i * 2}s linear infinite`,
+                            animationDelay: `${i * 0.5}s`
+                        }}
+                    >
+                        {binaryString}
+                    </div>
+                ))}
+            </div>
+
+            <div className="absolute inset-y-0 right-12 flex flex-col opacity-20 overflow-hidden">
+                {rightBinaryData.map((binaryString, i) => (
+                    <div
+                        key={i}
+                        className="text-xs font-mono text-green-500"
+                        style={{
+                            animation: `dataStream ${15 + i * 2}s linear infinite`,
+                            animationDelay: `${i * 0.7}s`
+                        }}
+                    >
+                        {binaryString}
+                    </div>
+                ))}
+            </div>
+        </>
+    );
+};
 
 const SecurityPrivacy = () => {
+    const t = useTranslations('securityPrivacy');
     const controls = useAnimation();
     const sectionRef = useRef(null);
     const [activeTab, setActiveTab] = useState('privacy');
@@ -36,39 +100,39 @@ const SecurityPrivacy = () => {
     const certifications = [
         {
             id: 'soc2',
-            title: 'SOC 2 Certified',
-            description: 'Regular audits confirm compliance with security standards',
-            icon: '/images/security-soc2.svg',
-            details: 'Our SOC 2 certification verifies our systems are designed with security, privacy, and reliability in mind'
+            title: t('certifications.soc2.title'),
+            description: t('certifications.soc2.description'),
+            icon: '/assets/icons/soc2.svg',
+            details: t('certifications.soc2.details')
         },
         {
             id: 'gdpr',
-            title: 'GDPR Compliant',
-            description: 'Full compliance with European data protection regulations',
-            icon: '/images/security-gdpr.svg',
-            details: 'We maintain strict data protection standards that meet or exceed GDPR requirements'
+            title: t('certifications.gdpr.title'),
+            description: t('certifications.gdpr.description'),
+            icon: '/assets/icons/gdpr.svg',
+            details: t('certifications.gdpr.details')
         },
         {
             id: 'hipaa',
-            title: 'HIPAA Compliant',
-            description: 'Protected healthcare information is safeguarded',
-            icon: '/images/security-hipaa.svg',
-            details: 'Our architecture meets healthcare industry standards for protecting sensitive information'
+            title: t('certifications.hipaa.title'),
+            description: t('certifications.hipaa.description'),
+            icon: '/assets/icons/hipaa.svg',
+            details: t('certifications.hipaa.details')
         },
         {
             id: 'encryption',
-            title: 'End-to-End Encryption',
-            description: 'Your data is encrypted at every step',
-            icon: '/images/security-encryption.svg',
-            details: 'We implement AES-256 bit encryption for all data processing'
+            title: t('certifications.encryption.title'),
+            description: t('certifications.encryption.description'),
+            icon: '/assets/icons/encryption.svg',
+            details: t('certifications.encryption.details')
         }
     ];
 
     // Define security features
     const securityFeatures = [
         {
-            title: 'Zero Data Collection',
-            description: 'JyvDesktop processes all audio locally on your device - your data never leaves your computer',
+            title: t('features.zeroCollection.title'),
+            description: t('features.zeroCollection.description'),
             icon: (
                 <svg className="w-6 h-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
@@ -77,8 +141,8 @@ const SecurityPrivacy = () => {
             )
         },
         {
-            title: 'Transparent Code',
-            description: 'Our open security practices and regular third-party audits ensure accountability',
+            title: t('features.transparentCode.title'),
+            description: t('features.transparentCode.description'),
             icon: (
                 <svg className="w-6 h-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
@@ -87,8 +151,8 @@ const SecurityPrivacy = () => {
             )
         },
         {
-            title: 'Data Minimization',
-            description: "We collect only what's necessary to provide you with optimal audio services",
+            title: t('features.dataMinimization.title'),
+            description: t('features.dataMinimization.description'),
             icon: (
                 <svg className="w-6 h-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
@@ -102,23 +166,23 @@ const SecurityPrivacy = () => {
     const privacyTabs = [
         {
             id: 'privacy',
-            title: 'Privacy First',
-            description: 'Your conversations stay private'
+            title: t('tabs.privacy.title'),
+            description: t('tabs.privacy.description')
         },
         {
             id: 'local',
-            title: 'Local Processing',
-            description: 'All audio processing happens on your device'
+            title: t('tabs.local.title'),
+            description: t('tabs.local.description')
         },
         {
             id: 'control',
-            title: 'User Control',
-            description: 'You control your data and settings'
+            title: t('tabs.control.title'),
+            description: t('tabs.control.description')
         },
         {
             id: 'compliance',
-            title: 'Compliance',
-            description: 'We meet global privacy standards'
+            title: t('tabs.compliance.title'),
+            description: t('tabs.compliance.description')
         }
     ];
 
@@ -303,35 +367,8 @@ const SecurityPrivacy = () => {
                 ))}
 
                 {/* Binary data streams */}
-                <div className="absolute inset-y-0 left-12 flex flex-col opacity-20 overflow-hidden">
-                    {[...Array(10)].map((_, i) => (
-                        <div
-                            key={i}
-                            className="text-xs font-mono text-green-500"
-                            style={{
-                                animation: `dataStream ${10 + i * 2}s linear infinite`,
-                                animationDelay: `${i * 0.5}s`
-                            }}
-                        >
-                            {Array.from({length: 20}, () => Math.round(Math.random())).join('')}
-                        </div>
-                    ))}
-                </div>
+                <BinaryDataStreams />
 
-                <div className="absolute inset-y-0 right-12 flex flex-col opacity-20 overflow-hidden">
-                    {[...Array(10)].map((_, i) => (
-                        <div
-                            key={i}
-                            className="text-xs font-mono text-green-500"
-                            style={{
-                                animation: `dataStream ${15 + i * 2}s linear infinite`,
-                                animationDelay: `${i * 0.7}s`
-                            }}
-                        >
-                            {Array.from({length: 20}, () => Math.round(Math.random())).join('')}
-                        </div>
-                    ))}
-                </div>
             </div>
 
             <div className="container mx-auto px-4 relative z-10">
@@ -343,14 +380,13 @@ const SecurityPrivacy = () => {
                 >
                     <div
                         className="inline-block mb-3 bg-gradient-to-r from-green-500 to-emerald-500 bg-clip-text text-transparent font-medium rounded-full px-3 py-1 text-sm border border-green-500/20 bg-black">
-                        YOUR PRIVACY MATTERS
+                        {t('badge')}
                     </div>
                     <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">
-                        Security & Privacy by Design
+                        {t('title')}
                     </h2>
                     <p className="text-gray-300 max-w-3xl mx-auto text-lg">
-                        JyvDesktop processes your audio locally on your device. Your data stays with you,
-                        giving you complete privacy and control.
+                        {t('description')}
                     </p>
                 </motion.div>
 
@@ -433,12 +469,9 @@ const SecurityPrivacy = () => {
                                 >
                                     <div className="grid md:grid-cols-2 gap-12 items-center">
                                         <div>
-                                            <h3 className="text-2xl font-bold text-white mb-6">Your Data Never Leaves
-                                                Your Device</h3>
+                                            <h3 className="text-2xl font-bold text-white mb-6">{t('tabs.privacy.heading')}</h3>
                                             <p className="text-gray-300 mb-6">
-                                                Unlike other audio enhancement solutions that send your data to the
-                                                cloud, JyvDesktop processes everything locally. Your conversations,
-                                                music, and audio content remain entirely private.
+                                                {t('tabs.privacy.content')}
                                             </p>
                                             <div className="space-y-4">
                                                 {securityFeatures.map((feature, index) => (
@@ -518,7 +551,7 @@ const SecurityPrivacy = () => {
                                                         {/* "No cloud" indicator */}
                                                         <div
                                                             className="absolute -top-4 right-0 px-3 py-1 bg-black border border-red-500 rounded-full text-xs text-red-500 font-medium">
-                                                            No Cloud Processing
+                                                            {t('tabs.local.noCloud')}
                                                         </div>
                                                     </div>
                                                 </div>
@@ -556,7 +589,7 @@ const SecurityPrivacy = () => {
                                                         }}
                                                     >
                                                         <div
-                                                            className="p-2 border-b border-gray-800 bg-black text-xs text-green-500 font-medium">CPU
+                                                            className="p-2 border-b border-gray-800 bg-black text-xs text-green-500 font-medium">{t('tabs.local.cpu')}
                                                         </div>
                                                         <div className="p-2">
                                                             <div className="grid grid-cols-4 gap-1">
@@ -593,7 +626,7 @@ const SecurityPrivacy = () => {
                                                         }}
                                                     >
                                                         <div
-                                                            className="p-2 border-b border-gray-800 bg-black text-xs text-green-500 font-medium">GPU
+                                                            className="p-2 border-b border-gray-800 bg-black text-xs text-green-500 font-medium">{t('tabs.local.gpu')}
                                                         </div>
                                                         <div className="p-2">
                                                             <div className="grid grid-cols-5 gap-1">
@@ -641,7 +674,7 @@ const SecurityPrivacy = () => {
                                                                     ease: "easeInOut"
                                                                 }}
                                                             >
-                                                                LOCAL MEMORY
+                                                                {t('tabs.local.localMemory')}
                                                             </motion.div>
                                                         </div>
                                                     </motion.div>
@@ -728,39 +761,30 @@ const SecurityPrivacy = () => {
                                             </div>
                                         </div>
                                         <div className="order-1 md:order-2">
-                                            <h3 className="text-2xl font-bold text-white mb-6">Local Processing,
-                                                Unmatched Privacy</h3>
+                                            <h3 className="text-2xl font-bold text-white mb-6">{t('tabs.local.heading')}</h3>
                                             <p className="text-gray-300 mb-6">
-                                                JyvDesktop processes all audio directly on your device, leveraging your
-                                                computer's CPU and GPU for optimal performance without ever sending your
-                                                data to external servers.
+                                                {t('tabs.local.content')}
                                             </p>
 
                                             <div className="space-y-6 mt-6">
                                                 <div className="bg-black/30 rounded-lg p-4 border border-green-500/20">
-                                                    <h4 className="text-green-400 font-medium mb-2">Zero Network
-                                                        Dependency</h4>
+                                                    <h4 className="text-green-400 font-medium mb-2">{t('tabs.local.features.zeroDependency.title')}</h4>
                                                     <p className="text-gray-300 text-sm">
-                                                        Works completely offline - no internet required for audio
-                                                        processing
+                                                        {t('tabs.local.features.zeroDependency.description')}
                                                     </p>
                                                 </div>
 
                                                 <div className="bg-black/30 rounded-lg p-4 border border-green-500/20">
-                                                    <h4 className="text-green-400 font-medium mb-2">Optimized
-                                                        Performance</h4>
+                                                    <h4 className="text-green-400 font-medium mb-2">{t('tabs.local.features.optimizedPerformance.title')}</h4>
                                                     <p className="text-gray-300 text-sm">
-                                                        Intelligently adapts to your hardware capabilities for the best
-                                                        balance of quality and efficiency
+                                                        {t('tabs.local.features.optimizedPerformance.description')}
                                                     </p>
                                                 </div>
 
                                                 <div className="bg-black/30 rounded-lg p-4 border border-green-500/20">
-                                                    <h4 className="text-green-400 font-medium mb-2">Low Resource
-                                                        Usage</h4>
+                                                    <h4 className="text-green-400 font-medium mb-2">{t('tabs.local.features.lowResource.title')}</h4>
                                                     <p className="text-gray-300 text-sm">
-                                                        Carefully engineered to minimize CPU and memory footprint while
-                                                        maintaining high-quality audio processing
+                                                        {t('tabs.local.features.lowResource.description')}
                                                     </p>
                                                 </div>
                                             </div>
@@ -780,11 +804,9 @@ const SecurityPrivacy = () => {
                                 >
                                     <div className="grid md:grid-cols-2 gap-12 items-center">
                                         <div>
-                                            <h3 className="text-2xl font-bold text-white mb-6">Complete User
-                                                Control</h3>
+                                            <h3 className="text-2xl font-bold text-white mb-6">{t('tabs.control.heading')}</h3>
                                             <p className="text-gray-300 mb-6">
-                                                JyvDesktop puts you in complete control of your audio settings and data.
-                                                We believe your privacy choices should always be in your hands.
+                                                {t('tabs.control.content')}
                                             </p>
 
                                             <div className="space-y-4">
@@ -799,10 +821,9 @@ const SecurityPrivacy = () => {
                                                         </svg>
                                                     </div>
                                                     <div>
-                                                        <h4 className="text-white font-medium">Opt-in Analytics</h4>
+                                                        <h4 className="text-white font-medium">{t('tabs.control.features.optIn.title')}</h4>
                                                         <p className="text-gray-400 text-sm mt-1">
-                                                            All usage data collection is strictly opt-in, disabled by
-                                                            default, and clearly explained
+                                                            {t('tabs.control.features.optIn.description')}
                                                         </p>
                                                     </div>
                                                 </div>
@@ -818,11 +839,9 @@ const SecurityPrivacy = () => {
                                                         </svg>
                                                     </div>
                                                     <div>
-                                                        <h4 className="text-white font-medium">Data Export &
-                                                            Deletion</h4>
+                                                        <h4 className="text-white font-medium">{t('tabs.control.features.dataExport.title')}</h4>
                                                         <p className="text-gray-400 text-sm mt-1">
-                                                            Easily export or delete any data stored in your JyvDesktop
-                                                            preferences
+                                                            {t('tabs.control.features.dataExport.description')}
                                                         </p>
                                                     </div>
                                                 </div>
@@ -840,10 +859,9 @@ const SecurityPrivacy = () => {
                                                         </svg>
                                                     </div>
                                                     <div>
-                                                        <h4 className="text-white font-medium">Granular Permissions</h4>
+                                                        <h4 className="text-white font-medium">{t('tabs.control.features.permissions.title')}</h4>
                                                         <p className="text-gray-400 text-sm mt-1">
-                                                            Control exactly which applications JyvDesktop can access and
-                                                            enhance
+                                                            {t('tabs.control.features.permissions.description')}
                                                         </p>
                                                     </div>
                                                 </div>
@@ -856,7 +874,7 @@ const SecurityPrivacy = () => {
                                                 <div className="space-y-6">
                                                     {/* Toggle switch */}
                                                     <div className="flex items-center justify-between">
-                                                        <span className="text-white">Data Collection</span>
+                                                        <span className="text-white">{t('tabs.privacy.controlPanel.dataCollection')}</span>
                                                         <motion.div
                                                             className="w-12 h-6 flex items-center bg-gray-800 rounded-full p-1 cursor-pointer"
                                                             animate={{
@@ -867,8 +885,7 @@ const SecurityPrivacy = () => {
                                                                 className="bg-gray-600 w-4 h-4 rounded-full shadow-md transform"
                                                                 animate={{x: 0}}
                                                             />
-                                                            <span
-                                                                className="absolute right-16 text-xs text-gray-500">Off</span>
+                                                        
                                                         </motion.div>
                                                     </div>
 
@@ -884,7 +901,7 @@ const SecurityPrivacy = () => {
                                                                           d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                                                                 </svg>
                                                             </div>
-                                                            <span className="text-white">Browser Access</span>
+                                                            <span className="text-white">{t('tabs.privacy.controlPanel.browserAccess')}</span>
                                                         </div>
                                                         <motion.div
                                                             className="w-12 h-6 flex items-center bg-green-500 rounded-full p-1 cursor-pointer"
@@ -898,11 +915,10 @@ const SecurityPrivacy = () => {
                                                             }}
                                                         >
                                                             <motion.div
-                                                                className="bg-white w-4 h-4 rounded-full shadow-md transform"
+                                                                className="bg-white w-4 h-4 rounded-full shadow-md transform ml-4"
                                                                 animate={{x: 6}}
                                                             />
-                                                            <span
-                                                                className="absolute right-16 text-xs text-green-500">On</span>
+                                                            
                                                         </motion.div>
                                                     </div>
 
@@ -918,7 +934,7 @@ const SecurityPrivacy = () => {
                                                                           d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
                                                                 </svg>
                                                             </div>
-                                                            <span className="text-white">Chat Apps</span>
+                                                            <span className="text-white">{t('tabs.privacy.controlPanel.chatApps')}</span>
                                                         </div>
                                                         <motion.div
                                                             className="w-12 h-6 flex items-center bg-green-500 rounded-full p-1 cursor-pointer"
@@ -933,11 +949,10 @@ const SecurityPrivacy = () => {
                                                             }}
                                                         >
                                                             <motion.div
-                                                                className="bg-white w-4 h-4 rounded-full shadow-md transform"
+                                                                className="bg-white w-4 h-4 rounded-full shadow-md transform ml-4"
                                                                 animate={{x: 6}}
                                                             />
-                                                            <span
-                                                                className="absolute right-16 text-xs text-green-500">On</span>
+                                                          
                                                         </motion.div>
                                                     </div>
 
@@ -951,7 +966,7 @@ const SecurityPrivacy = () => {
                                                                       strokeWidth={2}
                                                                       d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"/>
                                                             </svg>
-                                                            Export My Data
+                                                            {t('tabs.privacy.controlPanel.exportData')}
                                                         </button>
                                                         <button
                                                             className="w-full p-2 bg-black rounded-md text-red-500 text-sm font-medium hover:bg-red-500/10 transition-colors border border-red-500/30 flex items-center justify-center">
@@ -961,7 +976,7 @@ const SecurityPrivacy = () => {
                                                                       strokeWidth={2}
                                                                       d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
                                                             </svg>
-                                                            Delete All My Data
+                                                            {t('tabs.privacy.controlPanel.deleteData')}
                                                         </button>
                                                     </div>
                                                 </div>
@@ -969,7 +984,7 @@ const SecurityPrivacy = () => {
                                                 {/* Control panel label */}
                                                 <div
                                                     className="absolute -top-3 left-1/2 transform -translate-x-1/2 px-4 py-1 bg-green-500 text-black text-xs font-bold rounded-full">
-                                                    PRIVACY CONTROL PANEL
+                                                    {t('tabs.privacy.controlPanel.title')}
                                                 </div>
                                             </div>
                                         </div>
@@ -1000,13 +1015,13 @@ const SecurityPrivacy = () => {
                                                     >
                                                         <div className="h-12 mb-3 flex items-center">
                                                             <div
-                                                                className="w-10 h-10 bg-green-500/10 rounded-lg flex items-center justify-center mr-3">
+                                                                className="rounded-lg flex items-center justify-center mr-3">
                                                                 <Image
                                                                     src={cert.icon}
                                                                     alt={cert.title}
-                                                                    width={20}
-                                                                    height={20}
-                                                                    className="w-5 h-5 object-contain"
+                                                                    width={30}
+                                                                    height={30}
+                                                                    className="w-11 h-11 object-contain"
                                                                 />
                                                             </div>
                                                             <div
@@ -1027,20 +1042,17 @@ const SecurityPrivacy = () => {
                                                               strokeWidth={2}
                                                               d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
                                                     </svg>
-                                                    Third-Party Security Audits
+                                                    {t('tabs.compliance.thirdPartyAudits')}
                                                 </h4>
                                                 <p className="text-gray-300 text-sm">
-                                                    Our code is regularly reviewed by independent security firms to
-                                                    validate our privacy claims and identify potential vulnerabilities.
+                                                    {t('tabs.compliance.auditDescription')}
                                                 </p>
                                             </div>
                                         </div>
                                         <div className="order-1 md:order-2">
-                                            <h3 className="text-2xl font-bold text-white mb-6">Global Compliance &
-                                                Certifications</h3>
+                                            <h3 className="text-2xl font-bold text-white mb-6">{t('tabs.compliance.heading')}</h3>
                                             <p className="text-gray-300 mb-6">
-                                                JyvDesktop meets or exceeds privacy and security standards around the
-                                                world, ensuring your data is protected to the highest standards.
+                                                {t('tabs.compliance.content')}
                                             </p>
 
                                             <div className="space-y-4">
@@ -1054,9 +1066,7 @@ const SecurityPrivacy = () => {
                                                         </svg>
                                                     </div>
                                                     <div>
-                                                        <p className="text-white">Privacy regulations change globally,
-                                                            but our local-first approach ensures we're always
-                                                            compliant</p>
+                                                        <p className="text-white">{t('tabs.compliance.points.localFirst')}</p>
                                                     </div>
                                                 </div>
 
@@ -1070,8 +1080,7 @@ const SecurityPrivacy = () => {
                                                         </svg>
                                                     </div>
                                                     <div>
-                                                        <p className="text-white">Minimal data collection ensures GDPR,
-                                                            CCPA, and HIPAA compliance without compromise</p>
+                                                        <p className="text-white">{t('tabs.compliance.points.minimalData')}</p>
                                                     </div>
                                                 </div>
 
@@ -1085,8 +1094,7 @@ const SecurityPrivacy = () => {
                                                         </svg>
                                                     </div>
                                                     <div>
-                                                        <p className="text-white">Enterprise-grade security for
-                                                            organizations with the strictest privacy requirements</p>
+                                                        <p className="text-white">{t('tabs.compliance.points.enterprise')}</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1112,13 +1120,13 @@ const SecurityPrivacy = () => {
                                 whileHover={{y: -5, boxShadow: '0 10px 25px -5px rgba(34, 197, 94, 0.1)'}}
                             >
                                 <div
-                                    className="w-12 h-12 mx-auto bg-gradient-to-br from-green-500/20 to-emerald-500/10 rounded-xl flex items-center justify-center mb-4 group-hover:from-green-500/30 group-hover:to-emerald-500/20 transition-all">
+                                    className=" rounded-xl flex items-center justify-center mb-4 group-hover:from-green-500/30 group-hover:to-emerald-500/20 transition-all">
                                     <Image
                                         src={cert.icon}
                                         alt={cert.title}
                                         width={30}
                                         height={30}
-                                        className="w-7 h-7 object-contain"
+                                        className="w-20 h-20 object-contain"
                                     />
                                 </div>
                                 <h3 className="text-white font-medium mb-2">{cert.title}</h3>
@@ -1151,12 +1159,10 @@ const SecurityPrivacy = () => {
                         </svg>
 
                         <blockquote className="text-xl md:text-2xl text-white font-medium italic mb-6">
-                            Your data, always kept, always yours
+                            {t('quote.title')}
                         </blockquote>
                         <p className="text-gray-300">
-                            At JyvDesktop, we're committed to creating technology that respects your privacy as much as
-                            it enhances your audio. That's why we've built our entire platform around the principle of
-                            local processing and transparency.
+                            {t('quote.description')}
                         </p>
 
                         <div className="mt-8 flex items-center justify-center">
@@ -1183,9 +1189,9 @@ const SecurityPrivacy = () => {
                     transition={{duration: 0.7, delay: 1}}
                 >
                     <div className="text-center mb-12">
-                        <h3 className="text-2xl font-bold text-white mb-4">How We Compare</h3>
+                        <h3 className="text-2xl font-bold text-white mb-4">{t('comparison.title')}</h3>
                         <p className="text-gray-300 max-w-3xl mx-auto">
-                            See how JyvDesktop's approach to privacy stands out from alternatives
+                            {t('comparison.description')}
                         </p>
                     </div>
 
@@ -1194,7 +1200,7 @@ const SecurityPrivacy = () => {
                             <table className="w-full min-w-max">
                                 <thead>
                                 <tr className="bg-black/30 text-left">
-                                    <th className="p-6 text-gray-300 font-medium">Privacy Feature</th>
+                                    <th className="p-6 text-gray-300 font-medium">{t('comparison.privacyFeature')}</th>
                                     <th className="p-6 text-center">
                                         <div className="flex flex-col items-center">
                                             <div
@@ -1205,7 +1211,7 @@ const SecurityPrivacy = () => {
                                                           d="M5 13l4 4L19 7"/>
                                                 </svg>
                                             </div>
-                                            <span className="text-white font-medium">JyvDesktop</span>
+                                            <span className="text-white font-medium">{t('comparison.jyvdesktop')}</span>
                                         </div>
                                     </th>
                                     <th className="p-6 text-center">
@@ -1218,7 +1224,7 @@ const SecurityPrivacy = () => {
                                                           d="M21.21 15.89A10 10 0 118 2.83M22 12A10 10 0 0012 2v10z"/>
                                                 </svg>
                                             </div>
-                                            <span className="text-white font-medium">Cloud Solutions</span>
+                                            <span className="text-white font-medium">{t('comparison.cloudSolutions')}</span>
                                         </div>
                                     </th>
                                 </tr>
@@ -1226,34 +1232,34 @@ const SecurityPrivacy = () => {
                                 <tbody className="divide-y divide-gray-800">
                                 {[
                                     {
-                                        feature: "Local Processing",
+                                        feature: t('comparison.features.localProcessing.title'),
                                         jyvdesktop: true,
                                         cloud: false,
-                                        description: "All audio processing happens on your device"
+                                        description: t('comparison.features.localProcessing.description')
                                     },
                                     {
-                                        feature: "Works Offline",
+                                        feature: t('comparison.features.worksOffline.title'),
                                         jyvdesktop: true,
                                         cloud: false,
-                                        description: "No internet connection required"
+                                        description: t('comparison.features.worksOffline.description')
                                     },
                                     {
-                                        feature: "No Data Collection",
+                                        feature: t('comparison.features.noDataCollection.title'),
                                         jyvdesktop: true,
                                         cloud: false,
-                                        description: "Your audio never leaves your device"
+                                        description: t('comparison.features.noDataCollection.description')
                                     },
                                     {
-                                        feature: "Transparent Privacy",
+                                        feature: t('comparison.features.transparentPrivacy.title'),
                                         jyvdesktop: true,
                                         cloud: false,
-                                        description: "Clear, easy to understand privacy policy"
+                                        description: t('comparison.features.transparentPrivacy.description')
                                     },
                                     {
-                                        feature: "GDPR Compliant",
+                                        feature: t('comparison.features.gdprCompliant.title'),
                                         jyvdesktop: true,
                                         cloud: true,
-                                        description: "Meets European privacy standards"
+                                        description: t('comparison.features.gdprCompliant.description')
                                     }
                                 ].map((row, index) => (
                                     <tr key={index} className="hover:bg-black/40 transition-colors">
@@ -1321,29 +1327,29 @@ const SecurityPrivacy = () => {
                     transition={{duration: 0.7, delay: 1.2}}
                 >
                     <div className="text-center mb-12">
-                        <h3 className="text-2xl font-bold text-white mb-4">Security & Privacy FAQ</h3>
+                        <h3 className="text-2xl font-bold text-white mb-4">{t('faq.title')}</h3>
                         <p className="text-gray-300">
-                            Common questions about how we protect your data
+                            {t('faq.description')}
                         </p>
                     </div>
 
                     <div className="space-y-4">
                         {[
                             {
-                                question: "Does JyvDesktop record or store my audio?",
-                                answer: "No, JyvDesktop does not record or store any of your audio content. All processing happens in real-time directly on your device, and the original audio data is immediately discarded after processing."
+                                question: t('faq.questions.recording.question'),
+                                answer: t('faq.questions.recording.answer')
                             },
                             {
-                                question: "What data does JyvDesktop collect about me?",
-                                answer: "By default, JyvDesktop collects no personal data. The only data stored locally are your application settings and preferences. If you opt in to anonymous usage statistics, we collect minimal technical information to improve the application, but this never includes any audio content or personally identifiable information."
+                                question: t('faq.questions.dataCollection.question'),
+                                answer: t('faq.questions.dataCollection.answer')
                             },
                             {
-                                question: "How does local processing protect my privacy?",
-                                answer: "Local processing means your audio never leaves your device. Instead of sending data to cloud servers for processing (where it could potentially be stored, analyzed, or compromised), JyvDesktop handles everything directly on your computer, ensuring your conversations and audio content remain private."
+                                question: t('faq.questions.localProcessing.question'),
+                                answer: t('faq.questions.localProcessing.answer')
                             },
                             {
-                                question: "Do I need an internet connection to use JyvDesktop?",
-                                answer: "No, JyvDesktop works completely offline. An internet connection is only required for initial download, updates, and license verification for premium features."
+                                question: t('faq.questions.internetConnection.question'),
+                                answer: t('faq.questions.internetConnection.answer')
                             }
                         ].map((faq, index) => (
                             <div key={index} className="bg-gray-900 border border-gray-800 rounded-xl overflow-hidden">
@@ -1400,11 +1406,9 @@ const SecurityPrivacy = () => {
                                       d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
                             </svg>
 
-                            <h3 className="text-2xl font-bold text-white mb-4">Experience privacy-first audio
-                                enhancement</h3>
+                            <h3 className="text-2xl font-bold text-white mb-4">{t('cta.title')}</h3>
                             <p className="text-gray-300 mb-8">
-                                Join thousands of users who trust JyvDesktop to enhance their audio without compromising
-                                on privacy.
+                                {t('cta.description')}
                             </p>
 
                             <div className="flex flex-wrap justify-center gap-4">
@@ -1416,14 +1420,14 @@ const SecurityPrivacy = () => {
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
                                               d="M15 13l-3 3m0 0l-3-3m3 3V8m0 13a9 9 0 110-18 9 9 0 010 18z"/>
                                     </svg>
-                                    <span>Download JyvDesktop</span>
+                                    <span>{t('cta.downloadButton')}</span>
                                 </a>
 
                                 <a
                                     href="#privacy-policy"
                                     className="inline-flex items-center gap-2 px-6 py-3 bg-black/50 hover:bg-black/80 text-white border border-green-500/30 font-medium rounded-full transition-all duration-300"
                                 >
-                                    <span>Read Privacy Policy</span>
+                                    <span>{t('cta.privacyButton')}</span>
                                     <svg className="w-5 h-5 text-green-500" fill="none" viewBox="0 0 24 24"
                                          stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}

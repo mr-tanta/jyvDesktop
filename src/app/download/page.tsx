@@ -2,12 +2,16 @@
 
 import React, { useState, useEffect } from 'react';
 import { platforms, keyFeatures, testimonials, faqs } from '@/data/downloadData';
+import { trackDownload } from '@/lib/analytics';
 
 // Import components
 import AnimatedBackground from '@/components/download/AnimatedBackground';
 import HeroSection from '@/components/download/HeroSection';
 import ScreenshotsSection from '@/components/download/ScreenshotsSection';
 import FeaturesSection from '@/components/download/FeaturesSection';
+import InstallationSteps from '@/components/download/InstallationSteps';
+import TroubleshootingSection from '@/components/download/TroubleshootingSection';
+import CompatibilityChart from '@/components/download/CompatibilityChart';
 import TestimonialsSection from '@/components/download/TestimonialsSection';
 import FAQSection from '@/components/download/FAQSection';
 import DownloadBanner from '@/components/download/DownloadBanner';
@@ -32,6 +36,13 @@ export default function DownloadPage() {
     // Handle download button click with visual feedback
     const handleDownload = (platformId: string) => {
         setDownloadStarted(platformId);
+
+        // Find the platform object to get details for analytics
+        const platform = platforms.find(p => p.id === platformId);
+        if (platform) {
+            // Track download event in analytics
+            trackDownload(platform.name, platform.directDownload.version);
+        }
 
         // Reset the state after animation completes
         setTimeout(() => {
@@ -58,6 +69,15 @@ export default function DownloadPage() {
 
             {/* Features Section */}
             <FeaturesSection features={keyFeatures} />
+
+            {/* Installation Steps Section */}
+            <InstallationSteps platform={activePlatform} />
+
+            {/* Troubleshooting Section */}
+            <TroubleshootingSection platform={activePlatform} />
+
+            {/* Compatibility Chart */}
+            <CompatibilityChart />
 
             {/* Testimonials Section */}
             <TestimonialsSection testimonials={testimonials} />

@@ -1,5 +1,6 @@
 import { Feature } from '@/data/downloadData';
 import { motion } from 'framer-motion';
+import { trackFeatureInteraction, EventAction } from '@/lib/analytics';
 
 interface FeatureCardProps {
   feature: Feature;
@@ -7,6 +8,11 @@ interface FeatureCardProps {
 }
 
 const FeatureCard = ({ feature, index }: FeatureCardProps) => {
+  // Handle feature card click
+  const handleFeatureClick = () => {
+    trackFeatureInteraction(feature.title, EventAction.Click);
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -17,7 +23,8 @@ const FeatureCard = ({ feature, index }: FeatureCardProps) => {
         y: -5,
         boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" 
       }}
-      className="bg-gradient-to-b from-gray-900 to-black border border-gray-800 rounded-2xl p-6 hover:border-green-500/30 transition-all"
+      onClick={handleFeatureClick}
+      className="bg-gradient-to-b from-gray-900 to-black border border-gray-800 rounded-2xl p-6 hover:border-green-500/30 transition-all cursor-pointer"
     >
       <div className="bg-green-500/10 p-3 rounded-xl w-12 h-12 flex items-center justify-center mb-6">
         {feature.icon}

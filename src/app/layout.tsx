@@ -1,17 +1,6 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/ui/Navbar";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import React from "react";
 
 export const metadata: Metadata = {
   title: "JyvStream Desktop - Professional Audio Control Suite",
@@ -31,20 +20,20 @@ export const metadata: Metadata = {
   },
 };
 
+// This is the root layout that provides the basic HTML structure
+// The locale-specific layout will handle locale-specific concerns
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-axc-dark min-h-screen`}
-        suppressHydrationWarning
-      >
-        <Navbar />
-        {children}
-      </body>
+    <html suppressHydrationWarning>
+      <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </head>
+      <body suppressHydrationWarning>{children}</body>
     </html>
   );
 }

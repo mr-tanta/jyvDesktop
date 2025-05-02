@@ -1,0 +1,826 @@
+{
+  "app": {
+    "title": "JyvStream Desktop - Professional Audio Control Suite",
+    "description": "Take control of your audio environment with JyvStream Desktop. AI-powered noise suppression, spatial audio enhancement, and app-level volume control for creators, gamers, and professionals."
+  },
+  "nav": {
+    "home": "Home",
+    "features": "Features",
+    "pricing": "Pricing",
+    "useCases": "Use Cases",
+    "blog": "Blog",
+    "download": "Download",
+    "contactSales": "Contact Sales"
+  },
+  "audioControl": {
+    "hero": {
+      "badge": "Advanced Audio Management",
+      "title": "Precision Audio Control at Your Fingertips",
+      "description": "Take command of your entire audio environment with JyvDesktop's powerful control center. Manage application volumes, routing, and profiles with unprecedented precision.",
+      "demoButton": "Try Interactive Demo",
+      "downloadButton": "Download JyvDesktop"
+    },
+    "features": {
+      "title": "Complete Audio Control System",
+      "description": "JyvDesktop gives you unprecedented control over every aspect of your system's audio, from individual application volumes to complex routing scenarios and custom profiles."
+    }
+  },
+  "featureCategories": {
+    "audioControl": "Audio Control",
+    "audioEnhancement": "Audio Enhancement",
+    "spatialAudio": "Spatial Audio",
+    "advancedFeatures": "Advanced Features"
+  },
+  "cta": {
+    "downloadNow": "Download Now",
+    "viewAllOptions": "View All Options",
+    "tryFree": "Try Free",
+    "getStarted": "Get Started",
+    "learnMore": "Learn More",
+    "watchDemo": "Watch Demo",
+    "readyToTransform": "Ready to transform your audio experience?",
+    "downloadDescription": "Download now and experience professional-grade audio enhancement for your desktop. Choose the plan that fits your needs."
+  },
+  "hero": {
+    "title": "Professional Audio Control Suite",
+    "subtitle": "Transform Your Audio Experience",
+    "description": "Take control of your audio environment with JyvStream Desktop. Perfect for creators, gamers, and professionals looking for superior sound quality.",
+    "trustedBy": "Trusted by professionals at top companies worldwide",
+    "compatibleWith": "Compatible with your favorite apps",
+    "alternateTitle": "Experience Sound",
+    "alternateSubtitle": "The way it's meant to be."
+  },
+  "features": {
+    "title": "Powerful Features",
+    "subtitle": "Professional-Grade Audio Control",
+    "description": "JyvDesktop delivers enterprise-level audio processing technology in an intuitive, user-friendly package. Discover how our features can transform your audio experience.",
+    "keyBenefits": "Key Benefits",
+    "learnMoreAbout": "Learn More About",
+    "aiNoiseSuppression": "AI Noise Suppression",
+    "lowLatency": "Low Latency",
+    "audio-control": {
+      "title": "App-Level Audio Control",
+      "description": "Control volume levels independently for each application with precision. Create custom profiles for different scenarios and never worry about sudden volume changes again.",
+      "benefits": {
+        "0": "Independent volume control for each application",
+        "1": "Automatic volume balancing between apps",
+        "2": "Custom profiles for different scenarios",
+        "3": "Seamless audio routing between devices"
+      },
+      "stats": {
+        "apps": "32+",
+        "profiles": "Unlimited",
+        "devices": "All major brands"
+      },
+      "statsLabels": {
+        "apps": "Apps",
+        "profiles": "Profiles",
+        "devices": "Devices"
+      }
+    },
+    "noise-suppression": {
+      "title": "AI Noise Suppression",
+      "description": "Our advanced AI-driven technology removes background noise with 95% accuracy. Enjoy crystal clear audio calls, recordings, and gaming sessions without distractions.",
+      "benefits": {
+        "0": "95% noise reduction in real-time",
+        "1": "AI that adapts to your environment",
+        "2": "Preserves natural voice characteristics",
+        "3": "Removes keyboard sounds, fan noise, and background chatter"
+      },
+      "stats": {
+        "reduction": "95%",
+        "latency": "<10ms",
+        "modes": "5 specialized models"
+      },
+      "statsLabels": {
+        "reduction": "Noise Reduction",
+        "latency": "Latency",
+        "modes": "AI Models"
+      }
+    },
+    "spatial-audio": {
+      "title": "Spatial Audio",
+      "description": "Transform your audio experience with immersive 3D sound. Position audio sources anywhere in virtual space and create a truly immersive listening experience.",
+      "benefits": {
+        "0": "Position sound sources in 3D space",
+        "1": "Custom HRTF (Head-Related Transfer Function) profiles",
+        "2": "Immersive gaming and movie experience",
+        "3": "Compatible with all stereo headphones"
+      },
+      "stats": {
+        "positioning": "360° precision",
+        "profiles": "Custom HRTF",
+        "compatibility": "Universal"
+      },
+      "statsLabels": {
+        "positioning": "Positioning",
+        "profiles": "Profiles",
+        "compatibility": "Compatibility"
+      }
+    },
+    "audio-enhancement": {
+      "title": "Audio Enhancement",
+      "description": "Enhance your audio with professional-grade effects and processing. Apply parametric EQ, compression, and other effects to get the perfect sound for any situation.",
+      "benefits": {
+        "0": "10-band parametric equalizer",
+        "1": "Multi-band compression",
+        "2": "Loudness normalization",
+        "3": "Voice enhancement for clarity and presence"
+      },
+      "stats": {
+        "presets": "20+ included",
+        "effects": "Professional-grade",
+        "customization": "Unlimited"
+      },
+      "statsLabels": {
+        "presets": "Presets",
+        "effects": "Effects Quality",
+        "customization": "Customization"
+      }
+    },
+    "analytics": {
+      "title": "Audio Analytics",
+      "description": "Gain insights into your audio environment with comprehensive analytics. Monitor performance, track usage patterns, and optimize your audio setup for the best experience.",
+      "benefits": {
+        "0": "Real-time audio quality metrics",
+        "1": "Performance monitoring and optimization",
+        "2": "Usage patterns and statistics",
+        "3": "Recommendations for improved audio experience"
+      },
+      "stats": {
+        "metrics": "25+ data points",
+        "reports": "Custom insights",
+        "history": "30-day tracking"
+      },
+      "statsLabels": {
+        "metrics": "Metrics",
+        "reports": "Reports",
+        "history": "History"
+      }
+    }
+  },
+  "download": {
+    "title": "Experience professional audio on every device",
+    "description": "Download JyvDesktop and transform your audio experience with AI-powered enhancements, spatial audio, and precision control.",
+    "availableForAllPlatforms": "Available for all platforms",
+    "directDownload": "Direct Download",
+    "getFrom": "Get from",
+    "systemRequirements": "System Requirements",
+    "installationGuide": "Installation Guide",
+    "commonIssues": "Common Issues & Solutions",
+    "byDownloading": "By downloading, you agree to our",
+    "termsOfService": "Terms of Service",
+    "privacyPolicy": "Privacy Policy",
+    "readyToGetStarted": "Ready to get started?",
+    "downloadFor": "Download JyvDesktop for"
+  },
+  "pricing": {
+    "title": "Simple, Transparent Pricing",
+    "description": "Choose the plan that fits your needs. All plans include core features with premium capabilities in higher tiers.",
+    "monthly": "Monthly",
+    "yearly": "Yearly",
+    "saveWithYearly": "Save 20% with yearly billing",
+    "free": "Free",
+    "pro": "Pro",
+    "studio": "Studio",
+    "forever": "Forever",
+    "perMonth": "per month",
+    "perYear": "per year",
+    "currentPlan": "Current Plan",
+    "upgrade": "Upgrade",
+    "startTrial": "Start Free Trial",
+    "contactSales": "Contact Sales",
+    "faq": "Frequently Asked Questions"
+  },
+  "footer": {
+    "company": "Company",
+    "about": "About",
+    "careers": "Careers",
+    "contact": "Contact",
+    "legal": "Legal",
+    "terms": "Terms",
+    "privacy": "Privacy",
+    "cookies": "Cookies",
+    "resources": "Resources",
+    "documentation": "Documentation",
+    "blog": "Blog",
+    "community": "Community",
+    "support": "Support",
+    "allRightsReserved": "All rights reserved",
+    "followUs": "Follow Us"
+  },
+  "integrations": {
+    "subtitle": "POWERFUL ECOSYSTEM",
+    "title": "Works with your favorite apps",
+    "description": "JyvDesktop integrates seamlessly with a wide range of applications, plugins, and tools to enhance every aspect of your audio experience.",
+    "tierLabel": "Tier",
+    "learnMore": "Learn more about this integration",
+    "details": {
+      "keyBenefits": "Key Benefits",
+      "benefit1": "Seamless audio routing between applications",
+      "benefit2": "One-click preset loading",
+      "benefit3": "Auto-configuration based on detected content",
+      "setupRequirements": "Setup Requirements",
+      "requirement1": "One-time authorization",
+      "requirement2": "No plugins needed",
+      "requirement3": "Auto-detection",
+      "quickSetupGuide": "Quick Setup Guide",
+      "application": "Application",
+      "jyvDesktop": "JyvDesktop",
+      "output": "Output",
+      "enhancedOutput": "Enhanced Output",
+      "professionalQuality": "Professional quality",
+      "vstAuPlugins": "VST/AU PLUGINS",
+      "digitalAudioWorkstation": "Digital Audio Workstation",
+      "audioSource": "Audio source",
+      "processingAudio": "Processing audio"
+    },
+    "benefits": {
+      "plugAndPlay": {
+        "title": "Plug & Play Setup",
+        "description": "JyvDesktop automatically detects your applications and configures optimal settings, making integration effortless with zero configuration required."
+      },
+      "customization": {
+        "title": "Extensive Customization",
+        "description": "Create and save custom processing chains for each application, with detailed settings that optimize for specific use cases and scenarios."
+      },
+      "performance": {
+        "title": "Professional Performance",
+        "description": "Studio-grade processing for all your applications with ultra-low latency integration that meets the demands of professional content creators."
+      }
+    },
+    "applications": {
+      "zoom": "Crystal clear audio for all your meetings",
+      "discord": "Enhanced voice chat for gaming and communities",
+      "teams": "Professional call quality for business communication",
+      "slack": "Crisp audio for team collaboration",
+      "spotify": "Enhanced music listening experience",
+      "chrome": "Better audio for web browsing and media",
+      "safari": "Enhanced audio for macOS browsing experience",
+      "vlc": "Video player audio enhancement"
+    },
+    "plugins": {
+      "vst3": "Support for industry-standard VST3 plugins",
+      "au": "Native Audio Units support for macOS",
+      "fabfilter": "Professional EQ and dynamics processing",
+      "izotope": "Advanced audio restoration and effects",
+      "waves": "Industry-leading audio effects",
+      "soundtoys": "Creative audio effects and processing"
+    },
+    "daw": {
+      "ableton": "Perfect integration for music production",
+      "logic": "Seamless compatibility with Apple's DAW",
+      "protools": "Industry-standard recording studio compatibility",
+      "flstudio": "Enhanced workflow for music producers",
+      "cubase": "Professional audio enhancement for Steinberg's DAW",
+      "reaper": "Lightweight integration for efficient workflow"
+    },
+    "streaming": {
+      "obs": "Perfect streaming audio for content creators",
+      "streamlabs": "Enhanced broadcasting for streamers",
+      "twitch": "Crystal clear audio for your audience",
+      "youtube": "Professional sound quality for content creators",
+      "xsplit": "Optimized audio for live streaming",
+      "streamdeck": "One-touch audio controls for live streaming"
+    },
+    "proTier": {
+      "title": "Pro Tier Exclusive",
+      "heading": "Pro Audio Integration Suite",
+      "description": "Our Pro Tier unlocks professional integration capabilities designed for content creators, music producers, and audio professionals. Take your audio to the next level with advanced plugin support and DAW integration.",
+      "upgradeButton": "Upgrade to Pro Tier",
+      "features": {
+        "pluginsTitle": "VST3 & AU Plugin Support",
+        "plugins": "Professional VST3 and AU plugin support",
+        "dawTitle": "DAW Integration",
+        "daw": "Seamless DAW integration for music production",
+        "processingTitle": "Advanced Routing Matrix",
+        "processing": "Advanced audio processing capabilities"
+      }
+    },
+    "categories": {
+      "applications": {
+        "name": "Applications",
+        "description": "Popular software that works seamlessly with JyvDesktop"
+      },
+      "plugins": {
+        "name": "Plugins",
+        "description": "VST/AU plugin support for enhanced audio processing"
+      },
+      "daw": {
+        "name": "DAW Integration",
+        "description": "Professional digital audio workstation compatibility"
+      },
+      "streaming": {
+        "name": "Streaming Tools",
+        "description": "Optimize your streams with perfect audio enhancement"
+      }
+    },
+    "trustedBrands": {
+      "title": "Trusted by Leading Brands",
+      "description": "JyvDesktop integrations are used by professionals across industries"
+    },
+    "cta": {
+      "title": "Ready to integrate with your workflow?",
+      "description": "Download JyvDesktop today and experience seamless integration with all your favorite applications.",
+      "downloadButton": "Download JyvDesktop",
+      "guideButton": "View Integration Guide"
+    },
+    "moreIntegrations": "More {category} Integrations",
+    "integrationProcess": {
+      "title": "Simple Integration Process",
+      "description": "Getting started with JyvDesktop integrations is effortless",
+      "step1": {
+        "title": "1. Install JyvDesktop",
+        "description": "Download and install JyvDesktop on your computer. No additional plugins needed for basic integration."
+      },
+      "step2": {
+        "title": "2. Grant Permissions",
+        "description": "Allow JyvDesktop to access your audio devices and applications for integration. One-time setup."
+      },
+      "step3": {
+        "title": "3. Select Applications",
+        "description": "Choose which applications you want to enhance. JyvDesktop will automatically detect compatible software."
+      },
+      "step4": {
+        "title": "4. Enjoy Enhanced Audio",
+        "description": "That's it! JyvDesktop will now automatically enhance all audio from your selected applications."
+      }
+    }
+  },
+  
+  "testimonials": {
+    "subtitle": "User Testimonials",
+    "title": "What Our Users Are Saying",
+    "description": "Thousands of content creators, professionals, and businesses trust JyvDesktop to deliver exceptional audio quality every day.",
+    "prevButton": "Previous testimonial",
+    "nextButton": "Next testimonial",
+    "goToTestimonial": "Go to testimonial {number}",
+    "stats": {
+      "activeUsers": {
+        "value": "100K+",
+        "label": "Active Users"
+      },
+      "averageRating": {
+        "value": "4.8",
+        "label": "Average Rating"
+      },
+      "hoursProcessed": {
+        "value": "50M+",
+        "label": "Hours Processed"
+      },
+      "satisfactionRate": {
+        "value": "98%",
+        "label": "Satisfaction Rate"
+      }
+    },
+    "people": {
+      "sarah": {
+        "name": "Sarah Johnson",
+        "role": "Content Creator",
+        "company": "TechTalk Podcast",
+        "quote": "JyvDesktop has completely transformed my podcast production workflow. The noise cancellation is incredible - my listeners have noticed the difference immediately. Worth every penny!"
+      },
+      "michael": {
+        "name": "Michael Chen",
+        "role": "Professional Streamer",
+        "company": "Twitch Partner",
+        "quote": "As a full-time streamer, audio quality is everything. JyvDesktop's real-time processing lets me focus on my content instead of worrying about background noise. Game changer!"
+      },
+      "emily": {
+        "name": "Emily Rodriguez",
+        "role": "Voice Actor",
+        "company": "VoiceWorks Studio",
+        "quote": "The spatial audio features in JyvDesktop give my voice recordings a professional studio quality that used to require expensive hardware. My clients are amazed at the clarity."
+      },
+      "david": {
+        "name": "David Thompson",
+        "role": "Remote Team Lead",
+        "company": "Global Solutions Inc.",
+        "quote": "Our team's video meetings have improved dramatically since implementing JyvDesktop across the company. No more echo, no more interruptions from background noise."
+      },
+      "aisha": {
+        "name": "Aisha Patel",
+        "role": "Music Producer",
+        "company": "Harmony Records",
+        "quote": "The DSP effects in JyvDesktop are professional grade. I use it for quick demos and idea validation before moving to my full production setup. Incredibly versatile tool."
+      }
+    }
+  },
+
+  "spatialAudioVisualization": {
+    "subtitle": "IMMERSIVE AUDIO",
+    "title": "Feel the sound all around you",
+    "description": "JyvDesktop's advanced spatial audio processing creates an immersive 3D soundscape, positioning each sound source precisely where you want it.",
+    "environments": {
+      "title": "Audio Environments",
+      "description": "Select an environment to hear how JyvDesktop transforms your audio",
+      "settings": "Environment Settings",
+      "reverbLevel": "Reverb Level",
+      "roomSize": "Room Size"
+    },
+    "sources": {
+      "title": "Source Controls",
+      "description": "Adjust individual audio sources in your spatial environment",
+      "volume": "Volume",
+      "distance": "Distance",
+      "dragInstructions": "Click sources to play audio samples. Drag them to reposition in 3D space."
+    },
+    "benefits": {
+      "title": "Spatial Audio Benefits",
+      "improvedFocus": "Improved focus with positional separation",
+      "reducedFatigue": "Reduced listening fatigue during long sessions",
+      "enhancedGaming": "Enhanced gaming awareness with precise positioning"
+    },
+    "comparison": {
+      "title": "Standard Audio vs. JyvDesktop Spatial Audio",
+      "description": "Experience the transformative difference of JyvDesktop's spatial audio technology",
+      "standard": {
+        "title": "Standard Audio",
+        "description": "Flat, overlapping sound",
+        "button": "Listen to standard audio"
+      },
+      "spatial": {
+        "title": "JyvDesktop Spatial Audio",
+        "description": "3D positioned sound",
+        "button": "Experience spatial audio"
+      }
+    },
+    "technology": {
+      "subtitle": "THE TECHNOLOGY",
+      "title": "How JyvDesktop's Spatial Audio Works",
+      "description1": "Our advanced HRTF (Head-Related Transfer Function) technology simulates how sound interacts with your head and ears, creating a precise three-dimensional audio experience.",
+      "description2": "Unlike standard stereo, JyvDesktop processes each sound source independently, applying complex binaural algorithms that replicate natural acoustic properties.",
+      "features": {
+        "hrtf": {
+          "title": "Personalized HRTF Processing",
+          "description": "Customized audio filtering based on ear and head anatomy"
+        },
+        "positioning": {
+          "title": "Real-time Dynamic Positioning",
+          "description": "Sound sources adapt instantly as you reposition them"
+        },
+        "acoustics": {
+          "title": "Environmental Acoustics",
+          "description": "Accurate simulation of different acoustic spaces"
+        }
+      },
+      "processingEngine": "HRTF Processing Engine",
+      "position": "Position",
+      "distance": "Distance",
+      "environment": "Environment",
+      "headphones": "Headphones",
+      "speakers": "Speakers"
+    },
+    "cta": {
+      "title": "Experience true spatial audio today",
+      "description": "Transform how you hear digital audio with JyvDesktop's advanced spatial audio technology. Try it free for 14 days with full access to all features.",
+      "downloadButton": "Download JyvDesktop",
+      "learnMoreButton": "Learn more about spatial audio"
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "description": "Everything you need to know about JyvDesktop's spatial audio technology",
+      "questions": {
+        "headphones": {
+          "question": "Do I need special headphones to experience spatial audio?",
+          "answer": "No, JyvDesktop's spatial audio works with any headphones or earbuds. However, higher quality headphones will deliver a more immersive experience. For best results, we recommend using over-ear headphones with a wide frequency response."
+        },
+        "surroundSound": {
+          "question": "How is this different from surround sound?",
+          "answer": "Traditional surround sound relies on multiple physical speakers positioned around you. JyvDesktop's spatial audio creates a fully three-dimensional sound field using just two channels (stereo), precisely calculating how sound waves interact with your head and ears to create a natural, immersive experience."
+        },
+        "gaming": {
+          "question": "Can I use spatial audio for gaming?",
+          "answer": "Absolutely! In fact, gaming is one of the best applications for spatial audio. JyvDesktop can enhance your gaming experience by providing precise audio positioning, helping you locate enemies, identify environmental cues, and immerse yourself more deeply in game worlds."
+        },
+        "compatibility": {
+          "question": "Does spatial audio work with all applications?",
+          "answer": "Yes, JyvDesktop processes audio at the system level, which means it works with virtually any application that produces sound. This includes streaming services, video conferencing tools, games, media players, and more."
+        }
+      }
+    }
+  },
+  
+  "securityPrivacy": {
+    "badge": "YOUR PRIVACY MATTERS",
+    "title": "Security & Privacy by Design",
+    "description": "JyvDesktop processes your audio locally on your device. Your data stays with you, giving you complete privacy and control.",
+    "certifications": {
+      "soc2": {
+        "title": "SOC 2 Certified",
+        "description": "Regular audits confirm compliance with security standards",
+        "details": "Our SOC 2 certification verifies our systems are designed with security, privacy, and reliability in mind"
+      },
+      "gdpr": {
+        "title": "GDPR Compliant",
+        "description": "Full compliance with European data protection regulations",
+        "details": "We maintain strict data protection standards that meet or exceed GDPR requirements"
+      },
+      "hipaa": {
+        "title": "HIPAA Compliant",
+        "description": "Protected healthcare information is safeguarded",
+        "details": "Our architecture meets healthcare industry standards for protecting sensitive information"
+      },
+      "encryption": {
+        "title": "End-to-End Encryption",
+        "description": "Your data is encrypted at every step",
+        "details": "We implement AES-256 bit encryption for all data processing"
+      }
+    },
+    "features": {
+      "zeroCollection": {
+        "title": "Zero Data Collection",
+        "description": "JyvDesktop processes all audio locally on your device - your data never leaves your computer"
+      },
+      "transparentCode": {
+        "title": "Transparent Code",
+        "description": "Our open security practices and regular third-party audits ensure accountability"
+      },
+      "dataMinimization": {
+        "title": "Data Minimization",
+        "description": "We collect only what's necessary to provide you with optimal audio services"
+      }
+    },
+    "tabs": {
+      "privacy": {
+        "title": "Privacy First",
+        "description": "Your conversations stay private",
+        "heading": "Your data never leaves your device",
+        "content": "Unlike other audio enhancement solutions that send your data to the cloud, JyvDesktop processes everything locally. Your conversations, music, and audio content remain completely private.",
+        "controlPanel": {
+          "title": "PRIVACY CONTROL PANEL",
+          "dataCollection": "Data Collection",
+          "off": "Off",
+          "on": "On",
+          "browserAccess": "Browser Access",
+          "chatApps": "Chat Apps",
+          "exportData": "Export My Data",
+          "deleteData": "Delete All My Data"
+        }
+      },
+      "local": {
+        "title": "Local Processing",
+        "description": "All audio processing happens on your device",
+        "heading": "Local Processing, Unmatched Privacy",
+        "content": "JyvDesktop processes all audio directly on your device, leveraging your computer's CPU and GPU for optimal performance without ever sending your data to external servers.",
+        "features": {
+          "zeroDependency": {
+            "title": "Zero Network Dependency",
+            "description": "Works completely offline - no internet required for audio processing"
+          },
+          "optimizedPerformance": {
+            "title": "Optimized Performance",
+            "description": "Intelligently adapts to your hardware capabilities for the best balance of quality and efficiency"
+          },
+          "lowResource": {
+            "title": "Low Resource Usage",
+            "description": "Carefully engineered to minimize CPU and memory footprint while maintaining high-quality audio processing"
+          }
+        },
+        "localMemory": "LOCAL MEMORY",
+        "noCloud": "No Cloud Processing",
+        "cpu": "CPU",
+        "gpu": "GPU"
+      },
+      "control": {
+        "title": "User Control",
+        "description": "You control your data and settings",
+        "heading": "Complete User Control",
+        "content": "JyvDesktop puts you in complete control of your audio settings and data. We believe your privacy choices should always be in your hands.",
+        "features": {
+          "optIn": {
+            "title": "Opt-in Analytics",
+            "description": "All usage data collection is strictly opt-in, disabled by default, and clearly explained"
+          },
+          "dataExport": {
+            "title": "Data Export & Deletion",
+            "description": "Easily export or delete any data stored in your JyvDesktop preferences"
+          },
+          "permissions": {
+            "title": "Granular Permissions",
+            "description": "Control exactly which applications JyvDesktop can access and enhance"
+          }
+        },
+        "controlPanel": {
+          "title": "PRIVACY CONTROL PANEL",
+          "dataCollection": "Data Collection",
+          "off": "Off",
+          "on": "On",
+          "browserAccess": "Browser Access",
+          "chatApps": "Chat Apps",
+          "exportData": "Export My Data",
+          "deleteData": "Delete All My Data"
+        }
+      },
+      "compliance": {
+        "title": "Compliance",
+        "description": "We meet global privacy standards",
+        "heading": "Industry-Leading Security Standards",
+        "content": "We've built JyvDesktop with security at its core, adhering to the most stringent industry standards and regulations to ensure your data remains protected.",
+        "viewCertification": "View Certification",
+        "learnMore": "Learn More",
+        "thirdPartyAudits": "Third-Party Security Audits",
+        "auditDescription": "Our code is regularly reviewed by independent security firms to validate our privacy claims and identify potential vulnerabilities.",
+        "points": {
+          "localFirst": "Privacy regulations change globally, but our local-first approach ensures we're always compliant",
+          "minimalData": "Minimal data collection ensures GDPR, CCPA, and HIPAA compliance without compromise",
+          "enterprise": "Enterprise-grade security for organizations with the strictest privacy requirements"
+        }
+      }
+    },
+    "cta": {
+      "title": "Experience privacy-first audio enhancement",
+      "description": "Join thousands of users who trust JyvDesktop to enhance their audio without compromising on privacy.",
+      "downloadButton": "Download JyvDesktop",
+      "privacyButton": "Read Privacy Policy"
+    },
+    "quote": {
+      "title": "Your data, always kept, always yours",
+      "description": "At JyvDesktop, we're committed to creating technology that respects your privacy as much as it enhances your audio. That's why we've built our entire platform around the principle of local processing and transparency."
+    },
+    "comparison": {
+      "title": "How We Compare",
+      "description": "See how JyvDesktop's approach to privacy stands out from alternatives",
+      "jyvdesktop": "JyvDesktop",
+      "cloudSolutions": "Cloud Solutions",
+      "privacyFeature": "Privacy Feature",
+      "features": {
+        "localProcessing": {
+          "title": "Local Processing",
+          "description": "All audio processing happens on your device"
+        },
+        "worksOffline": {
+          "title": "Works Offline",
+          "description": "No internet connection required"
+        },
+        "noDataCollection": {
+          "title": "No Data Collection",
+          "description": "Your audio never leaves your device"
+        },
+        "transparentPrivacy": {
+          "title": "Transparent Privacy",
+          "description": "Clear, easy to understand privacy policy"
+        },
+        "gdprCompliant": {
+          "title": "GDPR Compliant",
+          "description": "Meets European privacy standards"
+        }
+      }
+    },
+    "faq": {
+      "title": "Security & Privacy FAQ",
+      "description": "Common questions about how we protect your data",
+      "questions": {
+        "recording": {
+          "question": "Does JyvDesktop record or store my audio?",
+          "answer": "No, JyvDesktop does not record or store any of your audio content. All processing happens in real-time directly on your device, and the original audio data is immediately discarded after processing."
+        },
+        "dataCollection": {
+          "question": "What data does JyvDesktop collect about me?",
+          "answer": "By default, JyvDesktop collects no personal data. The only data stored locally are your application settings and preferences. If you opt in to anonymous usage statistics, we collect minimal technical information to improve the application, but this never includes any audio content or personally identifiable information."
+        },
+        "localProcessing": {
+          "question": "How does local processing protect my privacy?",
+          "answer": "Local processing means your audio never leaves your device. Instead of sending data to cloud servers for processing (where it could potentially be stored, analyzed, or compromised), JyvDesktop handles everything directly on your computer, ensuring your conversations and audio content remain private."
+        },
+        "internetConnection": {
+          "question": "Do I need an internet connection to use JyvDesktop?",
+          "answer": "No, JyvDesktop works completely offline. An internet connection is only required for initial download, updates, and license verification for premium features."
+        }
+      }
+    }
+  },
+  
+  "competitiveAdvantage": {
+    "subtitle": "COMPETITIVE LANDSCAPE",
+    "title": "Why Choose JyvDesktop",
+    "description": "Unique position in the audio enhancement market with comprehensive features that outperform specialized competitors.",
+    "competitorComparison": "Competitor Comparison",
+    "competitor": "Competitor",
+    "coreFocus": "Core Focus",
+    "limitation": "Limitation",
+    "jyvAdvantage": "JyvDesktop Advantage",
+    "featureComparison": "Feature Comparison",
+    "keyDifferentiators": "Key Differentiators",
+    "ctaText": "Download Now",
+    "categories": {
+      "coreTechnology": "Core Technology",
+      "platformSupport": "Platform Support",
+      "hardware": "Hardware",
+      "userExperience": "User Experience",
+      "enterprise": "Enterprise"
+    },
+    "features": {
+      "aiNoiseCancellation": "AI Noise Cancellation",
+      "appLevelAudioControl": "App-Level Audio Control",
+      "spatialAudio": "Spatial Audio",
+      "windows": "Windows",
+      "macOS": "macOS",
+      "linux": "Linux",
+      "worksOnAnyDevice": "Works on Any Device",
+      "noSpecialHardware": "No Special Hardware Required",
+      "intuitiveInterface": "Intuitive Interface",
+      "customizableProfiles": "Customizable Profiles",
+      "centralizedManagement": "Centralized Management",
+      "policyControls": "Policy Controls"
+    },
+    "differentiators": [
+      {
+        "id": 1,
+        "title": "All-in-One Solution",
+        "description": "Comprehensive audio capabilities without needing multiple specialized applications"
+      },
+      {
+        "id": 2,
+        "title": "Universal Device Compatibility",
+        "description": "No specialized hardware requirements, works with standard audio components"
+      },
+      {
+        "id": 3,
+        "title": "Enterprise-Grade Management",
+        "description": "Centralized deployment, administration and policy controls for IT departments"
+      }
+    ],
+    "competitors": {
+      "krisp": "Krisp",
+      "rtxVoice": "RTX Voice",
+      "voiceMeeter": "VoiceMeeter",
+      "soundSource": "SoundSource"
+    }
+  },
+
+  "platforms": {
+    "title": "Available on All Your Devices",
+    "description": "JyvStream Desktop works seamlessly across all major operating systems, giving you consistent audio enhancement no matter what device you're using.",
+    "productFor": "JyvStream Desktop for",
+    "optimizedFor": "Optimized for",
+    "withNativeIntegration": "with native integration and platform-specific enhancements.",
+    "keyFeatures": "Key Features",
+    "performanceMetrics": "Performance Metrics",
+    "userTestimonial": "User Testimonial",
+    "worksWithFavoriteApps": "Works with your favorite apps",
+    "integrationDescription": "JyvStream Desktop seamlessly integrates with popular applications across all platforms",
+    "statsLabels": {
+      "latency": "Latency",
+      "cpuUsage": "CPU Usage",
+      "ramUsage": "RAM Usage"
+    },
+    "windows": {
+      "name": "Windows",
+      "features": {
+        "0": "WASAPI integration for ultra-low latency audio processing",
+        "1": "DirectML acceleration for AI-powered noise suppression",
+        "2": "ASIO driver support for professional audio interfaces",
+        "3": "Optimized performance on Windows 10 & 11"
+      },
+      "stats": {
+        "latency": "<5ms",
+        "cpuUsage": "~3%",
+        "ramUsage": "<300MB"
+      },
+      "testimonial": {
+        "text": "JyvStream Desktop transformed my Windows gaming setup. The spatial audio gives me a competitive edge in FPS games.",
+        "author": "Alex Morgan",
+        "title": "Professional Gamer"
+      }
+    },
+    "macos": {
+      "name": "macOS",
+      "features": {
+        "0": "Native CoreAudio integration for pristine sound quality",
+        "1": "Metal Performance Shaders for accelerated AI processing",
+        "2": "Audio Units (AU) plugin support for custom audio chains",
+        "3": "Universal app for Apple Silicon and Intel Macs"
+      },
+      "stats": {
+        "latency": "<7ms",
+        "cpuUsage": "~4%",
+        "ramUsage": "<350MB"
+      },
+      "testimonial": {
+        "text": "As a music producer, JyvStream Desktop's AU plugin support on macOS is indispensable for my workflow.",
+        "author": "Sophia Chen",
+        "title": "Music Producer"
+      }
+    },
+    "chromebook": {
+      "name": "Chrome OS",
+      "features": {
+        "0": "WebAudio API optimization for low-latency processing",
+        "1": "TensorFlow.js acceleration for AI features",
+        "2": "Chrome extension integration for browser audio",
+        "3": "Android app compatibility for mobile workflows"
+      },
+      "stats": {
+        "latency": "<12ms",
+        "cpuUsage": "~5%",
+        "ramUsage": "<250MB"
+      },
+      "testimonial": {
+        "text": "JyvStream Desktop makes my Chromebook sound like a professional studio setup. Perfect for my online teaching.",
+        "author": "David Kim",
+        "title": "Online Educator"
+      }
+    }
+  }
+}

@@ -1,10 +1,11 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, useScroll, useTransform, useInView, useMotionValue, useSpring, AnimatePresence, useWillChange } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import {LucidePlay, X, Volume2, Wand2, Headphones, Activity, DownloadCloudIcon} from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 // Animation variants
 const containerVariants = {
@@ -36,13 +37,23 @@ const imageContainerVariants = {
   }
 };
 
-// Enhanced Particle component
+// Enhanced Particle component with client-side initialization
 const Particle = ({ size, color, duration, delay, left, top, mouseX, mouseY }: 
   { size: number; color: string; duration: number; delay: number; left: string; top: string; mouseX: any; mouseY: any }) => {
+  const [isClient, setIsClient] = useState(false);
   
   // Increased mouse interaction range
   const x = useTransform(mouseX, [-1000, 1000], ["-15px", "15px"], { clamp: false });
   const y = useTransform(mouseY, [-1000, 1000], ["-15px", "15px"], { clamp: false });
+  
+  // Only render particles on the client side to avoid hydration mismatch
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+  
+  if (!isClient) {
+    return null; // Return null during server-side rendering
+  }
 
   return (
     <motion.div
@@ -78,10 +89,10 @@ const Particle = ({ size, color, duration, delay, left, top, mouseX, mouseY }:
 // New Audio Wave component for background
 const AudioWave = ({ top, left, color, size, mouseX }: 
   { top: string; left: string; color: string; size: number; mouseX: any }) => {
-  
+
   // Subtle horizontal movement based on mouse
   const x = useTransform(mouseX, [-1000, 1000], ["-10px", "10px"], { clamp: false });
-  
+
   return (
     <motion.div
       className="absolute pointer-events-none hidden md:block opacity-30"
@@ -160,6 +171,9 @@ const Waveform = ({ left, bottom, color, mouseX }: { left: string; bottom: strin
 
 // EQ Bars component - animated equalizer bars
 const EQBars = ({ top, right, mouseY }: { top: string; right: string; mouseY: any }) => {
+  const [isClient, setIsClient] = useState(false);
+  const [bars, setBars] = useState<Array<{ initialHeight: number, delay: number }>>([]);
+  
   const y = useTransform(
     mouseY,
     [-1000, 1000], 
@@ -167,13 +181,25 @@ const EQBars = ({ top, right, mouseY }: { top: string; right: string; mouseY: an
     { clamp: false }
   );
 
-  const bars = Array.from({ length: 5 }, (_, i) => {
-    const initialHeight = 15 + Math.random() * 30;
-    return {
-      initialHeight,
-      delay: i * 0.15
-    };
-  });
+  // Initialize bars only on the client side
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const generatedBars = Array.from({ length: 5 }, (_, i) => {
+        const initialHeight = 15 + Math.random() * 30;
+        return {
+          initialHeight,
+          delay: i * 0.15
+        };
+      });
+      setBars(generatedBars);
+      setIsClient(true);
+    }
+  }, []);
+
+  // Return null during SSR to prevent hydration mismatch
+  if (!isClient) {
+    return null;
+  }
 
   return (
     <motion.div 
@@ -217,10 +243,10 @@ const EQBars = ({ top, right, mouseY }: { top: string; right: string; mouseY: an
 
 // Feature pills data
 const featurePills = [
-  "Audio Control",
-  "AI Noise Suppression",
-  "Spatial Audio",
-  "Low Latency"
+  "featureCategories.audioControl",
+  "features.aiNoiseSuppression",
+  "featureCategories.spatialAudio",
+  "features.lowLatency"
 ];
 
 // Noise texture overlay component
@@ -244,23 +270,24 @@ const NoiseOverlay = () => {
 };
 
 export default function Hero() {
+  const t = useTranslations();
   const [showVideo, setShowVideo] = useState(false);
   const heroRef = useRef<HTMLElement>(null);
   const isInView = useInView(heroRef, { once: true, amount: 0.1 });
   const [isMobile, setIsMobile] = useState(false);
-  
+
   // Add new state for alternating headline
   const [headlineIndex, setHeadlineIndex] = useState(0);
-  
-  // Headline content options
+
+  // Headline content options using translations
   const headlines = [
     {
-      topLine: "Complete Control Over",
-      bottomLine: "Your Audio Environment."
-    },
+      topLine: t('hero.title'),
+      bottomLine: t('hero.subtitle')
+    }, 
     {
-      topLine: "Experience Sound",
-      bottomLine: "The way it's meant to be."
+      topLine: t('hero.alternateTitle'),
+      bottomLine: t('hero.alternateSubtitle')
     }
   ];
 
@@ -270,7 +297,7 @@ export default function Hero() {
       const interval = setInterval(() => {
         setHeadlineIndex(current => (current === 0 ? 1 : 0));
       }, 5000); // Change every 5 seconds
-      
+
       return () => clearInterval(interval);
     }
   }, [isInView]);
@@ -280,13 +307,13 @@ export default function Hero() {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
-    
+
     // Initial check
     checkMobile();
-    
+
     // Add event listener for resize
     window.addEventListener('resize', checkMobile);
-    
+
     // Cleanup
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
@@ -294,7 +321,7 @@ export default function Hero() {
   // Mouse position trackers for background interactions
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
-  
+
   // Spring-based smoothing for mouse values
   const smoothMouseX = useSpring(mouseX, { damping: 50, stiffness: 400 });
   const smoothMouseY = useSpring(mouseY, { damping: 50, stiffness: 400 });
@@ -310,26 +337,26 @@ export default function Hero() {
     target: heroRef, 
     offset: ['start start', 'end end']
   });
-  
+
   // Apply spring physics to the scroll progress for smoother transitions
   const smoothScrollYProgress = useSpring(scrollYProgress, { 
     damping: 20, 
     stiffness: 100,
     mass: 0.8
   });
-  
+
   // Use the smoothed scroll progress for transforms
   const backgroundY = useTransform(smoothScrollYProgress, [0, 1], ['0%', '30%']);
   const featurePillsX = useTransform(smoothScrollYProgress, [0, 0.5], ['0%', '-5%']);
   const logosX = useTransform(smoothScrollYProgress, [0, 0.5], ['0%', '5%']);
-  
+
   // Improved scale animation with smoother easing
   const imageScale = useTransform(
     smoothScrollYProgress, 
     [0, 0.5, 1], 
     isMobile ? [0.95, 1.02, 0.95] : [0.9, 1.05, 0.9]
   );
-  
+
   // Improved opacity with smoother easing
   const imageOpacity = useTransform(
     smoothScrollYProgress, 
@@ -350,15 +377,21 @@ export default function Hero() {
 
   // Generate fewer particles for mobile
   const particleCount = isMobile ? 8 : 15;
-  const particles = Array.from({ length: particleCount }, (_, i) => ({
-    id: i,
-    size: 4 + Math.random() * 4,
-    color: i % 3 === 0 ? 'rgba(34, 197, 94, 0.4)' : 'rgba(255, 255, 255, 0.2)',
-    duration: 4 + Math.random() * 6, // Slightly slower, more varied durations
-    delay: Math.random() * 6,
-    left: `${Math.random() * 100}%`,
-    top: `${Math.random() * 100}%`
-  }));
+  const [particles, setParticles] = useState([]);
+  
+  // Generate particles only on client side to avoid hydration mismatch
+  useEffect(() => {
+    const generatedParticles = Array.from({ length: particleCount }, (_, i) => ({
+      id: i,
+      size: 4 + Math.random() * 4,
+      color: i % 3 === 0 ? 'rgba(34, 197, 94, 0.4)' : 'rgba(255, 255, 255, 0.2)',
+      duration: 4 + Math.random() * 6, // Slightly slower, more varied durations
+      delay: Math.random() * 6,
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`
+    }));
+    setParticles(generatedParticles);
+  }, [particleCount, isMobile]);
 
   // App compatibility icons at the top
   const appColors = [
@@ -412,10 +445,10 @@ export default function Hero() {
           height: window.innerHeight
         });
       };
-      
+
       // Initial size
       handleResize();
-      
+
       // Update on resize
       window.addEventListener('resize', handleResize);
       return () => window.removeEventListener('resize', handleResize);
@@ -428,7 +461,7 @@ export default function Hero() {
     [0, windowSize.height], 
     [5, -5]
   );
-  
+
   const gridRotateY = useTransform(
     smoothMouseX, 
     [0, windowSize.width], 
@@ -441,19 +474,19 @@ export default function Hero() {
     [0, windowSize.width], 
     ["-3%", "3%"]
   );
-  
+
   const blob1Y = useTransform(
     smoothMouseY, 
     [0, windowSize.height], 
     ["-3%", "3%"]
   );
-  
+
   const blob2X = useTransform(
     smoothMouseX, 
     [0, windowSize.width], 
     ["2%", "-2%"]
   );
-  
+
   const blob2Y = useTransform(
     smoothMouseY, 
     [0, windowSize.height], 
@@ -498,7 +531,7 @@ export default function Hero() {
             willChange: "transform" 
           }}
         />
-        
+
         {/* Interactive Grid background */}
         <motion.div 
           className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-[0.02]"
@@ -508,7 +541,7 @@ export default function Hero() {
             willChange: "transform"
           }}
         />
-        
+
         {/* Interactive Particles */}
         {particles.map(particle => (
           <Particle
@@ -523,7 +556,7 @@ export default function Hero() {
             mouseY={smoothMouseY}
           />
         ))}
-        
+
         {/* Animated Waveforms */}
         {waveforms.map(wave => (
           <Waveform
@@ -534,7 +567,7 @@ export default function Hero() {
             mouseX={smoothMouseX}
           />
         ))}
-        
+
         {/* Add new Audio Waves */}
         {audioWaves.map(wave => (
           <AudioWave
@@ -546,7 +579,7 @@ export default function Hero() {
             mouseX={smoothMouseX}
           />
         ))}
-        
+
         {/* Animated EQ Bars */}
         <EQBars top="15%" right="15%" mouseY={smoothMouseY} />
         <EQBars top="75%" right="75%" mouseY={smoothMouseY} />
@@ -574,7 +607,7 @@ export default function Hero() {
             ))}
           </div>
           <p className="text-gray-400 text-sm md:text-base">
-            Compatible with your favorite apps
+            {t('hero.compatibleWith')}
           </p>
         </motion.div>
 
@@ -592,7 +625,7 @@ export default function Hero() {
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
               className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight tracking-tighter max-w-4xl"
             >
-              <span className="inline-block leading-[0.9] text-3xl md:text-5xl lg:text-6xl">
+              <span className="inline-block leading-[0.9] text-3xl md:text-5xl lg:text-5xl">
                 {headlines[headlineIndex].topLine}
               </span>
               <div className="relative mt-[-0.2em]">
@@ -616,7 +649,7 @@ export default function Hero() {
           variants={itemVariants}
           className="text-base sm:text-lg md:text-xl text-gray-300 mb-6 md:mb-10 max-w-2xl"
         >
-          Manage applications, enhance sound quality, and create immersive spatial audio experiences with AI-powered precision.
+          {t('hero.description')}
         </motion.p>
 
         {/* CTA Buttons - Adjusted for mobile */}
@@ -632,7 +665,7 @@ export default function Hero() {
             >
               <div className={'flex gap-4 items-center justify-center'}>
                 <DownloadCloudIcon />
-                <span className="relative z-10"> Download Now</span>
+                <span className="relative z-10">{t('cta.downloadNow')}</span>
               </div>
               {/* Animated highlight effect */}
               <motion.span 
@@ -655,7 +688,7 @@ export default function Hero() {
               {/* Pulse effect */}
               <span className="absolute inset-0 rounded-full bg-green-500/20 animate-ping opacity-70" />
             </motion.span>
-            <span className="relative">Watch Demo</span>
+            <span className="relative">{t('cta.watchDemo')}</span>
           </motion.button>
         </motion.div>
 
@@ -683,7 +716,7 @@ export default function Hero() {
                 transition: { delay: 0.6 + (index * 0.1) }
               }}
             >
-              {pill}
+              {t(pill)}
             </motion.span>
           ))}
         </motion.div>
@@ -697,7 +730,7 @@ export default function Hero() {
             willChange: "transform" 
           }}
         >
-          <p className="text-xs sm:text-sm text-gray-500 mb-3 sm:mb-4">Trusted by professionals at top companies worldwide</p>
+          <p className="text-xs sm:text-sm text-gray-500 mb-3 sm:mb-4">{t('hero.trustedBy')}</p>
           <div className="flex flex-wrap justify-center items-center gap-x-6 sm:gap-x-8 lg:gap-x-12 gap-y-4 md:gap-y-6">
             {companyLogos.map((logo, index) => (
               <motion.div
@@ -763,7 +796,7 @@ export default function Hero() {
               <span className="absolute inset-0 rounded-full bg-green-400 animate-ping opacity-60"></span>
               <span className="absolute inset-1/4 w-1/2 h-1/2 rounded-full bg-green-400"></span>
             </motion.div>
-            
+
             <motion.div 
               className="absolute bottom-1/3 right-1/3 w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-green-400/30 z-10"
               animate={{ 

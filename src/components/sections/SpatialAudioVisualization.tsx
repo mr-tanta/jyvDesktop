@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 // Define types for audio sources and environments
 type AudioSource = {
@@ -24,6 +25,8 @@ type Environment = {
 };
 
 const SpatialAudioVisualization = () => {
+    const t = useTranslations('spatialAudioVisualization');
+    
     // State for intersection observer (animation trigger)
     const [isVisible, setIsVisible] = useState(false);
     const sectionRef = useRef<HTMLElement>(null);
@@ -69,33 +72,33 @@ const SpatialAudioVisualization = () => {
     const environments: Environment[] = [
         {
             id: 'concert-hall',
-            name: 'Concert Hall',
-            description: 'Large reverberant space with rich acoustics',
+            name: t('environments.types.concert-hall.name'),
+            description: t('environments.types.concert-hall.description'),
             image: '/assets/images/concert-hall.jpg',
             reverbLevel: 0.8,
             roomSize: 0.9
         },
         {
             id: 'gaming',
-            name: 'Gaming',
-            description: 'Precise positional audio for competitive edge',
+            name: t('environments.types.gaming.name'),
+            description: t('environments.types.gaming.description'),
             image: '/assets/images/gaming.webp',
             reverbLevel: 0.3,
             roomSize: 0.5
         },
         {
             id: 'studio',
-            name: 'Recording Studio',
-            description: 'Acoustically treated space for clarity',
-            image: '/images/env-studio.webp',
+            name: t('environments.types.studio.name'),
+            description: t('environments.types.studio.description'),
+            image: '/assets/images/env-studio.jpg',
             reverbLevel: 0.2,
             roomSize: 0.4
         },
         {
             id: 'theater',
-            name: 'Theater',
-            description: 'Balanced acoustics with moderate reverb',
-            image: '/images/env-theater.webp',
+            name: t('environments.types.theater.name'),
+            description: t('environments.types.theater.description'),
+            image: '/assets/images/env-theater.jpeg',
             reverbLevel: 0.6,
             roomSize: 0.7
         }
@@ -222,14 +225,13 @@ const SpatialAudioVisualization = () => {
                     transition={{ duration: 0.7 }}
                 >
           <span className="inline-block mb-3 bg-gradient-to-r from-green-500 to-emerald-500 bg-clip-text text-transparent font-medium rounded-full px-3 py-1 text-sm border border-green-500/20 bg-black">
-            IMMERSIVE AUDIO
+            {t('subtitle')}
           </span>
                     <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                        Feel the sound all around you
+                        {t('title')}
                     </h2>
                     <p className="text-gray-300 max-w-3xl mx-auto text-lg">
-                        JyvDesktop's advanced spatial audio processing creates an immersive 3D soundscape,
-                        positioning each sound source precisely where you want it.
+                        {t('description')}
                     </p>
                 </motion.div>
 
@@ -242,9 +244,9 @@ const SpatialAudioVisualization = () => {
                         animate={isVisible ? "visible" : "hidden"}
                     >
                         <motion.div variants={itemVariants} className="mb-6">
-                            <h3 className="text-xl font-bold text-white mb-3">Audio Environments</h3>
+                            <h3 className="text-xl font-bold text-white mb-3">{t('environments.title')}</h3>
                             <p className="text-gray-400 text-sm">
-                                Select an environment to hear how JyvDesktop transforms your audio
+                                {t('environments.description')}
                             </p>
                         </motion.div>
 
@@ -290,12 +292,12 @@ const SpatialAudioVisualization = () => {
                             variants={itemVariants}
                             className="mt-6 p-4 bg-gray-900 rounded-xl border border-gray-800"
                         >
-                            <h4 className="text-sm font-medium text-white mb-4">Environment Settings</h4>
+                            <h4 className="text-sm font-medium text-white mb-4">{t('environments.settings')}</h4>
 
                             <div className="space-y-4">
                                 <div>
                                     <div className="flex justify-between text-xs mb-1">
-                                        <span className="text-gray-400">Reverb Level</span>
+                                        <span className="text-gray-400">{t('environments.reverbLevel')}</span>
                                         <span className="text-green-400">{Math.round(activeEnv.reverbLevel * 100)}%</span>
                                     </div>
                                     <div className="h-2 bg-gray-800 rounded-full overflow-hidden">
@@ -308,7 +310,7 @@ const SpatialAudioVisualization = () => {
 
                                 <div>
                                     <div className="flex justify-between text-xs mb-1">
-                                        <span className="text-gray-400">Room Size</span>
+                                        <span className="text-gray-400">{t('environments.roomSize')}</span>
                                         <span className="text-green-400">{Math.round(activeEnv.roomSize * 100)}%</span>
                                     </div>
                                     <div className="h-2 bg-gray-800 rounded-full overflow-hidden">
@@ -498,7 +500,7 @@ const SpatialAudioVisualization = () => {
                                         <svg className="w-5 h-5 mr-2 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                         </svg>
-                                        <span>Click sources to play audio samples. Drag them to reposition in 3D space.</span>
+                                        <span>{t('sources.dragInstructions')}</span>
                                     </div>
                                 </div>
                             </div>
@@ -513,9 +515,9 @@ const SpatialAudioVisualization = () => {
                         animate={isVisible ? "visible" : "hidden"}
                     >
                         <motion.div variants={itemVariants} className="mb-6">
-                            <h3 className="text-xl font-bold text-white mb-3">Source Controls</h3>
+                            <h3 className="text-xl font-bold text-white mb-3">{t('sources.title')}</h3>
                             <p className="text-gray-400 text-sm">
-                                Adjust individual audio sources in your spatial environment
+                                {t('sources.description')}
                             </p>
                         </motion.div>
 
@@ -567,7 +569,7 @@ const SpatialAudioVisualization = () => {
                                     {/* Volume control */}
                                     <div className="mb-3">
                                         <div className="flex justify-between text-xs mb-1">
-                                            <span className="text-gray-400">Volume</span>
+                                            <span className="text-gray-400">{t('sources.volume')}</span>
                                             <span className="text-green-400">85%</span>
                                         </div>
                                         <div className="h-2 bg-gray-800 rounded-full overflow-hidden">
@@ -581,7 +583,7 @@ const SpatialAudioVisualization = () => {
                                     {/* Distance from listener */}
                                     <div>
                                         <div className="flex justify-between text-xs mb-1">
-                                            <span className="text-gray-400">Distance</span>
+                                            <span className="text-gray-400">{t('sources.distance')}</span>
                                             <span className="text-green-400">
                         {Math.round(getDistanceFromCenter(source.position.x, source.position.y) * 100)}%
                       </span>
@@ -604,25 +606,25 @@ const SpatialAudioVisualization = () => {
                             variants={itemVariants}
                             className="mt-6 p-4 bg-gradient-to-br from-black to-gray-900 rounded-xl border border-green-500/20"
                         >
-                            <h4 className="text-green-500 font-medium mb-3">Spatial Audio Benefits</h4>
+                            <h4 className="text-green-500 font-medium mb-3">{t('benefits.title')}</h4>
                             <ul className="space-y-2 text-sm">
                                 <li className="flex items-start">
                                     <svg className="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                                     </svg>
-                                    <span className="text-gray-300">Improved focus with positional separation</span>
+                                    <span className="text-gray-300">{t('benefits.improvedFocus')}</span>
                                 </li>
                                 <li className="flex items-start">
                                     <svg className="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                                     </svg>
-                                    <span className="text-gray-300">Reduced listening fatigue during long sessions</span>
+                                    <span className="text-gray-300">{t('benefits.reducedFatigue')}</span>
                                 </li>
                                 <li className="flex items-start">
                                     <svg className="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                                     </svg>
-                                    <span className="text-gray-300">Enhanced gaming awareness with precise positioning</span>
+                                    <span className="text-gray-300">{t('benefits.enhancedGaming')}</span>
                                 </li>
                             </ul>
                         </motion.div>
@@ -637,9 +639,9 @@ const SpatialAudioVisualization = () => {
                     transition={{ duration: 0.7, delay: 0.7 }}
                 >
                     <div className="text-center mb-12">
-                        <h3 className="text-2xl font-bold text-white mb-4">Standard Audio vs. JyvDesktop Spatial Audio</h3>
+                        <h3 className="text-2xl font-bold text-white mb-4">{t('comparison.title')}</h3>
                         <p className="text-gray-300">
-                            Experience the transformative difference of JyvDesktop's spatial audio technology
+                            {t('comparison.description')}
                         </p>
                     </div>
 
@@ -654,8 +656,8 @@ const SpatialAudioVisualization = () => {
                                     </svg>
                                 </div>
                                 <div className="flex-1">
-                                    <h4 className="text-white font-medium">Standard Audio</h4>
-                                    <p className="text-xs text-gray-400">Flat, overlapping sound</p>
+                                    <h4 className="text-white font-medium">{t('comparison.standard.title')}</h4>
+                                    <p className="text-xs text-gray-400">{t('comparison.standard.description')}</p>
                                 </div>
                             </div>
 
@@ -715,7 +717,7 @@ const SpatialAudioVisualization = () => {
 
                             <div className="p-3 border-t border-gray-800">
                                 <button className="w-full py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-lg transition-colors text-sm">
-                                    Listen to standard audio
+                                    {t('comparison.standard.button')}
                                 </button>
                             </div>
                         </div>
@@ -729,8 +731,8 @@ const SpatialAudioVisualization = () => {
                                     </svg>
                                 </div>
                                 <div className="flex-1">
-                                    <h4 className="text-white font-medium">JyvDesktop Spatial Audio</h4>
-                                    <p className="text-xs text-green-400">3D positioned sound</p>
+                                    <h4 className="text-white font-medium">{t('comparison.spatial.title')}</h4>
+                                    <p className="text-xs text-green-400">{t('comparison.spatial.description')}</p>
                                 </div>
                             </div>
 
@@ -887,7 +889,7 @@ const SpatialAudioVisualization = () => {
 
                             <div className="p-3 border-t border-gray-800">
                                 <button className="w-full py-2 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-400 hover:to-emerald-400 text-black font-medium rounded-lg transition-colors text-sm">
-                                    Experience spatial audio
+                                    {t('comparison.spatial.button')}
                                 </button>
                             </div>
                         </div>
@@ -904,19 +906,17 @@ const SpatialAudioVisualization = () => {
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <div>
               <span className="inline-block mb-3 bg-gradient-to-r from-green-500 to-emerald-500 bg-clip-text text-transparent font-medium px-3 py-1 text-sm border border-green-500/20 bg-black rounded-full">
-                THE TECHNOLOGY
+                {t('technology.subtitle')}
               </span>
                             <h3 className="text-2xl font-bold text-white mb-6">
-                                How JyvDesktop's Spatial Audio Works
+                                {t('technology.title')}
                             </h3>
                             <div className="space-y-4 text-gray-300">
                                 <p>
-                                    Our advanced HRTF (Head-Related Transfer Function) technology simulates how sound interacts
-                                    with your head and ears, creating a precise three-dimensional audio experience.
+                                    {t('technology.description1')}
                                 </p>
                                 <p>
-                                    Unlike standard stereo, JyvDesktop processes each sound source independently, applying complex
-                                    binaural algorithms that replicate natural acoustic properties.
+                                    {t('technology.description2')}
                                 </p>
                             </div>
 
@@ -924,16 +924,16 @@ const SpatialAudioVisualization = () => {
                             <div className="mt-8 space-y-4">
                                 {[
                                     {
-                                        title: "Personalized HRTF Processing",
-                                        description: "Customized audio filtering based on ear and head anatomy"
+                                        title: t('technology.features.hrtf.title'),
+                                        description: t('technology.features.hrtf.description')
                                     },
                                     {
-                                        title: "Real-time Dynamic Positioning",
-                                        description: "Sound sources adapt instantly as you reposition them"
+                                        title: t('technology.features.positioning.title'),
+                                        description: t('technology.features.positioning.description')
                                     },
                                     {
-                                        title: "Environmental Acoustics",
-                                        description: "Accurate simulation of different acoustic spaces"
+                                        title: t('technology.features.acoustics.title'),
+                                        description: t('technology.features.acoustics.description')
                                     }
                                 ].map((item, index) => (
                                     <div key={index} className="flex items-start">
@@ -995,18 +995,18 @@ const SpatialAudioVisualization = () => {
                                                 <svg className="w-6 h-6 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
                                                 </svg>
-                                                <h4 className="text-white font-medium">HRTF Processing Engine</h4>
+                                                <h4 className="text-white font-medium">{t('technology.processingEngine')}</h4>
                                             </div>
 
                                             <div className="grid grid-cols-3 gap-2 text-xs text-center">
                                                 <div className="bg-black/50 rounded p-2 text-green-400">
-                                                    <span>Position</span>
+                                                    <span>{t('technology.position')}</span>
                                                 </div>
                                                 <div className="bg-black/50 rounded p-2 text-green-400">
-                                                    <span>Distance</span>
+                                                    <span>{t('technology.distance')}</span>
                                                 </div>
                                                 <div className="bg-black/50 rounded p-2 text-green-400">
-                                                    <span>Environment</span>
+                                                    <span>{t('technology.environment')}</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -1024,7 +1024,7 @@ const SpatialAudioVisualization = () => {
                                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
                                                     </svg>
                                                 </div>
-                                                <span className="text-gray-400 text-sm">Headphones</span>
+                                                <span className="text-gray-400 text-sm">{t('technology.headphones')}</span>
                                             </div>
 
                                             <div className="flex flex-col items-center">
@@ -1033,7 +1033,7 @@ const SpatialAudioVisualization = () => {
                                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15.536a5 5 0 010-7.072m12.728 0l3.536-3.536M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
                                                     </svg>
                                                 </div>
-                                                <span className="text-gray-400 text-sm">Speakers</span>
+                                                <span className="text-gray-400 text-sm">{t('technology.speakers')}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -1041,14 +1041,7 @@ const SpatialAudioVisualization = () => {
                             </div>
 
                             {/* Decorative code snippet */}
-                            <div className="absolute -bottom-8 -right-8 max-w-xs bg-gray-900 rounded-lg border border-gray-800 shadow-lg p-4 text-sm font-mono text-gray-300 transform rotate-3">
-                                <div className="text-gray-500 mb-2">{/* HRTF processing snippet */}</div>
-                                <div><span className="text-purple-400">function</span> <span className="text-blue-400">processHRTF</span>(source, listener) {'{'}</div>
-                                <div className="pl-4"><span className="text-purple-400">const</span> azimuth = <span className="text-blue-400">calculateAzimuth</span>(source, listener);</div>
-                                <div className="pl-4"><span className="text-purple-400">const</span> elevation = <span className="text-blue-400">calculateElevation</span>(source, listener);</div>
-                                <div className="pl-4"><span className="text-purple-400">return</span> <span className="text-blue-400">applyBinauralFilters</span>(source.<span className="text-yellow-400">buffer</span>, azimuth, elevation);</div>
-                                <div>{'}'}</div>
-                            </div>
+                            
                         </div>
                     </div>
                 </motion.div>
@@ -1061,11 +1054,10 @@ const SpatialAudioVisualization = () => {
                     transition={{ duration: 0.7, delay: 1 }}
                 >
                     <h3 className="text-2xl md:text-3xl font-bold text-white mb-6">
-                        Experience true spatial audio today
+                        {t('cta.title')}
                     </h3>
                     <p className="text-gray-300 max-w-2xl mx-auto mb-8">
-                        Transform how you hear digital audio with JyvDesktop's advanced spatial audio technology.
-                        Try it free for 14 days with full access to all features.
+                        {t('cta.description')}
                     </p>
 
                     <div className="flex flex-wrap justify-center gap-4">
@@ -1073,7 +1065,7 @@ const SpatialAudioVisualization = () => {
                             href="#download"
                             className="inline-flex items-center gap-2 px-6 py-4 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-400 hover:to-emerald-400 text-black font-bold rounded-full transition-all duration-300 shadow-lg shadow-green-900/20 group"
                         >
-                            <span>Download JyvDesktop</span>
+                            <span>{t('cta.downloadButton')}</span>
                             <svg
                                 className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
                                 fill="none"
@@ -1088,7 +1080,7 @@ const SpatialAudioVisualization = () => {
                             href="#learn-more"
                             className="inline-flex items-center gap-2 px-6 py-4 bg-gray-900 hover:bg-gray-800 text-white font-medium rounded-full transition-all duration-300 border border-gray-800"
                         >
-                            <span>Learn more about spatial audio</span>
+                            <span>{t('cta.learnMoreButton')}</span>
                         </a>
                     </div>
                 </motion.div>
@@ -1101,29 +1093,29 @@ const SpatialAudioVisualization = () => {
                     transition={{ duration: 0.7, delay: 1.1 }}
                 >
                     <div className="text-center mb-12">
-                        <h3 className="text-2xl font-bold text-white mb-4">Frequently Asked Questions</h3>
+                        <h3 className="text-2xl font-bold text-white mb-4">{t('faq.title')}</h3>
                         <p className="text-gray-300">
-                            Everything you need to know about JyvDesktop's spatial audio technology
+                            {t('faq.description')}
                         </p>
                     </div>
 
                     <div className="space-y-4">
                         {[
                             {
-                                question: "Do I need special headphones to experience spatial audio?",
-                                answer: "No, JyvDesktop's spatial audio works with any headphones or earbuds. However, higher quality headphones will deliver a more immersive experience. For best results, we recommend using over-ear headphones with a wide frequency response."
+                                question: t('faq.questions.headphones.question'),
+                                answer: t('faq.questions.headphones.answer')
                             },
                             {
-                                question: "How is this different from surround sound?",
-                                answer: "Traditional surround sound relies on multiple physical speakers positioned around you. JyvDesktop's spatial audio creates a fully three-dimensional sound field using just two channels (stereo), precisely calculating how sound waves interact with your head and ears to create a natural, immersive experience."
+                                question: t('faq.questions.surroundSound.question'),
+                                answer: t('faq.questions.surroundSound.answer')
                             },
                             {
-                                question: "Can I use spatial audio for gaming?",
-                                answer: "Absolutely! In fact, gaming is one of the best applications for spatial audio. JyvDesktop can enhance your gaming experience by providing precise audio positioning, helping you locate enemies, identify environmental cues, and immerse yourself more deeply in game worlds."
+                                question: t('faq.questions.gaming.question'),
+                                answer: t('faq.questions.gaming.answer')
                             },
                             {
-                                question: "Does spatial audio work with all applications?",
-                                answer: "Yes, JyvDesktop processes audio at the system level, which means it works with virtually any application that produces sound. This includes streaming services, video conferencing tools, games, media players, and more."
+                                question: t('faq.questions.compatibility.question'),
+                                answer: t('faq.questions.compatibility.answer')
                             }
                         ].map((faq, index) => (
                             <div key={index} className="bg-gray-900 border border-gray-800 rounded-xl overflow-hidden">

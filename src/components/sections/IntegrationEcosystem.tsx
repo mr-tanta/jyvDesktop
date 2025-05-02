@@ -3,8 +3,10 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 const IntegrationEcosystem = () => {
+    const t = useTranslations('integrations');
     const controls = useAnimation();
     const sectionRef = useRef(null);
     const [activeCategory, setActiveCategory] = useState('applications');
@@ -36,23 +38,23 @@ const IntegrationEcosystem = () => {
     const categories = [
         {
             id: 'applications',
-            name: 'Applications',
-            description: 'Popular software that works seamlessly with JyvDesktop'
+            name: t('categories.applications.name'),
+            description: t('categories.applications.description')
         },
         {
             id: 'plugins',
-            name: 'Plugins',
-            description: 'VST/AU plugin support for enhanced audio processing'
+            name: t('categories.plugins.name'),
+            description: t('categories.plugins.description')
         },
         {
             id: 'daw',
-            name: 'DAW Integration',
-            description: 'Professional digital audio workstation compatibility'
+            name: t('categories.daw.name'),
+            description: t('categories.daw.description')
         },
         {
             id: 'streaming',
-            name: 'Streaming Tools',
-            description: 'Optimize your streams with perfect audio enhancement'
+            name: t('categories.streaming.name'),
+            description: t('categories.streaming.description')
         }
     ];
 
@@ -62,56 +64,56 @@ const IntegrationEcosystem = () => {
             {
                 name: 'Zoom',
                 icon: '/images/integrations/zoom.svg',
-                description: 'Crystal clear audio for all your meetings',
+                description: t('applications.zoom'),
                 category: 'Communication',
                 highlight: false
             },
             {
                 name: 'Discord',
                 icon: '/images/integrations/discord.svg',
-                description: 'Enhanced voice chat for gaming and communities',
+                description: t('applications.discord'),
                 category: 'Communication',
                 highlight: true
             },
             {
                 name: 'Microsoft Teams',
                 icon: '/images/integrations/ms-teams.svg',
-                description: 'Professional call quality for business communication',
+                description: t('applications.teams'),
                 category: 'Communication',
                 highlight: false
             },
             {
                 name: 'Slack',
                 icon: '/images/integrations/slack.svg',
-                description: 'Crisp audio for team collaboration',
+                description: t('applications.slack'),
                 category: 'Communication',
                 highlight: false
             },
             {
                 name: 'Spotify',
                 icon: '/images/integrations/spotify.svg',
-                description: 'Enhanced music listening experience',
+                description: t('applications.spotify'),
                 category: 'Entertainment',
                 highlight: false
             },
             {
                 name: 'Chrome',
                 icon: '/images/integrations/chrome.svg',
-                description: 'Browser audio optimization for all web content',
+                description: t('applications.chrome'),
                 category: 'Browser',
                 highlight: true
             },
             {
                 name: 'Safari',
                 icon: '/images/integrations/safari.svg',
-                description: 'Enhanced audio for macOS browsing experience',
+                description: t('applications.safari'),
                 category: 'Browser',
                 highlight: false
             },
             {
                 name: 'VLC',
                 icon: '/images/integrations/vlc.svg',
-                description: 'Video player audio enhancement',
+                description: t('applications.vlc'),
                 category: 'Entertainment',
                 highlight: false
             }
@@ -120,142 +122,142 @@ const IntegrationEcosystem = () => {
             {
                 name: 'VST3 Plugins',
                 icon: '/images/integrations/vst.svg',
-                description: 'Support for industry-standard VST3 plugins',
+                description: t('plugins.vst3'),
                 category: 'Plugin Format',
                 highlight: true,
-                tierBadge: 'Studio'
+                tierBadge: 'Pro'
             },
             {
                 name: 'Audio Units',
                 icon: '/images/integrations/au.svg',
-                description: 'Native Audio Units support for macOS',
+                description: t('plugins.au'),
                 category: 'Plugin Format',
                 highlight: true,
-                tierBadge: 'Studio'
+                tierBadge: 'Pro'
             },
             {
                 name: 'FabFilter',
                 icon: '/images/integrations/fabfilter.svg',
-                description: 'Professional EQ and dynamics processing',
+                description: t('plugins.fabfilter'),
                 category: 'Third-Party Plugins',
                 highlight: false,
-                tierBadge: 'Studio'
+                tierBadge: 'Pro'
             },
             {
                 name: 'iZotope',
                 icon: '/images/integrations/izotope.svg',
-                description: 'Advanced audio restoration and effects',
+                description: t('plugins.izotope'),
                 category: 'Third-Party Plugins',
                 highlight: false,
-                tierBadge: 'Studio'
+                tierBadge: 'Pro'
             },
             {
                 name: 'Waves',
                 icon: '/images/integrations/waves.svg',
-                description: 'Industry-leading audio effects',
+                description: t('plugins.waves'),
                 category: 'Third-Party Plugins',
                 highlight: false,
-                tierBadge: 'Studio'
+                tierBadge: 'Pro'
             },
             {
                 name: 'Soundtoys',
                 icon: '/images/integrations/soundtoys.svg',
-                description: 'Creative audio effects and processing',
+                description: t('plugins.soundtoys'),
                 category: 'Third-Party Plugins',
                 highlight: false,
-                tierBadge: 'Studio'
+                tierBadge: 'Pro'
             }
         ],
         daw: [
             {
                 name: 'Ableton Live',
                 icon: '/images/integrations/ableton.svg',
-                description: 'Perfect integration for music production',
+                description: t('daw.ableton'),
                 category: 'Professional DAW',
                 highlight: true,
-                tierBadge: 'Studio'
+                tierBadge: 'Pro'
             },
             {
                 name: 'Logic Pro',
                 icon: '/images/integrations/logic.svg',
-                description: "Seamless compatibility with Apple's DAW",
+                description: t('daw.logic'),
                 category: 'Professional DAW',
                 highlight: true,
-                tierBadge: 'Studio'
+                tierBadge: 'Pro'
             },
             {
                 name: 'Pro Tools',
                 icon: '/images/integrations/protools.svg',
-                description: 'Industry-standard recording studio compatibility',
+                description: t('daw.protools'),
                 category: 'Professional DAW',
                 highlight: false,
-                tierBadge: 'Studio'
+                tierBadge: 'Pro'
             },
             {
                 name: 'FL Studio',
                 icon: '/images/integrations/fl-studio.svg',
-                description: 'Enhanced workflow for music producers',
+                description: t('daw.flstudio'),
                 category: 'Professional DAW',
                 highlight: false,
-                tierBadge: 'Studio'
+                tierBadge: 'Pro'
             },
             {
                 name: 'Cubase',
                 icon: '/images/integrations/cubase.svg',
-                description: "Professional audio enhancement for Steinberg's DAW",
+                description: t('daw.cubase'),
                 category: 'Professional DAW',
                 highlight: false,
-                tierBadge: 'Studio'
+                tierBadge: 'Pro'
             },
             {
                 name: 'Reaper',
                 icon: '/images/integrations/reaper.svg',
-                description: 'Lightweight integration for efficient workflow',
+                description: t('daw.reaper'),
                 category: 'Professional DAW',
                 highlight: false,
-                tierBadge: 'Studio'
+                tierBadge: 'Pro'
             }
         ],
         streaming: [
             {
                 name: 'OBS Studio',
                 icon: '/images/integrations/obs.svg',
-                description: 'Perfect streaming audio for content creators',
+                description: t('streaming.obs'),
                 category: 'Streaming Software',
                 highlight: true
             },
             {
                 name: 'Streamlabs',
                 icon: '/images/integrations/streamlabs.svg',
-                description: 'Enhanced broadcasting for streamers',
+                description: t('streaming.streamlabs'),
                 category: 'Streaming Software',
                 highlight: false
             },
             {
                 name: 'Twitch',
                 icon: '/images/integrations/twitch.svg',
-                description: 'Crystal clear audio for your audience',
+                description: t('streaming.twitch'),
                 category: 'Streaming Platform',
                 highlight: true
             },
             {
                 name: 'YouTube',
                 icon: '/assets/images/logos/youtube.svg',
-                description: 'Professional sound quality for content creators',
+                description: t('streaming.youtube'),
                 category: 'Streaming Platform',
                 highlight: false
             },
             {
                 name: 'XSplit',
                 icon: '/images/integrations/xsplit.svg',
-                description: 'Broadcast-quality audio enhancement',
+                description: t('streaming.xsplit'),
                 category: 'Streaming Software',
                 highlight: false
             },
             {
                 name: 'Elgato Stream Deck',
                 icon: '/images/integrations/streamdeck.svg',
-                description: 'One-touch audio controls for live streaming',
+                description: t('streaming.streamdeck'),
                 category: 'Streaming Hardware',
                 highlight: false
             }
@@ -326,7 +328,7 @@ const IntegrationEcosystem = () => {
                                 <h3 className="text-2xl font-bold text-white">{featured.name}</h3>
                                 {featured.tierBadge && (
                                     <span className="inline-block px-3 py-1 bg-green-500/20 text-green-400 text-xs font-medium rounded-full border border-green-500/30">
-                    {featured.tierBadge} Tier
+                    {featured.tierBadge} {t('tierLabel')}
                   </span>
                                 )}
                             </div>
@@ -335,7 +337,7 @@ const IntegrationEcosystem = () => {
 
                             <div className="hidden md:block">
                                 <a href="#" className="inline-flex items-center gap-2 text-green-500 hover:text-green-400">
-                                    <span>Learn more about this integration</span>
+                                    <span>{t('learnMore')}</span>
                                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                                     </svg>
@@ -347,40 +349,40 @@ const IntegrationEcosystem = () => {
                     {/* Integration details section */}
                     <div className="mt-8 grid md:grid-cols-2 gap-4">
                         <div className="bg-black/30 rounded-lg p-4 border border-gray-800">
-                            <h4 className="text-white font-medium mb-2">Key Benefits</h4>
+                            <h4 className="text-white font-medium mb-2">{t('details.keyBenefits')}</h4>
                             <ul className="space-y-2">
                                 <li className="flex items-start">
                                     <svg className="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                                     </svg>
-                                    <span className="text-gray-300 text-sm">Seamless audio routing between applications</span>
+                                    <span className="text-gray-300 text-sm">{t('details.benefit1')}</span>
                                 </li>
                                 <li className="flex items-start">
                                     <svg className="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                                     </svg>
-                                    <span className="text-gray-300 text-sm">One-click preset loading</span>
+                                    <span className="text-gray-300 text-sm">{t('details.benefit2')}</span>
                                 </li>
                                 <li className="flex items-start">
                                     <svg className="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                                     </svg>
-                                    <span className="text-gray-300 text-sm">Auto-configuration based on detected content</span>
+                                    <span className="text-gray-300 text-sm">{t('details.benefit3')}</span>
                                 </li>
                             </ul>
                         </div>
 
                         <div className="bg-black/30 rounded-lg p-4 border border-gray-800">
-                            <h4 className="text-white font-medium mb-2">Setup Requirements</h4>
+                            <h4 className="text-white font-medium mb-2">{t('details.setupRequirements')}</h4>
                             <div className="flex gap-3 flex-wrap">
                 <span className="inline-block px-3 py-1 bg-gray-800 text-gray-300 text-xs rounded-full">
-                  One-time authorization
+                  {t('details.requirement1')}
                 </span>
                                 <span className="inline-block px-3 py-1 bg-gray-800 text-gray-300 text-xs rounded-full">
-                  No plugins needed
+                  {t('details.requirement2')}
                 </span>
                                 <span className="inline-block px-3 py-1 bg-gray-800 text-gray-300 text-xs rounded-full">
-                  Auto-detection
+                  {t('details.requirement3')}
                 </span>
                             </div>
                         </div>
@@ -391,7 +393,7 @@ const IntegrationEcosystem = () => {
                             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                             </svg>
-                            <span>Quick Setup Guide</span>
+                            <span>{t('details.quickSetupGuide')}</span>
                         </button>
                     </div>
                 </div>
@@ -410,7 +412,7 @@ const IntegrationEcosystem = () => {
                                     className="w-6 h-6 object-contain"
                                 />
                             </div>
-                            <span className="text-xs text-gray-500 mt-1">Application</span>
+                            <span className="text-xs text-gray-500 mt-1">{t('details.application')}</span>
                         </div>
 
                         <svg className="w-16 h-8 text-green-500" viewBox="0 0 64 32" fill="none">
@@ -437,7 +439,7 @@ const IntegrationEcosystem = () => {
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
                                 </svg>
                             </div>
-                            <span className="text-xs text-gray-500 mt-1">JyvDesktop</span>
+                            <span className="text-xs text-gray-500 mt-1">{t('details.jyvDesktop')}</span>
                         </div>
 
                         <svg className="w-16 h-8 text-green-500" viewBox="0 0 64 32" fill="none">
@@ -464,7 +466,7 @@ const IntegrationEcosystem = () => {
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
                                 </svg>
                             </div>
-                            <span className="text-xs text-gray-500 mt-1">Output</span>
+                            <span className="text-xs text-gray-500 mt-1">{t('details.output')}</span>
                         </div>
                     </div>
                 </div>
@@ -520,14 +522,13 @@ const IntegrationEcosystem = () => {
                     transition={{ duration: 0.7 }}
                 >
                     <div className="inline-block mb-3 bg-gradient-to-r from-green-500 to-emerald-500 bg-clip-text text-transparent font-medium rounded-full px-3 py-1 text-sm border border-green-500/20 bg-black">
-                        POWERFUL ECOSYSTEM
+                        {t('subtitle')}
                     </div>
                     <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">
-                        Works with your favorite apps
+                        {t('title')}
                     </h2>
                     <p className="text-gray-300 max-w-3xl mx-auto text-lg">
-                        JyvDesktop integrates seamlessly with a wide range of applications, plugins, and tools
-                        to enhance every aspect of your audio experience.
+                        {t('description')}
                     </p>
                 </motion.div>
 
@@ -565,7 +566,7 @@ const IntegrationEcosystem = () => {
                         animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                         transition={{ duration: 0.7, delay: 0.6 }}
                     >
-                        More {categories.find(c => c.id === activeCategory)?.name} Integrations
+                        {t('moreIntegrations', { category: categories.find(c => c.id === activeCategory)?.name })}
                     </motion.h3>
 
                     <motion.div
@@ -622,10 +623,9 @@ const IntegrationEcosystem = () => {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                             </svg>
                         </div>
-                        <h3 className="text-xl font-bold text-white mb-3">Plug & Play Setup</h3>
+                        <h3 className="text-xl font-bold text-white mb-3">{t('benefits.plugAndPlay.title')}</h3>
                         <p className="text-gray-300">
-                            JyvDesktop automatically detects your applications and configures optimal settings,
-                            making integration effortless with zero configuration required.
+                            {t('benefits.plugAndPlay.description')}
                         </p>
                     </div>
 
@@ -635,10 +635,9 @@ const IntegrationEcosystem = () => {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
                             </svg>
                         </div>
-                        <h3 className="text-xl font-bold text-white mb-3">Extensive Customization</h3>
+                        <h3 className="text-xl font-bold text-white mb-3">{t('benefits.customization.title')}</h3>
                         <p className="text-gray-300">
-                            Create and save custom processing chains for each application, with detailed
-                            settings that optimize for specific use cases and scenarios.
+                            {t('benefits.customization.description')}
                         </p>
                     </div>
 
@@ -648,10 +647,9 @@ const IntegrationEcosystem = () => {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                             </svg>
                         </div>
-                        <h3 className="text-xl font-bold text-white mb-3">Professional Performance</h3>
+                        <h3 className="text-xl font-bold text-white mb-3">{t('benefits.performance.title')}</h3>
                         <p className="text-gray-300">
-                            Studio-grade processing for all your applications with ultra-low latency integration
-                            that meets the demands of professional content creators.
+                            {t('benefits.performance.description')}
                         </p>
                     </div>
                 </motion.div>
@@ -667,11 +665,11 @@ const IntegrationEcosystem = () => {
                         <div className="grid md:grid-cols-2 items-center">
                             <div className="p-8 md:p-12">
                                 <div className="inline-block px-3 py-1 bg-green-500/20 text-green-400 text-sm font-medium rounded-full border border-green-500/30 mb-6">
-                                    Studio Tier Exclusive
+                                    {t('proTier.title')}
                                 </div>
-                                <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">Pro Audio Integration Suite</h3>
+                                <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">{t('proTier.heading')}</h3>
                                 <p className="text-gray-300 mb-6">
-                                    Our Studio tier unlocks professional integration capabilities designed for content creators, music producers, and audio professionals. Take your audio to the next level with advanced plugin support and DAW integration.
+                                    {t('proTier.description')}
                                 </p>
 
                                 <div className="space-y-4 mb-8">
@@ -682,9 +680,9 @@ const IntegrationEcosystem = () => {
                                             </svg>
                                         </div>
                                         <div>
-                                            <h4 className="text-white font-medium">VST3 & AU Plugin Support</h4>
+                                            <h4 className="text-white font-medium">{t('proTier.features.pluginsTitle')}</h4>
                                             <p className="text-gray-400 text-sm mt-1">
-                                                Use your favorite third-party plugins for ultimate customization
+                                                {t('proTier.features.plugins')}
                                             </p>
                                         </div>
                                     </div>
@@ -696,9 +694,9 @@ const IntegrationEcosystem = () => {
                                             </svg>
                                         </div>
                                         <div>
-                                            <h4 className="text-white font-medium">DAW Integration</h4>
+                                            <h4 className="text-white font-medium">{t('proTier.features.dawTitle')}</h4>
                                             <p className="text-gray-400 text-sm mt-1">
-                                                Seamless workflow with major digital audio workstations
+                                                {t('proTier.features.daw')}
                                             </p>
                                         </div>
                                     </div>
@@ -710,16 +708,16 @@ const IntegrationEcosystem = () => {
                                             </svg>
                                         </div>
                                         <div>
-                                            <h4 className="text-white font-medium">Advanced Routing Matrix</h4>
+                                            <h4 className="text-white font-medium">{t('proTier.features.processingTitle')}</h4>
                                             <p className="text-gray-400 text-sm mt-1">
-                                                Complex multi-channel audio routing between applications
+                                                {t('proTier.features.processing')}
                                             </p>
                                         </div>
                                     </div>
                                 </div>
 
                                 <button className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-400 hover:to-emerald-400 text-black font-medium rounded-lg transition-colors">
-                                    <span>Upgrade to Studio Tier</span>
+                                    <span>{t('proTier.upgradeButton')}</span>
                                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                                     </svg>
@@ -749,8 +747,8 @@ const IntegrationEcosystem = () => {
                                                     />
                                                 </div>
                                                 <div>
-                                                    <div className="text-white text-sm font-medium">Digital Audio Workstation</div>
-                                                    <div className="text-gray-500 text-xs">Audio source</div>
+                                                    <div className="text-white text-sm font-medium">{t('details.digitalAudioWorkstation')}</div>
+                                                    <div className="text-gray-500 text-xs">{t('details.audioSource')}</div>
                                                 </div>
                                             </motion.div>
 
@@ -780,8 +778,8 @@ const IntegrationEcosystem = () => {
                                                     </svg>
                                                 </div>
                                                 <div>
-                                                    <div className="text-white text-sm font-medium">JyvDesktop</div>
-                                                    <div className="text-green-400 text-xs">Processing audio</div>
+                                                    <div className="text-white text-sm font-medium">{t('details.jyvDesktop')}</div>
+                                                    <div className="text-green-400 text-xs">{t('details.processingAudio')}</div>
                                                 </div>
                                             </motion.div>
 
@@ -828,8 +826,8 @@ const IntegrationEcosystem = () => {
                                                     </svg>
                                                 </div>
                                                 <div>
-                                                    <div className="text-white text-sm font-medium">Enhanced Output</div>
-                                                    <div className="text-gray-500 text-xs">Professional quality</div>
+                                                    <div className="text-white text-sm font-medium">{t('details.enhancedOutput')}</div>
+                                                    <div className="text-gray-500 text-xs">{t('details.professionalQuality')}</div>
                                                 </div>
                                             </motion.div>
                                         </div>
@@ -841,7 +839,7 @@ const IntegrationEcosystem = () => {
                                             animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
                                             transition={{ duration: 0.5, delay: 1.8 }}
                                         >
-                                            VST/AU PLUGINS
+                                            {t('details.vstAuPlugins')}
                                         </motion.div>
                                     </div>
                                 </div>
@@ -858,9 +856,9 @@ const IntegrationEcosystem = () => {
                     transition={{ duration: 0.7, delay: 1.2 }}
                 >
                     <div className="text-center mb-12">
-                        <h3 className="text-2xl font-bold text-white mb-4">Simple Integration Process</h3>
+                        <h3 className="text-2xl font-bold text-white mb-4">{t('integrationProcess.title')}</h3>
                         <p className="text-gray-300">
-                            Getting started with JyvDesktop integrations is effortless
+                            {t('integrationProcess.description')}
                         </p>
                     </div>
 
@@ -873,9 +871,9 @@ const IntegrationEcosystem = () => {
                             <div className="flex flex-col md:flex-row items-center gap-6">
                                 <div className="md:w-1/2 flex justify-end order-1 md:order-1">
                                     <div className="bg-gray-900 p-6 rounded-xl border border-gray-800 max-w-sm">
-                                        <h4 className="text-xl font-bold text-white mb-3">1. Install JyvDesktop</h4>
+                                        <h4 className="text-xl font-bold text-white mb-3">{t('integrationProcess.step1.title')}</h4>
                                         <p className="text-gray-300">
-                                            Download and install JyvDesktop on your computer. No additional plugins needed for basic integration.
+                                            {t('integrationProcess.step1.description')}
                                         </p>
                                     </div>
                                 </div>
@@ -897,9 +895,9 @@ const IntegrationEcosystem = () => {
 
                                 <div className="md:w-1/2 order-2 md:order-2">
                                     <div className="bg-gray-900 p-6 rounded-xl border border-gray-800 max-w-sm">
-                                        <h4 className="text-xl font-bold text-white mb-3">2. Grant Permissions</h4>
+                                        <h4 className="text-xl font-bold text-white mb-3">{t('integrationProcess.step2.title')}</h4>
                                         <p className="text-gray-300">
-                                            Allow JyvDesktop to access your audio devices and applications for integration. One-time setup.
+                                            {t('integrationProcess.step2.description')}
                                         </p>
                                     </div>
                                 </div>
@@ -909,9 +907,9 @@ const IntegrationEcosystem = () => {
                             <div className="flex flex-col md:flex-row items-center gap-6">
                                 <div className="md:w-1/2 flex justify-end order-1 md:order-1">
                                     <div className="bg-gray-900 p-6 rounded-xl border border-gray-800 max-w-sm">
-                                        <h4 className="text-xl font-bold text-white mb-3">3. Select Applications</h4>
+                                        <h4 className="text-xl font-bold text-white mb-3">{t('integrationProcess.step3.title')}</h4>
                                         <p className="text-gray-300">
-                                            Choose which applications you want to enhance. JyvDesktop will automatically detect compatible software.
+                                            {t('integrationProcess.step3.description')}
                                         </p>
                                     </div>
                                 </div>
@@ -933,9 +931,9 @@ const IntegrationEcosystem = () => {
 
                                 <div className="md:w-1/2 order-2 md:order-2">
                                     <div className="bg-gradient-to-br from-green-500/10 to-black p-6 rounded-xl border border-green-500/20 max-w-sm">
-                                        <h4 className="text-xl font-bold text-white mb-3">4. Enjoy Enhanced Audio</h4>
+                                        <h4 className="text-xl font-bold text-white mb-3">{t('integrationProcess.step4.title')}</h4>
                                         <p className="text-gray-300">
-                                            That's it! JyvDesktop will now automatically enhance all audio from your selected applications.
+                                            {t('integrationProcess.step4.description')}
                                         </p>
                                     </div>
                                 </div>
@@ -952,9 +950,11 @@ const IntegrationEcosystem = () => {
                     transition={{ duration: 0.7, delay: 1.4 }}
                 >
                     <div className="text-center mb-12">
-                        <h3 className="text-2xl font-bold text-white mb-4">Trusted by Leading Brands</h3>
+                        <h3 className="text-2xl font-bold text-white mb-4">
+                            {t('trustedBrands.title')}
+                        </h3>
                         <p className="text-gray-300 max-w-2xl mx-auto">
-                            JyvDesktop integrations are used by professionals across industries
+                            {t('trustedBrands.description')}
                         </p>
                     </div>
 
@@ -986,9 +986,9 @@ const IntegrationEcosystem = () => {
                         <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-green-500/10 blur-3xl rounded-full"></div>
 
                         <div className="relative z-10">
-                            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">Ready to integrate with your workflow?</h3>
+                            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">{t('cta.title')}</h3>
                             <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-                                Download JyvDesktop today and experience seamless integration with all your favorite applications.
+                                {t('cta.description')}
                             </p>
 
                             <div className="flex flex-wrap justify-center gap-4">
@@ -996,7 +996,7 @@ const IntegrationEcosystem = () => {
                                     href="#download"
                                     className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-400 hover:to-emerald-400 text-black font-bold rounded-full transition-all duration-300 shadow-lg shadow-green-900/20 group"
                                 >
-                                    <span>Download JyvDesktop</span>
+                                    <span>{t('cta.downloadButton')}</span>
                                     <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                                     </svg>
@@ -1006,7 +1006,7 @@ const IntegrationEcosystem = () => {
                                     href="#integrations-guide"
                                     className="inline-flex items-center gap-2 px-6 py-3 bg-gray-900 hover:bg-gray-800 text-white border border-gray-700 rounded-full transition-all duration-300"
                                 >
-                                    <span>View Integration Guide</span>
+                                    <span>{t('cta.guideButton')}</span>
                                 </a>
                             </div>
                         </div>

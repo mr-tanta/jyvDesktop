@@ -6,9 +6,16 @@ import { Sliders, Download } from 'lucide-react';
 
 interface HeroSectionProps {
   scrollToDemo: () => void;
+  translations: {
+    badge: string;
+    title: string;
+    description: string;
+    demoButton: string;
+    downloadButton: string;
+  };
 }
 
-export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToDemo }) => {
+export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToDemo, translations }) => {
   const heroRef = useRef(null);
   const isHeroInView = useInView(heroRef, { once: false });
 
@@ -35,16 +42,20 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToDemo }) => {
         >
           <div className="inline-flex items-center py-1 px-4 mb-6 bg-gradient-to-r from-green-500/10 to-emerald-500/10 border border-green-500/20 backdrop-blur-sm rounded-full">
             <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
-            <span className="text-sm text-green-400 font-medium">Advanced Audio Management</span>
+            <span className="text-sm text-green-400 font-medium">{translations.badge}</span>
           </div>
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 tracking-tight">
-            Precision <span className="bg-gradient-to-r from-green-400 to-emerald-600 bg-clip-text text-transparent">Audio Control</span> at Your Fingertips
+            {translations.title.split('Audio Control').map((part, i) => (
+              <React.Fragment key={i}>
+                {part}
+                {i === 0 && <span className="bg-gradient-to-r from-green-400 to-emerald-600 bg-clip-text text-transparent">Audio Control</span>}
+              </React.Fragment>
+            ))}
           </h1>
 
           <p className="text-lg text-gray-300 mb-12">
-            Take command of your entire audio environment with JyvDesktop's powerful
-            control center. Manage application volumes, routing, and profiles with unprecedented precision.
+            {translations.description}
           </p>
 
           <div className="flex flex-wrap justify-center gap-4">
@@ -53,7 +64,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToDemo }) => {
               className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-8 py-3 rounded-lg font-medium transition-all flex items-center gap-2"
             >
               <Sliders size={20} />
-              <span>Try Interactive Demo</span>
+              <span>{translations.demoButton}</span>
             </button>
 
             <Link
@@ -61,7 +72,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ scrollToDemo }) => {
               className="bg-gray-800 hover:bg-gray-700 text-white px-8 py-3 rounded-lg font-medium transition-colors flex items-center gap-2"
             >
               <Download size={20} />
-              <span>Download JyvDesktop</span>
+              <span>{translations.downloadButton}</span>
             </Link>
           </div>
         </motion.div>

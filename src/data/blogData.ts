@@ -596,7 +596,7 @@ Spatial audio isn't just a gimmick—it's a fundamental improvement in how we ex
 
 > "Ready to experience truly immersive sound? Try JyvDesktop's spatial audio features today and discover a new dimension of audio."
     `,
-    coverImage: "https://images.unsplash.com/photo-1558662421-7f143c9adb7a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    coverImage: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
     date: "May 10, 2023",
     readTime: 10,
     author: authors.michael,

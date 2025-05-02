@@ -7,10 +7,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FiMenu, FiX, FiChevronDown, FiGlobe } from 'react-icons/fi';
 import { FaHeadphones, FaLaptop, FaGamepad, FaMusic, FaVideo } from 'react-icons/fa';
 import { DownloadCloudIcon } from 'lucide-react';
+import { useTranslations, useLocale } from 'next-intl';
+import { usePathname, useRouter } from 'next/navigation';
 
 // Import feature data
 import { spatialAudioFeatures } from '../../data/spatialAudioData';
 import { audioControlFeatures } from '../../data/audioControlData';
+import intlConfig from '../../../next-intl.config.js';
 
 // Language options
 const languages = [
@@ -21,6 +24,30 @@ const languages = [
   { code: 'pt', name: 'Português', flag: '🇧🇷' },
   { code: 'ar', name: 'العربية', flag: '🇦🇪' },
   { code: 'hi', name: 'हिन्दी', flag: '🇮🇳' },
+];
+
+// Feature categories for simple dropdown menu
+const getFeatureCategories = (t: any) => [
+  {
+    name: t('featureCategories.audioControl'),
+    href: '/audio-control',
+    icon: audioControlFeatures[0].icon
+  },
+  {
+    name: t('featureCategories.audioEnhancement'),
+    href: '/audio-enhancement',
+    icon: audioControlFeatures[3].icon
+  },
+  {
+    name: t('featureCategories.spatialAudio'),
+    href: '/spatial-audio',
+    icon: spatialAudioFeatures[0].icon
+  },
+  {
+    name: t('featureCategories.advancedFeatures'),
+    href: '/advanced-features',
+    icon: spatialAudioFeatures[6].icon
+  }
 ];
 
 // Main navigation items
@@ -36,106 +63,37 @@ const navigation = [
   { name: 'Blog', href: '/blog' },
 ];
 
-// Feature categories for mega menu based on actual data
-const featureCategories = [
-  {
-    name: 'Audio Control',
-    icon: audioControlFeatures[0].icon, // Using the icon from the first feature
-    features: [
-      { 
-        name: audioControlFeatures[0].title, 
-        description: audioControlFeatures[0].description.substring(0, 90) + '...', 
-        href: '/audio-control#per-app-volume' 
-      },
-      { 
-        name: audioControlFeatures[1].title, 
-        description: audioControlFeatures[1].description.substring(0, 90) + '...', 
-        href: '/audio-control#audio-routing' 
-      },
-      { 
-        name: audioControlFeatures[2].title, 
-        description: audioControlFeatures[2].description.substring(0, 90) + '...', 
-        href: '/audio-control#application-profiles' 
-      },
-    ]
-  },
-  {
-    name: 'Audio Enhancement',
-    icon: audioControlFeatures[3].icon,
-    features: [
-      { 
-        name: 'Voice Clarity', 
-        description: 'Crystal clear voice for meetings and streams with AI-powered enhancement', 
-        href: '/audio-enhancement#voice' 
-      },
-      { 
-        name: 'Noise Suppression', 
-        description: 'Remove background noise and distractions with advanced algorithms', 
-        href: '/audio-enhancement#noise' 
-      },
-      { 
-        name: 'Equalizer & Effects', 
-        description: 'Fine-tune your audio experience with customizable audio effects', 
-        href: '/audio-enhancement#eq' 
-      },
-    ]
-  },
-  {
-    name: 'Spatial Audio',
-    icon: spatialAudioFeatures[0].icon,
-    features: [
-      { 
-        name: spatialAudioFeatures[0].title, 
-        description: spatialAudioFeatures[0].description.substring(0, 90) + '...', 
-        href: '/spatial-audio#3d-positioning' 
-      },
-      { 
-        name: spatialAudioFeatures[1].title, 
-        description: spatialAudioFeatures[1].description.substring(0, 90) + '...', 
-        href: '/spatial-audio#hrtf-processing' 
-      },
-      { 
-        name: spatialAudioFeatures[3].title, 
-        description: spatialAudioFeatures[3].description.substring(0, 90) + '...', 
-        href: '/spatial-audio#virtual-environments' 
-      },
-    ]
-  },
-  {
-    name: 'Advanced Features',
-    icon: spatialAudioFeatures[6].icon,
-    features: [
-      { 
-        name: spatialAudioFeatures[6].title, 
-        description: spatialAudioFeatures[6].description.substring(0, 90) + '...', 
-        href: '/spatial-audio#headtracking' 
-      },
-      { 
-        name: audioControlFeatures[5].title, 
-        description: audioControlFeatures[5].description.substring(0, 90) + '...', 
-        href: '/audio-control#hotkeys-gestures' 
-      },
-      { 
-        name: audioControlFeatures[7].title, 
-        description: audioControlFeatures[7].description.substring(0, 90) + '...', 
-        href: '/audio-control#analytics-visualization' 
-      },
-    ]
-  },
-];
-
 export default function Navbar() {
+  // Get translations and locale
+  const t = useTranslations();
+  const locale = useLocale();
+  const pathname = usePathname();
+  const router = useRouter();
+
+  // Create localized navigation items
+  const localizedNavigation = [
+    { name: t('nav.home'), href: '/' },
+    { 
+      name: t('nav.features'), 
+      href: '#features',
+      hasMegaMenu: true 
+    },
+    { name: t('nav.pricing'), href: '/pricing' },
+    { name: t('nav.useCases'), href: '/use-cases' },
+    { name: t('nav.blog'), href: '/blog' },
+  ];
+
   // States
   const [isOpen, setIsOpen] = useState(false);
   const [showMegaMenu, setShowMegaMenu] = useState(false);
   const [showLanguageMenu, setShowLanguageMenu] = useState(false);
-  const [currentLanguage, setCurrentLanguage] = useState(languages[0]);
+  const [currentLanguage, setCurrentLanguage] = useState(languages.find(lang => lang.code === locale) || languages[0]);
   const [isScrolled, setIsScrolled] = useState(false);
-  
+
   // Refs for dropdown menus
   const megaMenuRef = useRef<HTMLDivElement>(null);
   const languageMenuRef = useRef<HTMLDivElement>(null);
-  
+
   // Handle scroll events to change navbar appearance
   useEffect(() => {
     const handleScroll = () => {
@@ -145,11 +103,11 @@ export default function Navbar() {
         setIsScrolled(false);
       }
     };
-    
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-  
+
   // Handle clicks outside dropdowns
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -160,7 +118,7 @@ export default function Navbar() {
         setShowLanguageMenu(false);
       }
     };
-    
+
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
@@ -169,7 +127,7 @@ export default function Navbar() {
   const scrollToSection = (href: string) => {
     setIsOpen(false);
     setShowMegaMenu(false);
-    
+
     // Only use querySelector for anchor links that start with #
     if (href.startsWith('#')) {
       const element = document.querySelector(href);
@@ -181,11 +139,17 @@ export default function Navbar() {
       window.location.href = href;
     }
   };
-  
-  // Set selected language
+
+  // Set selected language and change locale
   const changeLanguage = (language: typeof languages[0]) => {
     setCurrentLanguage(language);
     setShowLanguageMenu(false);
+
+    // Get the path without the locale prefix
+    const pathWithoutLocale = pathname.replace(`/${locale}`, '') || '/';
+
+    // Navigate to the same page with the new locale
+    router.push(`/${language.code}${pathWithoutLocale}`);
   };
 
   return (
@@ -205,7 +169,7 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-1">
-            {navigation.map((item) => (
+            {localizedNavigation.map((item) => (
               <div key={item.name} className="relative group" ref={item.hasMegaMenu ? megaMenuRef : null}>
                 {item.hasMegaMenu ? (
                   <button
@@ -232,65 +196,34 @@ export default function Navbar() {
                     </Link>
                   )
                 )}
-                
-                {/* Mega Menu for Features */}
+
+                {/* Simple Dropdown Menu for Features */}
                 {item.hasMegaMenu && (
-                  <AnimatePresence>
+                  <div className="absolute left-1/2 transform -translate-x-1/2 mt-2 z-50">
                     {showMegaMenu && (
                       <motion.div
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 10 }}
                         transition={{ duration: 0.2 }}
-                        className="absolute left-0 mt-2 w-screen max-w-7xl bg-gray-900/95 backdrop-blur-xl border border-white/10 rounded-xl overflow-hidden shadow-2xl"
-                        style={{ width: 'calc(100vw - 4rem)', maxWidth: '1000px' }}
+                        className="bg-gray-900/95 backdrop-blur-xl border border-white/10 rounded-xl overflow-hidden shadow-2xl"
                       >
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-0">
-                          {featureCategories.map((category) => (
-                            <div key={category.name} className="p-6 hover:bg-white/5 transition-colors">
-                              <div className="flex items-center mb-4 font-medium text-green-400">
-                                {category.icon}
-                                <span className="ml-2">{category.name}</span>
-                              </div>
-                              <ul className="space-y-4">
-                                {category.features.map((feature) => (
-                                  <li key={feature.name}>
-                                    <Link 
-                                      href={feature.href}
-                                      className="block group"
-                                      onClick={() => setShowMegaMenu(false)}
-                                    >
-                                      <span className="block text-white group-hover:text-green-400 transition-colors">
-                                        {feature.name}
-                                      </span>
-                                      <span className="block text-sm text-gray-400">
-                                        {feature.description}
-                                      </span>
-                                    </Link>
-                                  </li>
-                                ))}
-                              </ul>
-                            </div>
-                          ))}
-                        </div>
-                        <div className="bg-gradient-to-r from-green-900/30 to-emerald-900/30 px-6 py-4">
-                          <div className="flex justify-between items-center">
-                            <div>
-                              <h3 className="text-white font-medium">Want to experience all features?</h3>
-                              <p className="text-gray-300 text-sm">Download JyvDesktop today and transform your audio experience</p>
-                            </div>
+                        <div className="py-2 w-48">
+                          {getFeatureCategories(t).map((category) => (
                             <Link 
-                              href="/download" 
-                              className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg transition-colors whitespace-nowrap flex items-center gap-2"
+                              key={category.name} 
+                              href={category.href}
+                              className="flex items-center px-4 py-2 text-gray-300 hover:bg-white/5 hover:text-green-400 transition-colors"
+                              onClick={() => setShowMegaMenu(false)}
                             >
-                              <DownloadCloudIcon size={16} />
-                              Download Now
+                              <span className="mr-2 text-green-400">{category.icon}</span>
+                              <span>{category.name}</span>
                             </Link>
-                          </div>
+                          ))}
                         </div>
                       </motion.div>
                     )}
-                  </AnimatePresence>
+                  </div>
                 )}
               </div>
             ))}
@@ -308,7 +241,7 @@ export default function Navbar() {
                 <span>{currentLanguage.name}</span>
                 <FiChevronDown className={`transition-transform ${showLanguageMenu ? 'rotate-180' : ''}`} />
               </button>
-              
+
               {/* Language dropdown */}
               <AnimatePresence>
                 {showLanguageMenu && (
@@ -337,14 +270,14 @@ export default function Navbar() {
                 )}
               </AnimatePresence>
             </div>
-            
+
             {/* Get Started button */}
             <Link
               href="/download"
               className="bg-gradient-to-r from-green-500 to-emerald-600 text-white px-4 py-2 rounded-lg font-medium hover:shadow-lg hover:shadow-green-500/20 transition transform hover:scale-105 flex items-center gap-2"
             >
               <DownloadCloudIcon size={16} />
-              Download JyvStream Desktop
+              {t('nav.download')} JyvStream Desktop
             </Link>
           </div>
 
@@ -358,7 +291,7 @@ export default function Navbar() {
               >
                 <span>{currentLanguage.flag}</span>
               </button>
-              
+
               <AnimatePresence>
                 {showLanguageMenu && (
                   <motion.div
@@ -388,7 +321,7 @@ export default function Navbar() {
                 )}
               </AnimatePresence>
             </div>
-            
+
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-gray-300 hover:text-white p-2"
@@ -410,7 +343,7 @@ export default function Navbar() {
           >
             <div className="container mx-auto px-4 py-4">
               <div className="space-y-4">
-                {navigation.map((item) => (
+                {localizedNavigation.map((item) => (
                   <div key={item.name}>
                     {item.hasMegaMenu ? (
                       <div className="space-y-4">
@@ -418,26 +351,16 @@ export default function Navbar() {
                           <span className="text-white font-medium">{item.name}</span>
                         </div>
                         <div className="pl-4 border-l border-white/10 space-y-6">
-                          {featureCategories.map((category) => (
-                            <div key={category.name} className="space-y-2">
-                              <div className="flex items-center text-green-400 font-medium">
-                                {category.icon}
-                                <span className="ml-2">{category.name}</span>
-                              </div>
-                              <ul className="space-y-4 pl-6">
-                                {category.features.map((feature) => (
-                                  <li key={feature.name}>
-                                    <Link 
-                                      href={feature.href}
-                                      className="block"
-                                      onClick={() => setIsOpen(false)}
-                                    >
-                                      <span className="block text-white">{feature.name}</span>
-                                      <span className="block text-sm text-gray-400">{feature.description}</span>
-                                    </Link>
-                                  </li>
-                                ))}
-                              </ul>
+                          {getFeatureCategories(t).map((category) => (
+                            <div key={category.name} className="py-2">
+                              <Link 
+                                href={category.href}
+                                className="flex items-center text-gray-300 hover:text-green-400"
+                                onClick={() => setIsOpen(false)}
+                              >
+                                <span className="mr-2 text-green-400">{category.icon}</span>
+                                <span>{category.name}</span>
+                              </Link>
                             </div>
                           ))}
                         </div>
@@ -462,22 +385,22 @@ export default function Navbar() {
                     )}
                   </div>
                 ))}
-                
+
                 {/* Mobile action buttons */}
                 <div className="pt-4 space-y-3">
                   <Link 
                     href="#contact"
                     className="block w-full text-left text-gray-300 hover:text-green-400 transition-colors py-2"
                   >
-                    Contact Sales
+                    {t('nav.contactSales')}
                   </Link>
-                  
+
                   <Link 
                     href="/download"
                     className="block w-full bg-gradient-to-r from-green-500 to-emerald-600 text-white px-4 py-3 rounded-lg font-medium hover:from-green-600 hover:to-emerald-700 transition-all text-center shadow-lg shadow-green-500/20 flex items-center justify-center space-x-2"
                   >
                     <DownloadCloudIcon size={18} />
-                    <span>Download Now</span>
+                    <span>{t('cta.downloadNow')}</span>
                   </Link>
                 </div>
               </div>

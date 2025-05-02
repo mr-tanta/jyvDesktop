@@ -151,7 +151,7 @@ export const spatialAudioFeatures = [
             'Gaming engine integration for titles using standard audio APIs',
             'Video conferencing optimization for spatial participant positioning',
             'DAW plugins for professional audio production',
-            'API for third-party application integration (Studio tier)'
+            'API for third-party application integration (Pro Tier)'
         ],
         image: '/assets/images/spatial-audio/integration.webp',
         color: 'from-red-500/10 to-red-600/5',

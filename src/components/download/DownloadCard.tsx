@@ -1,7 +1,7 @@
 import { Platform } from '@/data/downloadData';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { Check, Cpu, ExternalLink, RefreshCw, Download } from 'lucide-react';
+import { Check, Cpu, ExternalLink, RefreshCw, Download, FileText, ShieldAlert } from 'lucide-react';
 
 interface DownloadCardProps {
   platform: Platform;
@@ -39,7 +39,7 @@ const DownloadCard = ({ platform, downloadStarted, handleDownload }: DownloadCar
           </div>
         </div>
       </div>
-      
+
       <div className="p-8">
         <div className="flex flex-col sm:flex-row gap-4 mb-8">
           <a 
@@ -74,12 +74,12 @@ const DownloadCard = ({ platform, downloadStarted, handleDownload }: DownloadCar
             <ExternalLink size={16} />
           </a>
         </div>
-        
+
         <div className="flex items-center mb-4">
           <Cpu size={18} className="text-green-500 mr-2" />
           <h3 className="text-lg font-semibold text-white">System Requirements</h3>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 mb-4">
           <div className="flex items-center">
             <Check size={16} className="text-green-500 mr-2 flex-shrink-0" />
@@ -106,7 +106,47 @@ const DownloadCard = ({ platform, downloadStarted, handleDownload }: DownloadCar
             <span className="text-gray-300 text-sm">GPU: DirectX 11 / Metal compatible</span>
           </div>
         </div>
-        
+
+        <div className="mt-6 border-t border-gray-800 pt-6">
+          <div className="flex items-center mb-4">
+            <FileText size={18} className="text-green-500 mr-2" />
+            <h3 className="text-lg font-semibold text-white">Installation Guide</h3>
+          </div>
+
+          <div className="space-y-4">
+            <ol className="list-decimal list-inside space-y-3 text-gray-300">
+              {platform.installSteps.map((step, index) => (
+                <li key={index} className="pl-2">
+                  <span className="font-medium text-white">{step.title}:</span> {step.description}
+                </li>
+              ))}
+            </ol>
+          </div>
+        </div>
+
+        <div className="mt-6 border-t border-gray-800 pt-6">
+          <div className="flex items-center mb-4">
+            <ShieldAlert size={18} className="text-amber-500 mr-2" />
+            <h3 className="text-lg font-semibold text-white">Common Issues & Solutions</h3>
+          </div>
+
+          {platform.troubleshooting && platform.troubleshooting.length > 0 && (
+            <div className="space-y-4">
+              {platform.troubleshooting.map((item, index) => (
+                <div key={index} className="bg-gray-900/50 rounded-lg p-4">
+                  <h4 className="font-medium text-white mb-2">{item.title}</h4>
+                  <p className="text-gray-400 text-sm mb-3">{item.description}</p>
+                  <ul className="list-disc list-inside space-y-1 text-gray-300 text-sm">
+                    {item.steps.map((step, stepIndex) => (
+                      <li key={stepIndex}>{step}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+
         <div className="mt-6 text-center">
           <p className="text-xs text-gray-500">
             By downloading, you agree to our <Link href="/terms" className="text-green-500 hover:text-green-400">Terms of Service</Link> and <Link href="/privacy" className="text-green-500 hover:text-green-400">Privacy Policy</Link>

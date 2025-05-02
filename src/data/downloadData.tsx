@@ -17,6 +17,18 @@ import {
 import { FaWindows, FaApple, FaChrome } from 'react-icons/fa';
 import { ReactNode } from 'react';
 
+export interface InstallStep {
+  title: string;
+  description: string;
+  image: string;
+}
+
+export interface TroubleshootingItem {
+  title: string;
+  description: string;
+  steps: string[];
+}
+
 export interface Platform {
   id: string;
   name: string;
@@ -34,6 +46,8 @@ export interface Platform {
   storeName: string;
   gradientFrom: string;
   gradientTo: string;
+  installSteps: InstallStep[];
+  troubleshooting?: TroubleshootingItem[];
 }
 
 export interface Feature {
@@ -84,6 +98,57 @@ export const platforms: Platform[] = [
     storeName: 'App Store',
     gradientFrom: 'from-emerald-500/20',
     gradientTo: 'to-emerald-700/20',
+    installSteps: [
+      {
+        title: 'Download the Installer',
+        description: 'Download the disk image (.dmg) file from our website or the App Store.',
+        image: '/assets/images/install/macos-download.webp'
+      },
+      {
+        title: 'Open the Disk Image',
+        description: 'Double-click the downloaded .dmg file to mount it and open the installer.',
+        image: '/assets/images/install/macos-open.webp'
+      },
+      {
+        title: 'Drag to Applications',
+        description: 'Drag the JyvDesktop icon to the Applications folder shortcut.',
+        image: '/assets/images/install/macos-drag.webp'
+      },
+      {
+        title: 'Security Verification',
+        description: 'If prompted about security, open System Preferences > Security & Privacy and click "Open Anyway".',
+        image: '/assets/images/install/macos-security.webp'
+      },
+      {
+        title: 'Launch JyvDesktop',
+        description: 'Open JyvDesktop from your Applications folder or Launchpad.',
+        image: '/assets/images/install/macos-launch.webp'
+      }
+    ],
+    troubleshooting: [
+      {
+        title: 'App Cannot Be Opened',
+        description: 'If you see a message that JyvDesktop cannot be opened because it is from an unidentified developer:',
+        steps: [
+          'Right-click (or Control-click) the app icon',
+          'Select "Open" from the context menu',
+          'Click "Open" in the dialog box',
+          'If that doesn\'t work, go to System Preferences > Security & Privacy',
+          'Click the lock icon to make changes',
+          'Click "Open Anyway" next to the message about JyvDesktop'
+        ]
+      },
+      {
+        title: 'Audio Permissions Required',
+        description: 'JyvDesktop needs access to your microphone and audio devices:',
+        steps: [
+          'When prompted, click "OK" to allow microphone access',
+          'If you accidentally denied access, go to System Preferences > Security & Privacy > Privacy',
+          'Select "Microphone" from the left sidebar',
+          'Ensure JyvDesktop is checked in the list of allowed apps'
+        ]
+      }
+    ]
   },
   {
     id: 'windows',
@@ -102,6 +167,66 @@ export const platforms: Platform[] = [
     storeName: 'Microsoft Store',
     gradientFrom: 'from-emerald-600/20',
     gradientTo: 'to-emerald-800/20',
+    installSteps: [
+      {
+        title: 'Download the Installer',
+        description: 'Download the installer (.exe) file from our website or the Microsoft Store.',
+        image: '/assets/images/install/windows-download.webp'
+      },
+      {
+        title: 'Run the Installer',
+        description: 'Right-click the downloaded file and select "Run as administrator" for the best installation experience.',
+        image: '/assets/images/install/windows-run.webp'
+      },
+      {
+        title: 'Security Prompt',
+        description: 'If prompted by Windows Defender, click "More info" then "Run anyway" to proceed with installation.',
+        image: '/assets/images/install/windows-security.webp'
+      },
+      {
+        title: 'Installation Wizard',
+        description: 'Follow the on-screen installation wizard, selecting your preferred options.',
+        image: '/assets/images/install/windows-wizard.webp'
+      },
+      {
+        title: 'Launch JyvDesktop',
+        description: 'Once installation is complete, launch JyvDesktop from your Start menu or desktop shortcut.',
+        image: '/assets/images/install/windows-launch.webp'
+      }
+    ],
+    troubleshooting: [
+      {
+        title: 'Windows Defender Blocking Installation',
+        description: 'If Windows Defender SmartScreen prevents the installation:',
+        steps: [
+          'Click "More info" on the SmartScreen popup',
+          'Select "Run anyway"',
+          'If that doesn\'t work, temporarily disable real-time protection in Windows Security settings',
+          'After installation, remember to re-enable real-time protection'
+        ]
+      },
+      {
+        title: 'Missing Audio Devices',
+        description: 'If JyvDesktop cannot detect your audio devices:',
+        steps: [
+          'Right-click the sound icon in your system tray',
+          'Select "Sound settings"',
+          'Ensure your devices are not disabled',
+          'Try unplugging and reconnecting your audio devices',
+          'Restart JyvDesktop after connecting devices'
+        ]
+      },
+      {
+        title: 'Installation Fails',
+        description: 'If the installation process fails to complete:',
+        steps: [
+          'Ensure you have administrator privileges',
+          'Temporarily disable antivirus software',
+          'Run the installer in compatibility mode (right-click > Properties > Compatibility)',
+          'Try the alternative Microsoft Store version'
+        ]
+      }
+    ]
   },
   {
     id: 'chromebook',
@@ -120,6 +245,55 @@ export const platforms: Platform[] = [
     storeName: 'Chrome Web Store',
     gradientFrom: 'from-emerald-500/20',
     gradientTo: 'to-emerald-700/20',
+    installSteps: [
+      {
+        title: 'Download the Package',
+        description: 'Download the Chrome OS package (.crx) file from our website or the Chrome Web Store.',
+        image: '/assets/images/install/chrome-download.webp'
+      },
+      {
+        title: 'Open Extensions Page',
+        description: 'Open Chrome and navigate to chrome://extensions or select Menu > More Tools > Extensions.',
+        image: '/assets/images/install/chrome-extensions.webp'
+      },
+      {
+        title: 'Enable Developer Mode',
+        description: 'Enable "Developer mode" using the toggle in the top-right corner of the extensions page.',
+        image: '/assets/images/install/chrome-developer.webp'
+      },
+      {
+        title: 'Install the Extension',
+        description: 'Drag the downloaded .crx file onto the extensions page and click "Add extension" when prompted.',
+        image: '/assets/images/install/chrome-install.webp'
+      },
+      {
+        title: 'Launch JyvDesktop',
+        description: 'Click the JyvDesktop icon in your Chrome toolbar or app launcher to start using it.',
+        image: '/assets/images/install/chrome-launch.webp'
+      }
+    ],
+    troubleshooting: [
+      {
+        title: 'Extension Cannot Be Added',
+        description: 'If Chrome prevents you from adding the extension:',
+        steps: [
+          'Make sure Developer mode is enabled in chrome://extensions',
+          'Try downloading directly from the Chrome Web Store instead',
+          'If using an organization-managed Chromebook, contact your administrator',
+          'Check that your ChromeOS version is 88 or newer'
+        ]
+      },
+      {
+        title: 'Microphone Access Issues',
+        description: 'If JyvDesktop cannot access your microphone:',
+        steps: [
+          'Click the JyvDesktop icon and select "Site settings"',
+          'Ensure microphone access is set to "Allow"',
+          'Check Chrome\'s site settings for microphone permissions',
+          'Restart your Chromebook if permissions don\'t apply correctly'
+        ]
+      }
+    ]
   }
 ];
 
@@ -203,6 +377,42 @@ export const faqs: FAQ[] = [
   {
     question: "Is my license valid across different platforms?",
     answer: "Yes, your license is tied to your account, not your device. You can use JyvDesktop on any supported platform with the same license, up to the number of devices included in your subscription."
+  },
+  {
+    question: "How do I verify the download is authentic?",
+    answer: "All our downloads are digitally signed. On Windows, you can right-click the installer, select Properties, and check the Digital Signatures tab. On macOS, you can verify the signature using the 'codesign -v' command in Terminal. We also provide SHA-256 checksums on our security page for manual verification."
+  },
+  {
+    question: "Can I install JyvDesktop on multiple computers?",
+    answer: "Yes, your license allows installation on up to 3 devices simultaneously with the Pro plan, and up to 5 devices with the Studio plan. The Free version can be installed on unlimited devices but with limited functionality."
+  },
+  {
+    question: "What happens if I exceed my device limit?",
+    answer: "If you attempt to activate JyvDesktop on more devices than your license allows, you'll be prompted to deactivate it on one of your existing devices first. You can manage your active devices through your account dashboard."
+  },
+  {
+    question: "Does JyvDesktop work with all audio interfaces?",
+    answer: "JyvDesktop is compatible with most ASIO, CoreAudio, and WASAPI audio interfaces. For optimal performance, we recommend interfaces with sample rates of 44.1kHz or higher and buffer sizes of 256 samples or lower."
+  },
+  {
+    question: "How do I transfer my settings to a new computer?",
+    answer: "JyvDesktop includes a built-in profile export/import feature. Go to Settings > Profiles > Export to save your settings as a .jyvprofile file, then import this file on your new installation using Settings > Profiles > Import."
+  },
+  {
+    question: "Is an internet connection required?",
+    answer: "An internet connection is required for the initial activation and for certain features like cloud profile sync and updates. However, once activated, JyvDesktop can operate offline for up to 30 days before requiring revalidation."
+  },
+  {
+    question: "What should I do if my audio device isn't detected?",
+    answer: "First, ensure your device is properly connected and powered on. Try disconnecting and reconnecting the device. On Windows, check Device Manager to verify the device is working properly. On macOS, check Audio MIDI Setup. If problems persist, try installing the latest drivers for your audio device from the manufacturer's website."
+  },
+  {
+    question: "How often are updates released?",
+    answer: "We release major feature updates quarterly and minor updates with bug fixes and performance improvements monthly. Security updates are released as needed. All users receive notifications when updates are available, and Pro/Studio subscribers get early access to new features."
+  },
+  {
+    question: "Can I downgrade to a previous version?",
+    answer: "Yes, previous versions are available in the downloads archive section of your account dashboard. However, note that profile data created in newer versions may not be fully compatible with older versions."
   }
 ];
 

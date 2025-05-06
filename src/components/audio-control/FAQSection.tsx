@@ -1,9 +1,19 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, ChevronUp } from 'lucide-react';
-import { faqs } from '@/data/audioControlData';
+import { useAudioControlFaqs } from '@/data/audioControlData';
+import { useTranslations } from 'next-intl';
 
-const FAQSection: React.FC = () => {
+interface FAQSectionProps {
+  translations: {
+    title: string;
+    description: string;
+  };
+}
+
+export const FAQSection: React.FC<FAQSectionProps> = ({ translations }) => {
+  const faqs = useAudioControlFaqs();
+  const t = useTranslations('audioControl');
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
 
   // Toggle FAQ expansion
@@ -15,9 +25,9 @@ const FAQSection: React.FC = () => {
     <section className="py-24 bg-black">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold mb-6">Frequently Asked Questions</h2>
+          <h2 className="text-3xl font-bold mb-6">{translations.title}</h2>
           <p className="text-gray-300">
-            Find answers to common questions about JyvDesktop's audio control features
+            {translations.description}
           </p>
         </div>
 
@@ -31,7 +41,9 @@ const FAQSection: React.FC = () => {
                 onClick={() => toggleFaq(index)}
                 className="w-full p-6 flex items-center justify-between text-left"
               >
-                <h3 className="font-medium text-lg text-white pr-8">{faq.question}</h3>
+                <h3 className="font-medium text-lg text-white pr-8">
+                  {faq.question}
+                </h3>
                 <div className="bg-gray-800 rounded-full p-1.5 flex-shrink-0">
                   {expandedFaq === index ? (
                     <ChevronUp size={20} className="text-green-400" />

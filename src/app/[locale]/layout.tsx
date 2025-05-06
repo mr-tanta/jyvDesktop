@@ -1,5 +1,5 @@
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
+import { getMessages } from '@/i18n';
 import { getDirection } from '@/i18n';
 import { Geist, Geist_Mono } from "next/font/google";
 import Navbar from "@/components/ui/Navbar";
@@ -25,11 +25,8 @@ export default async function LocaleLayout({ children, params }: Props) {
   // Get the locale from the params - must await in Next.js App Router
   const { locale } = await params;
   
-  // Get messages for the locale - use the specific locale
-  const messages = await import(`../../messages/${locale}.json`).then(module => module.default).catch(() => {
-    // Fallback to default locale if messages for the requested locale are not found
-    return import(`../../messages/en.json`).then(module => module.default);
-  });
+  // Get common messages for the locale using our updated function
+  const messages = await getMessages(locale, 'common');
   
   // Get the text direction for the locale
   const direction = getDirection(locale);

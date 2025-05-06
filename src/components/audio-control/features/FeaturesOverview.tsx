@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { audioControlFeatures } from '@/data/audioControlData';
+import { useAudioControlFeatures } from '@/data/audioControlData';
 import FeatureCard from './FeatureCard';
 
 interface FeaturesOverviewProps {
@@ -12,6 +12,7 @@ interface FeaturesOverviewProps {
 }
 
 export const FeaturesOverview: React.FC<FeaturesOverviewProps> = ({ setActiveFeature, translations }) => {
+  const audioControlFeatures = useAudioControlFeatures();
   const fadeInUpVariant = {
     hidden: { opacity: 0, y: 20 },
     visible: {

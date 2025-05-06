@@ -20,9 +20,178 @@
       "demoButton": "尝试交互式演示",
       "downloadButton": "下载JyvDesktop"
     },
-    "features": {
+    "featuresSection": {
       "title": "完整的音频控制系统",
       "description": "JyvDesktop让您对系统音频的各个方面拥有前所未有的控制，从单个应用程序音量到复杂的路由方案和自定义配置文件。"
+    },
+    "featureItems": {
+      "perAppVolume": {
+        "title": "按应用程序音量控制",
+        "description": "独立调整系统上运行的每个应用程序的音量。再也不会在通话期间音乐太大声，或者游戏音频盖过队友的声音。",
+        "details": [
+          "每个应用程序的独立音量滑块",
+          "快速静音/取消静音开关",
+          "可视化音量级别指示器",
+          "应用程序间的音量标准化",
+          "按应用程序将音频路由到不同的输出设备"
+        ]
+      },
+      "audioProfiles": {
+        "title": "音频配置文件",
+        "description": "创建自定义音频配置文件，以适应不同的场景和活动。一键切换从工作到游戏再到娱乐模式。",
+        "details": [
+          "无限数量的自定义配置文件",
+          "按应用程序的细粒度音量设置",
+          "按时间或应用程序自动切换配置文件",
+          "导出和共享配置文件",
+          "快速切换快捷键"
+        ]
+      },
+      "deviceRouting": {
+        "title": "设备路由",
+        "description": "精确控制哪些应用程序使用哪些音频设备。将会议音频发送到耳机，同时将音乐播放到扬声器。",
+        "details": [
+          "按应用程序设置输入/输出设备",
+          "将一个应用程序的音频路由到多个输出设备",
+          "保存设备路由预设",
+          "自动设备切换规则",
+          "设备连接状态通知"
+        ]
+      },
+      "focusMode": {
+        "title": "专注模式",
+        "description": "启用专注模式，自动调整音频设置以最大限度减少分心。完美用于深度工作或学习。",
+        "details": [
+          "一键静音非必要应用程序",
+          "自定义优先级应用程序列表",
+          "定时专注会话",
+          "与日历和任务管理应用程序集成",
+          "通知静音选项"
+        ]
+      },
+      "soundEnhancement": {
+        "title": "声音增强",
+        "description": "使用先进的音频处理技术提升您的听觉体验。从均衡器到空间音频模拟。",
+        "details": [
+          "多波段均衡器",
+          "动态压缩和限制",
+          "虚拟环绕声效果",
+          "语音增强模式",
+          "低音增强选项"
+        ]
+      }
+    },
+    "featureDetail": {
+      "audioControlFeature": "音频控制功能",
+      "keyCapabilities": "核心功能",
+      "tryDemo": "在演示中尝试",
+      "readDocumentation": "阅读文档"
+    },
+    "demoSection": {
+      "title": "尝试JyvDesktop的音频控制",
+      "subtitle": "交互式体验",
+      "description": "体验JyvDesktop如何给您提供对音频环境的精确控制。在这个交互式演示中调整应用程序音量、设备和配置文件。",
+      "masterVolume": "主音量",
+      "profiles": "音频配置文件",
+      "focusMode": "专注模式",
+      "notificationReduction": "通知减少",
+      "downloadNow": "立即下载",
+      "learnMore": "了解更多"
+    },
+    "useCasesSection": {
+      "title": "适合每种场景的完美音频",
+      "description": "JyvDesktop的高级音频控制适应您的特定需求，无论您是在会议中，与朋友游戏，还是深入创意工作流程。"
+    },
+    "useCases": {
+      "professionalVideoCalls": {
+        "title": "专业视频通话",
+        "description": "完美平衡您的视频会议应用程序、背景音乐和系统通知，实现无干扰的会议。"
+      },
+      "gamingStreaming": {
+        "title": "游戏和直播",
+        "description": "保持游戏音频、语音聊天、直播软件和背景音乐之间的完美平衡。"
+      },
+      "contentConsumption": {
+        "title": "内容消费",
+        "description": "观看视频和收听音乐时不会被嘈杂的通知或后台应用程序打断。"
+      },
+      "focusProductivity": {
+        "title": "专注与生产力",
+        "description": "创建完美的音频环境以进行深度工作，同时确保您只能听到重要的通知。"
+      },
+      "learnMore": "了解更多"
+    },
+    "useCaseItems": {
+      "professionalVideoCalls": {
+        "title": "专业视频通话",
+        "description": "完美平衡您的视频会议应用程序、背景音乐和系统通知，实现无干扰的会议。"
+      },
+      "gamingStreaming": {
+        "title": "游戏和直播",
+        "description": "保持游戏音频、语音聊天、直播软件和背景音乐之间的完美平衡。"
+      },
+      "contentConsumption": {
+        "title": "内容消费",
+        "description": "观看视频和收听音乐时不会被嘈杂的通知或后台应用程序打断。"
+      },
+      "focusProductivity": {
+        "title": "专注与生产力",
+        "description": "创建完美的音频环境以进行深度工作，同时确保您只能听到重要的通知。"
+      }
+    },
+    "faqSection": {
+      "title": "常见问题",
+      "description": "找到关于JyvDesktop音频控制功能的常见问题答案"
+    },
+    "faqItems": {
+      "compatibility": {
+        "question": "JyvDesktop与所有音频应用程序兼容吗？",
+        "answer": "JyvDesktop与绝大多数使用标准音频API的Windows和macOS应用程序兼容。这包括流行的通讯应用程序、流媒体播放器、游戏和生产力工具。"
+      },
+      "systemRequirements": {
+        "question": "运行JyvDesktop音频控制功能需要什么系统要求？",
+        "answer": "我们的音频控制功能适用于运行Windows 10/11或macOS 10.15+的现代计算机。对于基本功能，建议至少4GB RAM和双核处理器。高级音频处理功能可能需要更强大的系统。"
+      },
+      "audioLatency": {
+        "question": "使用JyvDesktop会增加音频延迟吗？",
+        "answer": "不会，JyvDesktop的设计采用低延迟处理技术，确保在大多数系统上不会增加可感知的延迟。对于专业音频工作，我们提供了低延迟模式，将延迟减到最小。"
+      },
+      "customProfiles": {
+        "question": "我可以创建多少个音频配置文件？",
+        "answer": "在JyvDesktop中，您可以创建无限数量的自定义音频配置文件。每个配置文件可以包含特定的应用程序音量设置、设备路由选项和音频增强参数。"
+      },
+      "deviceSupport": {
+        "question": "JyvDesktop支持哪些音频设备？",
+        "answer": "JyvDesktop支持几乎所有通过USB、蓝牙、模拟或数字接口连接的音频设备。这包括耳机、扬声器、麦克风、音频接口和虚拟音频设备。我们还提供对专业音频设备的增强支持。"
+      }
+    },
+    "demoItems": {
+      "applications": {
+        "videoCall": "视频通话",
+        "musicPlayer": "音乐播放器",
+        "game": "游戏",
+        "browser": "浏览器",
+        "systemSounds": "系统声音"
+      },
+      "devices": {
+        "headphones": "耳机",
+        "speakers": "扬声器",
+        "microphone": "麦克风"
+      },
+      "controls": {
+        "volume": "音量",
+        "mute": "静音",
+        "unmute": "取消静音",
+        "boost": "增强",
+        "reduce": "减少"
+      },
+      "profiles": {
+        "gaming": "游戏",
+        "meeting": "会议",
+        "music": "音乐",
+        "movie": "电影",
+        "focus": "专注"
+      }
     }
   },
   "featureCategories": {
@@ -216,6 +385,20 @@
     "tierLabel": "版本",
     "learnMore": "了解更多关于此集成",
     "moreIntegrations": "更多{category}集成",
+    "benefits": {
+      "plugAndPlay": {
+        "title": "即插即用设置",
+        "description": "JyvDesktop 自动检测您的应用程序并配置最佳设置，使集成毫不费力，无需配置。"
+      },
+      "customization": {
+        "title": "广泛自定义",
+        "description": "为每个应用程序创建和保存自定义处理链，具有详细设置，为特定用例和场景优化。"
+      },
+      "performance": {
+        "title": "专业性能",
+        "description": "为所有应用程序提供工作室级别的处理，具有超低延迟的集成，满足专业内容创作者的需求。"
+      }
+    },
     "integrationProcess": {
       "title": "简单的集成过程",
       "description": "开始使用JyvDesktop集成非常轻松",
@@ -248,7 +431,13 @@
       "quickSetupGuide": "快速设置指南",
       "application": "应用程序",
       "jyvDesktop": "JyvDesktop",
-      "output": "输出"
+      "output": "输出",
+      "enhancedOutput": "增强输出",
+      "professionalQuality": "专业质量",
+      "vstAuPlugins": "VST/AU 插件",
+      "digitalAudioWorkstation": "数字音频工作站",
+      "audioSource": "音频源",
+      "processingAudio": "处理音频"
     },
     "applications": {
       "zoom": "为您的所有会议提供清晰的音频",
@@ -295,6 +484,7 @@
       "upgradeButton": "升级到专业版",
       "features": {
         "pluginsTitle": "VST3和AU插件支持",
+        "plugins": "专业VST3和AU插件支持",
         "dawTitle": "DAW集成",
         "daw": "音乐制作的无缝DAW集成",
         "processingTitle": "高级路由矩阵",
@@ -344,7 +534,7 @@
       "guideButton": "查看集成指南"
     }
   },
-  
+
   "securityPrivacy": {
     "badge": "您的隐私至关重要",
     "title": "安全与隐私设计",
@@ -484,13 +674,9 @@
           "title": "无数据收集",
           "description": "我们不收集或存储您的音频内容"
         },
-        "optInAnalytics": {
-          "title": "选择加入分析",
-          "description": "所有使用数据都是选择性的，默认情况下已禁用"
-        },
-        "dataExport": {
-          "title": "数据导出和删除",
-          "description": "您可以完全控制您的数据"
+        "transparentPrivacy": {
+          "title": "透明隐私",
+          "description": "清晰，易于理解的隐私政策"
         },
         "gdprCompliant": {
           "title": "GDPR合规",
@@ -633,7 +819,7 @@
       }
     }
   },
-  
+
   "testimonials": {
     "subtitle": "用户评价",
     "title": "用户如何评价我们",
@@ -748,6 +934,74 @@
       "rtxVoice": "RTX Voice",
       "voiceMeeter": "VoiceMeeter",
       "soundSource": "SoundSource"
+    }
+  },
+
+  "audioEnhancementPage": {
+    "hero": {
+      "title": "专业音频增强",
+      "subtitle": "改变您的音质",
+      "description": "通过JyvDesktop的先进增强技术体验水晶般清晰的音频。消除背景噪音，增强声音，并为任何情况优化您的音频。"
+    },
+    "features": {
+      "noiseSuppression": {
+        "title": "AI驱动的噪音抑制",
+        "description": "使用我们先进的AI算法消除背景噪音。JyvDesktop实时识别并移除不需要的声音，同时保持声音和重要音频的清晰度。",
+        "details": [
+          "消除键盘打字声、风扇噪音、背景谈话和其他干扰",
+          "实时处理，延迟<10毫秒",
+          "多种强度级别以匹配您的环境",
+          "即使在高抑制级别下也能保持声音的自然性",
+          "针对不同环境的自定义噪音配置文件"
+        ]
+      },
+      "voiceEnhancement": {
+        "title": "语音增强技术",
+        "description": "使声音清晰、专业和自然。我们的语音增强技术隔离语音，提高清晰度，并为声音音调增加温暖感和存在感。",
+        "details": [
+          "在任何环境中增强语音清晰度",
+          "基于声音特征的自适应处理",
+          "针对您特定麦克风的自动EQ优化",
+          "减少爆破音、嘶嘶声和其他语音伪音",
+          "去混响以消除房间回声"
+        ]
+      },
+      "dynamicProcessor": {
+        "title": "智能动态处理",
+        "description": "通过智能动态处理确保一致的音频水平。JyvDesktop自动调整压缩、限制和扩展，以保持最佳音量而不失真。",
+        "details": [
+          "多频段压缩以平衡频率响应",
+          "跨应用程序的智能音量标准化",
+          "峰值限制以防止音频剪切",
+          "透明处理保留音频动态",
+          "内容感知处理适应不同音频类型"
+        ]
+      },
+      "equalizer": {
+        "title": "自适应均衡器",
+        "description": "使用我们的智能均衡器优化频率平衡。JyvDesktop实时分析音频内容并应用微妙的调整，以增强清晰度、细节和整体音质。",
+        "details": [
+          "带智能预设的10频段参数均衡器",
+          "根据内容类型定制的频率响应",
+          "自动共振检测和校正",
+          "针对不同应用程序的自定义EQ配置文件",
+          "专业音效的频谱平衡"
+        ]
+      }
+    },
+    "beforeAfter": {
+      "title": "听出差异",
+      "description": "体验JyvDesktop增强技术带来的音频质量的显著改善。",
+      "beforeLabel": "处理前",
+      "afterLabel": "处理后",
+      "playButton": "播放",
+      "pauseButton": "暂停"
+    },
+    "cta": {
+      "title": "准备好改变您的音频体验了吗？",
+      "description": "立即下载JyvDesktop，体验所有应用程序的专业级音频增强。",
+      "downloadButton": "立即下载",
+      "learnMoreButton": "了解更多"
     }
   },
 

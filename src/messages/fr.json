@@ -20,9 +20,218 @@
       "demoButton": "Essayer la Démo Interactive",
       "downloadButton": "Télécharger JyvDesktop"
     },
-    "features": {
+    "featuresSection": {
       "title": "Système Complet de Contrôle Audio",
       "description": "JyvDesktop vous offre un contrôle sans précédent sur tous les aspects de l'audio de votre système, des volumes individuels des applications aux scénarios de routage complexes et aux profils personnalisés."
+    },
+    "featureDetail": {
+      "audioControlFeature": "Fonctionnalité de Contrôle Audio",
+      "keyCapabilities": "Capacités Clés",
+      "tryDemo": "Essayer dans la Démo",
+      "readDocumentation": "Lire la Documentation"
+    },
+    "demoSection": {
+      "title": "Essayez le Contrôle Audio de JyvDesktop",
+      "subtitle": "Expérience Interactive",
+      "description": "Découvrez comment JyvDesktop vous donne un contrôle précis sur votre environnement audio. Ajustez les volumes des applications, les appareils et les profils dans cette démo interactive.",
+      "masterVolume": "Volume Principal",
+      "profiles": "Profils Audio",
+      "focusMode": "Mode Concentration",
+      "notificationReduction": "Réduction des Notifications",
+      "downloadNow": "Télécharger Maintenant",
+      "learnMore": "En Savoir Plus"
+    },
+    "useCasesSection": {
+      "title": "Audio Parfait pour Chaque Scénario",
+      "description": "Le contrôle audio avancé de JyvDesktop s'adapte à vos besoins spécifiques, que vous soyez en réunion, en train de jouer avec des amis ou plongé dans un flux de travail créatif."
+    },
+    "useCases": {
+      "professionalVideoCalls": {
+        "title": "Appels Vidéo Professionnels",
+        "description": "Équilibrez parfaitement votre application de vidéoconférence, la musique de fond et les notifications système pour des réunions sans distraction."
+      },
+      "gamingStreaming": {
+        "title": "Jeux et Streaming",
+        "description": "Maintenez l'équilibre parfait entre l'audio du jeu, le chat vocal, le logiciel de streaming et la musique de fond."
+      },
+      "contentConsumption": {
+        "title": "Consommation de Contenu",
+        "description": "Regardez des vidéos et écoutez de la musique sans être interrompu par des notifications bruyantes ou des applications en arrière-plan."
+      },
+      "focusProductivity": {
+        "title": "Concentration et Productivité",
+        "description": "Créez l'environnement audio parfait pour le travail en profondeur tout en vous assurant de n'entendre que les notifications qui comptent."
+      },
+      "learnMore": "En Savoir Plus"
+    },
+    "faqSection": {
+      "title": "Questions Fréquemment Posées",
+      "description": "Trouvez des réponses aux questions courantes sur les fonctionnalités de contrôle audio de JyvDesktop"
+    },
+    "featureItems": {
+      "perAppVolume": {
+        "title": "Contrôle de Volume par Application",
+        "description": "Ajustez indépendamment le volume de chaque application fonctionnant sur votre système. Votre musique ne sera plus jamais trop forte pendant les appels et l'audio de jeu ne couvrira plus la voix de vos coéquipiers.",
+        "details": [
+          "Curseurs de volume indépendants pour chaque application",
+          "Boutons rapides pour couper/rétablir le son",
+          "Indicateurs visuels de niveau de volume",
+          "Normalisation du volume entre les applications",
+          "Routage audio par application vers différents périphériques de sortie"
+        ]
+      },
+      "audioRouting": {
+        "title": "Routage Audio Avancé",
+        "description": "Dirigez l'audio de n'importe quelle application vers n'importe quel périphérique de sortie. Envoyez votre musique vers les haut-parleurs tout en gardant les alertes sur votre casque, ou dirigez les applications de communication vers un appareil différent de vos médias.",
+        "details": [
+          "Routage d'applications individuelles vers différents périphériques audio",
+          "Création de chemins audio virtuels entre applications",
+          "Configuration du routage automatique basé sur le type d'application",
+          "Enregistrement de préréglages de routage pour différents scénarios",
+          "Division des flux audio vers plusieurs destinations"
+        ]
+      },
+      "applicationProfiles": {
+        "title": "Profils d'Application Personnalisés",
+        "description": "Créez et enregistrez des profils audio personnalisés pour chaque application. Définissez les paramètres parfaits pour vos vidéoconférences, jeux, production musicale et applications de consommation multimédia.",
+        "details": [
+          "Profils d'application persistants qui mémorisent les paramètres",
+          "Passage rapide entre plusieurs profils",
+          "Paramètres d'égaliseur spécifiques à l'application",
+          "Activation automatique du profil au lancement des applications",
+          "Modèles de profils pour les types d'applications courants"
+        ]
+      },
+      "audioMixer": {
+        "title": "Mixeur Audio en Temps Réel",
+        "description": "Contrôlez votre expérience audio comme un ingénieur du son professionnel avec notre mixeur intuitif en temps réel. Équilibrez plusieurs flux audio avec précision et créez le mix audio parfait pour n'importe quelle situation.",
+        "details": [
+          "Interface de console de mixage multicanal",
+          "Indicateurs de niveau en temps réel et indicateurs de crête",
+          "Réglage de la balance (G/D) par application",
+          "Capacités de regroupement pour les applications connexes",
+          "Retour visuel pour les changements audio"
+        ]
+      },
+      "priorityManagement": {
+        "title": "Gestion Intelligente des Priorités",
+        "description": "Définissez quelles applications ont la priorité audio. Baissez automatiquement le volume de la musique pendant les appels, assurez-vous que le chat du jeu est toujours audible par-dessus le gameplay, ou assurez-vous de ne jamais manquer les notifications importantes.",
+        "details": [
+          "Contrôle d'atténuation pour les applications en arrière-plan",
+          "Ajustement automatique du volume basé sur l'activité",
+          "Niveaux de priorité pour différents types d'applications",
+          "Seuil configurable pour la réduction du volume",
+          "Paramètres de priorité temporaires vs. persistants"
+        ]
+      },
+      "hotkeysGestures": {
+        "title": "Raccourcis Clavier et Contrôles Gestuels",
+        "description": "Contrôlez votre audio sans interrompre votre flux de travail à l'aide de raccourcis clavier personnalisables et de commandes gestuelles. Ajustez les volumes, coupez le son des applications et changez de profils audio à la volée.",
+        "details": [
+          "Raccourcis globaux personnalisables pour le contrôle du volume",
+          "Combinaisons de touches multiples pour des actions complexes",
+          "Gestes de souris pour des ajustements rapides",
+          "Intégration avec les touches multimédia",
+          "Configurations de raccourcis spécifiques à l'application"
+        ]
+      },
+      "notificationControl": {
+        "title": "Contrôle Intelligent des Notifications",
+        "description": "Prenez le contrôle de vos sons de notification avec une gestion intelligente. Choisissez quelles applications peuvent jouer des sons de notification, quand elles peuvent les jouer et à quel volume par rapport à votre autre audio.",
+        "details": [
+          "Paramètres de notification spécifiques à l'application",
+          "Règles de notification basées sur le temps",
+          "Mode concentration pour supprimer les notifications non essentielles",
+          "Sons de notification personnalisés pour différentes applications",
+          "Mise à l'échelle du volume pour l'audio des notifications"
+        ]
+      },
+      "analyticsVisualization": {
+        "title": "Analyse et Visualisation Audio",
+        "description": "Obtenez des informations sur votre environnement audio avec des analyses et des visualisations détaillées. Surveillez les niveaux, identifiez les fréquences problématiques et optimisez votre expérience audio avec des ajustements basés sur les données.",
+        "details": [
+          "Analyseur de spectre en temps réel pour la visualisation des fréquences",
+          "Données d'utilisation historiques pour l'audio des applications",
+          "Suivi des niveaux de crête et avertissements",
+          "Métriques de normalisation de la sonie",
+          "Évaluation de la qualité audio et recommandations"
+        ]
+      }
+    },
+    "useCaseItems": {
+      "professionalVideoCalls": {
+        "title": "Appels Vidéo Professionnels",
+        "description": "Équilibrez parfaitement votre application de vidéoconférence, la musique de fond et les notifications système pour des réunions sans distraction."
+      },
+      "gamingStreaming": {
+        "title": "Jeux et Streaming",
+        "description": "Maintenez l'équilibre parfait entre l'audio du jeu, le chat vocal, le logiciel de streaming et la musique de fond."
+      },
+      "contentConsumption": {
+        "title": "Consommation de Contenu",
+        "description": "Regardez des vidéos et écoutez de la musique sans être interrompu par des notifications bruyantes ou des applications en arrière-plan."
+      },
+      "focusProductivity": {
+        "title": "Concentration et Productivité",
+        "description": "Créez l'environnement audio parfait pour le travail en profondeur tout en vous assurant de n'entendre que les notifications qui comptent."
+      }
+    },
+    "demoItems": {
+      "applications": {
+        "videoCall": "Appel Vidéo",
+        "musicPlayer": "Lecteur de Musique",
+        "webBrowser": "Navigateur Web",
+        "chatApp": "Application de Chat",
+        "game": "Jeu"
+      },
+      "types": {
+        "communication": "Communication",
+        "entertainment": "Divertissement",
+        "general": "Général"
+      },
+      "devices": {
+        "defaultOutput": "Sortie par Défaut",
+        "headphones": "Casque",
+        "speakers": "Haut-parleurs",
+        "bluetoothHeadset": "Casque Bluetooth"
+      },
+      "deviceTypes": {
+        "systemDefault": "Système par Défaut",
+        "outputDevice": "Périphérique de Sortie",
+        "wirelessOutput": "Sortie Sans Fil"
+      },
+      "profiles": {
+        "videoMeeting": "Réunion Vidéo",
+        "gamingSession": "Session de Jeu",
+        "musicListening": "Écoute de Musique",
+        "focusMode": "Mode Concentration"
+      }
+    },
+    "faq": {
+      "compatibility": {
+        "question": "Le contrôle audio fonctionne-t-il avec toutes les applications ?",
+        "answer": "Oui, JyvDesktop fonctionne avec pratiquement toutes les applications sur votre système, y compris les navigateurs web, les outils de communication, les lecteurs multimédias et les jeux. Il intercepte l'audio au niveau du système, offrant une compatibilité universelle avec les applications qui utilisent des API audio standard."
+      },
+      "resources": {
+        "question": "Combien de ressources système la fonction de contrôle audio utilise-t-elle ?",
+        "answer": "JyvDesktop est conçu pour être extrêmement efficace, utilisant généralement moins de 2% de CPU et environ 150 Mo de RAM. Les fonctionnalités de contrôle audio sont optimisées pour le traitement en temps réel avec un minimum de surcharge, garantissant qu'elles n'affectent pas les performances de votre système même lors de la gestion simultanée de plusieurs flux audio."
+      },
+      "profiles": {
+        "question": "Puis-je enregistrer différentes configurations audio pour différents scénarios ?",
+        "answer": "Absolument ! JyvDesktop vous permet de créer, d'enregistrer et de basculer instantanément entre des profils personnalisés pour différents scénarios comme les réunions, les jeux, la production musicale ou le travail concentré. Vous pouvez même configurer les profils pour qu'ils s'activent automatiquement lorsque des applications spécifiques sont lancées."
+      },
+      "wireless": {
+        "question": "Le contrôle audio fonctionne-t-il avec les casques sans fil et les appareils Bluetooth ?",
+        "answer": "Oui, JyvDesktop fonctionne avec tous les périphériques de sortie audio reconnus par votre système d'exploitation, y compris les casques sans fil, les appareils Bluetooth, l'audio HDMI et les configurations de haut-parleurs multicanaux. Vous pouvez router différentes applications vers différents appareils simultanément."
+      },
+      "microphone": {
+        "question": "Puis-je contrôler les entrées microphone ainsi que les sorties audio ?",
+        "answer": "Oui, JyvDesktop offre un contrôle complet sur les sorties audio et les entrées microphone. Vous pouvez ajuster le gain d'entrée, appliquer la suppression de bruit, activer l'amélioration vocale et router les entrées microphone vers différentes applications indépendamment."
+      },
+      "quality": {
+        "question": "Y a-t-il une perte de qualité audio lors de l'utilisation des fonctions de contrôle ?",
+        "answer": "Non, JyvDesktop traite l'audio en format haute résolution 32 bits à virgule flottante, assurant une qualité audio pristine sans dégradation. Les fonctionnalités de contrôle du volume et de routage sont conçues pour maintenir la pleine fidélité de la source audio originale."
+      }
     }
   },
   "featureCategories": {
@@ -361,7 +570,7 @@
       }
     }
   },
-  
+
   "securityPrivacy": {
     "badge": "VOTRE VIE PRIVÉE EST IMPORTANTE",
     "title": "Sécurité et Confidentialité par Conception",
@@ -712,7 +921,7 @@
       }
     }
   },
-  
+
   "competitiveAdvantage": {
     "subtitle": "PAYSAGE CONCURRENTIEL",
     "title": "Pourquoi Choisir JyvDesktop",

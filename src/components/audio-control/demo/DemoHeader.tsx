@@ -1,6 +1,7 @@
 import React from 'react';
 import { Volume2, RotateCcw, BellOff, Headphones } from 'lucide-react';
-import { presetProfiles } from '@/data/audioControlData';
+import { usePresetProfiles } from '@/data/audioControlData';
+import { useTranslations } from 'next-intl';
 
 interface DemoHeaderProps {
   masterVolume: number;
@@ -14,7 +15,7 @@ interface DemoHeaderProps {
   setNotificationVolumeReduction: (reduction: number) => void;
 }
 
-const DemoHeader: React.FC<DemoHeaderProps> = ({
+export const DemoHeader: React.FC<DemoHeaderProps> = ({
   masterVolume,
   setMasterVolume,
   activeProfile,
@@ -25,12 +26,14 @@ const DemoHeader: React.FC<DemoHeaderProps> = ({
   notificationVolumeReduction,
   setNotificationVolumeReduction,
 }) => {
+  const presetProfiles = usePresetProfiles();
+  const t = useTranslations('audioControl.demo');
   return (
     <div className="bg-gradient-to-r from-gray-800 to-gray-900 border-b border-gray-700 p-6">
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
         <div>
-          <h3 className="text-2xl font-bold text-white mb-1">Audio Control Center</h3>
-          <p className="text-green-400 text-sm">Interactive Demo</p>
+          <h3 className="text-2xl font-bold text-white mb-1">{t('audioControlCenter')}</h3>
+          <p className="text-green-400 text-sm">{t('interactiveDemo')}</p>
         </div>
 
         <div className="flex flex-wrap gap-4 items-center">
@@ -38,7 +41,7 @@ const DemoHeader: React.FC<DemoHeaderProps> = ({
           <div className="bg-black/30 backdrop-blur-sm rounded-lg p-3 flex items-center gap-3">
             <Volume2 size={20} className="text-green-500" />
             <div>
-              <div className="text-xs text-gray-400 mb-1">Master Volume</div>
+              <div className="text-xs text-gray-400 mb-1">{t('masterVolume')}</div>
               <div className="flex items-center gap-2">
                 <input
                   type="range"
@@ -55,7 +58,7 @@ const DemoHeader: React.FC<DemoHeaderProps> = ({
 
           {/* Profile Selector */}
           <div className="bg-black/30 backdrop-blur-sm rounded-lg p-3 border border-gray-800">
-            <div className="text-xs text-gray-400 mb-2">Active Profile</div>
+            <div className="text-xs text-gray-400 mb-2">{t('activeProfile')}</div>
             <div className="flex flex-wrap gap-2">
               <button
                 onClick={() => applyProfile('default')}
@@ -65,7 +68,7 @@ const DemoHeader: React.FC<DemoHeaderProps> = ({
                     : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
                 }`}
               >
-                Default
+                {t('default')}
               </button>
 
               {presetProfiles.map(profile => (
@@ -89,7 +92,7 @@ const DemoHeader: React.FC<DemoHeaderProps> = ({
           <button
             onClick={resetDemo}
             className="bg-gray-800 hover:bg-gray-700 p-3 rounded-lg text-gray-300 transition-colors"
-            title="Reset Demo"
+            title={t('resetDemo')}
           >
             <RotateCcw size={20} />
           </button>
@@ -100,7 +103,7 @@ const DemoHeader: React.FC<DemoHeaderProps> = ({
       <div className="mt-6 flex flex-wrap gap-3">
         <div className="px-4 py-2 bg-black/30 rounded-full text-sm flex items-center gap-2">
           <div className={`h-2 w-2 rounded-full ${focusModeEnabled ? 'bg-green-500' : 'bg-gray-500'}`}></div>
-          <span className="text-gray-300">Focus Mode</span>
+          <span className="text-gray-300">{t('focusMode')}</span>
           <label className="relative inline-flex items-center cursor-pointer ml-2">
             <input
               type="checkbox"
@@ -114,7 +117,7 @@ const DemoHeader: React.FC<DemoHeaderProps> = ({
 
         <div className="px-4 py-2 bg-black/30 rounded-full text-sm flex items-center gap-2">
           <BellOff size={16} className="text-gray-400" />
-          <span className="text-gray-300">Notification Reduction</span>
+          <span className="text-gray-300">{t('notificationReduction')}</span>
           <select
             value={notificationVolumeReduction}
             onChange={(e) => setNotificationVolumeReduction(parseInt(e.target.value))}
@@ -130,7 +133,7 @@ const DemoHeader: React.FC<DemoHeaderProps> = ({
 
         <div className="px-4 py-2 bg-black/30 rounded-full text-sm flex items-center gap-2">
           <Headphones size={16} className="text-gray-400" />
-          <span className="text-gray-300">Audio Enhancement</span>
+          <span className="text-gray-300">{t('audioEnhancement')}</span>
           <div className="relative inline-flex items-center cursor-pointer ml-2">
             <div className="w-8 h-4 bg-green-500/30 rounded-full flex items-center">
               <div className="h-3 w-3 bg-green-500 rounded-full ml-0.5"></div>

@@ -20,9 +20,143 @@
       "demoButton": "Try Interactive Demo",
       "downloadButton": "Download JyvDesktop"
     },
-    "features": {
+    "featuresSection": {
       "title": "Complete Audio Control System",
       "description": "JyvDesktop gives you unprecedented control over every aspect of your system's audio, from individual application volumes to complex routing scenarios and custom profiles."
+    },
+    "featureDetail": {
+      "audioControlFeature": "Audio Control Feature",
+      "keyCapabilities": "Key Capabilities",
+      "tryDemo": "Try It in Demo",
+      "readDocumentation": "Read Documentation"
+    },
+    "demoSection": {
+      "title": "Try JyvDesktop's Audio Control",
+      "subtitle": "Interactive Experience",
+      "description": "Experience how JyvDesktop gives you precise control over your audio environment. Adjust application volumes, devices, and profiles in this interactive demo.",
+      "masterVolume": "Master Volume",
+      "profiles": "Audio Profiles",
+      "focusMode": "Focus Mode",
+      "notificationReduction": "Notification Reduction",
+      "downloadNow": "Download Now",
+      "learnMore": "Learn More"
+    },
+    "useCasesSection": {
+      "title": "Perfect Audio for Every Scenario",
+      "description": "JyvDesktop's advanced audio control adapts to your specific needs, whether you're in a meeting, gaming with friends, or deep in a creative workflow."
+    },
+    "useCases": {
+      "professionalVideoCalls": {
+        "title": "Professional Video Calls",
+        "description": "Balance your video conferencing app, background music, and system notifications perfectly for distraction-free meetings."
+      },
+      "gamingStreaming": {
+        "title": "Gaming & Streaming",
+        "description": "Maintain the perfect balance between game audio, voice chat, streaming software, and background music."
+      },
+      "contentConsumption": {
+        "title": "Content Consumption",
+        "description": "Watch videos and listen to music without being interrupted by loud notifications or background applications."
+      },
+      "focusProductivity": {
+        "title": "Focus & Productivity",
+        "description": "Create the perfect audio environment for deep work while ensuring you only hear the notifications that matter."
+      },
+      "learnMore": "Learn more"
+    },
+    "faqSection": {
+      "title": "Frequently Asked Questions",
+      "description": "Find answers to common questions about JyvDesktop's audio control features"
+    },
+    "featureItems": {
+      "perAppVolume": {
+        "title": "Per-Application Volume Control",
+        "description": "Independently adjust the volume of each application running on your system. Never again will your music be too loud during calls or game audio drown out your teammates.",
+        "details": [
+          "Independent volume sliders for each application",
+          "Quick mute/unmute toggles",
+          "Visual volume level indicators",
+          "Volume normalization across applications",
+          "Per-application audio routing to different output devices"
+        ]
+      },
+      "audioRouting": {
+        "title": "Advanced Audio Routing",
+        "description": "Direct audio from any application to any output device. Send your music to speakers while keeping alerts on your headphones, or route communication apps to a different device than your media.",
+        "details": [
+          "Route individual applications to different audio devices",
+          "Create virtual audio paths between applications",
+          "Configure automatic routing based on application type",
+          "Save routing presets for different scenarios",
+          "Split audio streams to multiple destinations"
+        ]
+      },
+      "applicationProfiles": {
+        "title": "Custom Application Profiles",
+        "description": "Create and save custom audio profiles for each application. Define the perfect settings for your video conferencing, gaming, music production, and media consumption apps.",
+        "details": [
+          "Persistent application profiles that remember settings",
+          "Quick switching between multiple profiles",
+          "Application-specific equalizer settings",
+          "Automatic profile activation when applications launch",
+          "Profile templates for common application types"
+        ]
+      },
+      "audioMixer": {
+        "title": "Real-Time Audio Mixer",
+        "description": "Control your audio experience like a professional sound engineer with our intuitive real-time mixer. Balance multiple audio streams with precision and create the perfect audio mix for any situation.",
+        "details": [
+          "Multi-channel mixing console interface",
+          "Real-time level meters and peak indicators",
+          "Balance adjustment (L/R) per application",
+          "Grouping capabilities for related applications",
+          "Visual feedback for audio changes"
+        ]
+      },
+      "priorityManagement": {
+        "title": "Smart Priority Management",
+        "description": "Define which applications take audio priority. Automatically lower music volume during calls, ensure game chat is always audible over gameplay, or make sure you never miss important notifications.",
+        "details": [
+          "Ducking control for background applications",
+          "Automatic volume adjustment based on activity",
+          "Priority levels for different application types",
+          "Configurable threshold for volume reduction",
+          "Temporary vs. persistent priority settings"
+        ]
+      },
+      "hotkeysGestures": {
+        "title": "Hotkeys & Gesture Controls",
+        "description": "Control your audio without interrupting your workflow using customizable keyboard shortcuts and gesture commands. Adjust volumes, mute applications, and switch audio profiles on the fly.",
+        "details": [
+          "Customizable global hotkeys for volume control",
+          "Multi-key combinations for complex actions",
+          "Mouse gestures for quick adjustments",
+          "Integration with media keys",
+          "Application-specific shortcut configurations"
+        ]
+      },
+      "notificationControl": {
+        "title": "Intelligent Notification Control",
+        "description": "Take control of your notification sounds with intelligent management. Choose which apps can play notification sounds, when they can play them, and at what volume relative to your other audio.",
+        "details": [
+          "Application-specific notification settings",
+          "Time-based notification rules",
+          "Focus mode to suppress non-essential notifications",
+          "Custom notification sounds for different apps",
+          "Volume scaling for notification audio"
+        ]
+      },
+      "analyticsVisualization": {
+        "title": "Audio Analytics & Visualization",
+        "description": "Gain insights into your audio environment with detailed analytics and visualizations. Monitor levels, identify problematic frequencies, and optimize your audio experience with data-driven adjustments.",
+        "details": [
+          "Real-time spectrum analyzer for frequency visualization",
+          "Historical usage data for application audio",
+          "Peak level tracking and warnings",
+          "Loudness normalization metrics",
+          "Audio quality scoring and recommendations"
+        ]
+      }
     }
   },
   "featureCategories": {
@@ -347,7 +481,7 @@
       }
     }
   },
-  
+
   "testimonials": {
     "subtitle": "User Testimonials",
     "title": "What Our Users Are Saying",
@@ -416,7 +550,25 @@
       "description": "Select an environment to hear how JyvDesktop transforms your audio",
       "settings": "Environment Settings",
       "reverbLevel": "Reverb Level",
-      "roomSize": "Room Size"
+      "roomSize": "Room Size",
+      "types": {
+        "concert-hall": {
+          "name": "Concert Hall",
+          "description": "Experience the rich acoustics of a professional concert hall with natural reverb and depth."
+        },
+        "gaming": {
+          "name": "Gaming Environment",
+          "description": "Optimized for gaming with precise directional audio and moderate reverb for immersive gameplay."
+        },
+        "studio": {
+          "name": "Recording Studio",
+          "description": "Clean, controlled acoustics with minimal reverb for professional audio production."
+        },
+        "theater": {
+          "name": "Theater",
+          "description": "Balanced acoustics of a theater space with moderate reverb and excellent clarity."
+        }
+      }
     },
     "sources": {
       "title": "Source Controls",
@@ -500,7 +652,7 @@
       }
     }
   },
-  
+
   "securityPrivacy": {
     "badge": "YOUR PRIVACY MATTERS",
     "title": "Security & Privacy by Design",
@@ -539,6 +691,41 @@
       "dataMinimization": {
         "title": "Data Minimization",
         "description": "We collect only what's necessary to provide you with optimal audio services"
+      }
+    },
+    "useCaseItems": {
+      "professionalVideoCalls": {
+        "title": "Professional Video Calls",
+        "description": "Balance your video conferencing app, background music, and system notifications perfectly for distraction-free meetings."
+      },
+      "gamingStreaming": {
+        "title": "Gaming & Streaming",
+        "description": "Maintain the perfect balance between game audio, voice chat, streaming software, and background music."
+      },
+      "contentConsumption": {
+        "title": "Content Consumption",
+        "description": "Watch videos and listen to music without being interrupted by loud notifications or background applications."
+      },
+      "focusProductivity": {
+        "title": "Focus & Productivity",
+        "description": "Create the perfect audio environment for deep work while ensuring you only hear the notifications that matter."
+      },
+      "learnMore": "Learn more"
+    },
+    "demoItems": {
+      "title": "Experience the Power of JyvDesktop",
+      "description": "Discover how JyvDesktop can transform your audio experience",
+      "item1": {
+        "title": "Immersive Audio",
+        "description": "Experience 3D audio that simulates real-world environments"
+      },
+      "item2": {
+        "title": "Real-time Noise Cancellation",
+        "description": "Eliminate background noise and distractions with our advanced noise cancellation technology"
+      },
+      "item3": {
+        "title": "Customizable Audio",
+        "description": "Tailor your audio experience to your preferences with our intuitive interface"
       }
     },
     "tabs": {
@@ -690,7 +877,7 @@
       }
     }
   },
-  
+
   "competitiveAdvantage": {
     "subtitle": "COMPETITIVE LANDSCAPE",
     "title": "Why Choose JyvDesktop",
@@ -746,6 +933,74 @@
       "rtxVoice": "RTX Voice",
       "voiceMeeter": "VoiceMeeter",
       "soundSource": "SoundSource"
+    }
+  },
+
+  "audioEnhancementPage": {
+    "hero": {
+      "title": "Professional Audio Enhancement",
+      "subtitle": "Transform Your Sound Quality",
+      "description": "Experience crystal-clear audio with JyvDesktop's advanced enhancement technology. Eliminate background noise, enhance voices, and optimize your audio for any situation."
+    },
+    "features": {
+      "noiseSuppression": {
+        "title": "AI-Powered Noise Suppression",
+        "description": "Eliminate background noise using our advanced AI algorithms. JyvDesktop identifies and removes unwanted sounds in real-time while preserving the clarity of voices and important audio.",
+        "details": [
+          "Removes keyboard typing, fan noise, background chatter, and other distractions",
+          "Real-time processing with <10ms latency",
+          "Multiple intensity levels to match your environment",
+          "Preserves voice naturalness even at high suppression levels",
+          "Custom noise profiles for different environments"
+        ]
+      },
+      "voiceEnhancement": {
+        "title": "Voice Enhancement Technology",
+        "description": "Make voices sound clear, professional, and natural. Our voice enhancement technology isolates speech, improves clarity, and adds warmth and presence to vocal tones.",
+        "details": [
+          "Enhances speech intelligibility in any environment",
+          "Adaptive processing based on voice characteristics",
+          "Automatic EQ optimization for your specific microphone",
+          "Reduces plosives, sibilance, and other speech artifacts",
+          "De-reverberation to remove room echo"
+        ]
+      },
+      "dynamicProcessor": {
+        "title": "Intelligent Dynamic Processing",
+        "description": "Ensure consistent audio levels with smart dynamic processing. JyvDesktop automatically adjusts compression, limiting, and expansion to maintain optimal volume without distortion.",
+        "details": [
+          "Multi-band compression for balanced frequency response",
+          "Intelligent loudness normalization across applications",
+          "Peak limiting to prevent audio clipping",
+          "Transparent processing preserves audio dynamics",
+          "Content-aware processing adapts to different audio types"
+        ]
+      },
+      "equalizer": {
+        "title": "Adaptive Equalizer",
+        "description": "Optimize frequency balance with our intelligent equalizer. JyvDesktop analyzes audio content in real-time and applies subtle adjustments to enhance clarity, detail, and overall sound quality.",
+        "details": [
+          "10-band parametric EQ with intelligent presets",
+          "Frequency response tailored to content type",
+          "Automatic resonance detection and correction",
+          "Custom EQ profiles for different applications",
+          "Spectral balancing for professional sound"
+        ]
+      }
+    },
+    "beforeAfter": {
+      "title": "Hear the Difference",
+      "description": "Experience the dramatic improvement in audio quality with JyvDesktop's enhancement technology.",
+      "beforeLabel": "Before",
+      "afterLabel": "After",
+      "playButton": "Play",
+      "pauseButton": "Pause"
+    },
+    "cta": {
+      "title": "Ready to transform your audio experience?",
+      "description": "Download JyvDesktop today and experience professional-grade audio enhancement for all your applications.",
+      "downloadButton": "Download Now",
+      "learnMoreButton": "Learn More"
     }
   },
 

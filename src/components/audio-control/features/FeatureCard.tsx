@@ -1,15 +1,17 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { audioControlFeatures } from '@/data/audioControlData';
+import { useAudioControlFeatures } from '@/data/audioControlData';
+import { useTranslations } from 'next-intl';
 
 interface FeatureCardProps {
-  feature: typeof audioControlFeatures[0];
+  feature: ReturnType<typeof useAudioControlFeatures>[0];
   index: number;
   setActiveFeature: (id: string) => void;
   itemVariant: any;
 }
 
 const FeatureCard: React.FC<FeatureCardProps> = ({ feature, index, setActiveFeature, itemVariant }) => {
+  const t = useTranslations('audioControl');
   return (
     <motion.div
       initial="hidden"
@@ -23,8 +25,12 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ feature, index, setActiveFeat
       <div className={`${feature.iconBg} w-12 h-12 rounded-lg flex items-center justify-center mb-4`}>
         {feature.icon}
       </div>
-      <h3 className="font-bold text-lg mb-2">{feature.title}</h3>
-      <p className="text-gray-300 text-sm">{feature.description.split('.')[0]}.</p>
+      <h3 className="font-bold text-lg mb-2">
+        {feature.title}
+      </h3>
+      <p className="text-gray-300 text-sm">
+        {feature.description.split('.')[0] + '.'}
+      </p>
     </motion.div>
   );
 };

@@ -3,9 +3,19 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import { useCases } from '@/data/audioControlData';
+import { useAudioControlUseCases } from '@/data/audioControlData';
+import { useTranslations } from 'next-intl';
 
-const UseCasesSection: React.FC = () => {
+interface UseCasesSectionProps {
+  translations: {
+    title: string;
+    description: string;
+  };
+}
+
+export const UseCasesSection: React.FC<UseCasesSectionProps> = ({ translations }) => {
+  const useCases = useAudioControlUseCases();
+  const t = useTranslations('audioControl');
   const fadeInUpVariant = {
     hidden: { opacity: 0, y: 20 },
     visible: {
@@ -40,10 +50,9 @@ const UseCasesSection: React.FC = () => {
           variants={fadeInUpVariant}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Perfect Audio for Every Scenario</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">{translations.title}</h2>
           <p className="text-gray-300 max-w-3xl mx-auto">
-            JyvDesktop's advanced audio control adapts to your specific needs, whether you're in a meeting,
-            gaming with friends, or deep in a creative workflow.
+            {translations.description}
           </p>
         </motion.div>
 
@@ -60,7 +69,7 @@ const UseCasesSection: React.FC = () => {
             >
               <div className="h-48 relative">
                 <Image
-                  src={`/assets/images/use-cases/${useCase.title.toLowerCase().replace(/\s+/g, '-')}.webp`}
+                  src={`/assets/images/use-cases/${index}.webp`}
                   alt={useCase.title}
                   fill
                   className="object-cover"
@@ -72,16 +81,20 @@ const UseCasesSection: React.FC = () => {
                     <div className={`${useCase.color} w-10 h-10 rounded-lg flex items-center justify-center`}>
                       {useCase.icon}
                     </div>
-                    <h3 className="text-lg font-bold text-white">{useCase.title}</h3>
+                    <h3 className="text-lg font-bold text-white">
+                      {useCase.title}
+                    </h3>
                   </div>
                 </div>
               </div>
 
               <div className="p-6">
-                <p className="text-gray-300 mb-6">{useCase.description}</p>
+                <p className="text-gray-300 mb-6">
+                  {useCase.description}
+                </p>
 
                 <div className="mb-6">
-                  <div className="text-sm text-gray-400 mb-3">Compatible with:</div>
+                  <div className="text-sm text-gray-400 mb-3">{t('useCases.compatibleWith')}</div>
                   <div className="flex flex-wrap gap-2">
                     {useCase.apps.map((app, idx) => (
                       <div key={idx} className="bg-gray-800 px-3 py-1 rounded-md text-xs text-gray-300">
@@ -92,10 +105,10 @@ const UseCasesSection: React.FC = () => {
                 </div>
 
                 <Link
-                  href={`/use-cases/${useCase.title.toLowerCase().replace(/\s+/g, '-')}`}
+                  href={`/use-cases/${index}`}
                   className="flex items-center gap-1 text-green-400 hover:text-green-300 transition-colors text-sm"
                 >
-                  <span>Learn more</span>
+                  <span>{t('useCases.learnMore')}</span>
                   <ArrowRight size={14} />
                 </Link>
               </div>

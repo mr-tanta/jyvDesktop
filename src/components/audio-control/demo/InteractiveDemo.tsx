@@ -5,13 +5,36 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import Link from 'next/link';
 import { Download, Sliders } from 'lucide-react';
-import { demoApplications } from '@/data/audioControlData';
+import { useDemoApplications, useAudioDevices, usePresetProfiles } from '@/data/audioControlData';
+import { useTranslations } from 'next-intl';
 import DemoHeader from './DemoHeader';
 import AppMixer from './AppMixer';
 
-export const InteractiveDemo: React.FC = () => {
+interface InteractiveDemoProps {
+  translations: {
+    title: string;
+    subtitle: string;
+    description: string;
+    masterVolume: string;
+    profiles: string;
+    focusMode: string;
+    notificationReduction: string;
+    downloadNow: string;
+    learnMore: string;
+  };
+}
+
+export const InteractiveDemo: React.FC<InteractiveDemoProps> = ({ translations }) => {
+  const demoApplications = useDemoApplications();
+  const audioDevices = useAudioDevices();
+  const presetProfiles = usePresetProfiles();
+  const t = useTranslations('audioControl');
+  
+  // No need to process demo applications as they're already translated by the hook
+  const translatedDemoApps = demoApplications;
+  
   // State for interactive demo
-  const [demoApps, setDemoApps] = useState(demoApplications);
+  const [demoApps, setDemoApps] = useState(translatedDemoApps);
   const [masterVolume, setMasterVolume] = useState(75);
   const [activeProfile, setActiveProfile] = useState('default');
   const [notificationVolumeReduction, setNotificationVolumeReduction] = useState(50);
@@ -313,20 +336,19 @@ export const InteractiveDemo: React.FC = () => {
         >
           <div className="inline-flex items-center py-1 px-4 mb-6 bg-gradient-to-r from-green-500/10 to-emerald-500/10 border border-green-500/20 backdrop-blur-sm rounded-full">
             <Sliders size={14} className="text-green-400 mr-2" />
-            <span className="text-sm text-green-400 font-medium">Interactive Experience</span>
+            <span className="text-sm text-green-400 font-medium">{translations.subtitle}</span>
           </div>
 
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Try JyvDesktop's Audio Control</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">{translations.title}</h2>
           <p className="text-gray-300 max-w-3xl mx-auto">
-            Experience how JyvDesktop gives you precise control over your audio environment.
-            Adjust application volumes, devices, and profiles in this interactive demo.
+            {translations.description}
           </p>
           {!audioInitialized && (
             <button 
               onClick={handleUserInteraction}
               className="mt-4 bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-md"
             >
-              Click to Enable Audio
+              {translations.focusMode}
             </button>
           )}
         </motion.div>
@@ -359,12 +381,12 @@ export const InteractiveDemo: React.FC = () => {
           {/* Demo Footer */}
           <div className="border-t border-gray-800 p-4 bg-black/30">
             <div className="flex justify-between items-center">
-              <div className="text-xs text-gray-500">Interactive demo - adjust volumes to hear the difference</div>
+              <div className="text-xs text-gray-500">{t('demo.demoFooter')}</div>
               <div className="flex items-center gap-2">
-                <span className="text-xs text-gray-400">Audio Engine:</span>
+                <span className="text-xs text-gray-400">{t('demo.audioEngine')}:</span>
                 <span className="text-xs text-green-500 flex items-center gap-1">
                   <div className="h-1.5 w-1.5 bg-green-500 rounded-full animate-pulse"></div>
-                  {audioInitialized ? "Active" : "Initializing"}
+                  {audioInitialized ? t('demo.active') : t('demo.initializing')}
                 </span>
               </div>
             </div>
@@ -372,13 +394,13 @@ export const InteractiveDemo: React.FC = () => {
         </motion.div>
 
         <div className="mt-12 text-center">
-          <p className="text-gray-300 mb-6">Ready to experience the full power of JyvDesktop's audio control?</p>
+          <p className="text-gray-300 mb-6">{translations.description}</p>
           <Link
             href="/download"
             className="inline-flex items-center gap-2 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-8 py-3 rounded-lg font-medium transition-all"
           >
             <Download size={20} />
-            <span>Download Now</span>
+            <span>{translations.downloadNow}</span>
           </Link>
         </div>
       </div>

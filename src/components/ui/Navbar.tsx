@@ -12,7 +12,7 @@ import { usePathname, useRouter } from 'next/navigation';
 
 // Import feature data
 import { spatialAudioFeatures } from '../../data/spatialAudioData';
-import { audioControlFeatures } from '../../data/audioControlData';
+import { useAudioControlFeatures } from '../../data/audioControlData';
 import intlConfig from '../../../next-intl.config.js';
 
 // Language options
@@ -27,7 +27,7 @@ const languages = [
 ];
 
 // Feature categories for simple dropdown menu
-const getFeatureCategories = (t: any) => [
+const getFeatureCategories = (t: any, audioControlFeatures: any) => [
   {
     name: t('featureCategories.audioControl'),
     href: '/audio-control',
@@ -69,6 +69,9 @@ export default function Navbar() {
   const locale = useLocale();
   const pathname = usePathname();
   const router = useRouter();
+  
+  // Get the audio control features using the hook
+  const audioControlFeatures = useAudioControlFeatures();
 
   // Create localized navigation items
   const localizedNavigation = [
@@ -209,7 +212,7 @@ export default function Navbar() {
                         className="bg-gray-900/95 backdrop-blur-xl border border-white/10 rounded-xl overflow-hidden shadow-2xl"
                       >
                         <div className="py-2 w-48">
-                          {getFeatureCategories(t).map((category) => (
+                          {getFeatureCategories(t, audioControlFeatures).map((category) => (
                             <Link 
                               key={category.name} 
                               href={category.href}
@@ -351,7 +354,7 @@ export default function Navbar() {
                           <span className="text-white font-medium">{item.name}</span>
                         </div>
                         <div className="pl-4 border-l border-white/10 space-y-6">
-                          {getFeatureCategories(t).map((category) => (
+                          {getFeatureCategories(t, audioControlFeatures).map((category) => (
                             <div key={category.name} className="py-2">
                               <Link 
                                 href={category.href}

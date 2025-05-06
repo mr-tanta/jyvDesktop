@@ -20,9 +20,178 @@
       "demoButton": "Experimentar Demo Interativa",
       "downloadButton": "Baixar JyvDesktop"
     },
-    "features": {
+    "featuresSection": {
       "title": "Sistema Completo de Controle de Áudio",
       "description": "JyvDesktop oferece controle sem precedentes sobre todos os aspectos do áudio do seu sistema, desde volumes de aplicativos individuais até cenários complexos de roteamento e perfis personalizados."
+    },
+    "featureDetail": {
+      "audioControlFeature": "Recurso de Controle de Áudio",
+      "keyCapabilities": "Capacidades Principais",
+      "tryDemo": "Experimentar na Demo",
+      "readDocumentation": "Ler Documentação"
+    },
+    "featureItems": {
+      "perAppVolume": {
+        "title": "Controle de Volume por Aplicativo",
+        "description": "Ajuste independentemente o volume de cada aplicativo em execução no seu sistema. Nunca mais música alta demais durante chamadas ou áudio de jogos abafando as vozes dos seus colegas.",
+        "details": [
+          "Controles de volume independentes para cada aplicativo",
+          "Botões rápidos de silenciar/ativar som",
+          "Indicadores visuais de nível de volume",
+          "Normalização de volume entre aplicativos",
+          "Roteamento de áudio por aplicativo para diferentes dispositivos de saída"
+        ]
+      },
+      "audioProfiles": {
+        "title": "Perfis de Áudio",
+        "description": "Crie perfis de áudio personalizados para diferentes cenários e atividades. Alterne com um clique do modo trabalho para o modo jogo e para o modo entretenimento.",
+        "details": [
+          "Número ilimitado de perfis personalizados",
+          "Configurações granulares de volume por aplicativo",
+          "Alternância automática de perfis por hora ou aplicativo",
+          "Exportação e compartilhamento de perfis",
+          "Atalhos de teclado para alternância rápida"
+        ]
+      },
+      "deviceRouting": {
+        "title": "Roteamento de Dispositivos",
+        "description": "Controle com precisão quais aplicativos usam quais dispositivos de áudio. Envie o áudio da reunião para os fones de ouvido enquanto reproduz música através dos alto-falantes.",
+        "details": [
+          "Configuração de dispositivos de entrada/saída por aplicativo",
+          "Roteamento de áudio de um aplicativo para múltiplos dispositivos de saída",
+          "Pré-configurações salvas de roteamento de dispositivos",
+          "Regras automáticas de alternância de dispositivos",
+          "Notificações de status de conexão de dispositivos"
+        ]
+      },
+      "focusMode": {
+        "title": "Modo Foco",
+        "description": "Ative o modo foco para ajustar automaticamente as configurações de áudio para minimizar distrações. Perfeito para trabalho profundo ou estudo.",
+        "details": [
+          "Silenciamento com um clique de aplicativos não essenciais",
+          "Lista personalizada de aplicativos prioritários",
+          "Sessões de foco cronometradas",
+          "Integração com aplicativos de calendário e gerenciamento de tarefas",
+          "Opções de silenciamento de notificações"
+        ]
+      },
+      "soundEnhancement": {
+        "title": "Aprimoramento de Som",
+        "description": "Melhore sua experiência auditiva com tecnologia avançada de processamento de áudio. De equalizadores a simulação de áudio espacial.",
+        "details": [
+          "Equalizador multibanda",
+          "Compressão e limitação dinâmica",
+          "Efeitos de som surround virtual",
+          "Modo de aprimoramento de voz",
+          "Opções de aprimoramento de graves"
+        ]
+      }
+    },
+    "demoSection": {
+      "title": "Experimente o Controle de Áudio do JyvDesktop",
+      "subtitle": "Experiência Interativa",
+      "description": "Veja como o JyvDesktop oferece controle preciso sobre seu ambiente de áudio. Ajuste volumes de aplicativos, dispositivos e perfis nesta demo interativa.",
+      "masterVolume": "Volume Principal",
+      "profiles": "Perfis de Áudio",
+      "focusMode": "Modo Foco",
+      "notificationReduction": "Redução de Notificações",
+      "downloadNow": "Baixar Agora",
+      "learnMore": "Saiba Mais"
+    },
+    "useCasesSection": {
+      "title": "Áudio Perfeito para Cada Cenário",
+      "description": "O controle de áudio avançado do JyvDesktop se adapta às suas necessidades específicas, seja você está em uma reunião, jogando com amigos ou imerso em um fluxo de trabalho criativo."
+    },
+    "useCases": {
+      "professionalVideoCalls": {
+        "title": "Videochamadas Profissionais",
+        "description": "Equilibre perfeitamente seu aplicativo de videoconferência, música de fundo e notificações do sistema para reuniões sem distrações."
+      },
+      "gamingStreaming": {
+        "title": "Jogos e Streaming",
+        "description": "Mantenha o equilíbrio perfeito entre o áudio do jogo, o chat de voz, o software de streaming e a música de fundo."
+      },
+      "contentConsumption": {
+        "title": "Consumo de Conteúdo",
+        "description": "Assista vídeos e ouça música sem ser interrompido por notificações barulhentas ou aplicativos em segundo plano."
+      },
+      "focusProductivity": {
+        "title": "Foco e Produtividade",
+        "description": "Crie o ambiente de áudio perfeito para trabalho profundo enquanto garante que você só ouça as notificações que importam."
+      },
+      "learnMore": "Saiba Mais"
+    },
+    "faqSection": {
+      "title": "Perguntas Frequentes",
+      "description": "Encontre respostas para perguntas comuns sobre os recursos de controle de áudio do JyvDesktop"
+    },
+    "useCaseItems": {
+      "professionalVideoCalls": {
+        "title": "Videochamadas Profissionais",
+        "description": "Equilibre perfeitamente seu aplicativo de videoconferência, música de fundo e notificações do sistema para reuniões sem distrações."
+      },
+      "gamingStreaming": {
+        "title": "Jogos e Streaming",
+        "description": "Mantenha o equilíbrio perfeito entre o áudio do jogo, o chat de voz, o software de streaming e a música de fundo."
+      },
+      "contentConsumption": {
+        "title": "Consumo de Conteúdo",
+        "description": "Assista vídeos e ouça música sem ser interrompido por notificações barulhentas ou aplicativos em segundo plano."
+      },
+      "focusProductivity": {
+        "title": "Foco e Produtividade",
+        "description": "Crie o ambiente de áudio perfeito para trabalho profundo enquanto garante que você só ouça as notificações que importam."
+      }
+    },
+    "demoItems": {
+      "applications": {
+        "videoCall": "Videochamada",
+        "musicPlayer": "Reprodutor de Música",
+        "game": "Jogo",
+        "browser": "Navegador",
+        "systemSounds": "Sons do Sistema"
+      },
+      "devices": {
+        "headphones": "Fones de Ouvido",
+        "speakers": "Alto-falantes",
+        "microphone": "Microfone"
+      },
+      "controls": {
+        "volume": "Volume",
+        "mute": "Silenciar",
+        "unmute": "Ativar Som",
+        "boost": "Aumentar",
+        "reduce": "Reduzir"
+      },
+      "profiles": {
+        "gaming": "Jogos",
+        "meeting": "Reunião",
+        "music": "Música",
+        "movie": "Filme",
+        "focus": "Foco"
+      }
+    },
+    "faqItems": {
+      "compatibility": {
+        "question": "O JyvDesktop é compatível com todos os aplicativos de áudio?",
+        "answer": "O JyvDesktop é compatível com a grande maioria dos aplicativos Windows e macOS que usam APIs de áudio padrão. Isso inclui aplicativos populares de comunicação, reprodutores de mídia, jogos e ferramentas de produtividade."
+      },
+      "systemRequirements": {
+        "question": "Quais requisitos de sistema são necessários para executar os recursos de controle de áudio do JyvDesktop?",
+        "answer": "Nossos recursos de controle de áudio são adequados para computadores modernos executando Windows 10/11 ou macOS 10.15+. Para funcionalidade básica, recomendamos pelo menos 4GB de RAM e um processador dual-core. Recursos avançados de processamento de áudio podem exigir um sistema mais potente."
+      },
+      "audioLatency": {
+        "question": "Usar o JyvDesktop aumenta a latência do áudio?",
+        "answer": "Não, o JyvDesktop é projetado com tecnologia de processamento de baixa latência, garantindo que não haja aumento perceptível de latência na maioria dos sistemas. Para trabalho de áudio profissional, oferecemos um modo de baixa latência que minimiza o atraso."
+      },
+      "customProfiles": {
+        "question": "Quantos perfis de áudio posso criar?",
+        "answer": "No JyvDesktop, você pode criar um número ilimitado de perfis de áudio personalizados. Cada perfil pode conter configurações específicas de volume de aplicativos, opções de roteamento de dispositivos e parâmetros de aprimoramento de áudio."
+      },
+      "deviceSupport": {
+        "question": "Quais dispositivos de áudio o JyvDesktop suporta?",
+        "answer": "O JyvDesktop suporta quase todos os dispositivos de áudio conectados via USB, Bluetooth, interfaces analógicas ou digitais. Isso inclui fones de ouvido, alto-falantes, microfones, interfaces de áudio e dispositivos de áudio virtuais. Também oferecemos suporte aprimorado para dispositivos de áudio profissionais."
+      }
     }
   },
   "featureCategories": {
@@ -229,7 +398,10 @@
       "output": "Saída",
       "enhancedOutput": "Saída Aprimorada",
       "professionalQuality": "Qualidade profissional",
-      "vstAuPlugins": "PLUGINS VST/AU"
+      "vstAuPlugins": "PLUGINS VST/AU",
+      "digitalAudioWorkstation": "Estação de Trabalho de Áudio Digital",
+      "audioSource": "Fonte de áudio",
+      "processingAudio": "Processando áudio"
     },
     "benefits": {
       "plugAndPlay": {
@@ -343,7 +515,7 @@
       }
     }
   },
-  
+
   "securityPrivacy": {
     "badge": "SUA PRIVACIDADE IMPORTA",
     "title": "Segurança e Privacidade por Design",
@@ -635,7 +807,7 @@
       }
     }
   },
-  
+
   "testimonials": {
     "subtitle": "Depoimentos de Usuários",
     "title": "O Que Nossos Usuários Estão Dizendo",
@@ -750,6 +922,74 @@
       "rtxVoice": "RTX Voice",
       "voiceMeeter": "VoiceMeeter",
       "soundSource": "SoundSource"
+    }
+  },
+
+  "audioEnhancementPage": {
+    "hero": {
+      "title": "Aprimoramento de Áudio Profissional",
+      "subtitle": "Transforme Sua Qualidade de Som",
+      "description": "Experimente áudio cristalino com a tecnologia avançada de aprimoramento do JyvDesktop. Elimine ruídos de fundo, melhore vozes e otimize seu áudio para qualquer situação."
+    },
+    "features": {
+      "noiseSuppression": {
+        "title": "Supressão de Ruído com IA",
+        "description": "Elimine ruídos de fundo usando nossos avançados algoritmos de IA. O JyvDesktop identifica e remove sons indesejados em tempo real, preservando a clareza das vozes e do áudio importante.",
+        "details": [
+          "Remove digitação de teclado, ruído de ventilador, conversas de fundo e outras distrações",
+          "Processamento em tempo real com latência <10ms",
+          "Múltiplos níveis de intensidade para se adequar ao seu ambiente",
+          "Preserva a naturalidade da voz mesmo em níveis altos de supressão",
+          "Perfis de ruído personalizados para diferentes ambientes"
+        ]
+      },
+      "voiceEnhancement": {
+        "title": "Tecnologia de Aprimoramento de Voz",
+        "description": "Faça as vozes soarem claras, profissionais e naturais. Nossa tecnologia de aprimoramento de voz isola a fala, melhora a clareza e adiciona calor e presença aos tons vocais.",
+        "details": [
+          "Melhora a inteligibilidade da fala em qualquer ambiente",
+          "Processamento adaptativo baseado nas características da voz",
+          "Otimização automática de EQ para seu microfone específico",
+          "Reduz plosivas, sibilâncias e outros artefatos da fala",
+          "Desreverberação para remover eco do ambiente"
+        ]
+      },
+      "dynamicProcessor": {
+        "title": "Processamento Dinâmico Inteligente",
+        "description": "Garanta níveis de áudio consistentes com processamento dinâmico inteligente. O JyvDesktop ajusta automaticamente compressão, limitação e expansão para manter volume ideal sem distorção.",
+        "details": [
+          "Compressão multibanda para resposta de frequência equilibrada",
+          "Normalização inteligente de volume entre aplicativos",
+          "Limitação de picos para prevenir clipping de áudio",
+          "Processamento transparente preserva a dinâmica do áudio",
+          "Processamento sensível ao conteúdo se adapta a diferentes tipos de áudio"
+        ]
+      },
+      "equalizer": {
+        "title": "Equalizador Adaptativo",
+        "description": "Otimize o equilíbrio de frequências com nosso equalizador inteligente. O JyvDesktop analisa o conteúdo de áudio em tempo real e aplica ajustes sutis para melhorar clareza, detalhes e qualidade geral do som.",
+        "details": [
+          "EQ paramétrico de 10 bandas com predefinições inteligentes",
+          "Resposta de frequência adaptada ao tipo de conteúdo",
+          "Detecção e correção automática de ressonâncias",
+          "Perfis de EQ personalizados para diferentes aplicativos",
+          "Balanceamento espectral para som profissional"
+        ]
+      }
+    },
+    "beforeAfter": {
+      "title": "Ouça a Diferença",
+      "description": "Experimente a melhoria dramática na qualidade do áudio com a tecnologia de aprimoramento do JyvDesktop.",
+      "beforeLabel": "Antes",
+      "afterLabel": "Depois",
+      "playButton": "Reproduzir",
+      "pauseButton": "Pausar"
+    },
+    "cta": {
+      "title": "Pronto para transformar sua experiência de áudio?",
+      "description": "Baixe o JyvDesktop hoje e experimente aprimoramento de áudio de nível profissional para todos os seus aplicativos.",
+      "downloadButton": "Baixar Agora",
+      "learnMoreButton": "Saiba Mais"
     }
   },
 

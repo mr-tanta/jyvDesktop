@@ -24,12 +24,48 @@ export function getDirection(locale: string) {
   return localeDirection[locale as keyof typeof localeDirection] || 'ltr';
 }
 
-// Get messages for a locale
-export async function getMessages(locale: string) {
+// Get messages for a specific page and locale
+export async function getPageMessages(locale: string, page: string) {
   try {
-    return (await import(`./messages/${locale}.json`)).default;
+    // Try to load page-specific messages
+    return (await import(`./messages/${locale}/${page}.json`)).default;
+  } catch (pageError) {
+    try {
+      // If page-specific messages don't exist, try to load from common
+      return (await import(`./messages/${locale}/common.json`)).default;
+    } catch (commonError) {
+      // If common messages don't exist for this locale, fall back to default locale
+      try {
+        return (await import(`./messages/${defaultLocale}/${page}.json`)).default;
+      } catch (defaultPageError) {
+        // Final fallback to default locale's common messages
+        return (await import(`./messages/${defaultLocale}/common.json`)).default;
+      }
+    }
+  }
+}
+
+// Get all messages for a locale (common + page-specific)
+export async function getMessages(locale: string, page?: string) {
+  // If no page is specified, just load common messages
+  if (!page) {
+    try {
+      return (await import(`./messages/${locale}/common.json`)).default;
+    } catch (error) {
+      return (await import(`./messages/${defaultLocale}/common.json`)).default;
+    }
+  }
+  
+  // Load both common and page-specific messages
+  try {
+    const commonMessages = await getPageMessages(locale, 'common');
+    const pageMessages = await getPageMessages(locale, page);
+    
+    // Merge common and page-specific messages
+    return { ...commonMessages, ...pageMessages };
   } catch (error) {
-    return (await import(`./messages/${defaultLocale}.json`)).default;
+    console.error(`Error loading messages for ${locale}/${page}:`, error);
+    return (await import(`./messages/${defaultLocale}/common.json`)).default;
   }
 }
 

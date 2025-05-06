@@ -1,7 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { VolumeX, Volume1, PlusCircle, Settings } from 'lucide-react';
-import { audioDevices } from '@/data/audioControlData';
+import { useAudioDevices } from '@/data/audioControlData';
+import { useTranslations } from 'next-intl';
 
 interface AppMixerProps {
   demoApps: {
@@ -19,17 +20,19 @@ interface AppMixerProps {
   handleDeviceChange: (appId: string, deviceId: string) => void;
 }
 
-const AppMixer: React.FC<AppMixerProps> = ({
+export const AppMixer: React.FC<AppMixerProps> = ({
   demoApps,
   handleVolumeChange,
   handleMuteToggle,
   handleDeviceChange,
 }) => {
+  const audioDevices = useAudioDevices();
+  const t = useTranslations('audioControl');
   return (
     <div className="p-6">
       <div className="mb-4">
-        <h4 className="text-xl font-semibold text-white">Application Mixer</h4>
-        <p className="text-sm text-gray-400">Adjust volume and routing for individual applications</p>
+        <h4 className="text-xl font-semibold text-white">{t('demo.applicationMixer')}</h4>
+        <p className="text-sm text-gray-400">{t('demo.adjustVolume')}</p>
       </div>
 
       {/* App Controls */}
@@ -76,7 +79,7 @@ const AppMixer: React.FC<AppMixerProps> = ({
 
                 {/* Device Selector */}
                 <div className="flex items-center gap-2">
-                  <span className="text-xs text-gray-400">Output:</span>
+                  <span className="text-xs text-gray-400">{t('output')}:</span>
                   <select
                     value={audioDevices.find(d => d.name === app.device)?.id || 'default'}
                     onChange={(e) => handleDeviceChange(app.id, e.target.value)}
@@ -117,7 +120,7 @@ const AppMixer: React.FC<AppMixerProps> = ({
       <div className="mt-6">
         <button className="w-full py-3 bg-gray-800/50 hover:bg-gray-800 border border-gray-700 rounded-lg text-gray-300 transition-colors flex items-center justify-center gap-2">
           <PlusCircle size={16} />
-          <span>Add Application</span>
+          <span>{t('demo.addApplication')}</span>
         </button>
       </div>
     </div>

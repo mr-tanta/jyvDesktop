@@ -1,0 +1,243 @@
+{
+  "audioEnhancement": {
+    "hero": {
+      "badge": "音频增强技术",
+      "title": "专业级音频质量，人人可用",
+      "description": "体验JyvDesktop先进音频增强技术带来的清晰音质。AI驱动的噪音抑制、自适应均衡和空间处理。",
+      "demoButton": "尝试交互式演示",
+      "downloadButton": "下载JyvDesktop"
+    },
+    "featuresSection": {
+      "title": "专业级音频增强",
+      "description": "JyvDesktop使用先进的信号处理算法和AI技术，显著提升所有应用程序和设备的音频质量。"
+    },
+    "featureDetail": {
+      "audioEnhancementFeature": "音频增强功能",
+      "keyCapabilities": "核心能力",
+      "tryDemo": "在演示中尝试",
+      "readDocumentation": "阅读文档"
+    },
+    "featureItems": {
+      "aiNoiseSuppression": {
+        "title": "AI噪音抑制",
+        "description": "使用我们的AI驱动噪音抑制技术实时消除不需要的背景噪音。非常适合通话、录音和直播。",
+        "details": [
+          "实时自适应噪音抑制",
+          "智能环境噪音过滤",
+          "保留自然语音质量",
+          "多级抑制强度",
+          "针对不同环境优化的配置文件"
+        ]
+      },
+      "voiceEnhancement": {
+        "title": "语音增强",
+        "description": "通过我们的语音增强技术让您的声音清晰专业。消除失真，提高清晰度，为您的声音增添温暖感。",
+        "details": [
+          "动态语音均衡",
+          "自适应压缩",
+          "消除嘶嘶声和爆破音",
+          "增强声音存在感",
+          "智能音量标准化"
+        ]
+      },
+      "spatialAudio": {
+        "title": "空间音频",
+        "description": "通过沉浸式空间音频改变您的聆听体验。即使使用标准立体声耳机也能享受逼真的环绕声。",
+        "details": [
+          "7.1和5.1音频虚拟化",
+          "3D声音定位",
+          "可自定义声场宽度",
+          "增强深度感知",
+          "兼容所有音频源"
+        ]
+      },
+      "adaptiveEQ": {
+        "title": "自适应均衡",
+        "description": "自动优化不同内容类型的频率平衡。从音乐和电影到会议通话和游戏。",
+        "details": [
+          "基于内容的动态均衡",
+          "不同音乐流派的预设",
+          "实时优化",
+          "10段手动均衡器",
+          "可自定义和保存的配置文件"
+        ]
+      },
+      "bassEnhancement": {
+        "title": "低音增强",
+        "description": "体验更深沉、更丰富的低音，没有失真，即使在小型扬声器或耳机上。我们的低音增强技术为您的音频增添深度。",
+        "details": [
+          "心理声学低音扩展",
+          "低频谐波增强",
+          "智能失真预防",
+          "多级强度水平",
+          "针对不同输出设备优化"
+        ]
+      },
+      "dynamicProcessor": {
+        "title": "智能动态处理",
+        "description": "自动保持一致的音频水平。我们的动态处理器实时调整音量，确保您的音频永远不会太大声或太小声。",
+        "details": [
+          "多频段压缩，实现平衡的频率响应",
+          "智能增益控制，防止失真",
+          "自适应前瞻限制，实现透明处理",
+          "基于输入电平的自动增益补偿",
+          "可自定义的阈值、比率和释放设置"
+        ]
+      },
+      "equalizer": {
+        "title": "自适应均衡器",
+        "description": "使用我们的智能均衡器优化频率平衡。JyvDesktop实时分析音频内容并应用微妙的调整，以增强清晰度、细节和整体音质。",
+        "details": [
+          "31段精密均衡器，带视觉反馈",
+          "针对不同音频类型的内容自适应预设",
+          "针对耳机和扬声器的特定补偿",
+          "谐波增强，增添丰富感",
+          "可保存和分享的自定义均衡配置文件"
+        ]
+      },
+      "clarityEnhancer": {
+        "title": "音频清晰度增强器",
+        "description": "突出各种音频中的细微细节。清晰度增强器使用心理声学处理改善定义和清晰度，使从音乐到对话的一切更具吸引力。",
+        "details": [
+          "瞬态增强，提高定义",
+          "谐波重建，增添亮度",
+          "语音清晰度提升，优化对话",
+          "立体声场增强，扩大声场",
+          "基于内容类型的自适应处理"
+        ]
+      },
+      "neuralProcessor": {
+        "title": "神经网络音频处理",
+        "description": "我们的先进神经网络以传统处理无法比拟的方式分析和增强音频。神经处理器理解音频上下文并应用特定于内容类型的智能增强。",
+        "details": [
+          "针对不同音频类型的内容感知处理",
+          "经过数千小时音频训练的深度学习模型",
+          "基于实时分析的自适应增强",
+          "低资源模式，适用于任何系统",
+          "通过模型更新持续改进"
+        ]
+      },
+      "speakerOptimizer": {
+        "title": "扬声器和耳机优化器",
+        "description": "从任何音频设备获得最佳音质。我们的优化器应用专为您的耳机或扬声器量身定制的处理配置文件，补偿其声学特性。",
+        "details": [
+          "流行耳机和扬声器的配置文件数据库",
+          "使用声学测量创建自定义配置文件",
+          "无失真的动态低音增强",
+          "交叉馈送处理，实现更自然的耳机聆听体验",
+          "扬声器的房间声学补偿"
+        ]
+      },
+      "contentDetection": {
+        "title": "智能内容检测",
+        "description": "JyvDesktop自动识别正在播放的音频类型并应用理想的增强配置文件。无论是语音、音乐还是游戏，声音始终针对内容进行优化。",
+        "details": [
+          "语音、音乐、环境和游戏音频的实时检测",
+          "自动应用特定内容的处理",
+          "不同内容类型之间的无缝过渡",
+          "特定应用程序的自定义规则",
+          "用户可调节的检测灵敏度"
+        ]
+      }
+    },
+    "demoSection": {
+      "title": "体验JyvDesktop音频增强",
+      "subtitle": "交互式测试",
+      "description": "通过我们的交互式演示比较前后效果。聆听JyvDesktop音频增强技术为您的聆听体验带来的不同。",
+      "originalAudio": "原始音频",
+      "enhancedAudio": "增强音频",
+      "toggleEnhancement": "开启/关闭增强",
+      "downloadNow": "立即下载",
+      "learnMore": "了解更多"
+    },
+    "useCasesSection": {
+      "title": "满足各种需求的增强音频",
+      "description": "JyvDesktop的音频增强技术适用于广泛的场景，从专业通信到沉浸式娱乐。"
+    },
+    "faqSection": {
+      "title": "常见问题",
+      "description": "查找有关JyvDesktop音频增强功能的常见问题解答"
+    },
+    "useCaseItems": {
+      "remoteMeetings": {
+        "title": "远程会议",
+        "description": "通过噪音抑制和语音增强实现清晰专业的通信，让虚拟会议不受干扰。"
+      },
+      "contentCreation": {
+        "title": "内容创作",
+        "description": "无需昂贵设备即可为播客、视频和直播提供专业级音频质量。"
+      },
+      "gaming": {
+        "title": "游戏",
+        "description": "具有精确空间定位的沉浸式音频，提供竞争优势和更身临其境的体验。"
+      },
+      "mediaConsumption": {
+        "title": "媒体消费",
+        "description": "在任何设备上以增强的音频质量欣赏电影、音乐和在线内容。"
+      }
+    },
+    "demoItems": {
+      "audioTypes": {
+        "voice": "语音",
+        "music": "音乐",
+        "gaming": "游戏",
+        "movie": "电影",
+        "conference": "会议"
+      },
+      "environments": {
+        "quiet": "安静环境",
+        "noisy": "嘈杂环境",
+        "outdoor": "户外",
+        "office": "办公室",
+        "cafe": "咖啡厅"
+      },
+      "enhancements": {
+        "noiseSuppression": "噪音抑制",
+        "voiceClarity": "语音清晰度",
+        "bassBoost": "低音增强",
+        "spatialEffect": "空间效果",
+        "fullEnhancement": "全面增强"
+      },
+      "controls": {
+        "play": "播放",
+        "pause": "暂停",
+        "compare": "比较",
+        "reset": "重置"
+      },
+      "interface": {
+        "enhancementLevel": "增强级别",
+        "enhancementPreset": "增强预设",
+        "processing": "处理中"
+      },
+      "presets": {
+        "default": "默认",
+        "voiceClarity": "语音清晰度",
+        "music": "音乐增强",
+        "gaming": "游戏音频",
+        "noiseReduction": "最大化降噪"
+      }
+    },
+    "faqItems": {
+      "performanceImpact": {
+        "question": "使用音频增强功能会影响我的系统性能吗？",
+        "answer": "JyvDesktop经过优化，可高效利用资源。对于大多数现代系统，对性能的影响很小。我们的算法旨在平衡音频处理质量和资源效率。对于资源有限的系统，我们提供低功耗模式，在减少系统负载的同时保持质量。"
+      },
+      "latency": {
+        "question": "音频增强会为我的音频增加延迟吗？",
+        "answer": "JyvDesktop使用低延迟处理，对于大多数功能，典型延迟小于20毫秒，低于大多数用户的感知阈值。对于对延迟敏感的应用，如竞技游戏或音乐制作，我们提供超低延迟模式，优先考虑即时响应。"
+      },
+      "compatibility": {
+        "question": "音频增强与哪些应用程序和设备兼容？",
+        "answer": "我们的音频增强技术在系统级别工作，因此与Windows和macOS上几乎所有产生音频的应用程序兼容。这包括视频会议应用程序、媒体播放器、浏览器、游戏和制作软件。它与所有音频输出设备兼容，包括耳机、扬声器、音频接口和蓝牙设备。"
+      },
+      "customization": {
+        "question": "我可以自定义音频增强方式吗？",
+        "answer": "当然可以。JyvDesktop为每个音频增强功能提供精细控制。您可以调整噪音抑制强度，使用我们的10段均衡器自定义均衡，调整空间增强级别等。您还可以为不同场景或应用程序保存自定义预设。"
+      },
+      "aiPrivacy": {
+        "question": "噪音抑制AI技术如何处理我的隐私？",
+        "answer": "我们的噪音抑制AI技术完全在您的本地设备上运行，不会将任何音频数据发送到云端。我们不会记录、存储或传输您的音频到我们的服务器。AI模型是预先训练好的，并在本地运行，确保您在享受AI驱动噪音抑制好处的同时，您的隐私得到完全保护。"
+      }
+    }
+  }
+}

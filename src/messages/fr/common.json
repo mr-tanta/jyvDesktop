@@ -1,0 +1,49 @@
+{
+  "app": {
+    "title": "JyvStream Desktop - Suite Professionnelle de Contrôle Audio",
+    "description": "Prenez le contrôle de votre environnement audio avec JyvStream Desktop. Suppression de bruit par IA, amélioration audio spatiale et contrôle du volume au niveau des applications pour les créateurs, les joueurs et les professionnels."
+  },
+  "nav": {
+    "home": "Accueil",
+    "features": "Fonctionnalités",
+    "pricing": "Tarifs",
+    "useCases": "Cas d'Utilisation",
+    "blog": "Blog",
+    "download": "Télécharger",
+    "contactSales": "Contacter les Ventes"
+  },
+  "featureCategories": {
+    "audioControl": "Contrôle Audio",
+    "audioEnhancement": "Amélioration Audio",
+    "spatialAudio": "Audio Spatial",
+    "advancedFeatures": "Fonctionnalités Avancées"
+  },
+  "cta": {
+    "downloadNow": "Télécharger Maintenant",
+    "viewAllOptions": "Voir Toutes les Options",
+    "tryFree": "Essayer Gratuitement",
+    "getStarted": "Commencer",
+    "learnMore": "En Savoir Plus",
+    "watchDemo": "Regarder la Démo",
+    "readyToTransform": "Prêt à transformer votre expérience audio ?",
+    "downloadDescription": "Téléchargez maintenant et découvrez l'amélioration audio de qualité professionnelle pour votre ordinateur. Choisissez le forfait qui correspond à vos besoins."
+  },
+  "hero": {
+    "title": "Suite Professionnelle de Contrôle Audio",
+    "subtitle": "Transformez Votre Expérience Audio",
+    "description": "Prenez le contrôle de votre environnement audio avec JyvStream Desktop. Parfait pour les créateurs, les joueurs et les professionnels à la recherche d'une qualité sonore supérieure.",
+    "trustedBy": "Approuvé par des professionnels dans les meilleures entreprises du monde",
+    "compatibleWith": "Compatible avec vos applications préférées",
+    "alternateTitle": "Découvrez le Son",
+    "alternateSubtitle": "Comme il est censé être."
+  },
+  "features": {
+    "title": "Fonctionnalités Puissantes",
+    "subtitle": "Contrôle Audio de Qualité Professionnelle",
+    "description": "JyvDesktop offre une technologie de traitement audio de niveau entreprise dans un package intuitif et convivial. Découvrez comment nos fonctionnalités peuvent transformer votre expérience audio.",
+    "keyBenefits": "Avantages Clés",
+    "learnMoreAbout": "En Savoir Plus Sur",
+    "aiNoiseSuppression": "Suppression de Bruit par IA",
+    "lowLatency": "Faible Latence"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "app": {
+    "title": "JyvStream Desktop - Suite Profesional de Control de Audio",
+    "description": "Toma el control de tu entorno de audio con JyvStream Desktop. Supresión de ruido impulsada por IA, mejora de audio espacial y control de volumen a nivel de aplicación para creadores, jugadores y profesionales."
+  },
+  "nav": {
+    "home": "Inicio",
+    "features": "Características",
+    "pricing": "Precios",
+    "useCases": "Casos de Uso",
+    "blog": "Blog",
+    "download": "Descargar",
+    "contactSales": "Contactar Ventas"
+  },
+  "featureCategories": {
+    "audioControl": "Control de Audio",
+    "audioEnhancement": "Mejora de Audio",
+    "spatialAudio": "Audio Espacial",
+    "advancedFeatures": "Características Avanzadas"
+  },
+  "cta": {
+    "downloadNow": "Descargar Ahora",
+    "viewAllOptions": "Ver Todas las Opciones",
+    "tryFree": "Probar Gratis",
+    "getStarted": "Comenzar",
+    "learnMore": "Saber Más",
+    "watchDemo": "Ver Demo",
+    "readyToTransform": "¿Listo para transformar tu experiencia de audio?",
+    "downloadDescription": "Descarga ahora y experimenta la mejora de audio de nivel profesional para tu escritorio. Elige el plan que se adapte a tus necesidades."
+  },
+  "hero": {
+    "title": "Suite Profesional de Control de Audio",
+    "subtitle": "Transforma Tu Experiencia de Audio",
+    "description": "Toma el control de tu entorno de audio con JyvStream Desktop. Perfecto para creadores, jugadores y profesionales que buscan una calidad de sonido superior.",
+    "trustedBy": "Confiado por profesionales en las mejores empresas del mundo",
+    "compatibleWith": "Compatible con tus aplicaciones favoritas",
+    "alternateTitle": "Experimenta el Sonido",
+    "alternateSubtitle": "Como debe ser."
+  },
+  "features": {
+    "title": "Características Potentes",
+    "subtitle": "Control de Audio de Nivel Profesional",
+    "description": "JyvDesktop ofrece tecnología de procesamiento de audio de nivel empresarial en un paquete intuitivo y fácil de usar. Descubre cómo nuestras características pueden transformar tu experiencia de audio.",
+    "keyBenefits": "Beneficios Clave",
+    "learnMoreAbout": "Saber Más Sobre",
+    "aiNoiseSuppression": "Supresión de Ruido con IA",
+    "lowLatency": "Baja Latencia"
+  }
+}

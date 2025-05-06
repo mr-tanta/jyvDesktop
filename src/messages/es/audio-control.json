@@ -1,0 +1,244 @@
+{
+  "audioControl": {
+    "hero": {
+      "badge": "Gestión de Audio Avanzada",
+      "title": "Control de Audio de Precisión al Alcance de tu Mano",
+      "description": "Toma el control de todo tu entorno de audio con el potente centro de control de JyvDesktop. Gestiona volúmenes de aplicaciones, enrutamiento y perfiles con una precisión sin precedentes.",
+      "demoButton": "Probar Demo Interactiva",
+      "downloadButton": "Descargar JyvDesktop"
+    },
+    "featuresSection": {
+      "title": "Sistema Completo de Control de Audio",
+      "description": "JyvDesktop te brinda un control sin precedentes sobre todos los aspectos del audio de tu sistema, desde volúmenes de aplicaciones individuales hasta escenarios de enrutamiento complejos y perfiles personalizados."
+    },
+    "featureDetail": {
+      "audioControlFeature": "Característica de Control de Audio",
+      "keyCapabilities": "Capacidades Clave",
+      "tryDemo": "Probar en Demo",
+      "readDocumentation": "Leer Documentación"
+    },
+    "featureItems": {
+      "perAppVolume": {
+        "title": "Control de Volumen por Aplicación",
+        "description": "Ajusta independientemente el volumen de cada aplicación que se ejecuta en tu sistema. Nunca más música demasiado alta durante las llamadas o audio de juegos que ahoga las voces de tus compañeros.",
+        "details": [
+          "Deslizadores de volumen independientes para cada aplicación",
+          "Interruptores rápidos de silencio/no silencio",
+          "Indicadores visuales de nivel de volumen",
+          "Normalización de volumen entre aplicaciones",
+          "Enrutamiento de audio por aplicación a diferentes dispositivos de salida"
+        ]
+      },
+      "audioProfiles": {
+        "title": "Perfiles de Audio",
+        "description": "Crea perfiles de audio personalizados para diferentes escenarios y actividades. Cambia con un solo clic del modo trabajo al modo juego y al modo entretenimiento.",
+        "details": [
+          "Número ilimitado de perfiles personalizados",
+          "Configuraciones de volumen granulares por aplicación",
+          "Cambio automático de perfiles por hora o aplicación",
+          "Exportación y compartición de perfiles",
+          "Atajos de teclado para cambio rápido"
+        ]
+      },
+      "deviceRouting": {
+        "title": "Enrutamiento de Dispositivos",
+        "description": "Controla con precisión qué aplicaciones utilizan qué dispositivos de audio. Envía el audio de la reunión a los auriculares mientras reproduces música a través de los altavoces.",
+        "details": [
+          "Configuración de dispositivos de entrada/salida por aplicación",
+          "Enrutamiento de audio de una aplicación a múltiples dispositivos de salida",
+          "Preajustes de enrutamiento de dispositivos guardados",
+          "Reglas automáticas de cambio de dispositivo",
+          "Notificaciones de estado de conexión de dispositivos"
+        ]
+      },
+      "focusMode": {
+        "title": "Modo Concentración",
+        "description": "Activa el modo concentración para ajustar automáticamente la configuración de audio para minimizar las distracciones. Perfecto para trabajo profundo o estudio.",
+        "details": [
+          "Silenciamiento con un solo clic de aplicaciones no esenciales",
+          "Lista personalizada de aplicaciones prioritarias",
+          "Sesiones de concentración cronometradas",
+          "Integración con aplicaciones de calendario y gestión de tareas",
+          "Opciones de silenciamiento de notificaciones"
+        ]
+      },
+      "soundEnhancement": {
+        "title": "Mejora de Sonido",
+        "description": "Mejora tu experiencia auditiva con tecnología avanzada de procesamiento de audio. Desde ecualizadores hasta simulación de audio espacial.",
+        "details": [
+          "Ecualizador multibanda",
+          "Compresión y limitación dinámica",
+          "Efectos de sonido envolvente virtual",
+          "Modo de mejora de voz",
+          "Opciones de mejora de graves"
+        ]
+      },
+      "audioMixer": {
+        "title": "Mezclador de Audio en Tiempo Real",
+        "description": "Controla tu experiencia de audio como un ingeniero de sonido profesional con nuestro mezclador intuitivo en tiempo real.",
+        "details": [
+          "Interfaz de consola de mezcla multicanal",
+          "Medidores de nivel en tiempo real e indicadores de pico",
+          "Ajuste de balance (I/D) por aplicación",
+          "Capacidades de agrupación para aplicaciones relacionadas",
+          "Retroalimentación visual para cambios de audio"
+        ]
+      },
+      "priorityManagement": {
+        "title": "Gestión Inteligente de Prioridades",
+        "description": "Define qué aplicaciones tienen prioridad de audio y ajusta automáticamente los volúmenes cuando las aplicaciones importantes necesitan enfoque.",
+        "details": [
+          "Control de atenuación para aplicaciones en segundo plano",
+          "Ajuste automático de volumen basado en la actividad",
+          "Niveles de prioridad para diferentes tipos de aplicaciones",
+          "Umbral configurable para reducción de volumen",
+          "Configuración de prioridad temporal vs. persistente"
+        ]
+      },
+      "hotkeysGestures": {
+        "title": "Teclas Rápidas y Controles Gestuales",
+        "description": "Controla tu audio sin interrumpir tu flujo de trabajo utilizando atajos de teclado personalizables y gestos con el ratón.",
+        "details": [
+          "Teclas rápidas globales personalizables para control de volumen",
+          "Combinaciones de múltiples teclas para acciones complejas",
+          "Gestos con el ratón para ajustes rápidos",
+          "Integración con teclas multimedia",
+          "Configuraciones de atajos específicas por aplicación"
+        ]
+      },
+      "notificationControl": {
+        "title": "Control Inteligente de Notificaciones",
+        "description": "Toma el control de los sonidos de notificación con gestión inteligente basada en tu actividad actual y necesidades de concentración.",
+        "details": [
+          "Configuración de notificaciones específicas por aplicación",
+          "Reglas de notificación basadas en tiempo",
+          "Modo concentración para suprimir notificaciones no esenciales",
+          "Sonidos de notificación personalizados para diferentes aplicaciones",
+          "Escalado de volumen para audio de notificaciones"
+        ]
+      },
+      "analyticsVisualization": {
+        "title": "Análisis y Visualización de Audio",
+        "description": "Obtén información sobre tu entorno de audio con análisis detallados y visualizaciones de tu paisaje sonoro.",
+        "details": [
+          "Analizador de espectro en tiempo real para visualización de frecuencias",
+          "Datos históricos de uso para audio de aplicaciones",
+          "Seguimiento de niveles pico y advertencias",
+          "Métricas de normalización de sonoridad",
+          "Puntuación de calidad de audio y recomendaciones"
+        ]
+      }
+    },
+    "demoSection": {
+      "title": "Véalo en acción",
+      "description": "Experimente cómo JyvDesktop le brinda control total sobre su entorno de audio"
+    },
+    "demo": {
+      "audioControlCenter": "Centro de Control de Audio",
+      "interactiveDemo": "Demo Interactiva",
+      "masterVolume": "Volumen Principal",
+      "activeProfile": "Perfil Activo",
+      "default": "Predeterminado",
+      "resetDemo": "Reiniciar Demo",
+      "focusMode": "Modo Concentración",
+      "notificationReduction": "Reducción de Notificaciones",
+      "audioEnhancement": "Mejora de Audio",
+      "applicationMixer": "Mezclador de Aplicaciones",
+      "adjustVolume": "Ajuste el volumen y el enrutamiento para aplicaciones individuales",
+      "output": "Salida",
+      "addApplication": "Añadir Aplicación",
+      "demoFooter": "Demo interactiva - ajuste los volúmenes para escuchar la diferencia",
+      "audioEngine": "Motor de Audio",
+      "active": "Activo",
+      "initializing": "Inicializando"
+    },
+    "useCasesSection": {
+      "title": "Audio Perfecto para Cada Escenario",
+      "description": "El control de audio avanzado de JyvDesktop se adapta a tus necesidades específicas, ya sea que estés en una reunión, jugando con amigos o inmerso en un flujo de trabajo creativo."
+    },
+    "useCases": {
+      "learnMore": "Saber Más",
+      "compatibleWith": "Compatible con:"
+    },
+    "faqSection": {
+      "title": "Preguntas Frecuentes",
+      "description": "Encuentra respuestas a preguntas comunes sobre las características de control de audio de JyvDesktop"
+    },
+    "useCaseItems": {
+      "professionalVideoCalls": {
+        "title": "Videollamadas Profesionales",
+        "description": "Equilibra perfectamente tu aplicación de videoconferencia, música de fondo y notificaciones del sistema para reuniones sin distracciones."
+      },
+      "gamingStreaming": {
+        "title": "Juegos y Streaming",
+        "description": "Mantén el equilibrio perfecto entre el audio del juego, el chat de voz, el software de streaming y la música de fondo."
+      },
+      "contentConsumption": {
+        "title": "Consumo de Contenido",
+        "description": "Mira videos y escucha música sin ser interrumpido por notificaciones ruidosas o aplicaciones en segundo plano."
+      },
+      "focusProductivity": {
+        "title": "Concentración y Productividad",
+        "description": "Crea el entorno de audio perfecto para el trabajo profundo mientras te aseguras de escuchar solo las notificaciones que importan."
+      }
+    },
+    "demoItems": {
+      "applications": {
+        "videoCall": "Videollamada",
+        "musicPlayer": "Reproductor de Música",
+        "game": "Juego",
+        "browser": "Navegador",
+        "systemSounds": "Sonidos del Sistema"
+      },
+      "devices": {
+        "headphones": "Auriculares",
+        "speakers": "Altavoces",
+        "microphone": "Micrófono"
+      },
+      "controls": {
+        "volume": "Volumen",
+        "mute": "Silenciar",
+        "unmute": "Activar Sonido",
+        "boost": "Potenciar",
+        "reduce": "Reducir"
+      },
+      "profiles": {
+        "gaming": "Juegos",
+        "meeting": "Reunión",
+        "music": "Música",
+        "movie": "Película",
+        "focus": "Concentración"
+      }
+    },
+    "faqItems": {
+      "compatibility": {
+        "question": "¿JyvDesktop es compatible con todas las aplicaciones de audio?",
+        "answer": "JyvDesktop es compatible con la gran mayoría de aplicaciones de Windows y macOS que utilizan APIs de audio estándar. Esto incluye aplicaciones populares de comunicación, reproductores multimedia, juegos y herramientas de productividad."
+      },
+      "systemRequirements": {
+        "question": "¿Qué requisitos del sistema se necesitan para ejecutar las funciones de control de audio de JyvDesktop?",
+        "answer": "Nuestras funciones de control de audio son adecuadas para computadoras modernas que ejecutan Windows 10/11 o macOS 10.15+. Para funcionalidad básica, recomendamos al menos 4GB de RAM y un procesador de doble núcleo. Las funciones avanzadas de procesamiento de audio pueden requerir un sistema más potente."
+      },
+      "audioLatency": {
+        "question": "¿El uso de JyvDesktop aumenta la latencia del audio?",
+        "answer": "No, JyvDesktop está diseñado con tecnología de procesamiento de baja latencia, asegurando que no haya un aumento perceptible de latencia en la mayoría de los sistemas. Para trabajo de audio profesional, ofrecemos un modo de baja latencia que minimiza el retraso."
+      },
+      "customProfiles": {
+        "question": "¿Cuántos perfiles de audio puedo crear?",
+        "answer": "En JyvDesktop, puedes crear un número ilimitado de perfiles de audio personalizados. Cada perfil puede contener configuraciones específicas de volumen de aplicaciones, opciones de enrutamiento de dispositivos y parámetros de mejora de audio."
+      },
+      "deviceSupport": {
+        "question": "¿Qué dispositivos de audio soporta JyvDesktop?",
+        "answer": "JyvDesktop soporta prácticamente todos los dispositivos de audio conectados a través de USB, Bluetooth, interfaces analógicas o digitales. Esto incluye auriculares, altavoces, micrófonos, interfaces de audio y dispositivos de audio virtuales. También ofrecemos soporte mejorado para equipos de audio profesionales."
+      },
+      "microphoneControl": {
+        "question": "¿Puedo controlar las entradas de micrófono así como las salidas de audio?",
+        "answer": "Sí, JyvDesktop proporciona un control completo tanto sobre las salidas de audio como sobre las entradas de micrófono."
+      },
+      "audioQuality": {
+        "question": "¿Hay alguna pérdida de calidad de audio al usar las funciones de control?",
+        "answer": "No, JyvDesktop procesa el audio en formato de punto flotante de 32 bits de alta resolución, garantizando una calidad de audio prístina sin degradación."
+      }
+    }
+  }
+}

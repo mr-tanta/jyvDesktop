@@ -1,0 +1,169 @@
+{
+  "audioEnhancement": {
+    "hero": {
+      "badge": "Professional Audio Enhancement",
+      "title": "Elevate Your Audio Experience",
+      "description": "Transform ordinary sound into extraordinary audio with JyvDesktop's advanced enhancement technology. Experience clearer voices, richer music, and immersive gaming audio.",
+      "demoButton": "Try Enhancement Demo",
+      "downloadButton": "Download JyvDesktop"
+    },
+    "featuresSection": {
+      "title": "Advanced Audio Enhancement Suite",
+      "description": "JyvDesktop's enhancement technology analyzes and optimizes your audio in real-time, delivering professional-grade sound quality for all your applications."
+    },
+    "featureDetail": {
+      "audioEnhancementFeature": "Audio Enhancement Feature",
+      "keyCapabilities": "Key Capabilities",
+      "tryDemo": "Try It in Demo",
+      "readDocumentation": "Read Documentation"
+    },
+    "featureItems": {
+      "aiNoiseSuppression": {
+        "title": "AI-Powered Noise Suppression",
+        "description": "Eliminate background noise from your microphone and speakers with our advanced machine learning algorithms. Perfect for calls, recordings, and streaming.",
+        "details": [
+          "Real-time noise detection and removal",
+          "Voice preservation technology",
+          "Adaptive learning for your environment",
+          "Multiple suppression levels",
+          "Per-application noise suppression settings"
+        ]
+      },
+      "voiceEnhancement": {
+        "title": "Voice Enhancement",
+        "description": "Make voices clearer and more intelligible with our specialized voice processing technology. Ideal for video calls, podcasts, and voice recordings.",
+        "details": [
+          "Dynamic voice boosting",
+          "Sibilance reduction",
+          "Automatic gain control",
+          "Voice normalization across applications",
+          "Gender-neutral voice optimization"
+        ]
+      },
+      "spatialAudio": {
+        "title": "Spatial Audio",
+        "description": "Experience immersive 3D sound that places audio sources in a realistic space around you. Transform your headphones into a surround sound system.",
+        "details": [
+          "Virtual 7.1 surround sound",
+          "Head-related transfer function (HRTF)",
+          "Customizable room simulation",
+          "Position audio sources in 3D space",
+          "Works with any stereo headphones"
+        ]
+      },
+      "musicEnhancement": {
+        "title": "Music Enhancement",
+        "description": "Bring your music to life with our advanced audio processing. Experience richer bass, clearer highs, and more detailed mid-range.",
+        "details": [
+          "Dynamic bass enhancement",
+          "Harmonic exciter for clearer highs",
+          "Stereo widening effect",
+          "Instrument separation technology",
+          "Genre-specific optimization presets"
+        ]
+      },
+      "adaptiveEQ": {
+        "title": "Adaptive Equalizer",
+        "description": "Our intelligent equalizer automatically adjusts to your content, optimizing the frequency response for different types of audio.",
+        "details": [
+          "Content-aware frequency adjustment",
+          "Dynamic loudness compensation",
+          "Automatic frequency balancing",
+          "Custom EQ profile creation",
+          "Per-application equalization settings"
+        ]
+      }
+    },
+    "demoSection": {
+      "title": "Experience Enhanced Audio",
+      "subtitle": "Interactive Demonstration",
+      "description": "Compare standard audio with JyvDesktop's enhanced audio in this interactive demo. Toggle between original and enhanced versions to hear the difference.",
+      "originalAudio": "Original Audio",
+      "enhancedAudio": "Enhanced Audio",
+      "toggleEnhancement": "Toggle Enhancement",
+      "downloadNow": "Download Now",
+      "learnMore": "Learn More"
+    },
+    "useCasesSection": {
+      "title": "Enhanced Audio for Every Situation",
+      "description": "JyvDesktop's audio enhancement technology adapts to different content types, providing optimal sound quality for all your activities."
+    },
+    "faqSection": {
+      "title": "Frequently Asked Questions",
+      "description": "Find answers to common questions about JyvDesktop's audio enhancement features"
+    },
+    "useCaseItems": {
+      "videoConferencing": {
+        "title": "Video Conferencing",
+        "description": "Clearer voices, reduced background noise, and better overall call quality for more productive and less fatiguing meetings."
+      },
+      "musicListening": {
+        "title": "Music Enjoyment",
+        "description": "Experience your music with enhanced detail, deeper bass, and wider soundstage, even on basic speakers or headphones."
+      },
+      "gaming": {
+        "title": "Immersive Gaming",
+        "description": "Hear every footstep and detect enemy positions with precision thanks to our spatial audio and sound enhancement technology."
+      },
+      "contentCreation": {
+        "title": "Content Creation",
+        "description": "Produce professional-sounding recordings and streams with our voice enhancement and noise suppression technology."
+      }
+    },
+    "demoItems": {
+      "audioTypes": {
+        "voice": "Voice",
+        "music": "Music",
+        "gaming": "Gaming",
+        "ambient": "Ambient"
+      },
+      "enhancementTypes": {
+        "noiseSuppression": "Noise Suppression",
+        "voiceEnhancement": "Voice Enhancement",
+        "spatialAudio": "Spatial Audio",
+        "bassBoost": "Bass Boost",
+        "clarityBoost": "Clarity Boost"
+      },
+      "controls": {
+        "play": "Play",
+        "pause": "Pause",
+        "compare": "Compare",
+        "reset": "Reset"
+      },
+      "interface": {
+        "enhancementLevel": "Enhancement Level",
+        "enhancementPreset": "Enhancement Preset",
+        "processing": "Processing"
+      },
+      "presets": {
+        "default": "Default",
+        "voiceClarity": "Voice Clarity",
+        "music": "Music Enhancement",
+        "gaming": "Gaming Audio",
+        "noiseReduction": "Max Noise Reduction"
+      }
+    },
+    "faqItems": {
+      "performanceImpact": {
+        "question": "Will audio enhancement affect my system performance?",
+        "answer": "JyvDesktop's audio enhancement features are optimized for efficiency and have minimal impact on system performance. Most modern computers can run all enhancement features simultaneously without noticeable performance degradation."
+      },
+      "headphoneCompatibility": {
+        "question": "Do I need special headphones for spatial audio?",
+        "answer": "No, JyvDesktop's spatial audio works with any stereo headphones or earbuds. While higher quality headphones will provide better overall sound, our spatial audio technology enhances the listening experience on any headphones you already own."
+      },
+      "customization": {
+        "question": "Can I customize the enhancement settings?",
+        "answer": "Absolutely! JyvDesktop offers extensive customization options for all enhancement features. You can adjust the strength of each effect, create custom profiles for different activities, and even set per-application enhancement settings."
+      },
+      "realTimeProcessing": {
+        "question": "Does the enhancement happen in real-time?",
+        "answer": "Yes, all audio enhancement is processed in real-time with extremely low latency. This means you can enjoy enhanced audio during live activities like gaming, video calls, and streaming without any noticeable delay."
+      },
+      "aiTraining": {
+        "question": "How does the AI noise suppression learn my environment?",
+        "answer": "Our AI noise suppression uses advanced machine learning algorithms that adapt to your specific environment. It learns to distinguish between your voice and background noises over time, becoming more effective the more you use it."
+      }
+    }
+  }
+}

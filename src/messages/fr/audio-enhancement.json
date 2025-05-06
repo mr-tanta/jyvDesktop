@@ -1,0 +1,243 @@
+{
+  "audioEnhancement": {
+    "hero": {
+      "badge": "Technologie d'Amélioration Audio",
+      "title": "Qualité Audio Professionnelle pour Tous",
+      "description": "Découvrez un son cristallin avec la technologie avancée d'amélioration audio de JyvDesktop. Suppression de bruit par IA, égalisation adaptative et traitement spatial.",
+      "demoButton": "Essayer la Démo Interactive",
+      "downloadButton": "Télécharger JyvDesktop"
+    },
+    "featuresSection": {
+      "title": "Amélioration Audio de Niveau Professionnel",
+      "description": "JyvDesktop utilise des algorithmes avancés de traitement du signal et la technologie IA pour améliorer significativement la qualité audio de toutes vos applications et appareils."
+    },
+    "featureDetail": {
+      "audioEnhancementFeature": "Fonctionnalité d'Amélioration Audio",
+      "keyCapabilities": "Capacités Clés",
+      "tryDemo": "Essayer dans la Démo",
+      "readDocumentation": "Lire la Documentation"
+    },
+    "featureItems": {
+      "aiNoiseSuppression": {
+        "title": "Suppression de Bruit par IA",
+        "description": "Éliminez les bruits de fond indésirables en temps réel avec notre technologie de suppression de bruit alimentée par IA. Idéal pour les appels, les enregistrements et le streaming.",
+        "details": [
+          "Suppression de bruit adaptative en temps réel",
+          "Filtrage intelligent des bruits ambiants",
+          "Préservation de la qualité naturelle de la voix",
+          "Plusieurs niveaux d'intensité de suppression",
+          "Profils optimisés pour différents environnements"
+        ]
+      },
+      "voiceEnhancement": {
+        "title": "Amélioration de la Voix",
+        "description": "Rendez votre voix claire et professionnelle avec notre technologie d'amélioration vocale. Éliminez les distorsions, améliorez la clarté et ajoutez de la chaleur à votre voix.",
+        "details": [
+          "Égalisation dynamique de la voix",
+          "Compression adaptative",
+          "Élimination des sifflements et des plosives",
+          "Amélioration de la présence vocale",
+          "Normalisation intelligente du volume"
+        ]
+      },
+      "spatialAudio": {
+        "title": "Audio Spatial",
+        "description": "Transformez votre expérience d'écoute avec un audio spatial immersif. Profitez d'un son surround réaliste même avec des écouteurs stéréo standard.",
+        "details": [
+          "Virtualisation audio 7.1 et 5.1",
+          "Positionnement sonore 3D",
+          "Personnalisation de la largeur de la scène sonore",
+          "Amélioration de la perception de profondeur",
+          "Compatibilité avec toutes les sources audio"
+        ]
+      },
+      "adaptiveEQ": {
+        "title": "Égalisation Adaptative",
+        "description": "Optimisez automatiquement l'équilibre des fréquences pour différents types de contenu. De la musique et des films aux appels de conférence et aux jeux.",
+        "details": [
+          "Égalisation dynamique basée sur le contenu",
+          "Préréglages pour différents genres musicaux",
+          "Optimisation en temps réel",
+          "Égaliseur manuel à 10 bandes",
+          "Profils personnalisables et enregistrables"
+        ]
+      },
+      "bassEnhancement": {
+        "title": "Amélioration des Basses",
+        "description": "Découvrez des basses plus profondes et plus riches sans distorsion, même sur de petits haut-parleurs ou écouteurs. Notre technologie d'amélioration des basses ajoute de la profondeur à votre audio.",
+        "details": [
+          "Extension psychoacoustique des basses",
+          "Renforcement des harmoniques de basse fréquence",
+          "Prévention intelligente de la distorsion",
+          "Plusieurs niveaux d'intensité",
+          "Optimisation pour différents appareils de sortie"
+        ]
+      },
+      "dynamicProcessor": {
+        "title": "Traitement Dynamique Intelligent",
+        "description": "Maintenez automatiquement des niveaux audio cohérents. Notre processeur dynamique ajuste le volume en temps réel pour garantir que votre audio n'est jamais trop fort ou trop faible.",
+        "details": [
+          "Compression multibande pour une réponse en fréquence équilibrée",
+          "Contrôle de gain intelligent pour prévenir la distorsion",
+          "Limitation adaptative avec anticipation pour un traitement transparent",
+          "Compensation automatique de gain basée sur le niveau d'entrée",
+          "Paramètres personnalisables de seuil, ratio et relâchement"
+        ]
+      },
+      "equalizer": {
+        "title": "Égaliseur Adaptatif",
+        "description": "Optimisez l'équilibre des fréquences avec notre égaliseur intelligent. JyvDesktop analyse le contenu audio en temps réel et applique des ajustements subtils pour améliorer la clarté, le détail et la qualité sonore globale.",
+        "details": [
+          "Égaliseur de précision à 31 bandes avec retour visuel",
+          "Préréglages adaptatifs au contenu pour différents types d'audio",
+          "Compensation spécifique pour écouteurs et haut-parleurs",
+          "Amélioration harmonique pour plus de richesse",
+          "Profils d'égalisation personnalisés que vous pouvez sauvegarder et partager"
+        ]
+      },
+      "clarityEnhancer": {
+        "title": "Améliorateur de Clarté Audio",
+        "description": "Mettez en valeur les détails subtils dans tous les types d'audio. L'améliorateur de clarté utilise un traitement psychoacoustique pour améliorer la définition et l'articulation, rendant tout, de la musique aux dialogues, plus captivant.",
+        "details": [
+          "Amélioration des transitoires pour une meilleure définition",
+          "Reconstruction harmonique pour ajouter de la brillance",
+          "Renforcement de l'intelligibilité de la parole pour les dialogues",
+          "Amélioration du champ stéréo pour une scène sonore plus large",
+          "Traitement adaptatif basé sur le type de contenu"
+        ]
+      },
+      "neuralProcessor": {
+        "title": "Traitement Audio Neuronal",
+        "description": "Notre réseau neuronal avancé analyse et améliore l'audio de manières que le traitement traditionnel ne peut égaler. Le processeur neuronal comprend le contexte audio et applique des améliorations intelligentes spécifiques au type de contenu.",
+        "details": [
+          "Traitement conscient du contenu pour différents types d'audio",
+          "Modèles d'apprentissage profond entraînés sur des milliers d'heures d'audio",
+          "Amélioration adaptative basée sur l'analyse en temps réel",
+          "Mode faible ressource pour l'efficacité sur n'importe quel système",
+          "Amélioration continue grâce aux mises à jour des modèles"
+        ]
+      },
+      "speakerOptimizer": {
+        "title": "Optimiseur de Haut-parleurs et Écouteurs",
+        "description": "Obtenez le meilleur son de n'importe quel appareil audio. Notre optimiseur applique des profils de traitement personnalisés spécifiquement pour vos écouteurs ou haut-parleurs, compensant leurs caractéristiques acoustiques.",
+        "details": [
+          "Base de données de profils pour écouteurs et haut-parleurs populaires",
+          "Création de profils personnalisés à l'aide de mesures acoustiques",
+          "Amélioration dynamique des basses sans distorsion",
+          "Traitement de crossfeed pour une écoute plus naturelle avec écouteurs",
+          "Compensation acoustique de pièce pour les haut-parleurs"
+        ]
+      },
+      "contentDetection": {
+        "title": "Détection Intelligente de Contenu",
+        "description": "JyvDesktop identifie automatiquement le type d'audio en cours de lecture et applique le profil d'amélioration idéal. Qu'il s'agisse de parole, de musique ou de jeux, le son est toujours optimisé pour le contenu.",
+        "details": [
+          "Détection en temps réel de la parole, de la musique, de l'ambiance et de l'audio de jeu",
+          "Application automatique du traitement spécifique au contenu",
+          "Transitions fluides entre différents types de contenu",
+          "Règles personnalisées pour des applications spécifiques",
+          "Sensibilité de détection réglable par l'utilisateur"
+        ]
+      }
+    },
+    "demoSection": {
+      "title": "Découvrez l'Amélioration Audio de JyvDesktop",
+      "subtitle": "Test Interactif",
+      "description": "Comparez l'avant et l'après avec notre démo interactive. Écoutez la différence que la technologie d'amélioration audio de JyvDesktop peut apporter à votre expérience d'écoute.",
+      "originalAudio": "Audio Original",
+      "enhancedAudio": "Audio Amélioré",
+      "toggleEnhancement": "Activer/Désactiver l'Amélioration",
+      "downloadNow": "Télécharger Maintenant",
+      "learnMore": "En Savoir Plus"
+    },
+    "useCasesSection": {
+      "title": "Audio Amélioré pour Chaque Besoin",
+      "description": "La technologie d'amélioration audio de JyvDesktop s'adapte à une large gamme de scénarios, de la communication professionnelle au divertissement immersif."
+    },
+    "faqSection": {
+      "title": "Questions Fréquemment Posées",
+      "description": "Trouvez des réponses aux questions courantes sur les fonctionnalités d'amélioration audio de JyvDesktop"
+    },
+    "useCaseItems": {
+      "remoteMeetings": {
+        "title": "Réunions à Distance",
+        "description": "Communication claire et professionnelle avec suppression de bruit et amélioration vocale pour des réunions virtuelles sans distraction."
+      },
+      "contentCreation": {
+        "title": "Création de Contenu",
+        "description": "Audio de qualité professionnelle pour les podcasts, les vidéos et le streaming sans avoir besoin d'équipements coûteux."
+      },
+      "gaming": {
+        "title": "Jeux",
+        "description": "Audio immersif avec positionnement spatial précis pour un avantage compétitif et une expérience plus immersive."
+      },
+      "mediaConsumption": {
+        "title": "Consommation de Médias",
+        "description": "Profitez de films, de musique et de contenu en ligne avec une qualité audio améliorée sur n'importe quel appareil."
+      }
+    },
+    "demoItems": {
+      "audioTypes": {
+        "voice": "Voix",
+        "music": "Musique",
+        "gaming": "Jeux",
+        "movie": "Film",
+        "conference": "Conférence"
+      },
+      "environments": {
+        "quiet": "Environnement Calme",
+        "noisy": "Environnement Bruyant",
+        "outdoor": "Extérieur",
+        "office": "Bureau",
+        "cafe": "Café"
+      },
+      "enhancements": {
+        "noiseSuppression": "Suppression de Bruit",
+        "voiceClarity": "Clarté Vocale",
+        "bassBoost": "Renforcement des Basses",
+        "spatialEffect": "Effet Spatial",
+        "fullEnhancement": "Amélioration Complète"
+      },
+      "controls": {
+        "play": "Lecture",
+        "pause": "Pause",
+        "compare": "Comparer",
+        "reset": "Réinitialiser"
+      },
+      "interface": {
+        "enhancementLevel": "Niveau d'Amélioration",
+        "enhancementPreset": "Préréglage d'Amélioration",
+        "processing": "Traitement"
+      },
+      "presets": {
+        "default": "Par Défaut",
+        "voiceClarity": "Clarté Vocale",
+        "music": "Amélioration Musicale",
+        "gaming": "Audio de Jeu",
+        "noiseReduction": "Réduction de Bruit Maximale"
+      }
+    },
+    "faqItems": {
+      "performanceImpact": {
+        "question": "L'utilisation des fonctionnalités d'amélioration audio affectera-t-elle les performances de mon système ?",
+        "answer": "JyvDesktop est optimisé pour une utilisation efficace des ressources. Pour la plupart des systèmes modernes, l'impact sur les performances est minime. Nos algorithmes sont conçus pour équilibrer la qualité du traitement audio avec l'efficacité des ressources. Pour les systèmes aux ressources limitées, nous proposons des modes à faible consommation qui maintiennent la qualité tout en réduisant la charge du système."
+      },
+      "latency": {
+        "question": "L'amélioration audio ajoute-t-elle de la latence à mon audio ?",
+        "answer": "JyvDesktop utilise un traitement à faible latence, avec un délai typique de moins de 20 ms pour la plupart des fonctionnalités, ce qui est inférieur au seuil de perception pour la plupart des utilisateurs. Pour les applications sensibles à la latence comme les jeux compétitifs ou la production musicale, nous proposons un mode de latence ultra-faible qui privilégie la réponse immédiate."
+      },
+      "compatibility": {
+        "question": "Avec quelles applications et appareils l'amélioration audio est-elle compatible ?",
+        "answer": "Notre technologie d'amélioration audio fonctionne au niveau du système, ce qui la rend compatible avec pratiquement toutes les applications produisant de l'audio sur Windows et macOS. Cela inclut les applications de vidéoconférence, les lecteurs multimédias, les navigateurs, les jeux et les logiciels de production. Elle est compatible avec tous les périphériques de sortie audio, y compris les écouteurs, les haut-parleurs, les interfaces audio et les appareils Bluetooth."
+      },
+      "customization": {
+        "question": "Puis-je personnaliser la façon dont mon audio est amélioré ?",
+        "answer": "Absolument. JyvDesktop offre des contrôles granulaires pour chaque fonction d'amélioration audio. Vous pouvez ajuster l'intensité de la suppression de bruit, personnaliser l'égalisation avec notre égaliseur à 10 bandes, régler le niveau d'amélioration spatiale, et plus encore. Vous pouvez également enregistrer des préréglages personnalisés pour différents scénarios ou applications."
+      },
+      "aiPrivacy": {
+        "question": "Comment la technologie IA pour la suppression de bruit gère-t-elle ma confidentialité ?",
+        "answer": "Notre technologie IA pour la suppression de bruit fonctionne entièrement sur votre appareil local, sans envoyer aucune donnée audio vers le cloud. Nous n'enregistrons, ne stockons ni ne transmettons votre audio à nos serveurs. Le modèle d'IA est pré-entraîné et s'exécute localement, garantissant que votre confidentialité est totalement protégée pendant que vous profitez des avantages de la suppression de bruit alimentée par l'IA."
+      }
+    }
+  }
+}

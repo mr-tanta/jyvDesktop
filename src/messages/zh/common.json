@@ -1,0 +1,49 @@
+{
+  "app": {
+    "title": "JyvStream Desktop - 专业音频控制套件",
+    "description": "使用JyvStream Desktop掌控您的音频环境。AI驱动的噪音抑制、空间音频增强和应用级音量控制，专为创作者、游戏玩家和专业人士设计。"
+  },
+  "nav": {
+    "home": "首页",
+    "features": "功能",
+    "pricing": "价格",
+    "useCases": "使用场景",
+    "blog": "博客",
+    "download": "下载",
+    "contactSales": "联系销售"
+  },
+  "featureCategories": {
+    "audioControl": "音频控制",
+    "audioEnhancement": "音频增强",
+    "spatialAudio": "空间音频",
+    "advancedFeatures": "高级功能"
+  },
+  "cta": {
+    "downloadNow": "立即下载",
+    "viewAllOptions": "查看所有选项",
+    "tryFree": "免费试用",
+    "getStarted": "开始使用",
+    "learnMore": "了解更多",
+    "watchDemo": "观看演示",
+    "readyToTransform": "准备好改变您的音频体验了吗？",
+    "downloadDescription": "立即下载，体验专业级桌面音频增强。选择适合您需求的计划。"
+  },
+  "hero": {
+    "title": "专业音频控制套件",
+    "subtitle": "改变您的音频体验",
+    "description": "使用JyvStream Desktop掌控您的音频环境。完美适合寻求卓越音质的创作者、游戏玩家和专业人士。",
+    "trustedBy": "全球顶尖公司的专业人士信赖之选",
+    "compatibleWith": "兼容您喜爱的应用程序",
+    "alternateTitle": "体验声音",
+    "alternateSubtitle": "如其本应有的样子。"
+  },
+  "features": {
+    "title": "强大功能",
+    "subtitle": "专业级音频控制",
+    "description": "JyvDesktop在直观易用的界面中提供企业级音频处理技术。了解我们的功能如何改变您的音频体验。",
+    "keyBenefits": "主要优势",
+    "learnMoreAbout": "了解更多关于",
+    "aiNoiseSuppression": "AI噪音抑制",
+    "lowLatency": "低延迟"
+  }
+}

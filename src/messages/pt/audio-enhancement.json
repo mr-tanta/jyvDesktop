@@ -1,0 +1,177 @@
+{
+  "audioEnhancement": {
+    "hero": {
+      "badge": "Tecnologia de Aprimoramento de Áudio",
+      "title": "Qualidade de Áudio Profissional para Todos",
+      "description": "Experimente áudio cristalino com a tecnologia avançada de aprimoramento de áudio do JyvDesktop. Supressão de ruído com IA, equalização adaptativa e processamento espacial.",
+      "demoButton": "Experimentar Demo Interativa",
+      "downloadButton": "Baixar JyvDesktop"
+    },
+    "featuresSection": {
+      "title": "Aprimoramento de Áudio de Nível Profissional",
+      "description": "O JyvDesktop utiliza algoritmos avançados de processamento de sinal e tecnologia de IA para melhorar significativamente a qualidade de áudio de todos os seus aplicativos e dispositivos."
+    },
+    "featureDetail": {
+      "audioEnhancementFeature": "Recurso de Aprimoramento de Áudio",
+      "keyCapabilities": "Capacidades Principais",
+      "tryDemo": "Experimentar na Demo",
+      "readDocumentation": "Ler Documentação"
+    },
+    "featureItems": {
+      "aiNoiseSuppression": {
+        "title": "Supressão de Ruído com IA",
+        "description": "Elimine ruídos de fundo indesejados em tempo real com nossa tecnologia de supressão de ruído impulsionada por IA. Ideal para chamadas, gravações e streaming.",
+        "details": [
+          "Supressão de ruído adaptativa em tempo real",
+          "Filtragem inteligente de ruídos ambientais",
+          "Preservação da qualidade natural da voz",
+          "Múltiplos níveis de intensidade de supressão",
+          "Perfis otimizados para diferentes ambientes"
+        ]
+      },
+      "voiceEnhancement": {
+        "title": "Aprimoramento de Voz",
+        "description": "Faça sua voz soar clara e profissional com nossa tecnologia de aprimoramento de voz. Elimine distorções, melhore a clareza e adicione calor à sua voz.",
+        "details": [
+          "Equalização dinâmica de voz",
+          "Compressão adaptativa",
+          "Eliminação de sibilância e plosivos",
+          "Melhoria da presença vocal",
+          "Normalização inteligente de volume"
+        ]
+      },
+      "spatialAudio": {
+        "title": "Áudio Espacial",
+        "description": "Transforme sua experiência auditiva com áudio espacial imersivo. Desfrute de som surround realista mesmo com fones de ouvido estéreo padrão.",
+        "details": [
+          "Virtualização de áudio 7.1 e 5.1",
+          "Posicionamento de som 3D",
+          "Personalização da amplitude do palco sonoro",
+          "Melhoria da percepção de profundidade",
+          "Compatibilidade com todas as fontes de áudio"
+        ]
+      },
+      "adaptiveEQ": {
+        "title": "Equalização Adaptativa",
+        "description": "Otimize automaticamente o equilíbrio de frequências para diferentes tipos de conteúdo. De música e filmes a chamadas de conferência e jogos.",
+        "details": [
+          "Equalização dinâmica baseada em conteúdo",
+          "Predefinições para diferentes gêneros musicais",
+          "Otimização em tempo real",
+          "Equalizador manual de 10 bandas",
+          "Perfis personalizáveis e salvos"
+        ]
+      },
+      "bassEnhancement": {
+        "title": "Aprimoramento de Graves",
+        "description": "Experimente graves mais profundos e ricos sem distorção, mesmo em alto-falantes pequenos ou fones de ouvido. Nossa tecnologia de aprimoramento de graves adiciona profundidade ao seu áudio.",
+        "details": [
+          "Extensão psicoacústica de graves",
+          "Reforço de harmônicos de baixa frequência",
+          "Prevenção inteligente de distorção",
+          "Múltiplos níveis de intensidade",
+          "Otimização para diferentes dispositivos de saída"
+        ]
+      }
+    },
+    "demoSection": {
+      "title": "Experimente o Aprimoramento de Áudio do JyvDesktop",
+      "subtitle": "Teste Interativo",
+      "description": "Compare o antes e depois com nossa demo interativa. Ouça a diferença que a tecnologia de aprimoramento de áudio do JyvDesktop pode fazer em sua experiência auditiva.",
+      "originalAudio": "Áudio Original",
+      "enhancedAudio": "Áudio Aprimorado",
+      "toggleEnhancement": "Ativar/Desativar Aprimoramento",
+      "downloadNow": "Baixar Agora",
+      "learnMore": "Saiba Mais"
+    },
+    "useCasesSection": {
+      "title": "Áudio Aprimorado para Cada Necessidade",
+      "description": "A tecnologia de aprimoramento de áudio do JyvDesktop se adapta a uma ampla gama de cenários, desde comunicação profissional até entretenimento imersivo."
+    },
+    "faqSection": {
+      "title": "Perguntas Frequentes",
+      "description": "Encontre respostas para perguntas comuns sobre os recursos de aprimoramento de áudio do JyvDesktop"
+    },
+    "useCaseItems": {
+      "remoteMeetings": {
+        "title": "Reuniões Remotas",
+        "description": "Comunicação clara e profissional com supressão de ruído e aprimoramento de voz para reuniões virtuais sem distrações."
+      },
+      "contentCreation": {
+        "title": "Criação de Conteúdo",
+        "description": "Áudio de qualidade profissional para podcasts, vídeos e streaming sem a necessidade de equipamentos caros."
+      },
+      "gaming": {
+        "title": "Jogos",
+        "description": "Áudio imersivo com posicionamento espacial preciso para uma vantagem competitiva e uma experiência mais imersiva."
+      },
+      "mediaConsumption": {
+        "title": "Consumo de Mídia",
+        "description": "Desfrute de filmes, música e conteúdo online com qualidade de áudio aprimorada em qualquer dispositivo."
+      }
+    },
+    "demoItems": {
+      "audioTypes": {
+        "voice": "Voz",
+        "music": "Música",
+        "gaming": "Jogos",
+        "movie": "Filme",
+        "conference": "Conferência"
+      },
+      "environments": {
+        "quiet": "Ambiente Tranquilo",
+        "noisy": "Ambiente Barulhento",
+        "outdoor": "Exterior",
+        "office": "Escritório",
+        "cafe": "Café"
+      },
+      "enhancements": {
+        "noiseSuppression": "Supressão de Ruído",
+        "voiceClarity": "Clareza de Voz",
+        "bassBoost": "Reforço de Graves",
+        "spatialEffect": "Efeito Espacial",
+        "fullEnhancement": "Aprimoramento Completo"
+      },
+      "controls": {
+        "play": "Reproduzir",
+        "pause": "Pausar",
+        "compare": "Comparar",
+        "reset": "Redefinir"
+      },
+      "interface": {
+        "enhancementLevel": "Nível de Aprimoramento",
+        "enhancementPreset": "Predefinição de Aprimoramento",
+        "processing": "Processando"
+      },
+      "presets": {
+        "default": "Padrão",
+        "voiceClarity": "Clareza de Voz",
+        "music": "Aprimoramento de Música",
+        "gaming": "Áudio para Jogos",
+        "noiseReduction": "Redução Máxima de Ruído"
+      }
+    },
+    "faqItems": {
+      "performanceImpact": {
+        "question": "O uso dos recursos de aprimoramento de áudio afetará o desempenho do meu sistema?",
+        "answer": "O JyvDesktop é otimizado para uso eficiente de recursos. Para a maioria dos sistemas modernos, o impacto no desempenho é mínimo. Nossos algoritmos são projetados para equilibrar a qualidade do processamento de áudio com a eficiência de recursos. Para sistemas com recursos limitados, oferecemos modos de baixo consumo que mantêm a qualidade enquanto reduzem a carga do sistema."
+      },
+      "latency": {
+        "question": "O aprimoramento de áudio adiciona latência ao meu áudio?",
+        "answer": "O JyvDesktop utiliza processamento de baixa latência, com um atraso típico de menos de 20 ms para a maioria dos recursos, o que está abaixo do limiar de percepção para a maioria dos usuários. Para aplicações sensíveis à latência, como jogos competitivos ou produção musical, oferecemos um modo de latência ultra-baixa que prioriza a resposta imediata."
+      },
+      "compatibility": {
+        "question": "Com quais aplicativos e dispositivos o aprimoramento de áudio é compatível?",
+        "answer": "Nossa tecnologia de aprimoramento de áudio funciona no nível do sistema, tornando-a compatível com praticamente todos os aplicativos que produzem áudio no Windows e macOS. Isso inclui aplicativos de videoconferência, reprodutores de mídia, navegadores, jogos e software de produção. É compatível com todos os dispositivos de saída de áudio, incluindo fones de ouvido, alto-falantes, interfaces de áudio e dispositivos Bluetooth."
+      },
+      "customization": {
+        "question": "Posso personalizar como meu áudio é aprimorado?",
+        "answer": "Absolutamente. O JyvDesktop oferece controles granulares para cada função de aprimoramento de áudio. Você pode ajustar a intensidade da supressão de ruído, personalizar a equalização com nosso equalizador de 10 bandas, ajustar o nível de aprimoramento espacial e muito mais. Você também pode salvar predefinições personalizadas para diferentes cenários ou aplicativos."
+      },
+      "aiPrivacy": {
+        "question": "Como a tecnologia de IA para supressão de ruído lida com minha privacidade?",
+        "answer": "Nossa tecnologia de IA para supressão de ruído funciona completamente em seu dispositivo local, sem enviar nenhum dado de áudio para a nuvem. Não gravamos, armazenamos ou transmitimos seu áudio para nossos servidores. O modelo de IA é pré-treinado e é executado localmente, garantindo que sua privacidade esteja totalmente protegida enquanto você desfruta dos benefícios da supressão de ruído impulsionada por IA."
+      }
+    }
+  }
+}

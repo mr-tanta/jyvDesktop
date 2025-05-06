@@ -1,0 +1,253 @@
+{
+  "audioControl": {
+    "hero": {
+      "badge": "高级音频管理",
+      "title": "精确音频控制触手可及",
+      "description": "通过JyvDesktop强大的控制中心掌控您的整个音频环境。以前所未有的精度管理应用音量、路由和配置文件。",
+      "demoButton": "尝试交互式演示",
+      "downloadButton": "下载JyvDesktop"
+    },
+    "demo": {
+      "audioControlCenter": "音频控制中心",
+      "interactiveDemo": "互动演示",
+      "masterVolume": "主音量",
+      "activeProfile": "活动配置文件",
+      "default": "默认",
+      "resetDemo": "重置演示",
+      "focusMode": "专注模式",
+      "notificationReduction": "通知减少",
+      "audioEnhancement": "音频增强",
+      "applicationMixer": "应用程序混音器",
+      "adjustVolume": "调整各个应用程序的音量和路由",
+      "output": "输出",
+      "addApplication": "添加应用程序",
+      "demoFooter": "交互式演示 - 调整音量以听出差异",
+      "audioEngine": "音频引擎",
+      "active": "活动",
+      "initializing": "初始化中"
+    },
+    "featuresSection": {
+      "title": "全面音频控制系统",
+      "description": "JyvDesktop让您对系统音频的各个方面拥有前所未有的控制，从单个应用程序音量到复杂的路由方案和自定义配置文件。"
+    },
+    "featureDetail": {
+      "audioControlFeature": "音频控制功能",
+      "keyCapabilities": "核心能力",
+      "tryDemo": "在演示中尝试",
+      "readDocumentation": "阅读文档"
+    },
+    "featureItems": {
+      "perAppVolume": {
+        "title": "应用程序音量控制",
+        "description": "独立调整系统上运行的每个应用程序的音量。不再有通话期间音乐太大声或游戏音频盖过队友声音的问题。",
+        "details": [
+          "每个应用程序的独立音量滑块",
+          "快速静音/取消静音按钮",
+          "音量级别的视觉指示器",
+          "应用程序之间的音量标准化",
+          "将应用程序音频路由到不同的输出设备"
+        ]
+      },
+      "audioProfiles": {
+        "title": "音频配置文件",
+        "description": "为不同的场景和活动创建自定义音频配置文件。一键从工作模式切换到游戏模式和娱乐模式。",
+        "details": [
+          "无限数量的自定义配置文件",
+          "精细的每应用程序音量设置",
+          "按时间或应用程序自动切换配置文件",
+          "导出和共享配置文件",
+          "快速切换的键盘快捷键"
+        ]
+      },
+      "deviceRouting": {
+        "title": "设备路由",
+        "description": "精确控制哪些应用程序使用哪些音频设备。将会议音频发送到耳机，同时通过扬声器播放音乐。",
+        "details": [
+          "按应用程序设置输入/输出设备",
+          "将一个应用程序的音频路由到多个输出设备",
+          "保存的设备路由预设",
+          "自动设备切换规则",
+          "设备连接状态通知"
+        ]
+      },
+      "focusMode": {
+        "title": "专注模式",
+        "description": "启用专注模式自动调整音频设置以最小化干扰。非常适合深度工作或学习。",
+        "details": [
+          "一键静音非必要应用程序",
+          "自定义优先应用程序列表",
+          "计时专注会话",
+          "与日历和任务管理应用程序集成",
+          "通知静音选项"
+        ]
+      },
+      "soundEnhancement": {
+        "title": "声音增强",
+        "description": "使用先进的音频处理技术提升您的聆听体验。从均衡器到空间音频模拟。",
+        "details": [
+          "多频段均衡器",
+          "动态压缩和限制",
+          "虚拟环绕声效果",
+          "语音增强模式",
+          "低音增强选项"
+        ]
+      },
+      "audioMixer": {
+        "title": "实时音频混音器",
+        "description": "通过我们直观的实时混音器，像专业音响工程师一样控制您的音频体验。",
+        "details": [
+          "多通道混音控制台界面",
+          "实时电平表和峰值指示器",
+          "每个应用程序的平衡调整（左/右）",
+          "相关应用程序的分组功能",
+          "音频变化的视觉反馈"
+        ]
+      },
+      "priorityManagement": {
+        "title": "智能优先级管理",
+        "description": "定义哪些应用程序具有音频优先权，并在重要应用程序需要关注时自动调整音量。",
+        "details": [
+          "背景应用程序的音量降低控制",
+          "基于活动的自动音量调整",
+          "不同应用程序类型的优先级",
+          "可配置的音量降低阈值",
+          "临时与持久优先级设置"
+        ]
+      },
+      "hotkeysGestures": {
+        "title": "热键与手势控制",
+        "description": "使用可自定义的键盘快捷键和鼠标手势控制音频，不中断您的工作流程。",
+        "details": [
+          "用于音量控制的可自定义全局热键",
+          "用于复杂操作的多键组合",
+          "用于快速调整的鼠标手势",
+          "与媒体键的集成",
+          "特定应用程序的快捷键配置"
+        ]
+      },
+      "notificationControl": {
+        "title": "智能通知控制",
+        "description": "通过基于您当前活动和专注需求的智能管理，掌控您的通知声音。",
+        "details": [
+          "特定应用程序的通知设置",
+          "基于时间的通知规则",
+          "专注模式以抑制非必要通知",
+          "不同应用程序的自定义通知声音",
+          "通知音频的音量缩放"
+        ]
+      },
+      "analyticsVisualization": {
+        "title": "音频分析与可视化",
+        "description": "通过详细的分析和声音景观的可视化，深入了解您的音频环境。",
+        "details": [
+          "用于频率可视化的实时频谱分析器",
+          "应用程序音频的历史使用数据",
+          "峰值水平跟踪和警告",
+          "响度标准化指标",
+          "音频质量评分和建议"
+        ]
+      }
+    },
+    "demoSection": {
+      "title": "尝试JyvDesktop音频控制",
+      "subtitle": "交互式体验",
+      "description": "体验JyvDesktop如何让您精确控制音频环境。在这个交互式演示中调整应用程序音量、设备和配置文件。",
+      "masterVolume": "主音量",
+      "profiles": "音频配置文件",
+      "focusMode": "专注模式",
+      "notificationReduction": "通知减少",
+      "downloadNow": "立即下载"
+    },
+    "useCasesSection": {
+      "title": "适合每种场景的完美音频",
+      "description": "JyvDesktop的高级音频控制适应您的特定需求，无论您是在会议中，与朋友一起游戏，还是沉浸在创意工作流程中。"
+    },
+    "useCases": {
+      "learnMore": "了解更多",
+      "compatibleWith": "兼容于:"
+    },
+    "faqSection": {
+      "title": "常见问题",
+      "description": "查找关于JyvDesktop音频控制功能的常见问题答案"
+    },
+    "useCaseItems": {
+      "professionalVideoCalls": {
+        "title": "专业视频通话",
+        "description": "完美平衡您的视频会议应用程序、背景音乐和系统通知，实现无干扰的会议。"
+      },
+      "gamingStreaming": {
+        "title": "游戏和直播",
+        "description": "在游戏音频、语音聊天、直播软件和背景音乐之间保持完美平衡。"
+      },
+      "contentConsumption": {
+        "title": "内容消费",
+        "description": "观看视频和聆听音乐，不会被嘈杂的通知或后台应用程序打断。"
+      },
+      "focusProductivity": {
+        "title": "专注和生产力",
+        "description": "为深度工作创建完美的音频环境，同时确保您只听到重要的通知。"
+      }
+    },
+    "demoItems": {
+      "applications": {
+        "videoCall": "视频通话",
+        "musicPlayer": "音乐播放器",
+        "game": "游戏",
+        "browser": "浏览器",
+        "systemSounds": "系统声音",
+        "chat": "聊天应用"
+      },
+      "devices": {
+        "default": "默认输出",
+        "headphones": "耳机",
+        "speakers": "扬声器",
+        "microphone": "麦克风",
+        "bluetooth": "蓝牙耳机"
+      },
+      "controls": {
+        "volume": "音量",
+        "mute": "静音",
+        "unmute": "取消静音",
+        "boost": "增强",
+        "reduce": "减弱"
+      },
+      "profiles": {
+        "gaming": "游戏",
+        "meeting": "会议",
+        "music": "音乐",
+        "movie": "电影",
+        "focus": "专注"
+      }
+    },
+    "faqItems": {
+      "compatibility": {
+        "question": "JyvDesktop是否与所有音频应用程序兼容？",
+        "answer": "JyvDesktop与绝大多数使用标准音频API的Windows和macOS应用程序兼容。这包括流行的通信应用程序、媒体播放器、游戏和生产力工具。"
+      },
+      "systemRequirements": {
+        "question": "运行JyvDesktop的音频控制功能需要什么系统要求？",
+        "answer": "我们的音频控制功能适用于运行Windows 10/11或macOS 10.15+的现代计算机。对于基本功能，我们建议至少4GB RAM和双核处理器。高级音频处理功能可能需要更强大的系统。"
+      },
+      "audioLatency": {
+        "question": "使用JyvDesktop会增加音频延迟吗？",
+        "answer": "不会，JyvDesktop采用低延迟处理技术设计，确保在大多数系统上没有明显的延迟增加。对于专业音频工作，我们提供最小化延迟的低延迟模式。"
+      },
+      "customProfiles": {
+        "question": "我可以创建多少个音频配置文件？",
+        "answer": "在JyvDesktop中，您可以创建无限数量的自定义音频配置文件。每个配置文件可以包含特定的应用程序音量设置、设备路由选项和音频增强参数。"
+      },
+      "deviceSupport": {
+        "question": "JyvDesktop支持哪些音频设备？",
+        "answer": "JyvDesktop支持几乎所有通过USB、蓝牙、模拟或数字接口连接的音频设备。这包括耳机、扬声器、麦克风、音频接口和虚拟音频设备。我们还为专业音频设备提供增强支持。"
+      },
+      "microphoneControl": {
+        "question": "我可以控制麦克风输入和音频输出吗？",
+        "answer": "是的，JyvDesktop提供对音频输出和麦克风输入的全面控制。"
+      },
+      "audioQuality": {
+        "question": "使用控制功能时会有音频质量损失吗？",
+        "answer": "不会，JyvDesktop使用高分辨32位浮点格式处理音频，确保音频质量清晰无损。"
+      }
+    }
+  }
+}

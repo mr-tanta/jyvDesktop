@@ -1,0 +1,49 @@
+{
+  "app": {
+    "title": "JyvStream Desktop - Professional Audio Control Suite",
+    "description": "Take control of your audio environment with JyvStream Desktop. AI-powered noise suppression, spatial audio enhancement, and app-level volume control for creators, gamers, and professionals."
+  },
+  "nav": {
+    "home": "Home",
+    "features": "Features",
+    "pricing": "Pricing",
+    "useCases": "Use Cases",
+    "blog": "Blog",
+    "download": "Download",
+    "contactSales": "Contact Sales"
+  },
+  "featureCategories": {
+    "audioControl": "Audio Control",
+    "audioEnhancement": "Audio Enhancement",
+    "spatialAudio": "Spatial Audio",
+    "advancedFeatures": "Advanced Features"
+  },
+  "cta": {
+    "downloadNow": "Download Now",
+    "viewAllOptions": "View All Options",
+    "tryFree": "Try Free",
+    "getStarted": "Get Started",
+    "learnMore": "Learn More",
+    "watchDemo": "Watch Demo",
+    "readyToTransform": "Ready to transform your audio experience?",
+    "downloadDescription": "Download now and experience professional-grade audio enhancement for your desktop. Choose the plan that fits your needs."
+  },
+  "hero": {
+    "title": "Professional Audio Control Suite",
+    "subtitle": "Transform Your Audio Experience",
+    "description": "Take control of your audio environment with JyvStream Desktop. Perfect for creators, gamers, and professionals looking for superior sound quality.",
+    "trustedBy": "Trusted by professionals at top companies worldwide",
+    "compatibleWith": "Compatible with your favorite apps",
+    "alternateTitle": "Experience Sound",
+    "alternateSubtitle": "The way it's meant to be."
+  },
+  "features": {
+    "title": "Powerful Features",
+    "subtitle": "Professional-Grade Audio Control",
+    "description": "JyvDesktop delivers enterprise-level audio processing technology in an intuitive, user-friendly package. Discover how our features can transform your audio experience.",
+    "keyBenefits": "Key Benefits",
+    "learnMoreAbout": "Learn More About",
+    "aiNoiseSuppression": "AI Noise Suppression",
+    "lowLatency": "Low Latency"
+  }
+}
